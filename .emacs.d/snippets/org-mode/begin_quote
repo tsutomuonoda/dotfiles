@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: begin_quote
+# key: .bq
+# binding: direct-keybinding
+# expand-env: ((some-var some-value))
+# type: command
+ #+BEGIN_QUOTE
+
+ #+END_QUOTE
+
+# --
+

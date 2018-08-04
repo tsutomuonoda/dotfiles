@@ -1,0 +1,1213 @@
+;; -*- coding: utf-8 -*-
+(("ガジェット☆ダイスケドットコム - gajetdaisuke.com" "ガジェット大好き ジェット☆ダイスケ ＝ 愛場大介 のブログ。ガジェットの動画レビューとかIT系の話題とか。" nil (20813 24318 502616 368000) feed 0 nil nil ((title nil "ガジェット☆ダイスケドットコム - gajetdaisuke.com") (link ((rel . "alternate") (type . "text/html") (href . "http://gajetdaisuke.com/"))) (id nil "tag:gajetdaisuke.com,2010-07-14://10") (updated nil "2013-03-20T16:32:25Z") (subtitle nil "ガジェット大好き ジェット☆ダイスケ ＝ 愛場大介 のブログ。ガジェットの動画レビューとかIT系の話題とか。") (generator ((uri . "http://www.sixapart.com/movabletype/")) "Movable Type 5.02") (atom10:link ((xmlns:atom10 . "http://www.w3.org/2005/Atom") (rel . "self") (type . "application/atom+xml") (href . "http://feeds.feedburner.com/gajetdaisuke/PHCR"))) (feedburner:info ((uri . "gajetdaisuke/phcr"))) (atom10:link ((xmlns:atom10 . "http://www.w3.org/2005/Atom") (rel . "hub") (href . "http://pubsubhubbub.appspot.com/"))) (entry nil (title nil "WiMAX電波増強のために料理用のボウルをパラボラアンテナの代わりに使う術") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/7IRk_H1XDzM/13321_011815.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13927") (published nil "2013-03-20T16:18:15Z") (updated nil "2013-03-20T16:32:25Z") (summary nil "アサカワズ先生の100円ショップでできるITライフハック。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エレクトロニクス") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "100円ショップ") (label . "100円ショップ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "100円均一") (label . "100円均一") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "アサカワズ") (label . "アサカワズ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "パラボラアンテナ") (label . "パラボラアンテナ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ボウル") (label . "ボウル") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ライフハック") (label . "ライフハック") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ルーター") (label . "ルーター") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "中華鍋") (label . "中華鍋") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>アサカワズさんちは以前から電波状況がよろしくなかったようで、ちょー長いUSBケーブルを使って、モバイルルーターをベランダの外に出していたりと、かなり面白いことをやってはいたのですが、先日遊びに行ったところ、とんでもねえライフハックになっていました。</p>
+
+<p>それがこちらの写真</p>
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8575430486/\" title=\"ボウル by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8380/8575430486_4ac2ca73c1.jpg\" width=\"500\" height=\"375\" alt=\"ボウル\"></a></p>
+
+<p>実際にはパラボラというのは放物曲面であって円弧とは違いますけども、うまくやれば代用できるということでしょうかね。それともこのボウルが円弧ではなくパラボラなのかしら？</p>
+
+<p>パラボラアンテナのかわりに中華鍋を使って衛星放送を受信するという裏技をむかし聞いたことがありますけれども、それに類似した手法として料理用のアルミ製ボウルをアンテナ代わりに立てておくという方法。</p>
+
+<p>WiMAXモバイルルーターの電波増強術だそうです。ボウルは100円ショップで購入とのこと。</p>
+
+<p>アサカワズの100均ライフハックといえば、<a href=\"http://askw1974.seesaa.net/article/19653497.html\" target=\"_blank\">マイク用のポップガード自作</a>なども大好きでありますが、今後もいろいろと楽しませてほしいなと思うところであります。</p>
+
+<p>とにかくキャットタワー踏んづけて壊してしまってごめんなさい。ごめんなさい。ごめんなさい。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/7IRk_H1XDzM\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13321_011815.php")) (entry nil (title nil "ゴージャスなツナ缶 はごろもシーチキンとろ") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/aZr1wo39uL0/13320_191932.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13926") (published nil "2013-03-20T10:19:32Z") (updated nil "2013-03-20T10:49:59Z") (summary nil "「とろ」をツナ缶にするとこういうことだ。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "グルメ・食文化") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "びんなが") (label . "びんなが") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "まぐろ") (label . "まぐろ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "シーチキン") (label . "シーチキン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "シーチキンとろ") (label . "シーチキンとろ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ツナ") (label . "ツナ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ツナ缶") (label . "ツナ缶") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "トロ") (label . "トロ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "缶詰") (label . "缶詰") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "肉") (label . "肉") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8574681558/\" title=\"とろシーチキン by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8085/8574681558_4b77557b59.jpg\" width=\"500\" height=\"285\" alt=\"とろシーチキン\"></a></p>
+
+<p>数年前にもいちどブログネタにしておりますので、ご存知の方はご存知でありましょう。</p>
+
+<p><span style=\"font-size: x-large\">シーチキンとろ</span></p>
+
+<p>であります。</p>
+        <p>何も付けずに、そのまま缶をあけて食べてみました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ygQh76xLt2o\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>昔食べたときよりも美味しく感じました。<br />
+参考小売価格は450円となってりますが、デフレスパイラル弁当などを経験した今となっては超高級品といっても過言ではないですね。少なくともツナ缶にその金額を払うというのはナニな感じはあります。</p>
+
+<p>が、450円の総菜、食材として考えずに、ひとときの贅沢としてこういった製品を楽しんでみるのも良いのではないでしょうか。</p>
+
+<p>知り得るかぎりのどのツナ缶よりも食べ応えのある肉で、普段食べているツナ缶などは「ねぎトロ」レベルなのだということがよく分かります。</p>
+
+<p>そういう「格」としては、まさしくこれは「とろ」<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8573588753/\" title=\"シーチキンとろ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8378/8573588753_dee15a96d0.jpg\" width=\"500\" height=\"375\" alt=\"シーチキンとろ\"></a></p>
+
+<p>実際、びんながまぐろのとろ肉のみを使用しているということで、大きな身のわりには柔らかく、まさに「シーチキン」の名に相応しい鶏肉感もありまして、ひょっとしたら棒棒鶏にさえ使えるのではないかとも思ってしまいました。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0083TLAU4/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0083TLAU4&linkCode=as2&tag=aibadaisuke-22\">はごろも シーチキンとろ 75g 缶詰</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0083TLAU4\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0083TLAU4/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0083TLAU4&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0083TLAU4&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0083TLAU4\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr><td valign=\"top\"><div style=\"border:1px none;margin:0px;padding:6px 0px;width:160px;text-align:center;float:left\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/10f35e77.f4dbeb6d.10f35e78.6c0aefc5/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fmagokoro-e%2f0200-sale20%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fmagokoro-e%2fi%2f10000061%2f\" target=\"_blank\"><img src=\"http://hbb.afl.rakuten.co.jp/hgb/?pc=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fmagokoro-e%2fcabinet%2fitems%2ftoro20off.jpg%3f_ex%3d128x128&amp;m=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fmagokoro-e%2fcabinet%2fitems%2ftoro20off.jpg%3f_ex%3d80x80\" alt=\"【20％OFF】シーチキンとろ（びんなが） 24缶入【送料無料】\" border=\"0\" style=\"margin:0px;padding:0px\"></a><p style=\"font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/10f35e77.f4dbeb6d.10f35e78.6c0aefc5/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fmagokoro-e%2f0200-sale20%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fmagokoro-e%2fi%2f10000061%2f\" target=\"_blank\">【20％OFF】シーチキンとろ（びんなが） 24缶入【送料無料】</a><br><span style=\"\">価格：8,640円（税込、送料込）</span><br></p></div></td></tr></table>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/aZr1wo39uL0\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13320_191932.php")) (entry nil (title nil "マンフロット クイックアクションストラップ MB 401N Manfrotto Quick Action Strap MB 401N") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/nIvhUfMdJ04/13320_133452.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13925") (published nil "2013-03-20T04:34:52Z") (updated nil "2013-03-20T06:01:23Z") (summary nil "三脚の迅速なセッティングと撤収が可能。運搬も楽々。三脚ケースでも単なる三脚ストラップでもない、もしかしたらトラベル三脚よりも上かもしれない、マンフロット クイックアクションストラップ MB 401N を導入しました。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "401n") (label . "401N") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "manfrotto") (label . "Manfrotto") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "４０１ｎ") (label . "４０１Ｎ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "クイックアクションストラップ") (label . "クイックアクションストラップ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "マンフロット") (label . "マンフロット") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "三脚") (label . "三脚") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "三脚ケース") (label . "三脚ケース") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "三脚ストラップ") (label . "三脚ストラップ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "旅行") (label . "旅行") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>台湾旅行にいきますのでと、ベルボンの旅三脚ウルトレックを購入したのがつい一ヶ月半ほど前のことでしたが...<br />
+<a href=\"http://gajetdaisuke.com/archives/13225_190937.php\">カバンにも入る超おりたたみ三脚 ベルボン「UT-50」（ウルトレックUT-53Qの脚のみ）を使っている感想</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/GEFd7UOmSv4\" frameborder=\"0\" allowfullscreen></iframe><br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B007JBGF0C\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B002CVU4G0\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B005KGCBUQ\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BWGW2YI\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>その後、湯河原温泉に行きまして、またこれ地方や天候などによって運用などが変わってくるわけですね。</p>
+        <p>湯河原に行ったのがちょうど煙霧の発生した風の強い日でありまして、そうなると段数が多く脚も比較的細めであるトラベル三脚というのは、やっぱり問題があるわけです。心配というか、春一番なみの強風では使えるかどうか半々といった感じになりますよね。</p>
+
+<p>そうなると、やっぱりごく普通の安定した三脚を持って行きたい。</p>
+
+<p>そこで問題になるのが運搬。<br />
+ズボンに入れて持っていくわけにもいかず...（笑）<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/AagM0ZIQviM\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>また、ウルトレックのように多段数でナットロック式のものはセッティングに時間がかかります。撮影にかかる手間が増えるというだけでなく、同行者を待たせてしまったりと色々考慮すべき点が出てくることも分かってきました。</p>
+
+<p>迅速さに重点を置くと三脚ストラップの類いが良いですけども、あれはどうもむき出しの金属パイプが体に当たるのが不快ですよね。担いでいて、いまいち安定しない場合もあるので、三脚が周囲のものにぶつかったりと思わぬ被害も招きかねません。</p>
+
+<p>そこでマンフロットのクイックアクションストラップ<strong>401N</strong>（Manfrotto Quick Action Strap MB 401N）というものを導入しました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eOJcn6d9WsQ\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><a href=\"http://www.amazon.co.jp/gp/product/B005GCUXUO/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B005GCUXUO&linkCode=as2&tag=aibadaisuke-22\">Manfrotto 三脚用 クイックアクションストラップ MB 401N</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B005GCUXUO\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B005GCUXUO/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B005GCUXUO&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B005GCUXUO&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B005GCUXUO\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>実際に外出先で使ってみたところ、思いのほか使いやすくて重宝しました。パッドが厚いので担いだときの感触も良いですね。それがほかの三脚ストラップとの一番の違いでもあります。体への負担が少なく、<a href=\"http://gajetdaisuke.com/archives/11521_155426.php\">055CXPRO3</a>のような中型三脚でも楽に持ち運べ、セッティングもスピーディーでした。</p>
+
+<p>徒歩移動が多い街並の取材であるとか、トレッキングしながらの撮影行などで強い味方になること間違いなしです。三脚ケースの出し入れの面倒さや、撮影時のケースのやり場などに困っていた方は、導入してみると良いと思いますよ。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/nIvhUfMdJ04\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13320_133452.php")) (entry nil (title nil "瀧なのに故障中という...名主の滝公園にて") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/z_ZKGeSGdOY/13319_165110.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13923") (published nil "2013-03-19T07:51:10Z") (updated nil "2013-03-19T08:05:22Z") (summary nil "東京23区内でも見られる瀧を目指して小旅行。北区王子の名主の滝公園にて、目を疑った故障中の滝「獨鈷の瀧」") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "サイエンス・テクノロジー") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "旅行・乗物") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "23区内") (label . "23区内") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "女瀧") (label . "女瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "瀧") (label . "瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "男瀧") (label . "男瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "東京") (label . "東京") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "名主の滝公園") (label . "名主の滝公園") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "獨鈷の瀧") (label . "獨鈷の瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.youtube.com/watch?v=GCcZQKj7zrk\">YouTube不具合で再生できなかった動画のダイジェストと滝の知られざる秘密</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/GCcZQKj7zrk\" frameborder=\"0\" allowfullscreen></iframe></p>
+        <p>瀧が故障するのである（笑）<br />
+これにはビックリした。</p>
+
+<p>妻とともに休日を変わったところで過ごそうと、「23区内で見られる瀧」として有名な、王子の「名主の滝公園」を訪ねた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570388589/\" title=\"名主の滝公園 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8103/8570388589_2ee3ef75ed_n.jpg\" width=\"320\" height=\"240\" alt=\"名主の滝公園\"></a></p>
+
+<p>男瀧（おだき）や女瀧（めだき）など落差5メートル以上かと思われる、そこそこ立派な瀧がある公園で、三脚をたてて撮影するカメラマンも私以外に何人か見かけた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570389239/\" title=\"男瀧 名主の滝公園 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8525/8570389239_2ec6520d23.jpg\" width=\"500\" height=\"333\" alt=\"男瀧 名主の滝公園\"></a></p>
+
+<p>そういった瀧のひとつ「獨鈷の瀧」だが、残念ながら水が枯れていた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570387863/\" title=\"瀧の故障 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8087/8570387863_72b57587b5.jpg\" width=\"500\" height=\"375\" alt=\"瀧の故障\"></a></p>
+
+<p>と思いきや...<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570387913/\" title=\"故障 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8243/8570387913_263c36715d.jpg\" width=\"500\" height=\"402\" alt=\"故障\"></a></p>
+
+<p>故障ってどういうことですか（笑）<br />
+瀧って故障するんですか！</p>
+
+<p>あらためて男瀧や女瀧もよくよく見てみれば、人工的に組み上げた岩であった。うは、これはヤラレた（笑）<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570398689/\" title=\"男瀧 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8106/8570398689_27e9830c46.jpg\" width=\"500\" height=\"333\" alt=\"男瀧\"></a></p>
+
+<p>もちろん落差あってこその瀧なので、もともとこの土地にはそういった崖や断層があるのだろう。水路を通してやれば簡単に瀧になる。住宅街のなかにある公園だけに、人の手で管理制御できるに越したことはない。</p>
+
+<p>それにしても、どこかに書いておいて欲しかった。癒しを求めてはるばる来たのだが、これでは興ざめである。レンズフィルターのテスト撮影としては良かったが...</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/z_ZKGeSGdOY\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13319_165110.php")) (entry nil (title nil "東横線の地下化で消えてしまった撮り鉄スポット") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/-Go1OlB1dEI/13318_100324.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13922") (published nil "2013-03-18T01:03:24Z") (updated nil "2013-03-18T02:40:22Z") (summary nil "JR渋谷-恵比寿間との立体交差は絶好の撮影ポイントだったのですが、これが失われてしまいました。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "旅行・乗物") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "社会・国際・政経") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "恵比寿") (label . "恵比寿") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "撮り鉄") (label . "撮り鉄") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "渋谷") (label . "渋谷") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "地下化") (label . "地下化") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "東横線") (label . "東横線") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "立体交差") (label . "立体交差") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8563496268/\" title=\"東急東横線とJR山手線・埼京線・貨物との立体交差 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8243/8563496268_af926046a0_m.jpg\" width=\"240\" height=\"135\" alt=\"東急東横線とJR山手線・埼京線・貨物との立体交差\"></a></p>
+
+<p>昨日、西武線の池袋駅付近を歩いていると、駅長さんの制服を着たひとが、東横線直通運転についてPRしていました。（東横の偉いひとだとは思うけど、よく見てないので定かではない）</p>
+
+<p>わかっていたけど、本当につなげてしまったのですね。所沢から横浜が近くなりましたよ、横浜からも奥秩父に行きやすいですよ、そんなPRされてもピンと来ませんけども、とりあえず現実になったと。</p>
+        <p>私が西武沿線に越して来たころはまだ新線とか13号線とか呼ばれてましたが、2008年に副都心線として開業。なんだかよく分からないまま乗り間違えてしまう路線の全貌がようやく見えたのがそのときでした（笑）</p>
+
+<p>さらにそれが東横線とも直通運転するということで、先週末ほんとうに実現されてしまったわけです。</p>
+
+<p>それによって消えてしまった大切な風景がございまして、JR渋谷-恵比寿間の山手線および埼京線と、東横線の渋谷-代官山間の立体交差がなくなってしまったのです。</p>
+
+<p>以下は私が2010年に撮影していたものです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/3VFlodLUzwg\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>YouTubeに詳しい方々からコメントいただきましたが、2010年ということで、旧型NEX（成田エクスプレス）、ホームドア対応前の6ドア山手線、東横9000系など、2013年現在すでに見られない車両も多々映っているとのことです。期せずしてたいへん貴重な映像になってしまいました。</p>
+
+<p>恵比寿で打合せなどのあと時間が空いていれば、よくここを通って歩道橋から電車を眺めたりしたものです。</p>
+
+<p>まだまだ色んな写真や動画を撮影したいと思っていただけに、ここが無くなってしまうのは寂しいですね。ご覧の通り、様々な車両が行き交う姿はとても楽しいものです。</p>
+
+<p>幸いなことに西武池袋線は新線を引いての地下化・直通運転だったので、JR目白駅から眺める立体交差は健在であります。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/-Go1OlB1dEI\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13318_100324.php")) (entry nil (title nil "SONY エレクトレットコンデンサーマイクロホン ECM-PC60") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/rAb22cNDwIo/13312_023857.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13921") (published nil "2013-03-11T17:38:57Z") (updated nil "2013-03-12T06:42:19Z") (summary nil "持ち歩きにも適した超小型サイズ。ピンマイクとしても良し、スタンドに立て複数人でも。ビデオのストリーミング等でも使えないかとSkype用のマイクECM-PC60を購入してみました。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エレクトロニクス") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "ecmpc60") (label . "ECM-PC60") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "skype") (label . "Skype") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "sony") (label . "SONY") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ソニー") (label . "ソニー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "マイク") (label . "マイク") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "動画撮影") (label . "動画撮影") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>ずいぶん前に購入していたのですが、小型で安価ということで大人気のコンデンサーマイクロフォンでございます。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\">SONY エレクトレットコンデンサーマイクロホン PC60 ECM-PC60</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B004KVIZCA&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+        <p>これまたずいぶん前に購入した<a href=\"http://gajetdaisuke.com/archives/12907_192659.php\" target=\"_blank\">超小型USBオーディオインターフェース Sound Blaster X-Fi Go! Pro Creative SB-XFI-GOP</a>と一緒に注文したんですけどね。当初目的としていたMacBook Air でのライヴストリーミングであるとか動画の収録であるとか、ましてやそれを家ではなく外出先でやってしまうとか、半年も経てばそんな用途から完全に遠ざかってしまった自分がおりました。</p>
+
+<p>とはいえ、ヤマゾン崩しもやっておかねばムダな地代家賃が増えるのみでありまして、こうして開けた次第であります。こんなに超小型なのにアマゾンBOXに入れっぱなしだったとは、マジでムダな地代家賃（笑）<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/jmxKAHiuypA\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>さあて、上の動画にて、短い時間ではありますが聴き比べていただいていかがでしたでしょうか？こんな小さいのに良好な音質でありましょう？しかも実売二千円台とは。</p>
+
+<p>ピンマイクの類いであれば数百円からありますけども、まともな音質を期待するならこれくらいの価格帯ということでしょうかね。パッケージにはSkypeのシールが貼られていたので、本来はビデオ撮影用というよりもボイスチャットを想定した製品のようですね。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\">SONY エレクトレットコンデンサーマイクロホン PC60 ECM-PC60</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B004KVIZCA&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>似たような製品で、スタンド無しピンマイクのみの物もあるようです。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007KTGJHM/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B007KTGJHM&linkCode=as2&tag=aibadaisuke-22\">ソニー エレクトレットコンデンサーマイクロホン ECM-SP10</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007KTGJHM\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007KTGJHM/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B007KTGJHM&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B007KTGJHM&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007KTGJHM\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr><td valign=\"top\"><div style=\"border:1px none;margin:0px;padding:6px 0px;width:160px;text-align:center;float:left\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/02ff574c.0eb6abb2.0467bc12.9fdd48d9/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fjism%2f4905524731576-35-10370-n%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fjism%2fi%2f10581637%2f\" target=\"_blank\"><img src=\"http://hbb.afl.rakuten.co.jp/hgb/?pc=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fjism%2fcabinet%2f0207%2f4905524731576.jpg%3f_ex%3d128x128&amp;m=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fjism%2fcabinet%2f0207%2f4905524731576.jpg%3f_ex%3d80x80\" alt=\"【3/12am9:59迄Facebookいいね+エントリーでP5倍】【Joshin webはネット通販1位(アフターサービ...\" border=\"0\" style=\"margin:0px;padding:0px\"></a><p style=\"font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/02ff574c.0eb6abb2.0467bc12.9fdd48d9/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fjism%2f4905524731576-35-10370-n%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fjism%2fi%2f10581637%2f\" target=\"_blank\">【3/12am9:59迄Facebookいいね+エントリーでP5倍】【Joshin webはネット通販1位(アフターサービ...</a><br><span style=\"\">価格：2,480円（税込、送料別）</span><br></p></div></td></tr></table>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/rAb22cNDwIo\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13312_023857.php")) (entry nil (title nil "驚異の超可動ガンダム ASSAULT KINGDOM 食玩") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/PR_3L7Payl4/13310_003943.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13920") (published nil "2013-03-09T15:39:43Z") (updated nil "2013-03-09T17:13:21Z") (summary nil "究極の食玩と呼んでも良いのではないでしょうかね。ガンダム超可動フィギュア入りで399円でした。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "おもちゃ・ホビー") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "assaultkingdom") (label . "ASSAULT KINGDOM") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "アサルトキングダム") (label . "アサルトキングダム") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ガンダム") (label . "ガンダム") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "フィギュア") (label . "フィギュア") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "食玩") (label . "食玩") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://gajetdaisuke.com/archives/111223_050850.php\">ガンダムAGE ジョイントアクション食玩のフル可動フィギュアが凄すぎるぜ</a>と記事を書いたのが、2011年の12月のことであります。</p>
+
+<p>まあとにかく良く動く。<br />
+すばらしいガンダム食玩フィギュアでございました。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/6555567653/\" title=\"Gundam AGE Joint Action by Jet Daisuke, on Flickr\"><img src=\"http://farm8.staticflickr.com/7156/6555567653_2782492678_n.jpg\" width=\"320\" height=\"180\" alt=\"Gundam AGE Joint Action\"></a></p>
+
+<p>それから価格的には600円台とお高いのですが、こんな小型の可動フィギュアもありました。<br />
+<a href=\"http://gajetdaisuke.com/archives/121101_191031.php\" target=\"_blank\">このガンダム小さくて安いのに、アクションフィギュアとしての出来がすごく良さげ</a><br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8144117828/\" title=\"GUNDAM Magnet Action by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8043/8144117828_459861e538_n.jpg\" width=\"320\" height=\"240\" alt=\"GUNDAM Magnet Action\"></a></p>
+        <p>また、ガンダムではありませんが、エヴァンゲリオンの食玩フィギュア「ASSAULT ACTION アサルト・アクション」というシリーズ。これも良く動いた。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/b7LbZbsMKBY\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>で、この三月になって発売されたのが「ASSAULT KINGDOM アサルトキングダム」というシリーズ。「ガンダム超可動」と銘打っただけに、確かによく動くんです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/b_sPgDkTpYk\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>※動画中で「ゴム」と呼んでるのは、どうやらPVC素材かもしれません。</p>
+
+<p>それで、動くだけならジョイントアクションのレベルでもまあまあ動くわけですが、このRX-78なんかプロポーションも抜群だったりします。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8535552843/\" title=\"RX-78 ガンダム ASSULT KINGDOM by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8505/8535552843_081e8fc835.jpg\" width=\"500\" height=\"281\" alt=\"RX-78 ガンダム ASSULT KINGDOM\"></a></p>
+
+<p>シナンジュはバックパックのせいか自立できませんでしたが、RX-78、ユニコーンともに自立してある程度のポージングもできました。もちろんディスプレイスタンドを利用すると、さらにカッコイイポージングも。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8535552517/\" title=\"ガンダム食玩ASSULT KINGDOM 2 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8101/8535552517_2a960375f8.jpg\" width=\"500\" height=\"281\" alt=\"ガンダム食玩ASSULT KINGDOM 2\"></a></p>
+
+<p>先週発売されたばかりですが売り切れ続出とのことで、Amazonでのボックス売りもプレミア価格が付くかもしれません。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BNQX9NU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009YAXVKI\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>なお同シリーズでは「ASSAULT KINGDOM EX」としてクシャトリヤもラインナップ予定<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B00AEGQCB6/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00AEGQCB6&linkCode=as2&tag=aibadaisuke-22\">機動戦士ガンダム ASSAULT KINGDOM EX (食玩)</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B00AEGQCB6\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B00AEGQCB6/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B00AEGQCB6&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B00AEGQCB6&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B00AEGQCB6\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>また、第二弾として、デストロイモードのユニコーン、ガンダムMarkII、陸戦型ガンダム、そしてザクという強力なツンテンコ！<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BLG5HLO\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>というわけで、今後の展開もワクワクしますね。<br />
+また買っちゃうんだろうなあ...（笑）</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/PR_3L7Payl4\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13310_003943.php")) (entry nil (title nil "デジカメ用ワイヤレスリモコン Cerevo SmartTrigger") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/Th-e4Bldw9w/13309_200900.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13919") (published nil "2013-03-09T11:09:00Z") (updated nil "2013-03-09T14:53:54Z") (summary nil "待ちに待ったあのリモコンが...あ、もう一般販売もしてるのか（笑）") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "cerevo") (label . "Cerevo") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "smarttrigger") (label . "SmartTrigger") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "スマートトリガー") (label . "スマートトリガー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://dash.cerevo.com/\" target=\"_blank\">Cerevo DASH</a>にて即パトロンになったデジカメ用リモコン「<strong>SmartTrigger</strong>」が先月末に届きました。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8516391802/\" title=\"Cerevo SmarTTrigger by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8250/8516391802_74686509ef.jpg\" width=\"500\" height=\"417\" alt=\"Cerevo SmarTTrigger\"></a></p>
+        <p>とても長いあいだ待っていた製品だけに喜びもひとしお。</p>
+
+<p>この小型でバイスをiPhoneとBluetooth接続することで、ワイヤレスリモコンとして操作可能になるのです。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8516391458/\" title=\"Cerevo SmarTTrigger by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8505/8516391458_743ca2ca76.jpg\" width=\"500\" height=\"366\" alt=\"Cerevo SmarTTrigger\"></a></p>
+
+<p>私、タイムラプス撮影がとても好きなもので、それ用の高機能リモコンももちろん持っておりましたが、それは以下のようなもので、<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B006AMD0KE\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B006KZWH14\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>この小さくて暗い液晶ではスムーズな操作が可能だとはとても言えません。iPhoneのような大きな画面で設定できるのは理想的です。</p>
+
+<p>そう思ってパトロンになった私です。<br />
+さあ、実機が届いて初日の感想などは以下の動画にて。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/0rPvDpGxSLo\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>リモコンの機能としては申し分ないです。<br />
+ごく普通のレリーズ、ジャンプ撮影、タイムラプス、タイマー機能と。一通り上の動画のなかで説明しているので、お分かりいただけるかと思います。</p>
+
+<p>何がいいって、iPhoneアプリで操作できるということ。</p>
+
+<p>基本的に私の場合はケーブルレリーズの制約に馴れ切ってしまっているので、ワイヤレスで10m離れても扱えるという点にあまりピンと来てないですが、カメラ側のメニューでもなくリモコンのボタン操作でもなく、iPhoneの画面から操作できるという点だけでも「買い」の製品だと思いました。</p>
+
+<p>特にタイムラプス撮影される方はよろしいんじゃないでしょうか。アプリは裏側にまわってもちゃんと動作していたので、タイムラプス撮影中のあのヒマな時間も、iPhoneでTwitterやったりゲームしたりで解消できますね。</p>
+
+<p>明日からちょいと小旅行にいくので、持って行きたいと思います。</p>
+
+<p>購入は下記リンク先での直販のみなのかな？<br />
+パトロンへの発送とほぼ時を同じくして一般発売もされたようですね。<br />
+<a href=\"view-source:http://st.cerevo.com/ja/index.html\" target=\"_blank\">SmartTrigger - Cerevo</a></p>
+
+<p>YouTubeのコメントなどを見てると、モニターできると勘違いされた方などもいらっしゃいましたので、昨今のデジカメのスマホ連携をいろいろ混同されてしまってる感があります。</p>
+
+<p>それだけ、スマホとデジカメが近くなってきてるということでもあるし、SmartTriggerのような製品にもそれが期待されてるということともとれますね。そんなわけでCerevoの次のデジカメ連携製品などにも期待したいと思います。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/Th-e4Bldw9w\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_200900.php")) (entry nil (title nil "カメラのアクセサリーシューに付ける水準器もフィギュアの時代") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/tRPC6dxXl_4/13309_195304.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13918") (published nil "2013-03-09T10:53:04Z") (updated nil "2013-03-09T14:00:27Z") (summary nil "食玩でもなんでもフィギュアなわけですが、カメラのアクセサリーシューカバーまでもフィギュアなんですね。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "アクセサリーシュー") (label . "アクセサリーシュー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "フィギュア") (label . "フィギュア") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "水準器") (label . "水準器") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "水平器") (label . "水平器") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>カメラのアクセサリーシューに保護カバーを付けるというのは最近の流行りでしょうかね？</p>
+
+<p>思えば昔はホットシューではなかったので短絡の恐れもなく、あまりカバーを付けておく必要性もなかったんでしょうね。</p>
+
+<p>とはいえ、こういった便利グッズは以前からありました。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007GU10O2/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B007GU10O2&linkCode=as2&tag=aibadaisuke-22\">サンコー フラッシュ部固定水平器 RAMA11O21</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007GU10O2\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007GU10O2/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B007GU10O2&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B007GU10O2&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007GU10O2\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>この形状だと上からしか見えませんが、ファインダー側からも見える製品もあります。</p>
+        <p>なんとデジタル式、サウンドでも知らせてくれるとか。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B002A9IZ8I/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B002A9IZ8I&linkCode=as2&tag=aibadaisuke-22\">Velbon ベルボン デジタル水準器 アクションレベル サウンド</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B002A9IZ8I\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B002A9IZ8I/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B002A9IZ8I&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B002A9IZ8I&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B002A9IZ8I\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>まあこのようなデジタル式になると数千円とお高くなってしまうのですが、液体式のなら気軽に購入できます。そして、カメラ女子ブームの折り、単にアクセサリーとしてもカワイイものが登場しています。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/T8yZF-qKx-8\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>ライト感覚のデジカメユーザだと、そもそも一生アクセサリーシューなど使う機会がないかもしれず、とはいえギンギンで一番目立つ場所に陣取ってるアイツ何様なのって感じで一生嫌うわけにもいかず、そんなわけでこういったフィギュアを載せて使うのも妥当に思えてくるでしょう？<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8541021811/\" title=\"水平器付 Camera Hotshoes Cover Hoo-Di(Angel) フーディ(エンジェル) カメラホットシューカバー　Hoo-Di Angel by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8368/8541021811_c735692de9.jpg\" width=\"470\" height=\"399\" alt=\"水平器付 Camera Hotshoes Cover Hoo-Di(Angel) フーディ(エンジェル) カメラホットシューカバー　Hoo-Di Angel\"></a></p>
+
+<p>極小アイテムなのですが、そのわりに背中の羽根や尻尾など、ちゃんとパーツが立ってますよね。金型一発抜きのモナカフィギュアにとどまらない仕事の細かさが気に入りました。</p>
+
+<p>黒と白がありますけども、黒よりは白のほうがそういった細かい仕事に目がいくカラーリングですね。黒だとちょっと見えにくいかも。カメラに合わせるにしても白のほうが概ね合うような気がしました。ということで白オヌヌメ<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B008AS1JYU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B008AS154Y\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/tRPC6dxXl_4\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_195304.php")) (entry nil (title nil "写真や絵をマスクにして変装するiPhoneアプリ怪人百面相") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/U5--TF1dDe0/13309_051433.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13917") (published nil "2013-03-08T20:14:33Z") (updated nil "2013-03-08T21:26:16Z") (summary nil "ルパン三世がかぶってるような薄手のマスクみたいなものですけども、いまいち馴染んでくれません（笑）でも、今後に期待したいアプリですね。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "iPhone・iPad・iPod") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "iphone") (label . "iPhone") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "アプリ") (label . "アプリ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "モーションポートレイト") (label . "モーションポートレイト") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "怪人百面相") (label . "怪人百面相") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>iPhoneアプリ「怪人百面相」<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8538859229/\" title=\"怪人百面相 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8110/8538859229_8dc4a7b4c1.jpg\" width=\"282\" height=\"500\" alt=\"怪人百面相\"></a></p>
+        <p>顔認識するアプリ<br />
+変装するアプリ</p>
+
+<p>というのは大変好きな類いなのですが、これまでのとはちょっと違う系統ですね。</p>
+
+<p>あくまでも「マスク」という感じですので、モナリザを私の顔にかぶせたからといって、私がモナリザになるわけではないようです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/NzX0hj5vAU0\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Fapp%252Fano-yanni-chao-bian-shen!%252Fid597795292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30\" target=\"itunes_store\">あの顔に超変身！怪人百面相 - Yahoo Japan Corp.</a><br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Fapp%252Fano-yanni-chao-bian-shen!%252Fid597795292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30\" target=\"itunes_store\"><img src=\"http://r.mzstatic.com/ja_jp/images/web/linkmaker/badge_appstore-lrg.gif\" alt=\"あの顔に超変身！怪人百面相 - Yahoo Japan Corp.\" style=\"border: 0;\"/></a></p>
+
+<p>テクスチャーマッピングの類いに近いんでしょうか？</p>
+
+<p>ウェブカムの付属ソフトにあるような、CGキャラに変身できるものともまた違う印象です。どちらかというと、そういう方が遊べる気はしますけども、Yahoo! Japan Lab から登場ということで、どこか技術検証的な風味が漂いますね。</p>
+
+<p>ビデオブロガーとしては、せっかく動画が撮れるのだから、マスクのサムネを同時記録するのはやめて欲しいですし、横向きでの動画記録にも対応してほしいところ。</p>
+
+<p>クレイジートークやモーションポートレイトの大好きな私ですから、今後も期待したいアプリのひとつですね。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/1eqkndi_Dqk\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ewE5xvQY1ZI\" frameborder=\"0\" allowfullscreen></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/U5--TF1dDe0\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_051433.php")) (entry nil (title nil "PENTAX Q10でもここまでイケる") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/TwBpe7LJKIU/13309_030527.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13916") (published nil "2013-03-08T18:05:27Z") (updated nil "2013-03-08T19:54:44Z") (summary nil "一眼といいつつ、コンデジと同じ1/2.3型センサーを持つPENTAX Q10（ペンタックスＱ）ですが、ポスプロでどうにかしてやれば、より良かったのです。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "pentaxq10") (label . "PENTAX Q10") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "q") (label . "Q") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ペンタックス") (label . "ペンタックス") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>コンデジのボディに一眼ぽいレンズを装着したものというのが、ペンタックスQシリーズにまつわる世の中の評価であろうかと思いますが</p>
+
+<p>確かにそんな気がします。</p>
+
+<p>山ちゃんがAPS-Cセンサーのデジカメ PENTAX K-01 にて撮影している横で、私はQちゃんを持ってシコシコと撮影してたりするわけです。</p>
+
+<p>そうなると一目瞭然なんですな、おなじ場所で撮ってるから当然カメラの違いがハッキリ出てくる。</p>
+        <p>あれ？<br />
+Qちゃんだと少ししょぼい？<br />
+Qちゃんだと少しノイジー？<br />
+Qちゃんだと階調がアレ？</p>
+
+<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8539060857/\" title=\"三宝寺池Original by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8518/8539060857_15c88d65d2.jpg\" width=\"500\" height=\"375\" alt=\"三宝寺池Original\"></a></p>
+
+<p>うーむ<br />
+この差はいかんともし難いのか？</p>
+
+<p>いや、Qちゃんで悩むくらいなら一眼レフを持っていけばいいのですが、そこはほら、ものぐさでコンパクトサイズ好きな私のことですから意地でも持っていかない時が多い。</p>
+
+<p>ところがその体験が花開きまして、この数ヶ月でQちゃんの写真はどういじるべきなのか、どういじればいいのか分かってきました。</p>
+
+<p>まあポスプロなしでも凄いと思えれば良いのですが、なかなかそういうわけにもいかず。</p>
+
+<p>とりあえず上の写真のようなものは、こうすると生まれ変わりますね。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8539055669/\" title=\"三宝寺池 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8514/8539055669_d605b4c9e8.jpg\" width=\"500\" height=\"375\" alt=\"三宝寺池\"></a></p>
+
+<p>RAWではなくJPEGからいじってますが、ブログで見る程度のようなものならこれで良いでしょう。</p>
+
+<p>Qというか、Q10だからというのもあります。<br />
+オリジナルのQだとここまではいかないかも。<br />
+おもに暗所性能の違いで。</p>
+
+<p>以下は、星空の比較明コンポジットのための素材でありますが、<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8539062151/\" title=\"星撮り by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8368/8539062151_40870bc330.jpg\" width=\"500\" height=\"375\" alt=\"星撮り\"></a></p>
+
+<p>これも上手くいじってやれば、Flickrに公開された動画のほうが綺麗に思えるほどに変わりますね。<br />
+<object type=\"application/x-shockwave-flash\" width=\"400\" height=\"225\" data=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"> <param name=\"flashvars\" value=\"intl_lang=en-us&photo_secret=0fdf5e318a&photo_id=8539066365\"></param> <param name=\"movie\" value=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\"></param> <param name=\"bgcolor\" value=\"#000000\"></param> <param name=\"allowFullScreen\" value=\"true\"></param><embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\" bgcolor=\"#000000\" allowfullscreen=\"true\" flashvars=\"intl_lang=en-us&photo_secret=0fdf5e318a&photo_id=8539066365\" height=\"225\" width=\"400\"></embed></object></p>
+
+<p>それで、何を書こうとしてたのか忘れてしまったのでこの辺でさよなら（笑）hulu見ながらというのはいけませんなぁ、すっかり考えをまとめるのが下手になった。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009931NP0\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YK6NU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YJPWS\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YK8AG\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/TwBpe7LJKIU\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_030527.php")) (entry nil (title nil "刺身ステーキが超絶旨い！マグロ中とろ、とろサーモンのステーキ") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/ZbYQsAsRkdU/13309_021715.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13915") (published nil "2013-03-08T17:17:15Z") (updated nil "2013-03-08T17:46:50Z") (summary nil "刺身用の中トロ、サーモンなどの冊を買ってきて焼くだけなのだが激ウマ") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "グルメ・食文化") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "サーモン") (label . "サーモン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "サケ") (label . "サケ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "シャケ") (label . "シャケ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ステーキ") (label . "ステーキ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "鮭") (label . "鮭") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "刺身") (label . "刺身") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "中トロ") (label . "中トロ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>まぐろ中トロ<strong>刺身用</strong>を安く売ってたので買ってきたのですが、お刺身のためではない、ステーキにしたのだった！<br />
+<a href=\"http://www.youtube.com/watch?v=lYNUz7N3eY4\" target=\"_blank\">本まぐろ中トロをステーキにしたら美味しすぎて悶絶しそうになった件 </a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/lYNUz7N3eY4\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>大トロではなく中トロというところがミソですよね。<br />
+炙りトロとも違って、ほどよく脂が落ちつつ、芯の脂までもがとろける状態。思い出しただけでも飯が食えそうです（笑）</p>
+
+<p>さて、上の動画を公開したところ反響がたいへん多かったのですが、皆さんお値段のほうを気にされてたようですね。たしかに中トロは高いです。たまのご馳走でしかありません。もっと気軽に買えるものは...</p>
+        <p>ということで、刺身用とろサーモンであります。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8540023664/\" title=\"とろサーモンステーキ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8508/8540023664_1435658454.jpg\" width=\"500\" height=\"375\" alt=\"とろサーモンステーキ\"></a></p>
+
+<p>塩コショウして焼いただけなのですが、これが絶品！<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8538916759/\" title=\"とろサーモンステーキ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8250/8538916759_51a7828b95.jpg\" width=\"500\" height=\"375\" alt=\"とろサーモンステーキ\"></a></p>
+
+<p>刺身用だからこその安心と鮮度。焼き加減はミディアムレアといったところでしょうか、それが功を奏してムニエルや焼きジャケとは別物の新体験でありました。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/ZbYQsAsRkdU\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_021715.php")) (entry nil (title nil "キヤノンの一眼、ミラーレス、コンデジ、交換レンズを対象にしたキャッシュバックキャンペーンで悩み中") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/D3OvOLMXlO8/13307_170142.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13914") (published nil "2013-03-07T08:01:42Z") (updated nil "2013-03-07T08:26:36Z") (summary nil "欲しいけど買うには至ってなかったノーマークのあの製品たちが、キャッシュバックならと突然輝き始めることってあるでしょう？") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エレクトロニクス") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "eos") (label . "EOS") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "powershot") (label . "PowerShot") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "キャッシュバック") (label . "キャッシュバック") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "キャンペーン") (label . "キャンペーン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "キヤノン") (label . "キヤノン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>あーもう！<br />
+大事な作業中なのにとんでもないものを見てしまった。</p>
+
+<p>これ見てからずっと、仕事の手をとめてデジカメのスペック比較などに奔走中ですよ（笑）</p>
+        <p>たまにやってるキャッシュバックキャンペーンです。<br />
+<a href=\"http://cweb.canon.jp/eos/campaign/goldrush/\" target=\"_blank\">キヤノン：ザ・ゴールドラッシュキャンペーン</a></p>
+
+<p>1万円キャッシュバックの製品と、5,000円キャッシュバックの製品があるのですけども、対象商品がなんとまあ幅広い。その中でも私が気になったものが以下。</p>
+
+<p>入門機ながら実はキヤノンの一眼レフでは動画撮影時のオートフォーカス最強なんではと噂される「EOS Kiss X6i EF-S18-135 IS STM レンズキット」は1万円キャッシュバック。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWY7W/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWY7W&linkCode=as2&tag=aibadaisuke-22\">Canon デジタル一眼レフカメラ EOS Kiss X6i EF-S18-135 IS STM レンズキット KISSX6i-18135ISSTMLK</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWY7W\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWY7W/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWY7W&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0089SWY7W&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWY7W\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>そして「最後のミラーレス」EOS M・ダブルレンズキットも1万円キャッシュバックでお得に。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B008O0WZL0/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B008O0WZL0&linkCode=as2&tag=aibadaisuke-22\">Canon デジタル一眼カメラ EOS M(ブラック) ダブルレンズキット EOSMBK-WLK</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B008O0WZL0\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B008O0WZL0/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B008O0WZL0&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B008O0WZL0&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B008O0WZL0\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>ほかはお高いEFレンズ群（ていうかLレンズばっか）なので1万円戻っても焼け石に水といった感じ（笑）</p>
+
+<p>そして5,000円キャッシュバックの対象商品で気になったのが以下。</p>
+
+<p>一眼にも迫るセンサーサイズで驚きをもって迎えられた最強コンパクト。低級EOSと互角なんじゃないのと思える性能。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0076FR33Y/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0076FR33Y&linkCode=as2&tag=aibadaisuke-22\">Canon デジタルカメラ PowerShot G1X 1.5型高感度CMOSセンサー 3.0型バリアングル液晶 PSG1X</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0076FR33Y\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0076FR33Y/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0076FR33Y&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0076FR33Y&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0076FR33Y\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>ソニーのRX100に押されて存在感がいきなり激薄になっておりましたが、星撮りも動画撮影もする私なんかにゃサブ機として気になる存在。5,000円キャッシュバックとなれば突然輝きはじめました（笑）ウェブでRX100と比較検討しちゃったりなんかして（笑）</p>
+
+<p>ほかに5,000円キャッシュバック対象にはLレンズではないEFレンズが多数挙がっておりますが、なかでもピカイチでお得そうなのがこのパンケーキレンズ<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWZDU/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWZDU&linkCode=as2&tag=aibadaisuke-22\">Canon EF40mm F2.8 STM [EF4028STM]</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWZDU\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWZDU/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWZDU&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0089SWZDU&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWZDU\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>なんといっても実売価格が1万円台の中盤くらいまで下がっていますから、これで5,000円戻ってきた日にゃあ、かなり嬉しいことになってしまいますね。</p>
+
+<p>ちなみに私がこの中でいちばん欲しいのは<a href=\"http://www.amazon.co.jp/o/ASIN/B0076FR33Y/aibadaisuke-22\">Canon PowerShot G1X</a>ですね。下手なミラーレス機よりもよっぽど活躍しそうなカメラですし。キャンペーンの詳細は以下のリンク先です。量販店なんかにも申込用紙はあるみたい。<br />
+<a href=\"http://cweb.canon.jp/eos/campaign/goldrush/\" target=\"_blank\">キヤノン：ザ・ゴールドラッシュキャンペーン</a></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/D3OvOLMXlO8\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13307_170142.php")) (entry nil (title nil "なぜフルサイズ一眼にソニーα99 SLT-A99V を選んだのか") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/9ynxyK4wfO4/13304_062304.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13913") (published nil "2013-03-03T21:23:04Z") (updated nil "2013-03-03T23:08:08Z") (summary nil "昨年、デジタル一眼もフルサイズが当たり前の時代に移行しましたが、キヤノンユーザだった私がなぜSONYの一眼を買ったのかという理由") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "slta99v") (label . "SLT-A99V") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "sony") (label . "SONY") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ソニー") (label . "ソニー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "デジカメ") (label . "デジカメ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "デジタル一眼") (label . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "フルサイズ") (label . "フルサイズ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "α99") (label . "α99") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "一眼レフ") (label . "一眼レフ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8221871414/\" title=\"カメララップMにα99を包む by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8059/8221871414_c78321afdc.jpg\" width=\"500\" height=\"375\" alt=\"カメララップMにα99を包む\"></a></p>
+
+<p><a href=\"http://www.amazon.co.jp/gp/product/B009O5570K/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B009O5570K&linkCode=as2&tag=aibadaisuke-22\">ソニー デジタル一眼カメラ α99 ボディ SLT-A99V</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B009O5570K\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B009O5570K/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B009O5570K&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B009O5570K&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B009O5570K\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>キヤノンのデジタル一眼ばかりを使ってきた私ですが、突如ソニーのデジイチを購入して周囲のキヤノン仲間を驚かせたのが去年のこと。</p>
+
+<p>でも、前フリはあったんですよ。<br />
+おととしαユーザの熊谷さんとソニービルに行ってα77に感動して帰ってきたということがありました。そのときのブログ記事：<a href=\"http://gajetdaisuke.com/archives/11826_050549.php\" target=\"_blank\">SONYの本気を見た α77 の新しいEVFは光学ファインダーを殺すね</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/p_TXX4DRMYo\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<blockquote>今はまだ諸々の兼ね合いで（キヤノンも使いたいからね）まだ買おうとは思わないけども、このままEVFが進歩していくんだったらソニーでいいや。ほんとソニーでいいや。写真に限ってはαユーザ勝ち組だわ、これは間違いない。</blockquote>
+
+<p>なぜ「写真については」と書いてるかといえば、動画については私個人的にAVCHD嫌いだったからです。だってMacで扱いにくかったんだもん（笑）</p>
+        <p>まあそれも神ツールの登場やiPhotoバージョンアップによって解決してしまい...ソニーαシリーズを購入しない最大の理由がいとも簡単に消え去りました（笑）<br />
+▼<a href=\"http://gajetdaisuke.com/archives/12429_114629.php\" target=\"_blank\">MacでもAVCHDビデオを扱える神ツール「Media Converter」</a><br />
+▼<a href=\"http://gajetdaisuke.com/archives/12619_231520.php\" target=\"_blank\">ジョブズ退任とAVCHDに完全対応したMacは何か関係あるのでしょうか</a></p>
+
+<p>ただし動画デジイチとして見てみると、AVCHDのビットレートはEOSムービーの半分以下だったりするので、その辺は依然として問題視されますが、主に軽装ノートパソコン（MacBook Air）で動画を扱う私のようなブロガーにとっては、むしろAVCHD程度のビットレートのほうがストレージ節約できて助かります。</p>
+
+<p>ということで暗雲がほぼ無いかのように感じましたので、昨年の11月下旬 唐突にα99を購入いたしました。とりあえずのファーストインプレッション動画が以下のもの。<br />
+<a href=\"http://www.youtube.com/watch?v=eeSQ_51GShs\" target=\"_blank\">ビデオブログならSONY α99 SLT-A99V フルサイズ一眼にソニーを選んだ理由</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eeSQ_51GShs\" frameborder=\"0\" allowfullscreen></iframe><br />
+動画撮影時でもファインダーを覗いて構えることができるというのは、ビデオブロガーにとっては大きなメリットです。もちろん3軸チルト液晶ディスプレイも購入の決定打。フルサイズ一眼でバリアングル液晶の類いを搭載してくれたのは他になかったですから。</p>
+
+<p>純正標準ズームVario-Sonnar T＊ 24-70mm F2.8との相性は抜群。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8210318763/\" title=\"冬の散歩道 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8483/8210318763_0a49a9ba9e.jpg\" width=\"500\" height=\"333\" alt=\"冬の散歩道\"></a></p>
+
+<p>驚異的な解像感です。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8211409454/\" title=\"jetdaisuke by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8487/8211409454_5c573e477f.jpg\" width=\"500\" height=\"333\" alt=\"jetdaisuke\"></a></p>
+
+<p>EVFの性能検証、そしてAFレンジコントロールについての動画。<br />
+<a href=\"http://www.youtube.com/watch?v=Ym5RlRvTLjM\" target=\"_blank\">ソニーSLT-A99V「α99」のEVF性能なら超速カワセミの動体撮影は可能か？</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/Ym5RlRvTLjM\" frameborder=\"0\" allowfullscreen></iframe><br />
+カワセミのような小さくて速いものを撮影してみて「追える」と確信しました。</p>
+
+<p>ところが一見無敵に思えたEVFも、UI設計の面で（というかアラート表示の仕方だけですが）ひとつ難ありでした。性能面ではほぼ不満がなかったので、こういったところは改善を強く要求したいです。以下の動画より。<br />
+<a href=\"http://www.youtube.com/watch?v=hwqWfJ9LOOo\" target=\"_blank\">こんどはソニーα99のEVF良くない点・改善してほしい点</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hwqWfJ9LOOo\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>タムロン70-300mm F4-5.6 （A005）でのテスト動画。<br />
+<a href=\"http://www.youtube.com/watch?v=VMpDdG93zXM\" target=\"_blank\">TEST: SONY α99 SLT-A99V + TAMRON SP 70-300mm F4-5.6 Di USD A005</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/VMpDdG93zXM\" frameborder=\"0\" allowfullscreen></iframe><br />
+冒頭のシルエットの水鳥の質感がたまらん！</p>
+
+<p>下はマイク製品のレビュー動画ですが、それと比較したα99の内蔵マイクも勝るとも劣らないレベルで良いではないですか。はっきり言って昨年のハンディカムのフラッグシップ機<a href=\"http://gajetdaisuke.com/archives/12430_115609.php\" target=\"_blank\">HDR-PJ760V</a>のマイクには圧勝しています。<br />
+<a href=\"http://www.youtube.com/watch?v=pF2FRkaEGAs\" target=\"_blank\">ビデオ撮影にオーディオテクニカAT9941 ステレオ感が増す外付マイク</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/pF2FRkaEGAs\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>そして三ヶ月を経て、改めまして以下の動画にて、購入理由について語らせていただきました。要は「フルサイズ一眼レフ」ではなく最高峰の「デジカメ」が欲しかったということになります。<br />
+<a href=\"http://www.youtube.com/watch?v=kU_T2OQO1y8\">なぜフルサイズ一眼にSONY α99を選んだのか？スマートテレコンとは？ </a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/kU_T2OQO1y8\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>ちなみにスマートテレコンでのクロップされるサイズですが、通常6000x4000ピクセルに対して、1.4倍スマートテレコン時で3936x2624ピクセル（APS-Cモードも同サイズ）、そして2.0倍では2640x1760ピクセルとなります。下図はサイズ対比。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8524890629/\" title=\"スマートテレコンのクロップ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8249/8524890629_8acf87daa4.jpg\" width=\"500\" height=\"173\" alt=\"スマートテレコンのクロップ\"></a></p>
+
+<p>また、スマートテレコン以外に「デジカメ」らしい機能としては、全画素超解像ズーム（これは動画撮影でも使える）と、「テレコン連続撮影優先AE」モードも。</p>
+
+<p>α99の連写性能は毎秒6コマと、キヤノン5D Mark3と同等ですが、ソニーTLM機にはおなじみの「テレコン連続撮影優先AE」を利用することで、画像サイズはクロップされ小さくなる（2640x1760ピクセル）ものの最高10コマ毎秒で撮影できます。その機能がないと下のようなカワセミ写真を撮るのは倍以上の困難があったと思います。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8268245965/\" title=\"hovering kingfisher 花園の翡翠 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8503/8268245965_7b4f660386.jpg\" width=\"500\" height=\"333\" alt=\"hovering kingfisher 花園の翡翠\"></a></p>
+
+<p>もっとも、キヤノンのフラッグシップ機ではより高速な連写が可能ですが、同社の中級フルサイズ機と同等価格帯であるα99にこういった機能が搭載されてるのは興味深いですね。</p>
+
+<p>ていうかクロップした疑似望遠で高速連写って、カワセミ撮れと言わんばかりの機能ですよね（笑）おかげでとても助かってます。70-300mmの安いズームレンズでも600mm気分で覗けますし。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8345681526/\" title=\"kingfisher by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8361/8345681526_ecd59293ba.jpg\" width=\"500\" height=\"333\" alt=\"kingfisher\"></a></p>
+
+<p>結局α99を購入した理由としては、先進的なEVF、3軸チルト液晶、その他デジカメならではの楽しい機能、そういった諸々が他社のフルサイズ一眼には見られなかったということでもあります。パナソニックGH-3も購入候補ではありましたが、昨年はやはりフルサイズ元年とも言うべき年でしたので、マイクロフォーサーズ機は除外（欲しいとは思うけどね）。</p>
+
+<p>EVFについては抵抗のある方が少なくないようですが、店頭やショールームなどで<strong>絞りプレビューボタン</strong>を押してみれば気が変わるかと思います。グッと絞り込んだ状態でも暗くならずに被写界深度を確認できます。お手持ちの一眼レフと明るさを比較してみてください。そもそもの一眼レフという機構が見たまんまを撮影するためのものであったなら、いまやこのEVFのほうがずっとそうであると思えてきます。</p>
+
+<p>今の時代、どうせデジカメ写真の多くは、EVFと同じ電子的なディスプレイでRGB表示されるものだと思いますし。OVFを覗いたときよりも、EVFに表示した被写体のほうが、最終的な「見せる」環境にも近いはずです。</p>
+
+<p>さいごになりますが、<br />
+私が購入するにあたり背中を押してくれた言葉が、ソニーの製品サイトにあります。ナショナルジオグラフィックのカメラマン、マイケル・ヤマシタ氏の言葉です。以下引用</p>
+
+<blockquote>私が仕事の道具として「α」を選んだのは、ソニーという企業が、エレクトロニクスや新技術の分野で、常に主導的な役割を果たしてきたからだ。カメラは既に光学機器の枠を越えて、エレクトロニクスを核に進化している。だからソニーのカメラは、これまでの写真の歴史を塗り替えるような、「まだ誰も観たことない世界」を見せてくれるはずだ。そういう期待も込めて、私は「α」を選び、使い続けてきた。</blockquote>
+
+<p>ですよね<br />
+私は「デジカメ」を買うつもりだったから、ソニーにしたんです。ヤマシタ氏と同じく「期待を込めて」なので、まだまだ達成できてない部分も多々あるとは思ってますが、今後にも期待してます。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009O5570K\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0013PHTBO\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B001G44HTY\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0099YU6SE\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/9ynxyK4wfO4\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13304_062304.php")) (entry nil (title nil "Googleロゴが「パタパタ」ミリアム・マケバになりました。") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/3pDFzi_bNqM/13304_025357.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13912") (published nil "2013-03-03T17:53:57Z") (updated nil "2013-03-03T18:17:34Z") (summary nil "今日３月４日がお誕生日のようですね。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エンターテインメント") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "パタパタ") (label . "パタパタ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ミリアム・マケバ") (label . "ミリアム・マケバ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>Doodleがなんだか見たことあるようなアフリカ女性の絵柄になってたのですが、今日３月４日はミリアム・マケバのお誕生日だそうですね。<br />
+▼<a href=\"http://www.google.com/doodles/finder/2013/All%20doodles\" target=\"_blank\">Doodles 2013年</a></p>
+        <p>誕生日とは知らなかったんですが、最近なぜだか彼女の代表曲「パタパタ（Pata Pata）」が聴きたくなり、YouTubeでいろんな動画を観ては楽しんでおりました。</p>
+
+<p>レコードのバージョンだけでなく、テレビなど公演ごとに色んな演奏があった興味深いです。<br />
+<iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/Zq5S5sH1Ikk\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/e-VrfadKbco\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/87S_wbCsNbQ\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/K2a6waS25TU\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>こんなリミックスもありました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/y1FHfcaWPoM\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>私の通ってた中学校では、なにか行事のたびにこの「パタパタ」をかけて踊るというならわしがありまして、その踊りというのも誰が考えたか知りませんが決まった振り付けがございました。</p>
+
+<p>入学してすぐ、新入生歓迎会でまずはこの「パタパタ」のダンスを教わります。その後、運動会でも、遠足でも、その他集会などでも、卒業するまでこの曲で踊ってました。今考えてみればたいへん変わった学校ですね。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B000023ZGH/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B000023ZGH&linkCode=as2&tag=aibadaisuke-22\">Pata Pata</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B000023ZGH\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B000023ZGH/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B000023ZGH&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B000023ZGH&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B000023ZGH\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>iTunesで購入するにはこちらから。<br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fpata-pata%252Fid59390537%253Fuo%253D4%2526partnerId%253D30\" target=\"itunes_store\">Pata Pata - ミリアム・マケバ</a><br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fpata-pata%252Fid59390537%253Fuo%253D4%2526partnerId%253D30\" target=\"itunes_store\"><img src=\"http://r.mzstatic.com/ja_jp/images/web/linkmaker/badge_itunes-lrg.gif\" alt=\"Pata Pata - ミリアム・マケバ\" style=\"border: 0;\"/></a></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/3pDFzi_bNqM\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13304_025357.php")))) ("WiMAX電波増強のために料理用のボウルをパラボラアンテナの代わりに使う術" "<p>アサカワズさんちは以前から電波状況がよろしくなかったようで、ちょー長いUSBケーブルを使って、モバイルルーターをベランダの外に出していたりと、かなり面白いことをやってはいたのですが、先日遊びに行ったところ、とんでもねえライフハックになっていました。</p>
+<p>それがこちらの写真</p>
+<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8575430486/\" title=\"ボウル by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8380/8575430486_4ac2ca73c1.jpg\" width=\"500\" height=\"375\" alt=\"ボウル\"></a></p>
+<p>実際にはパラボラというのは放物曲面であって円弧とは違いますけども、うまくやれば代用できるということでしょうかね。それともこのボウルが円弧ではなくパラボラなのかしら？</p>
+<p>パラボラアンテナのかわりに中華鍋を使って衛星放送を受信するという裏技をむかし聞いたことがありますけれども、それに類似した手法として料理用のアルミ製ボウルをアンテナ代わりに立てておくという方法。</p>
+<p>WiMAXモバイルルーターの電波増強術だそうです。ボウルは100円ショップで購入とのこと。</p>
+<p>アサカワズの100均ライフハックといえば、<a href=\"http://askw1974.seesaa.net/article/19653497.html\" target=\"_blank\">マイク用のポップガード自作</a>なども大好きでありますが、今後もいろいろと楽しませてほしいなと思うところであります。</p>
+<p>とにかくキャットタワー踏んづけて壊してしまってごめんなさい。ごめんなさい。ごめんなさい。</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/7IRk_H1XDzM\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/7IRk_H1XDzM/13321_011815.php" (20809 58521) old 1 nil nil ((title nil "WiMAX電波増強のために料理用のボウルをパラボラアンテナの代わりに使う術") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/7IRk_H1XDzM/13321_011815.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13927") (published nil "2013-03-20T16:18:15Z") (updated nil "2013-03-20T16:32:25Z") (summary nil "アサカワズ先生の100円ショップでできるITライフハック。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エレクトロニクス") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "100円ショップ") (label . "100円ショップ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "100円均一") (label . "100円均一") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "アサカワズ") (label . "アサカワズ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "パラボラアンテナ") (label . "パラボラアンテナ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ボウル") (label . "ボウル") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ライフハック") (label . "ライフハック") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ルーター") (label . "ルーター") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "中華鍋") (label . "中華鍋") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>アサカワズさんちは以前から電波状況がよろしくなかったようで、ちょー長いUSBケーブルを使って、モバイルルーターをベランダの外に出していたりと、かなり面白いことをやってはいたのですが、先日遊びに行ったところ、とんでもねえライフハックになっていました。</p>
+
+<p>それがこちらの写真</p>
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8575430486/\" title=\"ボウル by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8380/8575430486_4ac2ca73c1.jpg\" width=\"500\" height=\"375\" alt=\"ボウル\"></a></p>
+
+<p>実際にはパラボラというのは放物曲面であって円弧とは違いますけども、うまくやれば代用できるということでしょうかね。それともこのボウルが円弧ではなくパラボラなのかしら？</p>
+
+<p>パラボラアンテナのかわりに中華鍋を使って衛星放送を受信するという裏技をむかし聞いたことがありますけれども、それに類似した手法として料理用のアルミ製ボウルをアンテナ代わりに立てておくという方法。</p>
+
+<p>WiMAXモバイルルーターの電波増強術だそうです。ボウルは100円ショップで購入とのこと。</p>
+
+<p>アサカワズの100均ライフハックといえば、<a href=\"http://askw1974.seesaa.net/article/19653497.html\" target=\"_blank\">マイク用のポップガード自作</a>なども大好きでありますが、今後もいろいろと楽しませてほしいなと思うところであります。</p>
+
+<p>とにかくキャットタワー踏んづけて壊してしまってごめんなさい。ごめんなさい。ごめんなさい。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/7IRk_H1XDzM\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13321_011815.php"))) ("ゴージャスなツナ缶 はごろもシーチキンとろ" "<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8574681558/\" title=\"とろシーチキン by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8085/8574681558_4b77557b59.jpg\" width=\"500\" height=\"285\" alt=\"とろシーチキン\"></a></p>
+<p>数年前にもいちどブログネタにしておりますので、ご存知の方はご存知でありましょう。</p>
+<p><span style=\"font-size: x-large\">シーチキンとろ</span></p>
+<p>であります。</p>
+<p>何も付けずに、そのまま缶をあけて食べてみました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ygQh76xLt2o\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>昔食べたときよりも美味しく感じました。<br />
+参考小売価格は450円となってりますが、デフレスパイラル弁当などを経験した今となっては超高級品といっても過言ではないですね。少なくともツナ缶にその金額を払うというのはナニな感じはあります。</p>
+<p>が、450円の総菜、食材として考えずに、ひとときの贅沢としてこういった製品を楽しんでみるのも良いのではないでしょうか。</p>
+<p>知り得るかぎりのどのツナ缶よりも食べ応えのある肉で、普段食べているツナ缶などは「ねぎトロ」レベルなのだということがよく分かります。</p>
+<p>そういう「格」としては、まさしくこれは「とろ」<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8573588753/\" title=\"シーチキンとろ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8378/8573588753_dee15a96d0.jpg\" width=\"500\" height=\"375\" alt=\"シーチキンとろ\"></a></p>
+<p>実際、びんながまぐろのとろ肉のみを使用しているということで、大きな身のわりには柔らかく、まさに「シーチキン」の名に相応しい鶏肉感もありまして、ひょっとしたら棒棒鶏にさえ使えるのではないかとも思ってしまいました。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0083TLAU4/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0083TLAU4&linkCode=as2&tag=aibadaisuke-22\">はごろも シーチキンとろ 75g 缶詰</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0083TLAU4\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0083TLAU4/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0083TLAU4&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0083TLAU4&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0083TLAU4\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr><td valign=\"top\"><div style=\"border:1px none;margin:0px;padding:6px 0px;width:160px;text-align:center;float:left\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/10f35e77.f4dbeb6d.10f35e78.6c0aefc5/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fmagokoro-e%2f0200-sale20%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fmagokoro-e%2fi%2f10000061%2f\" target=\"_blank\"><img src=\"http://hbb.afl.rakuten.co.jp/hgb/?pc=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fmagokoro-e%2fcabinet%2fitems%2ftoro20off.jpg%3f_ex%3d128x128&amp;m=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fmagokoro-e%2fcabinet%2fitems%2ftoro20off.jpg%3f_ex%3d80x80\" alt=\"【20％OFF】シーチキンとろ（びんなが） 24缶入【送料無料】\" border=\"0\" style=\"margin:0px;padding:0px\"></a><p style=\"font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/10f35e77.f4dbeb6d.10f35e78.6c0aefc5/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fmagokoro-e%2f0200-sale20%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fmagokoro-e%2fi%2f10000061%2f\" target=\"_blank\">【20％OFF】シーチキンとろ（びんなが） 24缶入【送料無料】</a><br><span style=\"\">価格：8,640円（税込、送料込）</span><br></p></div></td></tr></table>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/aZr1wo39uL0\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/aZr1wo39uL0/13320_191932.php" (20809 37975) old 2 nil nil ((title nil "ゴージャスなツナ缶 はごろもシーチキンとろ") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/aZr1wo39uL0/13320_191932.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13926") (published nil "2013-03-20T10:19:32Z") (updated nil "2013-03-20T10:49:59Z") (summary nil "「とろ」をツナ缶にするとこういうことだ。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "グルメ・食文化") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "びんなが") (label . "びんなが") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "まぐろ") (label . "まぐろ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "シーチキン") (label . "シーチキン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "シーチキンとろ") (label . "シーチキンとろ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ツナ") (label . "ツナ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ツナ缶") (label . "ツナ缶") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "トロ") (label . "トロ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "缶詰") (label . "缶詰") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "肉") (label . "肉") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8574681558/\" title=\"とろシーチキン by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8085/8574681558_4b77557b59.jpg\" width=\"500\" height=\"285\" alt=\"とろシーチキン\"></a></p>
+
+<p>数年前にもいちどブログネタにしておりますので、ご存知の方はご存知でありましょう。</p>
+
+<p><span style=\"font-size: x-large\">シーチキンとろ</span></p>
+
+<p>であります。</p>
+        <p>何も付けずに、そのまま缶をあけて食べてみました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ygQh76xLt2o\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>昔食べたときよりも美味しく感じました。<br />
+参考小売価格は450円となってりますが、デフレスパイラル弁当などを経験した今となっては超高級品といっても過言ではないですね。少なくともツナ缶にその金額を払うというのはナニな感じはあります。</p>
+
+<p>が、450円の総菜、食材として考えずに、ひとときの贅沢としてこういった製品を楽しんでみるのも良いのではないでしょうか。</p>
+
+<p>知り得るかぎりのどのツナ缶よりも食べ応えのある肉で、普段食べているツナ缶などは「ねぎトロ」レベルなのだということがよく分かります。</p>
+
+<p>そういう「格」としては、まさしくこれは「とろ」<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8573588753/\" title=\"シーチキンとろ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8378/8573588753_dee15a96d0.jpg\" width=\"500\" height=\"375\" alt=\"シーチキンとろ\"></a></p>
+
+<p>実際、びんながまぐろのとろ肉のみを使用しているということで、大きな身のわりには柔らかく、まさに「シーチキン」の名に相応しい鶏肉感もありまして、ひょっとしたら棒棒鶏にさえ使えるのではないかとも思ってしまいました。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0083TLAU4/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0083TLAU4&linkCode=as2&tag=aibadaisuke-22\">はごろも シーチキンとろ 75g 缶詰</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0083TLAU4\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0083TLAU4/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0083TLAU4&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0083TLAU4&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0083TLAU4\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr><td valign=\"top\"><div style=\"border:1px none;margin:0px;padding:6px 0px;width:160px;text-align:center;float:left\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/10f35e77.f4dbeb6d.10f35e78.6c0aefc5/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fmagokoro-e%2f0200-sale20%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fmagokoro-e%2fi%2f10000061%2f\" target=\"_blank\"><img src=\"http://hbb.afl.rakuten.co.jp/hgb/?pc=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fmagokoro-e%2fcabinet%2fitems%2ftoro20off.jpg%3f_ex%3d128x128&amp;m=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fmagokoro-e%2fcabinet%2fitems%2ftoro20off.jpg%3f_ex%3d80x80\" alt=\"【20％OFF】シーチキンとろ（びんなが） 24缶入【送料無料】\" border=\"0\" style=\"margin:0px;padding:0px\"></a><p style=\"font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/10f35e77.f4dbeb6d.10f35e78.6c0aefc5/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fmagokoro-e%2f0200-sale20%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fmagokoro-e%2fi%2f10000061%2f\" target=\"_blank\">【20％OFF】シーチキンとろ（びんなが） 24缶入【送料無料】</a><br><span style=\"\">価格：8,640円（税込、送料込）</span><br></p></div></td></tr></table>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/aZr1wo39uL0\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13320_191932.php"))) ("マンフロット クイックアクションストラップ MB 401N Manfrotto Quick Action Strap MB 401N" "<p>台湾旅行にいきますのでと、ベルボンの旅三脚ウルトレックを購入したのがつい一ヶ月半ほど前のことでしたが...<br />
+<a href=\"http://gajetdaisuke.com/archives/13225_190937.php\">カバンにも入る超おりたたみ三脚 ベルボン「UT-50」（ウルトレックUT-53Qの脚のみ）を使っている感想</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/GEFd7UOmSv4\" frameborder=\"0\" allowfullscreen></iframe><br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B007JBGF0C\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B002CVU4G0\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B005KGCBUQ\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BWGW2YI\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<p>その後、湯河原温泉に行きまして、またこれ地方や天候などによって運用などが変わってくるわけですね。</p>
+<p>湯河原に行ったのがちょうど煙霧の発生した風の強い日でありまして、そうなると段数が多く脚も比較的細めであるトラベル三脚というのは、やっぱり問題があるわけです。心配というか、春一番なみの強風では使えるかどうか半々といった感じになりますよね。</p>
+<p>そうなると、やっぱりごく普通の安定した三脚を持って行きたい。</p>
+<p>そこで問題になるのが運搬。<br />
+ズボンに入れて持っていくわけにもいかず...（笑）<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/AagM0ZIQviM\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>また、ウルトレックのように多段数でナットロック式のものはセッティングに時間がかかります。撮影にかかる手間が増えるというだけでなく、同行者を待たせてしまったりと色々考慮すべき点が出てくることも分かってきました。</p>
+<p>迅速さに重点を置くと三脚ストラップの類いが良いですけども、あれはどうもむき出しの金属パイプが体に当たるのが不快ですよね。担いでいて、いまいち安定しない場合もあるので、三脚が周囲のものにぶつかったりと思わぬ被害も招きかねません。</p>
+<p>そこでマンフロットのクイックアクションストラップ<strong>401N</strong>（Manfrotto Quick Action Strap MB 401N）というものを導入しました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eOJcn6d9WsQ\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><a href=\"http://www.amazon.co.jp/gp/product/B005GCUXUO/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B005GCUXUO&linkCode=as2&tag=aibadaisuke-22\">Manfrotto 三脚用 クイックアクションストラップ MB 401N</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B005GCUXUO\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B005GCUXUO/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B005GCUXUO&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B005GCUXUO&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B005GCUXUO\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>実際に外出先で使ってみたところ、思いのほか使いやすくて重宝しました。パッドが厚いので担いだときの感触も良いですね。それがほかの三脚ストラップとの一番の違いでもあります。体への負担が少なく、<a href=\"http://gajetdaisuke.com/archives/11521_155426.php\">055CXPRO3</a>のような中型三脚でも楽に持ち運べ、セッティングもスピーディーでした。</p>
+<p>徒歩移動が多い街並の取材であるとか、トレッキングしながらの撮影行などで強い味方になること間違いなしです。三脚ケースの出し入れの面倒さや、撮影時のケースのやり場などに困っていた方は、導入してみると良いと思いますよ。</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/nIvhUfMdJ04\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/nIvhUfMdJ04/13320_133452.php" (20809 20659) old 3 nil nil ((title nil "マンフロット クイックアクションストラップ MB 401N Manfrotto Quick Action Strap MB 401N") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/nIvhUfMdJ04/13320_133452.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13925") (published nil "2013-03-20T04:34:52Z") (updated nil "2013-03-20T06:01:23Z") (summary nil "三脚の迅速なセッティングと撤収が可能。運搬も楽々。三脚ケースでも単なる三脚ストラップでもない、もしかしたらトラベル三脚よりも上かもしれない、マンフロット クイックアクションストラップ MB 401N を導入しました。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "401n") (label . "401N") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "manfrotto") (label . "Manfrotto") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "４０１ｎ") (label . "４０１Ｎ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "クイックアクションストラップ") (label . "クイックアクションストラップ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "マンフロット") (label . "マンフロット") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "三脚") (label . "三脚") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "三脚ケース") (label . "三脚ケース") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "三脚ストラップ") (label . "三脚ストラップ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "旅行") (label . "旅行") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>台湾旅行にいきますのでと、ベルボンの旅三脚ウルトレックを購入したのがつい一ヶ月半ほど前のことでしたが...<br />
+<a href=\"http://gajetdaisuke.com/archives/13225_190937.php\">カバンにも入る超おりたたみ三脚 ベルボン「UT-50」（ウルトレックUT-53Qの脚のみ）を使っている感想</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/GEFd7UOmSv4\" frameborder=\"0\" allowfullscreen></iframe><br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B007JBGF0C\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B002CVU4G0\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B005KGCBUQ\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BWGW2YI\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>その後、湯河原温泉に行きまして、またこれ地方や天候などによって運用などが変わってくるわけですね。</p>
+        <p>湯河原に行ったのがちょうど煙霧の発生した風の強い日でありまして、そうなると段数が多く脚も比較的細めであるトラベル三脚というのは、やっぱり問題があるわけです。心配というか、春一番なみの強風では使えるかどうか半々といった感じになりますよね。</p>
+
+<p>そうなると、やっぱりごく普通の安定した三脚を持って行きたい。</p>
+
+<p>そこで問題になるのが運搬。<br />
+ズボンに入れて持っていくわけにもいかず...（笑）<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/AagM0ZIQviM\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>また、ウルトレックのように多段数でナットロック式のものはセッティングに時間がかかります。撮影にかかる手間が増えるというだけでなく、同行者を待たせてしまったりと色々考慮すべき点が出てくることも分かってきました。</p>
+
+<p>迅速さに重点を置くと三脚ストラップの類いが良いですけども、あれはどうもむき出しの金属パイプが体に当たるのが不快ですよね。担いでいて、いまいち安定しない場合もあるので、三脚が周囲のものにぶつかったりと思わぬ被害も招きかねません。</p>
+
+<p>そこでマンフロットのクイックアクションストラップ<strong>401N</strong>（Manfrotto Quick Action Strap MB 401N）というものを導入しました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eOJcn6d9WsQ\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><a href=\"http://www.amazon.co.jp/gp/product/B005GCUXUO/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B005GCUXUO&linkCode=as2&tag=aibadaisuke-22\">Manfrotto 三脚用 クイックアクションストラップ MB 401N</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B005GCUXUO\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B005GCUXUO/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B005GCUXUO&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B005GCUXUO&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B005GCUXUO\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>実際に外出先で使ってみたところ、思いのほか使いやすくて重宝しました。パッドが厚いので担いだときの感触も良いですね。それがほかの三脚ストラップとの一番の違いでもあります。体への負担が少なく、<a href=\"http://gajetdaisuke.com/archives/11521_155426.php\">055CXPRO3</a>のような中型三脚でも楽に持ち運べ、セッティングもスピーディーでした。</p>
+
+<p>徒歩移動が多い街並の取材であるとか、トレッキングしながらの撮影行などで強い味方になること間違いなしです。三脚ケースの出し入れの面倒さや、撮影時のケースのやり場などに困っていた方は、導入してみると良いと思いますよ。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/nIvhUfMdJ04\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13320_133452.php"))) ("瀧なのに故障中という...名主の滝公園にて" "<p><a href=\"http://www.youtube.com/watch?v=GCcZQKj7zrk\">YouTube不具合で再生できなかった動画のダイジェストと滝の知られざる秘密</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/GCcZQKj7zrk\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>瀧が故障するのである（笑）<br />
+これにはビックリした。</p>
+<p>妻とともに休日を変わったところで過ごそうと、「23区内で見られる瀧」として有名な、王子の「名主の滝公園」を訪ねた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570388589/\" title=\"名主の滝公園 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8103/8570388589_2ee3ef75ed_n.jpg\" width=\"320\" height=\"240\" alt=\"名主の滝公園\"></a></p>
+<p>男瀧（おだき）や女瀧（めだき）など落差5メートル以上かと思われる、そこそこ立派な瀧がある公園で、三脚をたてて撮影するカメラマンも私以外に何人か見かけた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570389239/\" title=\"男瀧 名主の滝公園 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8525/8570389239_2ec6520d23.jpg\" width=\"500\" height=\"333\" alt=\"男瀧 名主の滝公園\"></a></p>
+<p>そういった瀧のひとつ「獨鈷の瀧」だが、残念ながら水が枯れていた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570387863/\" title=\"瀧の故障 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8087/8570387863_72b57587b5.jpg\" width=\"500\" height=\"375\" alt=\"瀧の故障\"></a></p>
+<p>と思いきや...<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570387913/\" title=\"故障 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8243/8570387913_263c36715d.jpg\" width=\"500\" height=\"402\" alt=\"故障\"></a></p>
+<p>故障ってどういうことですか（笑）<br />
+瀧って故障するんですか！</p>
+<p>あらためて男瀧や女瀧もよくよく見てみれば、人工的に組み上げた岩であった。うは、これはヤラレた（笑）<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570398689/\" title=\"男瀧 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8106/8570398689_27e9830c46.jpg\" width=\"500\" height=\"333\" alt=\"男瀧\"></a></p>
+<p>もちろん落差あってこその瀧なので、もともとこの土地にはそういった崖や断層があるのだろう。水路を通してやれば簡単に瀧になる。住宅街のなかにある公園だけに、人の手で管理制御できるに越したことはない。</p>
+<p>それにしても、どこかに書いておいて欲しかった。癒しを求めてはるばる来たのだが、これでは興ざめである。レンズフィルターのテスト撮影としては良かったが...</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/z_ZKGeSGdOY\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/z_ZKGeSGdOY/13319_165110.php" (20808 7234) old 4 nil nil ((title nil "瀧なのに故障中という...名主の滝公園にて") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/z_ZKGeSGdOY/13319_165110.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13923") (published nil "2013-03-19T07:51:10Z") (updated nil "2013-03-19T08:05:22Z") (summary nil "東京23区内でも見られる瀧を目指して小旅行。北区王子の名主の滝公園にて、目を疑った故障中の滝「獨鈷の瀧」") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "サイエンス・テクノロジー") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "旅行・乗物") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "23区内") (label . "23区内") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "女瀧") (label . "女瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "瀧") (label . "瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "男瀧") (label . "男瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "東京") (label . "東京") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "名主の滝公園") (label . "名主の滝公園") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "獨鈷の瀧") (label . "獨鈷の瀧") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.youtube.com/watch?v=GCcZQKj7zrk\">YouTube不具合で再生できなかった動画のダイジェストと滝の知られざる秘密</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/GCcZQKj7zrk\" frameborder=\"0\" allowfullscreen></iframe></p>
+        <p>瀧が故障するのである（笑）<br />
+これにはビックリした。</p>
+
+<p>妻とともに休日を変わったところで過ごそうと、「23区内で見られる瀧」として有名な、王子の「名主の滝公園」を訪ねた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570388589/\" title=\"名主の滝公園 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8103/8570388589_2ee3ef75ed_n.jpg\" width=\"320\" height=\"240\" alt=\"名主の滝公園\"></a></p>
+
+<p>男瀧（おだき）や女瀧（めだき）など落差5メートル以上かと思われる、そこそこ立派な瀧がある公園で、三脚をたてて撮影するカメラマンも私以外に何人か見かけた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570389239/\" title=\"男瀧 名主の滝公園 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8525/8570389239_2ec6520d23.jpg\" width=\"500\" height=\"333\" alt=\"男瀧 名主の滝公園\"></a></p>
+
+<p>そういった瀧のひとつ「獨鈷の瀧」だが、残念ながら水が枯れていた。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570387863/\" title=\"瀧の故障 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8087/8570387863_72b57587b5.jpg\" width=\"500\" height=\"375\" alt=\"瀧の故障\"></a></p>
+
+<p>と思いきや...<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570387913/\" title=\"故障 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8243/8570387913_263c36715d.jpg\" width=\"500\" height=\"402\" alt=\"故障\"></a></p>
+
+<p>故障ってどういうことですか（笑）<br />
+瀧って故障するんですか！</p>
+
+<p>あらためて男瀧や女瀧もよくよく見てみれば、人工的に組み上げた岩であった。うは、これはヤラレた（笑）<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8570398689/\" title=\"男瀧 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8106/8570398689_27e9830c46.jpg\" width=\"500\" height=\"333\" alt=\"男瀧\"></a></p>
+
+<p>もちろん落差あってこその瀧なので、もともとこの土地にはそういった崖や断層があるのだろう。水路を通してやれば簡単に瀧になる。住宅街のなかにある公園だけに、人の手で管理制御できるに越したことはない。</p>
+
+<p>それにしても、どこかに書いておいて欲しかった。癒しを求めてはるばる来たのだが、これでは興ざめである。レンズフィルターのテスト撮影としては良かったが...</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/z_ZKGeSGdOY\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13319_165110.php"))) ("東横線の地下化で消えてしまった撮り鉄スポット" "<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8563496268/\" title=\"東急東横線とJR山手線・埼京線・貨物との立体交差 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8243/8563496268_af926046a0_m.jpg\" width=\"240\" height=\"135\" alt=\"東急東横線とJR山手線・埼京線・貨物との立体交差\"></a></p>
+<p>昨日、西武線の池袋駅付近を歩いていると、駅長さんの制服を着たひとが、東横線直通運転についてPRしていました。（東横の偉いひとだとは思うけど、よく見てないので定かではない）</p>
+<p>わかっていたけど、本当につなげてしまったのですね。所沢から横浜が近くなりましたよ、横浜からも奥秩父に行きやすいですよ、そんなPRされてもピンと来ませんけども、とりあえず現実になったと。</p>
+<p>私が西武沿線に越して来たころはまだ新線とか13号線とか呼ばれてましたが、2008年に副都心線として開業。なんだかよく分からないまま乗り間違えてしまう路線の全貌がようやく見えたのがそのときでした（笑）</p>
+<p>さらにそれが東横線とも直通運転するということで、先週末ほんとうに実現されてしまったわけです。</p>
+<p>それによって消えてしまった大切な風景がございまして、JR渋谷-恵比寿間の山手線および埼京線と、東横線の渋谷-代官山間の立体交差がなくなってしまったのです。</p>
+<p>以下は私が2010年に撮影していたものです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/3VFlodLUzwg\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>YouTubeに詳しい方々からコメントいただきましたが、2010年ということで、旧型NEX（成田エクスプレス）、ホームドア対応前の6ドア山手線、東横9000系など、2013年現在すでに見られない車両も多々映っているとのことです。期せずしてたいへん貴重な映像になってしまいました。</p>
+<p>恵比寿で打合せなどのあと時間が空いていれば、よくここを通って歩道橋から電車を眺めたりしたものです。</p>
+<p>まだまだ色んな写真や動画を撮影したいと思っていただけに、ここが無くなってしまうのは寂しいですね。ご覧の通り、様々な車両が行き交う姿はとても楽しいものです。</p>
+<p>幸いなことに西武池袋線は新線を引いての地下化・直通運転だったので、JR目白駅から眺める立体交差は健在であります。</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/-Go1OlB1dEI\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/-Go1OlB1dEI/13318_100324.php" (20806 32406) old 5 nil nil ((title nil "東横線の地下化で消えてしまった撮り鉄スポット") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/-Go1OlB1dEI/13318_100324.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13922") (published nil "2013-03-18T01:03:24Z") (updated nil "2013-03-18T02:40:22Z") (summary nil "JR渋谷-恵比寿間との立体交差は絶好の撮影ポイントだったのですが、これが失われてしまいました。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "旅行・乗物") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "社会・国際・政経") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "恵比寿") (label . "恵比寿") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "撮り鉄") (label . "撮り鉄") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "渋谷") (label . "渋谷") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "地下化") (label . "地下化") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "東横線") (label . "東横線") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "立体交差") (label . "立体交差") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8563496268/\" title=\"東急東横線とJR山手線・埼京線・貨物との立体交差 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8243/8563496268_af926046a0_m.jpg\" width=\"240\" height=\"135\" alt=\"東急東横線とJR山手線・埼京線・貨物との立体交差\"></a></p>
+
+<p>昨日、西武線の池袋駅付近を歩いていると、駅長さんの制服を着たひとが、東横線直通運転についてPRしていました。（東横の偉いひとだとは思うけど、よく見てないので定かではない）</p>
+
+<p>わかっていたけど、本当につなげてしまったのですね。所沢から横浜が近くなりましたよ、横浜からも奥秩父に行きやすいですよ、そんなPRされてもピンと来ませんけども、とりあえず現実になったと。</p>
+        <p>私が西武沿線に越して来たころはまだ新線とか13号線とか呼ばれてましたが、2008年に副都心線として開業。なんだかよく分からないまま乗り間違えてしまう路線の全貌がようやく見えたのがそのときでした（笑）</p>
+
+<p>さらにそれが東横線とも直通運転するということで、先週末ほんとうに実現されてしまったわけです。</p>
+
+<p>それによって消えてしまった大切な風景がございまして、JR渋谷-恵比寿間の山手線および埼京線と、東横線の渋谷-代官山間の立体交差がなくなってしまったのです。</p>
+
+<p>以下は私が2010年に撮影していたものです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/3VFlodLUzwg\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>YouTubeに詳しい方々からコメントいただきましたが、2010年ということで、旧型NEX（成田エクスプレス）、ホームドア対応前の6ドア山手線、東横9000系など、2013年現在すでに見られない車両も多々映っているとのことです。期せずしてたいへん貴重な映像になってしまいました。</p>
+
+<p>恵比寿で打合せなどのあと時間が空いていれば、よくここを通って歩道橋から電車を眺めたりしたものです。</p>
+
+<p>まだまだ色んな写真や動画を撮影したいと思っていただけに、ここが無くなってしまうのは寂しいですね。ご覧の通り、様々な車両が行き交う姿はとても楽しいものです。</p>
+
+<p>幸いなことに西武池袋線は新線を引いての地下化・直通運転だったので、JR目白駅から眺める立体交差は健在であります。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/-Go1OlB1dEI\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13318_100324.php"))) ("SONY エレクトレットコンデンサーマイクロホン ECM-PC60" "<p>ずいぶん前に購入していたのですが、小型で安価ということで大人気のコンデンサーマイクロフォンでございます。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\">SONY エレクトレットコンデンサーマイクロホン PC60 ECM-PC60</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B004KVIZCA&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>これまたずいぶん前に購入した<a href=\"http://gajetdaisuke.com/archives/12907_192659.php\" target=\"_blank\">超小型USBオーディオインターフェース Sound Blaster X-Fi Go! Pro Creative SB-XFI-GOP</a>と一緒に注文したんですけどね。当初目的としていたMacBook Air でのライヴストリーミングであるとか動画の収録であるとか、ましてやそれを家ではなく外出先でやってしまうとか、半年も経てばそんな用途から完全に遠ざかってしまった自分がおりました。</p>
+<p>とはいえ、ヤマゾン崩しもやっておかねばムダな地代家賃が増えるのみでありまして、こうして開けた次第であります。こんなに超小型なのにアマゾンBOXに入れっぱなしだったとは、マジでムダな地代家賃（笑）<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/jmxKAHiuypA\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>さあて、上の動画にて、短い時間ではありますが聴き比べていただいていかがでしたでしょうか？こんな小さいのに良好な音質でありましょう？しかも実売二千円台とは。</p>
+<p>ピンマイクの類いであれば数百円からありますけども、まともな音質を期待するならこれくらいの価格帯ということでしょうかね。パッケージにはSkypeのシールが貼られていたので、本来はビデオ撮影用というよりもボイスチャットを想定した製品のようですね。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\">SONY エレクトレットコンデンサーマイクロホン PC60 ECM-PC60</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B004KVIZCA&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>似たような製品で、スタンド無しピンマイクのみの物もあるようです。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007KTGJHM/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B007KTGJHM&linkCode=as2&tag=aibadaisuke-22\">ソニー エレクトレットコンデンサーマイクロホン ECM-SP10</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007KTGJHM\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007KTGJHM/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B007KTGJHM&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B007KTGJHM&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007KTGJHM\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr><td valign=\"top\"><div style=\"border:1px none;margin:0px;padding:6px 0px;width:160px;text-align:center;float:left\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/02ff574c.0eb6abb2.0467bc12.9fdd48d9/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fjism%2f4905524731576-35-10370-n%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fjism%2fi%2f10581637%2f\" target=\"_blank\"><img src=\"http://hbb.afl.rakuten.co.jp/hgb/?pc=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fjism%2fcabinet%2f0207%2f4905524731576.jpg%3f_ex%3d128x128&amp;m=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fjism%2fcabinet%2f0207%2f4905524731576.jpg%3f_ex%3d80x80\" alt=\"【3/12am9:59迄Facebookいいね+エントリーでP5倍】【Joshin webはネット通販1位(アフターサービ...\" border=\"0\" style=\"margin:0px;padding:0px\"></a><p style=\"font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/02ff574c.0eb6abb2.0467bc12.9fdd48d9/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fjism%2f4905524731576-35-10370-n%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fjism%2fi%2f10581637%2f\" target=\"_blank\">【3/12am9:59迄Facebookいいね+エントリーでP5倍】【Joshin webはネット通販1位(アフターサービ...</a><br><span style=\"\">価格：2,480円（税込、送料別）</span><br></p></div></td></tr></table>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/rAb22cNDwIo\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/rAb22cNDwIo/13312_023857.php" (20798 52811) old 6 nil nil ((title nil "SONY エレクトレットコンデンサーマイクロホン ECM-PC60") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/rAb22cNDwIo/13312_023857.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13921") (published nil "2013-03-11T17:38:57Z") (updated nil "2013-03-12T06:42:19Z") (summary nil "持ち歩きにも適した超小型サイズ。ピンマイクとしても良し、スタンドに立て複数人でも。ビデオのストリーミング等でも使えないかとSkype用のマイクECM-PC60を購入してみました。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エレクトロニクス") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "ecmpc60") (label . "ECM-PC60") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "skype") (label . "Skype") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "sony") (label . "SONY") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ソニー") (label . "ソニー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "マイク") (label . "マイク") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "動画撮影") (label . "動画撮影") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>ずいぶん前に購入していたのですが、小型で安価ということで大人気のコンデンサーマイクロフォンでございます。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\">SONY エレクトレットコンデンサーマイクロホン PC60 ECM-PC60</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B004KVIZCA&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+        <p>これまたずいぶん前に購入した<a href=\"http://gajetdaisuke.com/archives/12907_192659.php\" target=\"_blank\">超小型USBオーディオインターフェース Sound Blaster X-Fi Go! Pro Creative SB-XFI-GOP</a>と一緒に注文したんですけどね。当初目的としていたMacBook Air でのライヴストリーミングであるとか動画の収録であるとか、ましてやそれを家ではなく外出先でやってしまうとか、半年も経てばそんな用途から完全に遠ざかってしまった自分がおりました。</p>
+
+<p>とはいえ、ヤマゾン崩しもやっておかねばムダな地代家賃が増えるのみでありまして、こうして開けた次第であります。こんなに超小型なのにアマゾンBOXに入れっぱなしだったとは、マジでムダな地代家賃（笑）<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/jmxKAHiuypA\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>さあて、上の動画にて、短い時間ではありますが聴き比べていただいていかがでしたでしょうか？こんな小さいのに良好な音質でありましょう？しかも実売二千円台とは。</p>
+
+<p>ピンマイクの類いであれば数百円からありますけども、まともな音質を期待するならこれくらいの価格帯ということでしょうかね。パッケージにはSkypeのシールが貼られていたので、本来はビデオ撮影用というよりもボイスチャットを想定した製品のようですね。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\">SONY エレクトレットコンデンサーマイクロホン PC60 ECM-PC60</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B004KVIZCA/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B004KVIZCA&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B004KVIZCA&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B004KVIZCA\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>似たような製品で、スタンド無しピンマイクのみの物もあるようです。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007KTGJHM/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B007KTGJHM&linkCode=as2&tag=aibadaisuke-22\">ソニー エレクトレットコンデンサーマイクロホン ECM-SP10</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007KTGJHM\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007KTGJHM/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B007KTGJHM&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B007KTGJHM&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007KTGJHM\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr><td valign=\"top\"><div style=\"border:1px none;margin:0px;padding:6px 0px;width:160px;text-align:center;float:left\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/02ff574c.0eb6abb2.0467bc12.9fdd48d9/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fjism%2f4905524731576-35-10370-n%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fjism%2fi%2f10581637%2f\" target=\"_blank\"><img src=\"http://hbb.afl.rakuten.co.jp/hgb/?pc=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fjism%2fcabinet%2f0207%2f4905524731576.jpg%3f_ex%3d128x128&amp;m=http%3a%2f%2fthumbnail.image.rakuten.co.jp%2f%400_mall%2fjism%2fcabinet%2f0207%2f4905524731576.jpg%3f_ex%3d80x80\" alt=\"【3/12am9:59迄Facebookいいね+エントリーでP5倍】【Joshin webはネット通販1位(アフターサービ...\" border=\"0\" style=\"margin:0px;padding:0px\"></a><p style=\"font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px\"><a href=\"http://hb.afl.rakuten.co.jp/hgc/02ff574c.0eb6abb2.0467bc12.9fdd48d9/?pc=http%3a%2f%2fitem.rakuten.co.jp%2fjism%2f4905524731576-35-10370-n%2f%3fscid%3daf_link_tbl&amp;m=http%3a%2f%2fm.rakuten.co.jp%2fjism%2fi%2f10581637%2f\" target=\"_blank\">【3/12am9:59迄Facebookいいね+エントリーでP5倍】【Joshin webはネット通販1位(アフターサービ...</a><br><span style=\"\">価格：2,480円（税込、送料別）</span><br></p></div></td></tr></table>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/rAb22cNDwIo\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13312_023857.php"))) ("驚異の超可動ガンダム ASSAULT KINGDOM 食玩" "<p><a href=\"http://gajetdaisuke.com/archives/111223_050850.php\">ガンダムAGE ジョイントアクション食玩のフル可動フィギュアが凄すぎるぜ</a>と記事を書いたのが、2011年の12月のことであります。</p>
+<p>まあとにかく良く動く。<br />
+すばらしいガンダム食玩フィギュアでございました。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/6555567653/\" title=\"Gundam AGE Joint Action by Jet Daisuke, on Flickr\"><img src=\"http://farm8.staticflickr.com/7156/6555567653_2782492678_n.jpg\" width=\"320\" height=\"180\" alt=\"Gundam AGE Joint Action\"></a></p>
+<p>それから価格的には600円台とお高いのですが、こんな小型の可動フィギュアもありました。<br />
+<a href=\"http://gajetdaisuke.com/archives/121101_191031.php\" target=\"_blank\">このガンダム小さくて安いのに、アクションフィギュアとしての出来がすごく良さげ</a><br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8144117828/\" title=\"GUNDAM Magnet Action by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8043/8144117828_459861e538_n.jpg\" width=\"320\" height=\"240\" alt=\"GUNDAM Magnet Action\"></a></p>
+<p>また、ガンダムではありませんが、エヴァンゲリオンの食玩フィギュア「ASSAULT ACTION アサルト・アクション」というシリーズ。これも良く動いた。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/b7LbZbsMKBY\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>で、この三月になって発売されたのが「ASSAULT KINGDOM アサルトキングダム」というシリーズ。「ガンダム超可動」と銘打っただけに、確かによく動くんです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/b_sPgDkTpYk\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>※動画中で「ゴム」と呼んでるのは、どうやらPVC素材かもしれません。</p>
+<p>それで、動くだけならジョイントアクションのレベルでもまあまあ動くわけですが、このRX-78なんかプロポーションも抜群だったりします。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8535552843/\" title=\"RX-78 ガンダム ASSULT KINGDOM by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8505/8535552843_081e8fc835.jpg\" width=\"500\" height=\"281\" alt=\"RX-78 ガンダム ASSULT KINGDOM\"></a></p>
+<p>シナンジュはバックパックのせいか自立できませんでしたが、RX-78、ユニコーンともに自立してある程度のポージングもできました。もちろんディスプレイスタンドを利用すると、さらにカッコイイポージングも。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8535552517/\" title=\"ガンダム食玩ASSULT KINGDOM 2 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8101/8535552517_2a960375f8.jpg\" width=\"500\" height=\"281\" alt=\"ガンダム食玩ASSULT KINGDOM 2\"></a></p>
+<p>先週発売されたばかりですが売り切れ続出とのことで、Amazonでのボックス売りもプレミア価格が付くかもしれません。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BNQX9NU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009YAXVKI\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<p>なお同シリーズでは「ASSAULT KINGDOM EX」としてクシャトリヤもラインナップ予定<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B00AEGQCB6/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00AEGQCB6&linkCode=as2&tag=aibadaisuke-22\">機動戦士ガンダム ASSAULT KINGDOM EX (食玩)</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B00AEGQCB6\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B00AEGQCB6/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B00AEGQCB6&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B00AEGQCB6&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B00AEGQCB6\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>また、第二弾として、デストロイモードのユニコーン、ガンダムMarkII、陸戦型ガンダム、そしてザクという強力なツンテンコ！<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BLG5HLO\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<p>というわけで、今後の展開もワクワクしますね。<br />
+また買っちゃうんだろうなあ...（笑）</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/PR_3L7Payl4\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/PR_3L7Payl4/13310_003943.php" (20795 28081) old 7 nil nil ((title nil "驚異の超可動ガンダム ASSAULT KINGDOM 食玩") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/PR_3L7Payl4/13310_003943.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13920") (published nil "2013-03-09T15:39:43Z") (updated nil "2013-03-09T17:13:21Z") (summary nil "究極の食玩と呼んでも良いのではないでしょうかね。ガンダム超可動フィギュア入りで399円でした。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "おもちゃ・ホビー") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "assaultkingdom") (label . "ASSAULT KINGDOM") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "アサルトキングダム") (label . "アサルトキングダム") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ガンダム") (label . "ガンダム") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "フィギュア") (label . "フィギュア") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "食玩") (label . "食玩") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://gajetdaisuke.com/archives/111223_050850.php\">ガンダムAGE ジョイントアクション食玩のフル可動フィギュアが凄すぎるぜ</a>と記事を書いたのが、2011年の12月のことであります。</p>
+
+<p>まあとにかく良く動く。<br />
+すばらしいガンダム食玩フィギュアでございました。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/6555567653/\" title=\"Gundam AGE Joint Action by Jet Daisuke, on Flickr\"><img src=\"http://farm8.staticflickr.com/7156/6555567653_2782492678_n.jpg\" width=\"320\" height=\"180\" alt=\"Gundam AGE Joint Action\"></a></p>
+
+<p>それから価格的には600円台とお高いのですが、こんな小型の可動フィギュアもありました。<br />
+<a href=\"http://gajetdaisuke.com/archives/121101_191031.php\" target=\"_blank\">このガンダム小さくて安いのに、アクションフィギュアとしての出来がすごく良さげ</a><br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8144117828/\" title=\"GUNDAM Magnet Action by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8043/8144117828_459861e538_n.jpg\" width=\"320\" height=\"240\" alt=\"GUNDAM Magnet Action\"></a></p>
+        <p>また、ガンダムではありませんが、エヴァンゲリオンの食玩フィギュア「ASSAULT ACTION アサルト・アクション」というシリーズ。これも良く動いた。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/b7LbZbsMKBY\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>で、この三月になって発売されたのが「ASSAULT KINGDOM アサルトキングダム」というシリーズ。「ガンダム超可動」と銘打っただけに、確かによく動くんです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/b_sPgDkTpYk\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>※動画中で「ゴム」と呼んでるのは、どうやらPVC素材かもしれません。</p>
+
+<p>それで、動くだけならジョイントアクションのレベルでもまあまあ動くわけですが、このRX-78なんかプロポーションも抜群だったりします。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8535552843/\" title=\"RX-78 ガンダム ASSULT KINGDOM by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8505/8535552843_081e8fc835.jpg\" width=\"500\" height=\"281\" alt=\"RX-78 ガンダム ASSULT KINGDOM\"></a></p>
+
+<p>シナンジュはバックパックのせいか自立できませんでしたが、RX-78、ユニコーンともに自立してある程度のポージングもできました。もちろんディスプレイスタンドを利用すると、さらにカッコイイポージングも。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8535552517/\" title=\"ガンダム食玩ASSULT KINGDOM 2 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8101/8535552517_2a960375f8.jpg\" width=\"500\" height=\"281\" alt=\"ガンダム食玩ASSULT KINGDOM 2\"></a></p>
+
+<p>先週発売されたばかりですが売り切れ続出とのことで、Amazonでのボックス売りもプレミア価格が付くかもしれません。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BNQX9NU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009YAXVKI\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>なお同シリーズでは「ASSAULT KINGDOM EX」としてクシャトリヤもラインナップ予定<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B00AEGQCB6/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00AEGQCB6&linkCode=as2&tag=aibadaisuke-22\">機動戦士ガンダム ASSAULT KINGDOM EX (食玩)</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B00AEGQCB6\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B00AEGQCB6/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B00AEGQCB6&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B00AEGQCB6&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B00AEGQCB6\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>また、第二弾として、デストロイモードのユニコーン、ガンダムMarkII、陸戦型ガンダム、そしてザクという強力なツンテンコ！<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00BLG5HLO\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>というわけで、今後の展開もワクワクしますね。<br />
+また買っちゃうんだろうなあ...（笑）</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/PR_3L7Payl4\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13310_003943.php"))) ("デジカメ用ワイヤレスリモコン Cerevo SmartTrigger" "<p><a href=\"http://dash.cerevo.com/\" target=\"_blank\">Cerevo DASH</a>にて即パトロンになったデジカメ用リモコン「<strong>SmartTrigger</strong>」が先月末に届きました。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8516391802/\" title=\"Cerevo SmarTTrigger by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8250/8516391802_74686509ef.jpg\" width=\"500\" height=\"417\" alt=\"Cerevo SmarTTrigger\"></a></p>
+<p>とても長いあいだ待っていた製品だけに喜びもひとしお。</p>
+<p>この小型でバイスをiPhoneとBluetooth接続することで、ワイヤレスリモコンとして操作可能になるのです。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8516391458/\" title=\"Cerevo SmarTTrigger by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8505/8516391458_743ca2ca76.jpg\" width=\"500\" height=\"366\" alt=\"Cerevo SmarTTrigger\"></a></p>
+<p>私、タイムラプス撮影がとても好きなもので、それ用の高機能リモコンももちろん持っておりましたが、それは以下のようなもので、<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B006AMD0KE\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B006KZWH14\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<p>この小さくて暗い液晶ではスムーズな操作が可能だとはとても言えません。iPhoneのような大きな画面で設定できるのは理想的です。</p>
+<p>そう思ってパトロンになった私です。<br />
+さあ、実機が届いて初日の感想などは以下の動画にて。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/0rPvDpGxSLo\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>リモコンの機能としては申し分ないです。<br />
+ごく普通のレリーズ、ジャンプ撮影、タイムラプス、タイマー機能と。一通り上の動画のなかで説明しているので、お分かりいただけるかと思います。</p>
+<p>何がいいって、iPhoneアプリで操作できるということ。</p>
+<p>基本的に私の場合はケーブルレリーズの制約に馴れ切ってしまっているので、ワイヤレスで10m離れても扱えるという点にあまりピンと来てないですが、カメラ側のメニューでもなくリモコンのボタン操作でもなく、iPhoneの画面から操作できるという点だけでも「買い」の製品だと思いました。</p>
+<p>特にタイムラプス撮影される方はよろしいんじゃないでしょうか。アプリは裏側にまわってもちゃんと動作していたので、タイムラプス撮影中のあのヒマな時間も、iPhoneでTwitterやったりゲームしたりで解消できますね。</p>
+<p>明日からちょいと小旅行にいくので、持って行きたいと思います。</p>
+<p>購入は下記リンク先での直販のみなのかな？<br />
+パトロンへの発送とほぼ時を同じくして一般発売もされたようですね。<br />
+<a href=\"view-source:http://st.cerevo.com/ja/index.html\" target=\"_blank\">SmartTrigger - Cerevo</a></p>
+<p>YouTubeのコメントなどを見てると、モニターできると勘違いされた方などもいらっしゃいましたので、昨今のデジカメのスマホ連携をいろいろ混同されてしまってる感があります。</p>
+<p>それだけ、スマホとデジカメが近くなってきてるということでもあるし、SmartTriggerのような製品にもそれが期待されてるということともとれますね。そんなわけでCerevoの次のデジカメ連携製品などにも期待したいと思います。</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/Th-e4Bldw9w\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/Th-e4Bldw9w/13309_200900.php" (20795 19714) old 8 nil nil ((title nil "デジカメ用ワイヤレスリモコン Cerevo SmartTrigger") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/Th-e4Bldw9w/13309_200900.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13919") (published nil "2013-03-09T11:09:00Z") (updated nil "2013-03-09T14:53:54Z") (summary nil "待ちに待ったあのリモコンが...あ、もう一般販売もしてるのか（笑）") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "cerevo") (label . "Cerevo") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "smarttrigger") (label . "SmartTrigger") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "スマートトリガー") (label . "スマートトリガー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://dash.cerevo.com/\" target=\"_blank\">Cerevo DASH</a>にて即パトロンになったデジカメ用リモコン「<strong>SmartTrigger</strong>」が先月末に届きました。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8516391802/\" title=\"Cerevo SmarTTrigger by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8250/8516391802_74686509ef.jpg\" width=\"500\" height=\"417\" alt=\"Cerevo SmarTTrigger\"></a></p>
+        <p>とても長いあいだ待っていた製品だけに喜びもひとしお。</p>
+
+<p>この小型でバイスをiPhoneとBluetooth接続することで、ワイヤレスリモコンとして操作可能になるのです。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8516391458/\" title=\"Cerevo SmarTTrigger by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8505/8516391458_743ca2ca76.jpg\" width=\"500\" height=\"366\" alt=\"Cerevo SmarTTrigger\"></a></p>
+
+<p>私、タイムラプス撮影がとても好きなもので、それ用の高機能リモコンももちろん持っておりましたが、それは以下のようなもので、<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B006AMD0KE\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B006KZWH14\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+
+<p>この小さくて暗い液晶ではスムーズな操作が可能だとはとても言えません。iPhoneのような大きな画面で設定できるのは理想的です。</p>
+
+<p>そう思ってパトロンになった私です。<br />
+さあ、実機が届いて初日の感想などは以下の動画にて。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/0rPvDpGxSLo\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>リモコンの機能としては申し分ないです。<br />
+ごく普通のレリーズ、ジャンプ撮影、タイムラプス、タイマー機能と。一通り上の動画のなかで説明しているので、お分かりいただけるかと思います。</p>
+
+<p>何がいいって、iPhoneアプリで操作できるということ。</p>
+
+<p>基本的に私の場合はケーブルレリーズの制約に馴れ切ってしまっているので、ワイヤレスで10m離れても扱えるという点にあまりピンと来てないですが、カメラ側のメニューでもなくリモコンのボタン操作でもなく、iPhoneの画面から操作できるという点だけでも「買い」の製品だと思いました。</p>
+
+<p>特にタイムラプス撮影される方はよろしいんじゃないでしょうか。アプリは裏側にまわってもちゃんと動作していたので、タイムラプス撮影中のあのヒマな時間も、iPhoneでTwitterやったりゲームしたりで解消できますね。</p>
+
+<p>明日からちょいと小旅行にいくので、持って行きたいと思います。</p>
+
+<p>購入は下記リンク先での直販のみなのかな？<br />
+パトロンへの発送とほぼ時を同じくして一般発売もされたようですね。<br />
+<a href=\"view-source:http://st.cerevo.com/ja/index.html\" target=\"_blank\">SmartTrigger - Cerevo</a></p>
+
+<p>YouTubeのコメントなどを見てると、モニターできると勘違いされた方などもいらっしゃいましたので、昨今のデジカメのスマホ連携をいろいろ混同されてしまってる感があります。</p>
+
+<p>それだけ、スマホとデジカメが近くなってきてるということでもあるし、SmartTriggerのような製品にもそれが期待されてるということともとれますね。そんなわけでCerevoの次のデジカメ連携製品などにも期待したいと思います。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/Th-e4Bldw9w\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_200900.php"))) ("カメラのアクセサリーシューに付ける水準器もフィギュアの時代" "<p>カメラのアクセサリーシューに保護カバーを付けるというのは最近の流行りでしょうかね？</p>
+<p>思えば昔はホットシューではなかったので短絡の恐れもなく、あまりカバーを付けておく必要性もなかったんでしょうね。</p>
+<p>とはいえ、こういった便利グッズは以前からありました。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007GU10O2/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B007GU10O2&linkCode=as2&tag=aibadaisuke-22\">サンコー フラッシュ部固定水平器 RAMA11O21</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007GU10O2\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007GU10O2/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B007GU10O2&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B007GU10O2&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007GU10O2\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>この形状だと上からしか見えませんが、ファインダー側からも見える製品もあります。</p>
+<p>なんとデジタル式、サウンドでも知らせてくれるとか。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B002A9IZ8I/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B002A9IZ8I&linkCode=as2&tag=aibadaisuke-22\">Velbon ベルボン デジタル水準器 アクションレベル サウンド</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B002A9IZ8I\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B002A9IZ8I/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B002A9IZ8I&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B002A9IZ8I&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B002A9IZ8I\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>まあこのようなデジタル式になると数千円とお高くなってしまうのですが、液体式のなら気軽に購入できます。そして、カメラ女子ブームの折り、単にアクセサリーとしてもカワイイものが登場しています。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/T8yZF-qKx-8\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>ライト感覚のデジカメユーザだと、そもそも一生アクセサリーシューなど使う機会がないかもしれず、とはいえギンギンで一番目立つ場所に陣取ってるアイツ何様なのって感じで一生嫌うわけにもいかず、そんなわけでこういったフィギュアを載せて使うのも妥当に思えてくるでしょう？<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8541021811/\" title=\"水平器付 Camera Hotshoes Cover Hoo-Di(Angel) フーディ(エンジェル) カメラホットシューカバー　Hoo-Di Angel by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8368/8541021811_c735692de9.jpg\" width=\"470\" height=\"399\" alt=\"水平器付 Camera Hotshoes Cover Hoo-Di(Angel) フーディ(エンジェル) カメラホットシューカバー　Hoo-Di Angel\"></a></p>
+<p>極小アイテムなのですが、そのわりに背中の羽根や尻尾など、ちゃんとパーツが立ってますよね。金型一発抜きのモナカフィギュアにとどまらない仕事の細かさが気に入りました。</p>
+<p>黒と白がありますけども、黒よりは白のほうがそういった細かい仕事に目がいくカラーリングですね。黒だとちょっと見えにくいかも。カメラに合わせるにしても白のほうが概ね合うような気がしました。ということで白オヌヌメ<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B008AS1JYU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B008AS154Y\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/tRPC6dxXl_4\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/tRPC6dxXl_4/13309_195304.php" (20795 16507) old 9 nil nil ((title nil "カメラのアクセサリーシューに付ける水準器もフィギュアの時代") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/tRPC6dxXl_4/13309_195304.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13918") (published nil "2013-03-09T10:53:04Z") (updated nil "2013-03-09T14:00:27Z") (summary nil "食玩でもなんでもフィギュアなわけですが、カメラのアクセサリーシューカバーまでもフィギュアなんですね。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "アクセサリーシュー") (label . "アクセサリーシュー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "フィギュア") (label . "フィギュア") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "水準器") (label . "水準器") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "水平器") (label . "水平器") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>カメラのアクセサリーシューに保護カバーを付けるというのは最近の流行りでしょうかね？</p>
+
+<p>思えば昔はホットシューではなかったので短絡の恐れもなく、あまりカバーを付けておく必要性もなかったんでしょうね。</p>
+
+<p>とはいえ、こういった便利グッズは以前からありました。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007GU10O2/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B007GU10O2&linkCode=as2&tag=aibadaisuke-22\">サンコー フラッシュ部固定水平器 RAMA11O21</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007GU10O2\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B007GU10O2/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B007GU10O2&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B007GU10O2&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B007GU10O2\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>この形状だと上からしか見えませんが、ファインダー側からも見える製品もあります。</p>
+        <p>なんとデジタル式、サウンドでも知らせてくれるとか。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B002A9IZ8I/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B002A9IZ8I&linkCode=as2&tag=aibadaisuke-22\">Velbon ベルボン デジタル水準器 アクションレベル サウンド</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B002A9IZ8I\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B002A9IZ8I/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B002A9IZ8I&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B002A9IZ8I&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B002A9IZ8I\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>まあこのようなデジタル式になると数千円とお高くなってしまうのですが、液体式のなら気軽に購入できます。そして、カメラ女子ブームの折り、単にアクセサリーとしてもカワイイものが登場しています。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/T8yZF-qKx-8\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>ライト感覚のデジカメユーザだと、そもそも一生アクセサリーシューなど使う機会がないかもしれず、とはいえギンギンで一番目立つ場所に陣取ってるアイツ何様なのって感じで一生嫌うわけにもいかず、そんなわけでこういったフィギュアを載せて使うのも妥当に思えてくるでしょう？<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8541021811/\" title=\"水平器付 Camera Hotshoes Cover Hoo-Di(Angel) フーディ(エンジェル) カメラホットシューカバー　Hoo-Di Angel by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8368/8541021811_c735692de9.jpg\" width=\"470\" height=\"399\" alt=\"水平器付 Camera Hotshoes Cover Hoo-Di(Angel) フーディ(エンジェル) カメラホットシューカバー　Hoo-Di Angel\"></a></p>
+
+<p>極小アイテムなのですが、そのわりに背中の羽根や尻尾など、ちゃんとパーツが立ってますよね。金型一発抜きのモナカフィギュアにとどまらない仕事の細かさが気に入りました。</p>
+
+<p>黒と白がありますけども、黒よりは白のほうがそういった細かい仕事に目がいくカラーリングですね。黒だとちょっと見えにくいかも。カメラに合わせるにしても白のほうが概ね合うような気がしました。ということで白オヌヌメ<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B008AS1JYU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B008AS154Y\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/tRPC6dxXl_4\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_195304.php"))) ("写真や絵をマスクにして変装するiPhoneアプリ怪人百面相" "<p>iPhoneアプリ「怪人百面相」<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8538859229/\" title=\"怪人百面相 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8110/8538859229_8dc4a7b4c1.jpg\" width=\"282\" height=\"500\" alt=\"怪人百面相\"></a></p>
+<p>顔認識するアプリ<br />
+変装するアプリ</p>
+<p>というのは大変好きな類いなのですが、これまでのとはちょっと違う系統ですね。</p>
+<p>あくまでも「マスク」という感じですので、モナリザを私の顔にかぶせたからといって、私がモナリザになるわけではないようです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/NzX0hj5vAU0\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Fapp%252Fano-yanni-chao-bian-shen!%252Fid597795292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30\" target=\"itunes_store\">あの顔に超変身！怪人百面相 - Yahoo Japan Corp.</a><br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Fapp%252Fano-yanni-chao-bian-shen!%252Fid597795292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30\" target=\"itunes_store\"><img src=\"http://r.mzstatic.com/ja_jp/images/web/linkmaker/badge_appstore-lrg.gif\" alt=\"あの顔に超変身！怪人百面相 - Yahoo Japan Corp.\" style=\"border: 0;\"/></a></p>
+<p>テクスチャーマッピングの類いに近いんでしょうか？</p>
+<p>ウェブカムの付属ソフトにあるような、CGキャラに変身できるものともまた違う印象です。どちらかというと、そういう方が遊べる気はしますけども、Yahoo! Japan Lab から登場ということで、どこか技術検証的な風味が漂いますね。</p>
+<p>ビデオブロガーとしては、せっかく動画が撮れるのだから、マスクのサムネを同時記録するのはやめて欲しいですし、横向きでの動画記録にも対応してほしいところ。</p>
+<p>クレイジートークやモーションポートレイトの大好きな私ですから、今後も期待したいアプリのひとつですね。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/1eqkndi_Dqk\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ewE5xvQY1ZI\" frameborder=\"0\" allowfullscreen></iframe></p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/U5--TF1dDe0\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/U5--TF1dDe0/13309_051433.php" (20794 22392) old 10 nil nil ((title nil "写真や絵をマスクにして変装するiPhoneアプリ怪人百面相") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/U5--TF1dDe0/13309_051433.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13917") (published nil "2013-03-08T20:14:33Z") (updated nil "2013-03-08T21:26:16Z") (summary nil "ルパン三世がかぶってるような薄手のマスクみたいなものですけども、いまいち馴染んでくれません（笑）でも、今後に期待したいアプリですね。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "iPhone・iPad・iPod") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "iphone") (label . "iPhone") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "アプリ") (label . "アプリ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "モーションポートレイト") (label . "モーションポートレイト") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "怪人百面相") (label . "怪人百面相") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>iPhoneアプリ「怪人百面相」<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8538859229/\" title=\"怪人百面相 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8110/8538859229_8dc4a7b4c1.jpg\" width=\"282\" height=\"500\" alt=\"怪人百面相\"></a></p>
+        <p>顔認識するアプリ<br />
+変装するアプリ</p>
+
+<p>というのは大変好きな類いなのですが、これまでのとはちょっと違う系統ですね。</p>
+
+<p>あくまでも「マスク」という感じですので、モナリザを私の顔にかぶせたからといって、私がモナリザになるわけではないようです。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/NzX0hj5vAU0\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Fapp%252Fano-yanni-chao-bian-shen!%252Fid597795292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30\" target=\"itunes_store\">あの顔に超変身！怪人百面相 - Yahoo Japan Corp.</a><br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Fapp%252Fano-yanni-chao-bian-shen!%252Fid597795292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30\" target=\"itunes_store\"><img src=\"http://r.mzstatic.com/ja_jp/images/web/linkmaker/badge_appstore-lrg.gif\" alt=\"あの顔に超変身！怪人百面相 - Yahoo Japan Corp.\" style=\"border: 0;\"/></a></p>
+
+<p>テクスチャーマッピングの類いに近いんでしょうか？</p>
+
+<p>ウェブカムの付属ソフトにあるような、CGキャラに変身できるものともまた違う印象です。どちらかというと、そういう方が遊べる気はしますけども、Yahoo! Japan Lab から登場ということで、どこか技術検証的な風味が漂いますね。</p>
+
+<p>ビデオブロガーとしては、せっかく動画が撮れるのだから、マスクのサムネを同時記録するのはやめて欲しいですし、横向きでの動画記録にも対応してほしいところ。</p>
+
+<p>クレイジートークやモーションポートレイトの大好きな私ですから、今後も期待したいアプリのひとつですね。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/1eqkndi_Dqk\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ewE5xvQY1ZI\" frameborder=\"0\" allowfullscreen></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/U5--TF1dDe0\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_051433.php"))) ("PENTAX Q10でもここまでイケる" "<p>コンデジのボディに一眼ぽいレンズを装着したものというのが、ペンタックスQシリーズにまつわる世の中の評価であろうかと思いますが</p>
+<p>確かにそんな気がします。</p>
+<p>山ちゃんがAPS-Cセンサーのデジカメ PENTAX K-01 にて撮影している横で、私はQちゃんを持ってシコシコと撮影してたりするわけです。</p>
+<p>そうなると一目瞭然なんですな、おなじ場所で撮ってるから当然カメラの違いがハッキリ出てくる。</p>
+<p>あれ？<br />
+Qちゃんだと少ししょぼい？<br />
+Qちゃんだと少しノイジー？<br />
+Qちゃんだと階調がアレ？</p>
+<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8539060857/\" title=\"三宝寺池Original by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8518/8539060857_15c88d65d2.jpg\" width=\"500\" height=\"375\" alt=\"三宝寺池Original\"></a></p>
+<p>うーむ<br />
+この差はいかんともし難いのか？</p>
+<p>いや、Qちゃんで悩むくらいなら一眼レフを持っていけばいいのですが、そこはほら、ものぐさでコンパクトサイズ好きな私のことですから意地でも持っていかない時が多い。</p>
+<p>ところがその体験が花開きまして、この数ヶ月でQちゃんの写真はどういじるべきなのか、どういじればいいのか分かってきました。</p>
+<p>まあポスプロなしでも凄いと思えれば良いのですが、なかなかそういうわけにもいかず。</p>
+<p>とりあえず上の写真のようなものは、こうすると生まれ変わりますね。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8539055669/\" title=\"三宝寺池 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8514/8539055669_d605b4c9e8.jpg\" width=\"500\" height=\"375\" alt=\"三宝寺池\"></a></p>
+<p>RAWではなくJPEGからいじってますが、ブログで見る程度のようなものならこれで良いでしょう。</p>
+<p>Qというか、Q10だからというのもあります。<br />
+オリジナルのQだとここまではいかないかも。<br />
+おもに暗所性能の違いで。</p>
+<p>以下は、星空の比較明コンポジットのための素材でありますが、<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8539062151/\" title=\"星撮り by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8368/8539062151_40870bc330.jpg\" width=\"500\" height=\"375\" alt=\"星撮り\"></a></p>
+<p>これも上手くいじってやれば、Flickrに公開された動画のほうが綺麗に思えるほどに変わりますね。<br />
+<object type=\"application/x-shockwave-flash\" width=\"400\" height=\"225\" data=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"> <param name=\"flashvars\" value=\"intl_lang=en-us&photo_secret=0fdf5e318a&photo_id=8539066365\"></param> <param name=\"movie\" value=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\"></param> <param name=\"bgcolor\" value=\"#000000\"></param> <param name=\"allowFullScreen\" value=\"true\"></param><embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\" bgcolor=\"#000000\" allowfullscreen=\"true\" flashvars=\"intl_lang=en-us&photo_secret=0fdf5e318a&photo_id=8539066365\" height=\"225\" width=\"400\"></embed></object></p>
+<p>それで、何を書こうとしてたのか忘れてしまったのでこの辺でさよなら（笑）hulu見ながらというのはいけませんなぁ、すっかり考えをまとめるのが下手になった。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009931NP0\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YK6NU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YJPWS\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YK8AG\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/TwBpe7LJKIU\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/TwBpe7LJKIU/13309_030527.php" (20794 16900) old 11 nil nil ((title nil "PENTAX Q10でもここまでイケる") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/TwBpe7LJKIU/13309_030527.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13916") (published nil "2013-03-08T18:05:27Z") (updated nil "2013-03-08T19:54:44Z") (summary nil "一眼といいつつ、コンデジと同じ1/2.3型センサーを持つPENTAX Q10（ペンタックスＱ）ですが、ポスプロでどうにかしてやれば、より良かったのです。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "pentaxq10") (label . "PENTAX Q10") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "q") (label . "Q") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ペンタックス") (label . "ペンタックス") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>コンデジのボディに一眼ぽいレンズを装着したものというのが、ペンタックスQシリーズにまつわる世の中の評価であろうかと思いますが</p>
+
+<p>確かにそんな気がします。</p>
+
+<p>山ちゃんがAPS-Cセンサーのデジカメ PENTAX K-01 にて撮影している横で、私はQちゃんを持ってシコシコと撮影してたりするわけです。</p>
+
+<p>そうなると一目瞭然なんですな、おなじ場所で撮ってるから当然カメラの違いがハッキリ出てくる。</p>
+        <p>あれ？<br />
+Qちゃんだと少ししょぼい？<br />
+Qちゃんだと少しノイジー？<br />
+Qちゃんだと階調がアレ？</p>
+
+<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8539060857/\" title=\"三宝寺池Original by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8518/8539060857_15c88d65d2.jpg\" width=\"500\" height=\"375\" alt=\"三宝寺池Original\"></a></p>
+
+<p>うーむ<br />
+この差はいかんともし難いのか？</p>
+
+<p>いや、Qちゃんで悩むくらいなら一眼レフを持っていけばいいのですが、そこはほら、ものぐさでコンパクトサイズ好きな私のことですから意地でも持っていかない時が多い。</p>
+
+<p>ところがその体験が花開きまして、この数ヶ月でQちゃんの写真はどういじるべきなのか、どういじればいいのか分かってきました。</p>
+
+<p>まあポスプロなしでも凄いと思えれば良いのですが、なかなかそういうわけにもいかず。</p>
+
+<p>とりあえず上の写真のようなものは、こうすると生まれ変わりますね。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8539055669/\" title=\"三宝寺池 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8514/8539055669_d605b4c9e8.jpg\" width=\"500\" height=\"375\" alt=\"三宝寺池\"></a></p>
+
+<p>RAWではなくJPEGからいじってますが、ブログで見る程度のようなものならこれで良いでしょう。</p>
+
+<p>Qというか、Q10だからというのもあります。<br />
+オリジナルのQだとここまではいかないかも。<br />
+おもに暗所性能の違いで。</p>
+
+<p>以下は、星空の比較明コンポジットのための素材でありますが、<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8539062151/\" title=\"星撮り by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8368/8539062151_40870bc330.jpg\" width=\"500\" height=\"375\" alt=\"星撮り\"></a></p>
+
+<p>これも上手くいじってやれば、Flickrに公開された動画のほうが綺麗に思えるほどに変わりますね。<br />
+<object type=\"application/x-shockwave-flash\" width=\"400\" height=\"225\" data=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"> <param name=\"flashvars\" value=\"intl_lang=en-us&photo_secret=0fdf5e318a&photo_id=8539066365\"></param> <param name=\"movie\" value=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\"></param> <param name=\"bgcolor\" value=\"#000000\"></param> <param name=\"allowFullScreen\" value=\"true\"></param><embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/video/stewart.swf?v=109786\" bgcolor=\"#000000\" allowfullscreen=\"true\" flashvars=\"intl_lang=en-us&photo_secret=0fdf5e318a&photo_id=8539066365\" height=\"225\" width=\"400\"></embed></object></p>
+
+<p>それで、何を書こうとしてたのか忘れてしまったのでこの辺でさよなら（笑）hulu見ながらというのはいけませんなぁ、すっかり考えをまとめるのが下手になった。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009931NP0\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YK6NU\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YJPWS\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00B6YK8AG\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/TwBpe7LJKIU\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_030527.php"))) ("刺身ステーキが超絶旨い！マグロ中とろ、とろサーモンのステーキ" "<p>まぐろ中トロ<strong>刺身用</strong>を安く売ってたので買ってきたのですが、お刺身のためではない、ステーキにしたのだった！<br />
+<a href=\"http://www.youtube.com/watch?v=lYNUz7N3eY4\" target=\"_blank\">本まぐろ中トロをステーキにしたら美味しすぎて悶絶しそうになった件 </a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/lYNUz7N3eY4\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>大トロではなく中トロというところがミソですよね。<br />
+炙りトロとも違って、ほどよく脂が落ちつつ、芯の脂までもがとろける状態。思い出しただけでも飯が食えそうです（笑）</p>
+<p>さて、上の動画を公開したところ反響がたいへん多かったのですが、皆さんお値段のほうを気にされてたようですね。たしかに中トロは高いです。たまのご馳走でしかありません。もっと気軽に買えるものは...</p>
+<p>ということで、刺身用とろサーモンであります。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8540023664/\" title=\"とろサーモンステーキ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8508/8540023664_1435658454.jpg\" width=\"500\" height=\"375\" alt=\"とろサーモンステーキ\"></a></p>
+<p>塩コショウして焼いただけなのですが、これが絶品！<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8538916759/\" title=\"とろサーモンステーキ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8250/8538916759_51a7828b95.jpg\" width=\"500\" height=\"375\" alt=\"とろサーモンステーキ\"></a></p>
+<p>刺身用だからこその安心と鮮度。焼き加減はミディアムレアといったところでしょうか、それが功を奏してムニエルや焼きジャケとは別物の新体験でありました。</p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/ZbYQsAsRkdU\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/ZbYQsAsRkdU/13309_021715.php" (20794 9226) old 12 nil nil ((title nil "刺身ステーキが超絶旨い！マグロ中とろ、とろサーモンのステーキ") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/ZbYQsAsRkdU/13309_021715.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13915") (published nil "2013-03-08T17:17:15Z") (updated nil "2013-03-08T17:46:50Z") (summary nil "刺身用の中トロ、サーモンなどの冊を買ってきて焼くだけなのだが激ウマ") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "グルメ・食文化") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "サーモン") (label . "サーモン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "サケ") (label . "サケ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "シャケ") (label . "シャケ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ステーキ") (label . "ステーキ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "鮭") (label . "鮭") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "刺身") (label . "刺身") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "中トロ") (label . "中トロ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>まぐろ中トロ<strong>刺身用</strong>を安く売ってたので買ってきたのですが、お刺身のためではない、ステーキにしたのだった！<br />
+<a href=\"http://www.youtube.com/watch?v=lYNUz7N3eY4\" target=\"_blank\">本まぐろ中トロをステーキにしたら美味しすぎて悶絶しそうになった件 </a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/lYNUz7N3eY4\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>大トロではなく中トロというところがミソですよね。<br />
+炙りトロとも違って、ほどよく脂が落ちつつ、芯の脂までもがとろける状態。思い出しただけでも飯が食えそうです（笑）</p>
+
+<p>さて、上の動画を公開したところ反響がたいへん多かったのですが、皆さんお値段のほうを気にされてたようですね。たしかに中トロは高いです。たまのご馳走でしかありません。もっと気軽に買えるものは...</p>
+        <p>ということで、刺身用とろサーモンであります。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8540023664/\" title=\"とろサーモンステーキ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8508/8540023664_1435658454.jpg\" width=\"500\" height=\"375\" alt=\"とろサーモンステーキ\"></a></p>
+
+<p>塩コショウして焼いただけなのですが、これが絶品！<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8538916759/\" title=\"とろサーモンステーキ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8250/8538916759_51a7828b95.jpg\" width=\"500\" height=\"375\" alt=\"とろサーモンステーキ\"></a></p>
+
+<p>刺身用だからこその安心と鮮度。焼き加減はミディアムレアといったところでしょうか、それが功を奏してムニエルや焼きジャケとは別物の新体験でありました。</p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/ZbYQsAsRkdU\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13309_021715.php"))) ("キヤノンの一眼、ミラーレス、コンデジ、交換レンズを対象にしたキャッシュバックキャンペーンで悩み中" "<p>あーもう！<br />
+大事な作業中なのにとんでもないものを見てしまった。</p>
+<p>これ見てからずっと、仕事の手をとめてデジカメのスペック比較などに奔走中ですよ（笑）</p>
+<p>たまにやってるキャッシュバックキャンペーンです。<br />
+<a href=\"http://cweb.canon.jp/eos/campaign/goldrush/\" target=\"_blank\">キヤノン：ザ・ゴールドラッシュキャンペーン</a></p>
+<p>1万円キャッシュバックの製品と、5,000円キャッシュバックの製品があるのですけども、対象商品がなんとまあ幅広い。その中でも私が気になったものが以下。</p>
+<p>入門機ながら実はキヤノンの一眼レフでは動画撮影時のオートフォーカス最強なんではと噂される「EOS Kiss X6i EF-S18-135 IS STM レンズキット」は1万円キャッシュバック。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWY7W/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWY7W&linkCode=as2&tag=aibadaisuke-22\">Canon デジタル一眼レフカメラ EOS Kiss X6i EF-S18-135 IS STM レンズキット KISSX6i-18135ISSTMLK</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWY7W\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWY7W/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWY7W&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0089SWY7W&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWY7W\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>そして「最後のミラーレス」EOS M・ダブルレンズキットも1万円キャッシュバックでお得に。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B008O0WZL0/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B008O0WZL0&linkCode=as2&tag=aibadaisuke-22\">Canon デジタル一眼カメラ EOS M(ブラック) ダブルレンズキット EOSMBK-WLK</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B008O0WZL0\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B008O0WZL0/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B008O0WZL0&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B008O0WZL0&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B008O0WZL0\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>ほかはお高いEFレンズ群（ていうかLレンズばっか）なので1万円戻っても焼け石に水といった感じ（笑）</p>
+<p>そして5,000円キャッシュバックの対象商品で気になったのが以下。</p>
+<p>一眼にも迫るセンサーサイズで驚きをもって迎えられた最強コンパクト。低級EOSと互角なんじゃないのと思える性能。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0076FR33Y/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0076FR33Y&linkCode=as2&tag=aibadaisuke-22\">Canon デジタルカメラ PowerShot G1X 1.5型高感度CMOSセンサー 3.0型バリアングル液晶 PSG1X</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0076FR33Y\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0076FR33Y/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0076FR33Y&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0076FR33Y&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0076FR33Y\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>ソニーのRX100に押されて存在感がいきなり激薄になっておりましたが、星撮りも動画撮影もする私なんかにゃサブ機として気になる存在。5,000円キャッシュバックとなれば突然輝きはじめました（笑）ウェブでRX100と比較検討しちゃったりなんかして（笑）</p>
+<p>ほかに5,000円キャッシュバック対象にはLレンズではないEFレンズが多数挙がっておりますが、なかでもピカイチでお得そうなのがこのパンケーキレンズ<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWZDU/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWZDU&linkCode=as2&tag=aibadaisuke-22\">Canon EF40mm F2.8 STM [EF4028STM]</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWZDU\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWZDU/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWZDU&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0089SWZDU&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWZDU\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>なんといっても実売価格が1万円台の中盤くらいまで下がっていますから、これで5,000円戻ってきた日にゃあ、かなり嬉しいことになってしまいますね。</p>
+<p>ちなみに私がこの中でいちばん欲しいのは<a href=\"http://www.amazon.co.jp/o/ASIN/B0076FR33Y/aibadaisuke-22\">Canon PowerShot G1X</a>ですね。下手なミラーレス機よりもよっぽど活躍しそうなカメラですし。キャンペーンの詳細は以下のリンク先です。量販店なんかにも申込用紙はあるみたい。<br />
+<a href=\"http://cweb.canon.jp/eos/campaign/goldrush/\" target=\"_blank\">キヤノン：ザ・ゴールドラッシュキャンペーン</a></p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/D3OvOLMXlO8\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/D3OvOLMXlO8/13307_170142.php" (20792 20284) old 13 nil nil ((title nil "キヤノンの一眼、ミラーレス、コンデジ、交換レンズを対象にしたキャッシュバックキャンペーンで悩み中") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/D3OvOLMXlO8/13307_170142.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13914") (published nil "2013-03-07T08:01:42Z") (updated nil "2013-03-07T08:26:36Z") (summary nil "欲しいけど買うには至ってなかったノーマークのあの製品たちが、キャッシュバックならと突然輝き始めることってあるでしょう？") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エレクトロニクス") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "eos") (label . "EOS") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "powershot") (label . "PowerShot") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "キャッシュバック") (label . "キャッシュバック") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "キャンペーン") (label . "キャンペーン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "キヤノン") (label . "キヤノン") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>あーもう！<br />
+大事な作業中なのにとんでもないものを見てしまった。</p>
+
+<p>これ見てからずっと、仕事の手をとめてデジカメのスペック比較などに奔走中ですよ（笑）</p>
+        <p>たまにやってるキャッシュバックキャンペーンです。<br />
+<a href=\"http://cweb.canon.jp/eos/campaign/goldrush/\" target=\"_blank\">キヤノン：ザ・ゴールドラッシュキャンペーン</a></p>
+
+<p>1万円キャッシュバックの製品と、5,000円キャッシュバックの製品があるのですけども、対象商品がなんとまあ幅広い。その中でも私が気になったものが以下。</p>
+
+<p>入門機ながら実はキヤノンの一眼レフでは動画撮影時のオートフォーカス最強なんではと噂される「EOS Kiss X6i EF-S18-135 IS STM レンズキット」は1万円キャッシュバック。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWY7W/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWY7W&linkCode=as2&tag=aibadaisuke-22\">Canon デジタル一眼レフカメラ EOS Kiss X6i EF-S18-135 IS STM レンズキット KISSX6i-18135ISSTMLK</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWY7W\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWY7W/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWY7W&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0089SWY7W&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWY7W\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>そして「最後のミラーレス」EOS M・ダブルレンズキットも1万円キャッシュバックでお得に。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B008O0WZL0/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B008O0WZL0&linkCode=as2&tag=aibadaisuke-22\">Canon デジタル一眼カメラ EOS M(ブラック) ダブルレンズキット EOSMBK-WLK</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B008O0WZL0\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B008O0WZL0/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B008O0WZL0&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B008O0WZL0&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B008O0WZL0\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>ほかはお高いEFレンズ群（ていうかLレンズばっか）なので1万円戻っても焼け石に水といった感じ（笑）</p>
+
+<p>そして5,000円キャッシュバックの対象商品で気になったのが以下。</p>
+
+<p>一眼にも迫るセンサーサイズで驚きをもって迎えられた最強コンパクト。低級EOSと互角なんじゃないのと思える性能。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0076FR33Y/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0076FR33Y&linkCode=as2&tag=aibadaisuke-22\">Canon デジタルカメラ PowerShot G1X 1.5型高感度CMOSセンサー 3.0型バリアングル液晶 PSG1X</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0076FR33Y\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0076FR33Y/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0076FR33Y&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0076FR33Y&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0076FR33Y\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>ソニーのRX100に押されて存在感がいきなり激薄になっておりましたが、星撮りも動画撮影もする私なんかにゃサブ機として気になる存在。5,000円キャッシュバックとなれば突然輝きはじめました（笑）ウェブでRX100と比較検討しちゃったりなんかして（笑）</p>
+
+<p>ほかに5,000円キャッシュバック対象にはLレンズではないEFレンズが多数挙がっておりますが、なかでもピカイチでお得そうなのがこのパンケーキレンズ<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWZDU/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWZDU&linkCode=as2&tag=aibadaisuke-22\">Canon EF40mm F2.8 STM [EF4028STM]</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWZDU\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B0089SWZDU/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B0089SWZDU&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B0089SWZDU&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B0089SWZDU\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>なんといっても実売価格が1万円台の中盤くらいまで下がっていますから、これで5,000円戻ってきた日にゃあ、かなり嬉しいことになってしまいますね。</p>
+
+<p>ちなみに私がこの中でいちばん欲しいのは<a href=\"http://www.amazon.co.jp/o/ASIN/B0076FR33Y/aibadaisuke-22\">Canon PowerShot G1X</a>ですね。下手なミラーレス機よりもよっぽど活躍しそうなカメラですし。キャンペーンの詳細は以下のリンク先です。量販店なんかにも申込用紙はあるみたい。<br />
+<a href=\"http://cweb.canon.jp/eos/campaign/goldrush/\" target=\"_blank\">キヤノン：ザ・ゴールドラッシュキャンペーン</a></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/D3OvOLMXlO8\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13307_170142.php"))) ("なぜフルサイズ一眼にソニーα99 SLT-A99V を選んだのか" "<p><a href=\"http://www.flickr.com/photos/41894144622@N01/8221871414/\" title=\"カメララップMにα99を包む by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8059/8221871414_c78321afdc.jpg\" width=\"500\" height=\"375\" alt=\"カメララップMにα99を包む\"></a></p>
+<p><a href=\"http://www.amazon.co.jp/gp/product/B009O5570K/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B009O5570K&linkCode=as2&tag=aibadaisuke-22\">ソニー デジタル一眼カメラ α99 ボディ SLT-A99V</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B009O5570K\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B009O5570K/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B009O5570K&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B009O5570K&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B009O5570K\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>キヤノンのデジタル一眼ばかりを使ってきた私ですが、突如ソニーのデジイチを購入して周囲のキヤノン仲間を驚かせたのが去年のこと。</p>
+<p>でも、前フリはあったんですよ。<br />
+おととしαユーザの熊谷さんとソニービルに行ってα77に感動して帰ってきたということがありました。そのときのブログ記事：<a href=\"http://gajetdaisuke.com/archives/11826_050549.php\" target=\"_blank\">SONYの本気を見た α77 の新しいEVFは光学ファインダーを殺すね</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/p_TXX4DRMYo\" frameborder=\"0\" allowfullscreen></iframe></p>
+<blockquote>今はまだ諸々の兼ね合いで（キヤノンも使いたいからね）まだ買おうとは思わないけども、このままEVFが進歩していくんだったらソニーでいいや。ほんとソニーでいいや。写真に限ってはαユーザ勝ち組だわ、これは間違いない。</blockquote>
+<p>なぜ「写真については」と書いてるかといえば、動画については私個人的にAVCHD嫌いだったからです。だってMacで扱いにくかったんだもん（笑）</p>
+<p>まあそれも神ツールの登場やiPhotoバージョンアップによって解決してしまい...ソニーαシリーズを購入しない最大の理由がいとも簡単に消え去りました（笑）<br />
+▼<a href=\"http://gajetdaisuke.com/archives/12429_114629.php\" target=\"_blank\">MacでもAVCHDビデオを扱える神ツール「Media Converter」</a><br />
+▼<a href=\"http://gajetdaisuke.com/archives/12619_231520.php\" target=\"_blank\">ジョブズ退任とAVCHDに完全対応したMacは何か関係あるのでしょうか</a></p>
+<p>ただし動画デジイチとして見てみると、AVCHDのビットレートはEOSムービーの半分以下だったりするので、その辺は依然として問題視されますが、主に軽装ノートパソコン（MacBook Air）で動画を扱う私のようなブロガーにとっては、むしろAVCHD程度のビットレートのほうがストレージ節約できて助かります。</p>
+<p>ということで暗雲がほぼ無いかのように感じましたので、昨年の11月下旬 唐突にα99を購入いたしました。とりあえずのファーストインプレッション動画が以下のもの。<br />
+<a href=\"http://www.youtube.com/watch?v=eeSQ_51GShs\" target=\"_blank\">ビデオブログならSONY α99 SLT-A99V フルサイズ一眼にソニーを選んだ理由</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eeSQ_51GShs\" frameborder=\"0\" allowfullscreen></iframe><br />
+動画撮影時でもファインダーを覗いて構えることができるというのは、ビデオブロガーにとっては大きなメリットです。もちろん3軸チルト液晶ディスプレイも購入の決定打。フルサイズ一眼でバリアングル液晶の類いを搭載してくれたのは他になかったですから。</p>
+<p>純正標準ズームVario-Sonnar T＊ 24-70mm F2.8との相性は抜群。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8210318763/\" title=\"冬の散歩道 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8483/8210318763_0a49a9ba9e.jpg\" width=\"500\" height=\"333\" alt=\"冬の散歩道\"></a></p>
+<p>驚異的な解像感です。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8211409454/\" title=\"jetdaisuke by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8487/8211409454_5c573e477f.jpg\" width=\"500\" height=\"333\" alt=\"jetdaisuke\"></a></p>
+<p>EVFの性能検証、そしてAFレンジコントロールについての動画。<br />
+<a href=\"http://www.youtube.com/watch?v=Ym5RlRvTLjM\" target=\"_blank\">ソニーSLT-A99V「α99」のEVF性能なら超速カワセミの動体撮影は可能か？</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/Ym5RlRvTLjM\" frameborder=\"0\" allowfullscreen></iframe><br />
+カワセミのような小さくて速いものを撮影してみて「追える」と確信しました。</p>
+<p>ところが一見無敵に思えたEVFも、UI設計の面で（というかアラート表示の仕方だけですが）ひとつ難ありでした。性能面ではほぼ不満がなかったので、こういったところは改善を強く要求したいです。以下の動画より。<br />
+<a href=\"http://www.youtube.com/watch?v=hwqWfJ9LOOo\" target=\"_blank\">こんどはソニーα99のEVF良くない点・改善してほしい点</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hwqWfJ9LOOo\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>タムロン70-300mm F4-5.6 （A005）でのテスト動画。<br />
+<a href=\"http://www.youtube.com/watch?v=VMpDdG93zXM\" target=\"_blank\">TEST: SONY α99 SLT-A99V + TAMRON SP 70-300mm F4-5.6 Di USD A005</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/VMpDdG93zXM\" frameborder=\"0\" allowfullscreen></iframe><br />
+冒頭のシルエットの水鳥の質感がたまらん！</p>
+<p>下はマイク製品のレビュー動画ですが、それと比較したα99の内蔵マイクも勝るとも劣らないレベルで良いではないですか。はっきり言って昨年のハンディカムのフラッグシップ機<a href=\"http://gajetdaisuke.com/archives/12430_115609.php\" target=\"_blank\">HDR-PJ760V</a>のマイクには圧勝しています。<br />
+<a href=\"http://www.youtube.com/watch?v=pF2FRkaEGAs\" target=\"_blank\">ビデオ撮影にオーディオテクニカAT9941 ステレオ感が増す外付マイク</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/pF2FRkaEGAs\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>そして三ヶ月を経て、改めまして以下の動画にて、購入理由について語らせていただきました。要は「フルサイズ一眼レフ」ではなく最高峰の「デジカメ」が欲しかったということになります。<br />
+<a href=\"http://www.youtube.com/watch?v=kU_T2OQO1y8\">なぜフルサイズ一眼にSONY α99を選んだのか？スマートテレコンとは？ </a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/kU_T2OQO1y8\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>ちなみにスマートテレコンでのクロップされるサイズですが、通常6000x4000ピクセルに対して、1.4倍スマートテレコン時で3936x2624ピクセル（APS-Cモードも同サイズ）、そして2.0倍では2640x1760ピクセルとなります。下図はサイズ対比。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8524890629/\" title=\"スマートテレコンのクロップ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8249/8524890629_8acf87daa4.jpg\" width=\"500\" height=\"173\" alt=\"スマートテレコンのクロップ\"></a></p>
+<p>また、スマートテレコン以外に「デジカメ」らしい機能としては、全画素超解像ズーム（これは動画撮影でも使える）と、「テレコン連続撮影優先AE」モードも。</p>
+<p>α99の連写性能は毎秒6コマと、キヤノン5D Mark3と同等ですが、ソニーTLM機にはおなじみの「テレコン連続撮影優先AE」を利用することで、画像サイズはクロップされ小さくなる（2640x1760ピクセル）ものの最高10コマ毎秒で撮影できます。その機能がないと下のようなカワセミ写真を撮るのは倍以上の困難があったと思います。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8268245965/\" title=\"hovering kingfisher 花園の翡翠 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8503/8268245965_7b4f660386.jpg\" width=\"500\" height=\"333\" alt=\"hovering kingfisher 花園の翡翠\"></a></p>
+<p>もっとも、キヤノンのフラッグシップ機ではより高速な連写が可能ですが、同社の中級フルサイズ機と同等価格帯であるα99にこういった機能が搭載されてるのは興味深いですね。</p>
+<p>ていうかクロップした疑似望遠で高速連写って、カワセミ撮れと言わんばかりの機能ですよね（笑）おかげでとても助かってます。70-300mmの安いズームレンズでも600mm気分で覗けますし。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8345681526/\" title=\"kingfisher by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8361/8345681526_ecd59293ba.jpg\" width=\"500\" height=\"333\" alt=\"kingfisher\"></a></p>
+<p>結局α99を購入した理由としては、先進的なEVF、3軸チルト液晶、その他デジカメならではの楽しい機能、そういった諸々が他社のフルサイズ一眼には見られなかったということでもあります。パナソニックGH-3も購入候補ではありましたが、昨年はやはりフルサイズ元年とも言うべき年でしたので、マイクロフォーサーズ機は除外（欲しいとは思うけどね）。</p>
+<p>EVFについては抵抗のある方が少なくないようですが、店頭やショールームなどで<strong>絞りプレビューボタン</strong>を押してみれば気が変わるかと思います。グッと絞り込んだ状態でも暗くならずに被写界深度を確認できます。お手持ちの一眼レフと明るさを比較してみてください。そもそもの一眼レフという機構が見たまんまを撮影するためのものであったなら、いまやこのEVFのほうがずっとそうであると思えてきます。</p>
+<p>今の時代、どうせデジカメ写真の多くは、EVFと同じ電子的なディスプレイでRGB表示されるものだと思いますし。OVFを覗いたときよりも、EVFに表示した被写体のほうが、最終的な「見せる」環境にも近いはずです。</p>
+<p>さいごになりますが、<br />
+私が購入するにあたり背中を押してくれた言葉が、ソニーの製品サイトにあります。ナショナルジオグラフィックのカメラマン、マイケル・ヤマシタ氏の言葉です。以下引用</p>
+<blockquote>私が仕事の道具として「α」を選んだのは、ソニーという企業が、エレクトロニクスや新技術の分野で、常に主導的な役割を果たしてきたからだ。カメラは既に光学機器の枠を越えて、エレクトロニクスを核に進化している。だからソニーのカメラは、これまでの写真の歴史を塗り替えるような、「まだ誰も観たことない世界」を見せてくれるはずだ。そういう期待も込めて、私は「α」を選び、使い続けてきた。</blockquote>
+<p>ですよね<br />
+私は「デジカメ」を買うつもりだったから、ソニーにしたんです。ヤマシタ氏と同じく「期待を込めて」なので、まだまだ達成できてない部分も多々あるとは思ってますが、今後にも期待してます。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009O5570K\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0013PHTBO\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B001G44HTY\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0099YU6SE\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/9ynxyK4wfO4\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/9ynxyK4wfO4/13304_062304.php" (20787 55256) old 14 nil nil ((title nil "なぜフルサイズ一眼にソニーα99 SLT-A99V を選んだのか") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/9ynxyK4wfO4/13304_062304.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13913") (published nil "2013-03-03T21:23:04Z") (updated nil "2013-03-03T23:08:08Z") (summary nil "昨年、デジタル一眼もフルサイズが当たり前の時代に移行しましたが、キヤノンユーザだった私がなぜSONYの一眼を買ったのかという理由") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "slta99v") (label . "SLT-A99V") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "sony") (label . "SONY") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ソニー") (label . "ソニー") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "デジカメ") (label . "デジカメ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "デジタル一眼") (label . "デジタル一眼") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "フルサイズ") (label . "フルサイズ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "α99") (label . "α99") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "一眼レフ") (label . "一眼レフ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p><a href=\"http://www.flickr.com/photos/41894144622@N01/8221871414/\" title=\"カメララップMにα99を包む by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8059/8221871414_c78321afdc.jpg\" width=\"500\" height=\"375\" alt=\"カメララップMにα99を包む\"></a></p>
+
+<p><a href=\"http://www.amazon.co.jp/gp/product/B009O5570K/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B009O5570K&linkCode=as2&tag=aibadaisuke-22\">ソニー デジタル一眼カメラ α99 ボディ SLT-A99V</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B009O5570K\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B009O5570K/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B009O5570K&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B009O5570K&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B009O5570K\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>キヤノンのデジタル一眼ばかりを使ってきた私ですが、突如ソニーのデジイチを購入して周囲のキヤノン仲間を驚かせたのが去年のこと。</p>
+
+<p>でも、前フリはあったんですよ。<br />
+おととしαユーザの熊谷さんとソニービルに行ってα77に感動して帰ってきたということがありました。そのときのブログ記事：<a href=\"http://gajetdaisuke.com/archives/11826_050549.php\" target=\"_blank\">SONYの本気を見た α77 の新しいEVFは光学ファインダーを殺すね</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/p_TXX4DRMYo\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<blockquote>今はまだ諸々の兼ね合いで（キヤノンも使いたいからね）まだ買おうとは思わないけども、このままEVFが進歩していくんだったらソニーでいいや。ほんとソニーでいいや。写真に限ってはαユーザ勝ち組だわ、これは間違いない。</blockquote>
+
+<p>なぜ「写真については」と書いてるかといえば、動画については私個人的にAVCHD嫌いだったからです。だってMacで扱いにくかったんだもん（笑）</p>
+        <p>まあそれも神ツールの登場やiPhotoバージョンアップによって解決してしまい...ソニーαシリーズを購入しない最大の理由がいとも簡単に消え去りました（笑）<br />
+▼<a href=\"http://gajetdaisuke.com/archives/12429_114629.php\" target=\"_blank\">MacでもAVCHDビデオを扱える神ツール「Media Converter」</a><br />
+▼<a href=\"http://gajetdaisuke.com/archives/12619_231520.php\" target=\"_blank\">ジョブズ退任とAVCHDに完全対応したMacは何か関係あるのでしょうか</a></p>
+
+<p>ただし動画デジイチとして見てみると、AVCHDのビットレートはEOSムービーの半分以下だったりするので、その辺は依然として問題視されますが、主に軽装ノートパソコン（MacBook Air）で動画を扱う私のようなブロガーにとっては、むしろAVCHD程度のビットレートのほうがストレージ節約できて助かります。</p>
+
+<p>ということで暗雲がほぼ無いかのように感じましたので、昨年の11月下旬 唐突にα99を購入いたしました。とりあえずのファーストインプレッション動画が以下のもの。<br />
+<a href=\"http://www.youtube.com/watch?v=eeSQ_51GShs\" target=\"_blank\">ビデオブログならSONY α99 SLT-A99V フルサイズ一眼にソニーを選んだ理由</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eeSQ_51GShs\" frameborder=\"0\" allowfullscreen></iframe><br />
+動画撮影時でもファインダーを覗いて構えることができるというのは、ビデオブロガーにとっては大きなメリットです。もちろん3軸チルト液晶ディスプレイも購入の決定打。フルサイズ一眼でバリアングル液晶の類いを搭載してくれたのは他になかったですから。</p>
+
+<p>純正標準ズームVario-Sonnar T＊ 24-70mm F2.8との相性は抜群。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8210318763/\" title=\"冬の散歩道 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8483/8210318763_0a49a9ba9e.jpg\" width=\"500\" height=\"333\" alt=\"冬の散歩道\"></a></p>
+
+<p>驚異的な解像感です。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8211409454/\" title=\"jetdaisuke by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8487/8211409454_5c573e477f.jpg\" width=\"500\" height=\"333\" alt=\"jetdaisuke\"></a></p>
+
+<p>EVFの性能検証、そしてAFレンジコントロールについての動画。<br />
+<a href=\"http://www.youtube.com/watch?v=Ym5RlRvTLjM\" target=\"_blank\">ソニーSLT-A99V「α99」のEVF性能なら超速カワセミの動体撮影は可能か？</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/Ym5RlRvTLjM\" frameborder=\"0\" allowfullscreen></iframe><br />
+カワセミのような小さくて速いものを撮影してみて「追える」と確信しました。</p>
+
+<p>ところが一見無敵に思えたEVFも、UI設計の面で（というかアラート表示の仕方だけですが）ひとつ難ありでした。性能面ではほぼ不満がなかったので、こういったところは改善を強く要求したいです。以下の動画より。<br />
+<a href=\"http://www.youtube.com/watch?v=hwqWfJ9LOOo\" target=\"_blank\">こんどはソニーα99のEVF良くない点・改善してほしい点</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hwqWfJ9LOOo\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>タムロン70-300mm F4-5.6 （A005）でのテスト動画。<br />
+<a href=\"http://www.youtube.com/watch?v=VMpDdG93zXM\" target=\"_blank\">TEST: SONY α99 SLT-A99V + TAMRON SP 70-300mm F4-5.6 Di USD A005</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/VMpDdG93zXM\" frameborder=\"0\" allowfullscreen></iframe><br />
+冒頭のシルエットの水鳥の質感がたまらん！</p>
+
+<p>下はマイク製品のレビュー動画ですが、それと比較したα99の内蔵マイクも勝るとも劣らないレベルで良いではないですか。はっきり言って昨年のハンディカムのフラッグシップ機<a href=\"http://gajetdaisuke.com/archives/12430_115609.php\" target=\"_blank\">HDR-PJ760V</a>のマイクには圧勝しています。<br />
+<a href=\"http://www.youtube.com/watch?v=pF2FRkaEGAs\" target=\"_blank\">ビデオ撮影にオーディオテクニカAT9941 ステレオ感が増す外付マイク</a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/pF2FRkaEGAs\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>そして三ヶ月を経て、改めまして以下の動画にて、購入理由について語らせていただきました。要は「フルサイズ一眼レフ」ではなく最高峰の「デジカメ」が欲しかったということになります。<br />
+<a href=\"http://www.youtube.com/watch?v=kU_T2OQO1y8\">なぜフルサイズ一眼にSONY α99を選んだのか？スマートテレコンとは？ </a><br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/kU_T2OQO1y8\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>ちなみにスマートテレコンでのクロップされるサイズですが、通常6000x4000ピクセルに対して、1.4倍スマートテレコン時で3936x2624ピクセル（APS-Cモードも同サイズ）、そして2.0倍では2640x1760ピクセルとなります。下図はサイズ対比。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8524890629/\" title=\"スマートテレコンのクロップ by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8249/8524890629_8acf87daa4.jpg\" width=\"500\" height=\"173\" alt=\"スマートテレコンのクロップ\"></a></p>
+
+<p>また、スマートテレコン以外に「デジカメ」らしい機能としては、全画素超解像ズーム（これは動画撮影でも使える）と、「テレコン連続撮影優先AE」モードも。</p>
+
+<p>α99の連写性能は毎秒6コマと、キヤノン5D Mark3と同等ですが、ソニーTLM機にはおなじみの「テレコン連続撮影優先AE」を利用することで、画像サイズはクロップされ小さくなる（2640x1760ピクセル）ものの最高10コマ毎秒で撮影できます。その機能がないと下のようなカワセミ写真を撮るのは倍以上の困難があったと思います。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8268245965/\" title=\"hovering kingfisher 花園の翡翠 by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8503/8268245965_7b4f660386.jpg\" width=\"500\" height=\"333\" alt=\"hovering kingfisher 花園の翡翠\"></a></p>
+
+<p>もっとも、キヤノンのフラッグシップ機ではより高速な連写が可能ですが、同社の中級フルサイズ機と同等価格帯であるα99にこういった機能が搭載されてるのは興味深いですね。</p>
+
+<p>ていうかクロップした疑似望遠で高速連写って、カワセミ撮れと言わんばかりの機能ですよね（笑）おかげでとても助かってます。70-300mmの安いズームレンズでも600mm気分で覗けますし。<br />
+<a href=\"http://www.flickr.com/photos/41894144622@N01/8345681526/\" title=\"kingfisher by Jet Daisuke, on Flickr\"><img src=\"http://farm9.staticflickr.com/8361/8345681526_ecd59293ba.jpg\" width=\"500\" height=\"333\" alt=\"kingfisher\"></a></p>
+
+<p>結局α99を購入した理由としては、先進的なEVF、3軸チルト液晶、その他デジカメならではの楽しい機能、そういった諸々が他社のフルサイズ一眼には見られなかったということでもあります。パナソニックGH-3も購入候補ではありましたが、昨年はやはりフルサイズ元年とも言うべき年でしたので、マイクロフォーサーズ機は除外（欲しいとは思うけどね）。</p>
+
+<p>EVFについては抵抗のある方が少なくないようですが、店頭やショールームなどで<strong>絞りプレビューボタン</strong>を押してみれば気が変わるかと思います。グッと絞り込んだ状態でも暗くならずに被写界深度を確認できます。お手持ちの一眼レフと明るさを比較してみてください。そもそもの一眼レフという機構が見たまんまを撮影するためのものであったなら、いまやこのEVFのほうがずっとそうであると思えてきます。</p>
+
+<p>今の時代、どうせデジカメ写真の多くは、EVFと同じ電子的なディスプレイでRGB表示されるものだと思いますし。OVFを覗いたときよりも、EVFに表示した被写体のほうが、最終的な「見せる」環境にも近いはずです。</p>
+
+<p>さいごになりますが、<br />
+私が購入するにあたり背中を押してくれた言葉が、ソニーの製品サイトにあります。ナショナルジオグラフィックのカメラマン、マイケル・ヤマシタ氏の言葉です。以下引用</p>
+
+<blockquote>私が仕事の道具として「α」を選んだのは、ソニーという企業が、エレクトロニクスや新技術の分野で、常に主導的な役割を果たしてきたからだ。カメラは既に光学機器の枠を越えて、エレクトロニクスを核に進化している。だからソニーのカメラは、これまでの写真の歴史を塗り替えるような、「まだ誰も観たことない世界」を見せてくれるはずだ。そういう期待も込めて、私は「α」を選び、使い続けてきた。</blockquote>
+
+<p>ですよね<br />
+私は「デジカメ」を買うつもりだったから、ソニーにしたんです。ヤマシタ氏と同じく「期待を込めて」なので、まだまだ達成できてない部分も多々あるとは思ってますが、今後にも期待してます。<br />
+<iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B009O5570K\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0013PHTBO\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B001G44HTY\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe><iframe src=\"http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=aibadaisuke-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B0099YU6SE\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/9ynxyK4wfO4\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13304_062304.php"))) ("Googleロゴが「パタパタ」ミリアム・マケバになりました。" "<p>Doodleがなんだか見たことあるようなアフリカ女性の絵柄になってたのですが、今日３月４日はミリアム・マケバのお誕生日だそうですね。<br />
+▼<a href=\"http://www.google.com/doodles/finder/2013/All%20doodles\" target=\"_blank\">Doodles 2013年</a></p>
+<p>誕生日とは知らなかったんですが、最近なぜだか彼女の代表曲「パタパタ（Pata Pata）」が聴きたくなり、YouTubeでいろんな動画を観ては楽しんでおりました。</p>
+<p>レコードのバージョンだけでなく、テレビなど公演ごとに色んな演奏があった興味深いです。<br />
+<iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/Zq5S5sH1Ikk\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/e-VrfadKbco\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/87S_wbCsNbQ\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/K2a6waS25TU\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>こんなリミックスもありました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/y1FHfcaWPoM\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p>私の通ってた中学校では、なにか行事のたびにこの「パタパタ」をかけて踊るというならわしがありまして、その踊りというのも誰が考えたか知りませんが決まった振り付けがございました。</p>
+<p>入学してすぐ、新入生歓迎会でまずはこの「パタパタ」のダンスを教わります。その後、運動会でも、遠足でも、その他集会などでも、卒業するまでこの曲で踊ってました。今考えてみればたいへん変わった学校ですね。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B000023ZGH/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B000023ZGH&linkCode=as2&tag=aibadaisuke-22\">Pata Pata</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B000023ZGH\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B000023ZGH/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B000023ZGH&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B000023ZGH&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B000023ZGH\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+<p>iTunesで購入するにはこちらから。<br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fpata-pata%252Fid59390537%253Fuo%253D4%2526partnerId%253D30\" target=\"itunes_store\">Pata Pata - ミリアム・マケバ</a><br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fpata-pata%252Fid59390537%253Fuo%253D4%2526partnerId%253D30\" target=\"itunes_store\"><img src=\"http://r.mzstatic.com/ja_jp/images/web/linkmaker/badge_itunes-lrg.gif\" alt=\"Pata Pata - ミリアム・マケバ\" style=\"border: 0;\"/></a></p>
+<img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/3pDFzi_bNqM\" height=\"1\" width=\"1\"/>" "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/3pDFzi_bNqM/13304_025357.php" (20787 37822) old 15 nil nil ((title nil "Googleロゴが「パタパタ」ミリアム・マケバになりました。") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/gajetdaisuke/PHCR/~3/3pDFzi_bNqM/13304_025357.php"))) (id nil "tag:gajetdaisuke.com,2013://10.13912") (published nil "2013-03-03T17:53:57Z") (updated nil "2013-03-03T18:17:34Z") (summary nil "今日３月４日がお誕生日のようですね。") (author nil (name nil "ジェット☆ダイスケ") (uri nil "http://gajetdaisuke.com/")) (category ((term . "エンターテインメント") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "パタパタ") (label . "パタパタ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "ミリアム・マケバ") (label . "ミリアム・マケバ") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://gajetdaisuke.com/")) "
+        <p>Doodleがなんだか見たことあるようなアフリカ女性の絵柄になってたのですが、今日３月４日はミリアム・マケバのお誕生日だそうですね。<br />
+▼<a href=\"http://www.google.com/doodles/finder/2013/All%20doodles\" target=\"_blank\">Doodles 2013年</a></p>
+        <p>誕生日とは知らなかったんですが、最近なぜだか彼女の代表曲「パタパタ（Pata Pata）」が聴きたくなり、YouTubeでいろんな動画を観ては楽しんでおりました。</p>
+
+<p>レコードのバージョンだけでなく、テレビなど公演ごとに色んな演奏があった興味深いです。<br />
+<iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/Zq5S5sH1Ikk\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/e-VrfadKbco\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/87S_wbCsNbQ\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/K2a6waS25TU\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>こんなリミックスもありました。<br />
+<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/y1FHfcaWPoM\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>私の通ってた中学校では、なにか行事のたびにこの「パタパタ」をかけて踊るというならわしがありまして、その踊りというのも誰が考えたか知りませんが決まった振り付けがございました。</p>
+
+<p>入学してすぐ、新入生歓迎会でまずはこの「パタパタ」のダンスを教わります。その後、運動会でも、遠足でも、その他集会などでも、卒業するまでこの曲で踊ってました。今考えてみればたいへん変わった学校ですね。<br />
+<a href=\"http://www.amazon.co.jp/gp/product/B000023ZGH/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B000023ZGH&linkCode=as2&tag=aibadaisuke-22\">Pata Pata</a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B000023ZGH\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /><br />
+<a href=\"http://www.amazon.co.jp/gp/product/B000023ZGH/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=B000023ZGH&linkCode=as2&tag=aibadaisuke-22\"><img border=\"0\" src=\"http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&ASIN=B000023ZGH&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=aibadaisuke-22\" ></a><img src=\"http://www.assoc-amazon.jp/e/ir?t=aibadaisuke-22&l=as2&o=9&a=B000023ZGH\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" /></p>
+
+<p>iTunesで購入するにはこちらから。<br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fpata-pata%252Fid59390537%253Fuo%253D4%2526partnerId%253D30\" target=\"itunes_store\">Pata Pata - ミリアム・マケバ</a><br />
+<a href=\"http://click.linksynergy.com/fs-bin/stat?id=kbLNvPCcNpI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fpata-pata%252Fid59390537%253Fuo%253D4%2526partnerId%253D30\" target=\"itunes_store\"><img src=\"http://r.mzstatic.com/ja_jp/images/web/linkmaker/badge_itunes-lrg.gif\" alt=\"Pata Pata - ミリアム・マケバ\" style=\"border: 0;\"/></a></p>
+    <img src=\"http://feeds.feedburner.com/~r/gajetdaisuke/PHCR/~4/3pDFzi_bNqM\" height=\"1\" width=\"1\"/>") (feedburner:origLink nil "http://gajetdaisuke.com/archives/13304_025357.php"))))

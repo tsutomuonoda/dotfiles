@@ -1,0 +1,100 @@
+;; -*- coding: utf-8 -*-
+(("ma2の日記" "ma2の日記" "http://d.hatena.ne.jp/ma2/" (20813 17235 874155 409000) feed 0 nil nil ((title nil "ma2の日記") (link nil "http://d.hatena.ne.jp/ma2/") (description nil "ma2の日記") (dc:creator nil "ma2") (dc:date nil "2012-12-27T10:11:36+09:00") (items nil (rdf:Seq nil (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ma2/20120416/p1"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ma2/20120107/p1"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ma2/20110912/p1"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ma2/20110908/p1"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ma2/20110112/p1"))))))) ("The Little MongoDB Bookを日本語訳してみた" "話題のNoSQLのひとつMongoDBのチュートリアル本です。日本語訳しました。オリジナルはこちら（http://openmymind.net/2011/3/28/The-Little-MongoDB-Book/）。Githubでmarkdown形式のものを公開しましす。これをきれいなhtmlとかpdfに変換する方法はよく分からない… https:" "http://d.hatena.ne.jp/ma2/20120416/p1" (20363 24832) new 1 nil nil ((title nil " The Little MongoDB Bookを日本語訳してみた") (link nil "http://d.hatena.ne.jp/ma2/20120416/p1") (description nil " 話題のNoSQLのひとつMongoDBのチュートリアル本です。日本語訳しました。オリジナルはこちら（http://openmymind.net/2011/3/28/The-Little-MongoDB-Book/）。Githubでmarkdown形式のものを公開しましす。これをきれいなhtmlとかpdfに変換する方法はよく分からない… https:") (content:encoded nil "
+<div class=\"section\"><p>話題のNoSQLのひとつMongoDBのチュートリアル本です。日本語訳しました。オリジナルはこちら（<a href=\"http://openmymind.net/2011/3/28/The-Little-MongoDB-Book/\" target=\"_blank\">http://openmymind.net/2011/3/28/The-Little-MongoDB-Book/</a>）。Githubでmarkdown形式のものを公開しましす。これをきれいなhtmlとかpdfに変換する方法はよく分からない…</p><p><a href=\"https://github.com/ma2/the-little-mongodb-book\" target=\"_blank\">https://github.com/ma2/the-little-mongodb-book</a></p></div>
+") (dc:creator nil "ma2") (dc:date nil "2012-04-16"))) ("How Batman can Help you Build Apps の翻訳" "最近話題？のCoffeeScriptベースのフレームワークBatman.jsのHARRY BRUNDAGE（@harrybrundage）氏による紹介記事「How Batman can Help you Build Apps」を翻訳しました。 元エントリはこれです。 Batman.jsはShopifyによる新しいCoffeeScriptのフレームワークで、開発に長" "http://d.hatena.ne.jp/ma2/20120107/p1" (20231 35584) new 2 nil nil ((title nil "How Batman can Help you Build Apps の翻訳") (link nil "http://d.hatena.ne.jp/ma2/20120107/p1") (description nil " 最近話題？のCoffeeScriptベースのフレームワークBatman.jsのHARRY BRUNDAGE（@harrybrundage）氏による紹介記事「How Batman can Help you Build Apps」を翻訳しました。 元エントリはこれです。 Batman.jsはShopifyによる新しいCoffeeScriptのフレームワークで、開発に長") (content:encoded nil "
+<div class=\"section\"><p>最近話題？のCoffeeScriptベースのフレームワークBatman.jsのHARRY BRUNDAGE（@harrybrundage）氏による紹介記事「How Batman can Help you Build Apps」を翻訳しました。</p><p>元エントリは<a href=\"http://www.shopify.com/technology/4080092-how-batman-can-help-you-build-apps\" target=\"_blank\">これ</a>です。<br/><br/></p><p><a href=\"http://batmanjs.org/\" target=\"_blank\">Batman.js</a>はShopifyによる新しいCoffeeScriptのフレームワークで、開発に長い時間のかかったこいつを紹介できるので本当に興奮している。Batman.jsのGitHubは<a href=\"https://github.com/Shopify/batman\" target=\"_blank\">ここ</a>だ。</p><p>Batmanは大きな影響力を持つ素晴らしいフレームワークに満ちた世界に現れた。Sproutcore 2.0やBackbone.jsといった驚くべきプロジェクトの成果がある中で、開発者はどれをいつ使うかどうやって学べばいいのだろう？ 新しくてかっこよいツールで遊んでいる時間は限られているので、ここではBatmanと他のフレームワークとの違い、および他のフレームワークのかわりにBatmanを使う理由を簡単に解説したい。</p><p><span style=\"font-weight:bold;\" class=\"deco\">Batmanはアプリ開発を簡単にする</span></p><p>Batmanはシングルページのアプリを開発するためのフレームワークだ。Progressive Enhancement、DOM、AJAXなどの単一目的のライブラリではない。ブラウザ間互換、データ転送、バリデーション、カスタムイベントといった開発の退屈な部分を全て実装することで、最高のシングルページアプリを構築できるようゼロから開発されたものだ。コードを生成し実行する開発用の使いやすいヘルパー、コードを整理して必要に応じて呼び出すためのおすすめアプリ構造、フルMVCスタック、その他たくさんのツールを18キロバイト（gzip済み）のサイズで提供している。Batmanは基本的なものだけ提供するわけでも、ありとあらゆるものを提供するわけではなく、自分のアプリに必要なコードをかける柔軟なAPIを提供している。<br/></p><p><span style=\"font-weight:bold;\" class=\"deco\">超一級のランタイム</span></p><p>Batmanの心臓部はランタイム層で、オブジェクトのデータの操作とオブジェクトが発生させるイベントへの登録に使われている。BatmanのオブジェクトはSproutCoreやBackboneのものと似ていて、Barmanオブジェクトのプロパティに対するアクセスと代入は、素のJavaScriptのドット記法ではなくsomeObject.getとsomeObject.setを使わなければならない。これを守ることで、以下のような利点がある。</p><ul><li> 「深い」プロパティが単純型でも計算型でも透過的にアクセスできる</li><li> プロパティチェーン中のオブジェクトの計算型のプロパティを継承できる</li><li> 「深い」パスの中の他のオブジェクトのchangeやreadyといったイベントに登録できる</li><li> なにより重要なのはプロパティ間の依存関係を追跡できるので、連鎖したオブザーバが発動され、計算結果を最新であることを保証しつつキャッシュできることだ</li></ul><p>この機能はすべてのBatmanオブジェクト利用でき、しかも素のJavaScriptとしても扱うことができる。ランタイムでできることを少し試してみよう。オブジェクトのプロパティはBatman.Object::observeを使って監視できる。</p><pre>
+crimeReport = new Batman.Object
+crimeReport.observe &#39;address&#39;, (newValue) -&#62;
+  if DangerTracker.isDangerous(newValue)
+    crimeReport.get(&#39;currentTeam&#39;).warnOfDanger()
+</pre><p>似た機能はBackboneやSproutCoreにもあるが、Batmanに新たに取り入れたものが「深い」キーパスだ。Batmanではドットでつなげることでオブジェクトの連鎖を追跡できる。</p><pre>
+batWatch = Batman
+  currentCrimeReport: Batman
+    address: Batman
+      number: &#34;123&#34;
+      street: &#34;Easy St&#34;
+      city: &#34;Gotham&#34;
+ 
+batWatch.get &#39;currentCrimeReport.address.number&#39; #=&#62; &#34;123&#34;
+batWatch.set &#39;currentCrimeReport.address.number&#39;, &#34;461A&#34;
+batWatch.get &#39;currentCrimeReport.address.number&#39; #=&#62; &#34;461A&#34;
+</pre><p>オブザーバの指定時にも使える。</p><pre>
+batWatch.observe &#39;currentCrimeReport.address.street&#39;, (newStreet, oldStreet) -&#62;
+  if DistanceCalculator.travelTime(newStreet, oldStreet) &#62; 100000
+    BatMobile.bringTo(batWatch.get(&#39;currentLocation&#39;))
+</pre><p>一番クレイジーなのはこれらのオブザーバはそのキーパスがなんであれ（たとえキーパスの途中が変化しても）、その値で発動することだ。</p><pre>
+crimeReportA = Batman
+  address: Batman
+    number: &#34;123&#34;
+    street: &#34;Easy St&#34;
+    city: &#34;Gotham&#34;
+ 
+crimeReportB = Batman
+  address: Batman
+    number: &#34;72&#34;
+    street: &#34;Jolly Ln&#34;
+    city: &#34;Gotham&#34;
+ 
+batWatch = new Batman.Object({currentCrimeReport: crimeReportA})
+ 
+batWatch.get(&#39;currentCrimeReport.address.street&#39;) #=&#62; &#34;East St&#34;
+batWatch.observe &#39;currentCrimeReport.address.street&#39;, (newStreet) -&#62;
+  MuggingWatcher.checkStreet(newStreet)
+ 
+batWatch.set(&#39;currentCrimeReport&#39;, crimeReportB)
+# 上記の&#34;MuggingWatcher&#34;のコールバックが「Jolly Ln」で呼ばれる
+</pre><p>何が起きたかお分かりだろうか。キーパスの途中部が変化してもオブザーバは新しい「深い」値で発動する。この機能は任意の長さのキーパスでも、undefinedを含んだキーパスでも動作する。</p><p>もうひとつのランタイムのいいところは、すべてのアクセスがgetとsetを通じて行われるので、計算が必要なプロパティ間の依存関係を追跡できることだ。Batmanではこうした関数をアクセサと呼ぶ。アクセサは、CoffeeScriptの実行可能なクラスを使って簡単に定義できる。</p><pre>
+class BatWatch extends Batman.Object
+  # BatWatchクラスのインスタンスの「currentDestination」キーのアクセサを定義する
+  @accessor &#39;currentDestination&#39;, -&#62;
+    address = @get &#39;currentCrimeReport.address&#39;
+    return &#34;#{address.get(&#39;number&#39;)} #{address.get(&#39;street&#39;)}, #{address.get(&#39;city&#39;)}&#34;
+ 
+crimeReport = Batman
+  address: Batman
+    number: &#34;123&#34;
+    street &#34;Easy St&#34;
+    city: &#34;Gotham&#34;
+ 
+watch = new BatWatch(currentCrimeReport: crimeReport)
+watch.get(&#39;currentDestination&#39;) #=&#62; &#34;123 Easy St, Gotham&#34;
+</pre><p>重要なのは、ここで計算型のプロパティに登録したオブザーバは依存関係が更新されるたびに発動することだ。</p><pre>
+watch.observe &#39;currentDestination&#39;, (newDestination) -&#62; console.log newDestination
+crimeReport.set(&#39;address.number&#39;, &#34;124&#34;)
+# &#34;124 Easy St, Gotham&#34;がコンソールに出力される
+</pre><p>デフォルトのアクセサを定義しておけば、そのキーパスでのアクセサが定義されていなくても、ランタイムがフォールバックしてくれる。</p><pre>
+jokerSimulator = new Batman.Object
+jokerSimulator.accessor (key) -&#62; &#34;#{key.toUpperCase()}, HA HA HA!&#34;
+ 
+jokerSimulator.get(&#34;why so serious&#34;) #=&#62; &#34;WHY SO SERIOUS, HA HA HA!&#34;
+</pre><p>この機能はオブジェクトに基本のインターフェースを与えたいときに有用だが、自明ではない方法でデータと連動することになる。例えばBatman.Hashはイベントを発行しオブジェクトをキーとして使えるようにした上で、標準的なJavaScriptのオブジェクトと類似したAPIを提供するためにこの機能を使っている。</p><p><span style=\"font-weight:bold;\" class=\"deco\">何に使えるのか?</span></p><p>上記で解説したBatmanのコアは、データの変更があったとき即座にそれを知ることを可能にする。クライアントサイドのビューなどには最適だ。ビューは、もはや長大な文字列として固められクライアントに送信される静的なHTML群ではない。ビューは、データにしたがって変化する長寿命のデータ表現形式だ。Batmanのビューシステムはプロパティの能力を強化する。</p><p><a href=\"http://batmanjs.org/examples/alfred.html\" target=\"_blank\">Alfred</a>（BatmanのToDoアプリサンプル）用のビューの簡易版が以下だ。</p><pre>
+&#60;h1&#62;Alfred&#60;/h1&#62;
+ 
+&#60;ul id=&#34;items&#34;&#62;
+    &#60;li data-foreach-todo=&#34;Todo.all&#34; data-mixin=&#34;animation&#34;&#62;
+        &#60;input type=&#34;checkbox&#34; data-bind=&#34;todo.isDone&#34; data-event-change=&#34;todo.save&#34; /&#62;
+        &#60;label data-bind=&#34;todo.body&#34; data-addclass-done=&#34;todo.isDone&#34; data-mixin=&#34;editable&#34;&#62;&#60;/label&#62;
+        &#60;a data-event-click=&#34;todo.destroy&#34;&#62;delete&#60;/a&#62;
+    &#60;/li&#62;
+    &#60;li&#62;&#60;span data-bind=&#34;Todo.all.length&#34;&#62;&#60;/span&#62; &#60;span data-bind=&#34;&#39;item&#39; | pluralize Todo.all.length&#34;&#62;&#60;/span&#62;&#60;/li&#62;
+&#60;/ul&#62;
+&#60;form data-formfor-todo=&#34;controllers.todos.emptyTodo&#34; data-event-submit=&#34;controllers.todos.create&#34;&#62;
+  &#60;input class=&#34;new-item&#34; placeholder=&#34;add a todo item&#34; data-bind=&#34;todo.body&#34; /&#62;
+&#60;/form&#62;
+</pre><p>トランスパイラ層をあきらめ（HAMLなし）、テンプレート層もあきらめた（Ecoもjadeもmustacheもなし）。BatmanのビューシステムはHTML5で、ダウンロードしたその場でブラウザがレンダリングする。JavaScript文字列ではなくバリッドなDOMツリーで、Batmanが解析してデータを埋め込む。コンパイルや文字列処理は行わない。素晴らしいことにBatmanはノードの値をランタイムで監視することで「バインド」する。JavaScriptの世界で値が変化すると、バインドされた対応するノードの属性は自動的に更新され、ユーザはその変化を見る。逆もまた真で、テキストフィールドに入力したり、チェックボックスをクリックしたりすると、文字列や真偽値がJavaScriptのバインドされたオブジェクトにセットされる。CocoaあるいはJavaScriptならKnockoutやSproutcoreにあるようにバインドの概念は新しいものではない。</p><p>バインドを選択したのは a)手動でデータの変更をチェックしたくない b)データがすこし変わったぐらいでテンプレート全体を再描画したくない からだ。MustacheやjQuery.tmplに類するシステムでは、おどろくほど頻繁にその両方をする羽目になった。たったひとつのノードを更新したくてあるひとつの要素のひとつのキーを変更しただけで、ループ内で全要素を再描画したりそれらのノード追加のペナルティを支払うのは時間の無駄に思える。SproutCoreのSC.TemplateViewやYehuda Katzの作ったHandlebars.jsはこうした労力を減らすにはよくできているが、やはりブラウザの中で全ての文字列演算をやりたくはないので、ビューの全データを厳密にプロパティにバインドする外科的な精密さの方を選択した。</p><p>ビューの通常レベルの複雑さのロジックとひきかえに、ロード中画面のいらない高速な描画を最後には手に入れた。Batmanのビューエンジンには、条件分岐、ループ、コンテクスト、簡単な変換などがあるが、コードを書くことはできない。Batmanでは対話用の複雑なコードはBatman.Viewのサブクラスに記述しなければならず、HTMLレンダリングはそれをもっとも得意するものにやらせる。すなわちブラウザに。</p><p><span style=\"font-weight:bold;\" class=\"deco\">もっと知りたい?</span></p><p>Batmanはこの洒落た深いキーパスの機能や奇妙な「テンプレートじゃないHTML」の他にもいろいろなことができる。擬似ページ間リンクのためのルーティングがある（GETのパラメータまたはセグメント対応）。Batman.Model層はデータの処理や送信を行い、RailsやlocalStorageのようなストレージバックエンドですぐに使える。Batman.StateMachineやBatman.EventEmitterはオブジェクトにmixinして使う。他にもたくさんある。<a href=\"http://batmanjs.org/\" target=\"_blank\">Webサイト</a>、<a href=\"https://github.com/Shopify/batman\" target=\"_blank\">GitHubにあるソース</a>、[irc://freenode.net/batmanjs:title=freenodeの#batmanjs]などをチェックすることを強くおすすめする。質問、フィードバック、パッチなどは大歓迎だし、Batmanをどう改善したらいいかの提案はいつでも受け入れる。</p></div>
+") (dc:creator nil "ma2") (dc:date nil "2012-01-07"))) ("最近のOmniAuthでSSLの証明書の指定が効かなくなった件" "#404: OpenSSL::SSL::SSLError using Twitter - Issues - intridea/omniauth - GitHub OmiAuthでSSLを扱うときにこんな指定かできます。 Rails.application.config.middleware.use OmniAuth::Builder do provider :facebook, 'APP_KEY', 'SECRET', {:client" "http://d.hatena.ne.jp/ma2/20110912/p1" (20077 19328) new 3 nil nil ((title nil " 最近のOmniAuthでSSLの証明書の指定が効かなくなった件") (link nil "http://d.hatena.ne.jp/ma2/20110912/p1") (description nil " #404: OpenSSL::SSL::SSLError using Twitter - Issues - intridea/omniauth - GitHub OmiAuthでSSLを扱うときにこんな指定かできます。 Rails.application.config.middleware.use OmniAuth::Builder do provider :facebook, 'APP_KEY', 'SECRET', {:client") (content:encoded nil "
+<div class=\"section\"><p><a href=\"https://github.com/intridea/omniauth/issues/404#issuecomment-1724995\" target=\"_blank\">#404: OpenSSL::SSL::SSLError using Twitter - Issues - intridea/omniauth - GitHub</a></p><p><a href=\"https://github.com/intridea/omniauth/wiki\" target=\"_blank\">OmiAuth</a>でSSLを扱うときにこんな指定かできます。</p><pre>
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook,
+    &#39;APP_KEY&#39;,
+    &#39;SECRET&#39;,
+    {:client_options=&#62;{:ssl=&#62;{:ca_path=&#62;&#34;#{::Rails.root}/config/certs/&#34;}}}
+end
+</pre><p>これが最近のOmiAuthでは効かないのです。いろいろ調べた結果、なぜか:ca_pathが:ca_fileになっていることが判明。つまりディレクトリではなく、ファイルを指定する必要があります。どうもバグっぽいけど詳細は不明です。以下のように直すとうまくいくみたいです。</p><pre>
+{:client_options=&#62;{:ssl=&#62;{:ca_file=&#62;&#34;#{::Rails.root}/config/certs/cacerts.pem&#34;}}}
+</pre></div>
+") (dc:creator nil "ma2") (dc:date nil "2011-09-12"))) ("Sign in with Twitter とか Facebook とか" "TwitterのOpenID認証を使ってログインさせるとき、よく見るこんな画像がある。これはTwitterの開発者サイトで公開されています。 同じようなものがFacebookにもあると思って探してみたのですが見つかりません。Facebookは公式画像は配布していないんですかね。" "http://d.hatena.ne.jp/ma2/20110908/p1" (20072 1408) new 4 nil nil ((title nil "Sign in with Twitter とか Facebook とか") (link nil "http://d.hatena.ne.jp/ma2/20110908/p1") (description nil " TwitterのOpenID認証を使ってログインさせるとき、よく見るこんな画像がある。これはTwitterの開発者サイトで公開されています。 同じようなものがFacebookにもあると思って探してみたのですが見つかりません。Facebookは公式画像は配布していないんですかね。 ") (content:encoded nil "
+<div class=\"section\"><p>TwitterのOpenID認証を使ってログインさせるとき、よく見るこんな<a href=\"https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png\" class=\"http-image\" target=\"_blank\"><img src=\"https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png\" class=\"http-image\" alt=\"https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png\"></a>画像がある。これは<a href=\"https://dev.twitter.com/docs/auth/sign-in-with-twitter\" target=\"_blank\">Twitterの開発者サイト</a>で公開されています。 </p><p>同じようなものがFacebookにもあると思って探してみたのですが見つかりません。Facebookは公式画像は配布していないんですかね。</p></div>
+") (dc:creator nil "ma2") (dc:date nil "2011-09-08"))) ("Airはイイヨネ" "MacBook Air 11インチ欲しい！ 久々に書くに値するネタが…" "http://d.hatena.ne.jp/ma2/20110112/p1" (19756 61184) new 5 nil nil ((title nil " Airはイイヨネ") (link nil "http://d.hatena.ne.jp/ma2/20110112/p1") (description nil " MacBook Air 11インチ欲しい！ 久々に書くに値するネタが… ") (content:encoded nil "
+<div class=\"section\"><p><a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/MacBook%20Air%2011%A5%A4%A5%F3%A5%C1%CD%DF%A4%B7%A4%A4%A1%AA\">MacBook Air 11インチ欲しい！</a></p><p>久々に書くに値するネタが…</p></div>
+") (dc:creator nil "ma2") (dc:date nil "2011-01-12"))))

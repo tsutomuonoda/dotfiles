@@ -1,0 +1,297 @@
+;; -*- coding: utf-8 -*-
+(("小鳥ピヨピヨ" "コ＝コメント　　ト＝トラックバック　　リ＝リンク" "http://kotoripiyopiyo.com/" (20813 17127 589223 271000) feed 0 nil nil ((title nil "小鳥ピヨピヨ") (link nil "http://kotoripiyopiyo.com/") (description nil "コ＝コメント　　ト＝トラックバック　　リ＝リンク") (dc:language nil "ja-JP") (dc:creator nil) (dc:date nil "2013-03-22T16:52:43+09:00") (admin:generatorAgent ((rdf:resource . "http://www.typepad.com/"))) (items nil (rdf:Seq nil (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/tweets20130322.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/%E4%BD%95%E5%AE%9A%E9%A3%9F%E3%81%A0%E3%81%8B%E5%85%A8%E7%84%B6%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84%E5%86%99%E7%9C%9F.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/coffee20130321.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/norway20130318.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/sakanaction20130318.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/kokakua20130314.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/kamiomutsu20130315.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/%E5%B7%A5%E4%BA%8B%E4%B8%AD%E3%81%A7%E9%A0%AD%E3%82%92%E4%B8%8B%E3%81%92%E3%81%A6%E3%82%8B%E4%BA%BA%E5%A5%B3%E6%80%A7%E7%89%88.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/sedevacante20130313.html"))) (rdf:li ((rdf:resource . "http://kotoripiyopiyo.com/2013/03/jojo20130311.html"))))))) ("僕のTwitterの最初のつぶやきがひどい" "自分のTwitterの全履歴をダウンロードできるようになったというので、さっそく試してみた。 そして一番最初のつぶやきを見てみたのだが…… I'm writing something...— 清田いち..." "http://kotoripiyopiyo.com/2013/03/tweets20130322.html" (20812 3531) new 1 nil nil ((title nil "僕のTwitterの最初のつぶやきがひどい") (link nil "http://kotoripiyopiyo.com/2013/03/tweets20130322.html") (description nil "自分のTwitterの全履歴をダウンロードできるようになったというので、さっそく試してみた。 そして一番最初のつぶやきを見てみたのだが…… I'm writing something...— 清田いち...") (content:encoded nil "<p><a href=\"http://www.gizmodo.jp/2013/03/_twitter.html\" target=\"_blank\">自分のTwitterの全履歴をダウンロードできるようになった</a>というので、さっそく試してみた。<br />
+そして一番最初のつぶやきを見てみたのだが……</p><blockquote class=\"twitter-tweet\" lang=\"ja\"><p>I'm writing something...</p>&mdash; 清田いちるさん (@kotoripiyopiyo) <a href=\"https://twitter.com/kotoripiyopiyo/status/11831831\">2007年3月24日</a></blockquote>
+<script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>
+
+<p>あまりにもひどい。</p>
+
+<p>「僕は何か書いてます」？　そりゃそうでしょうつぶやいてんだから。<br />
+意味なし芳一。全然内容ないにもほどがある。</p>
+
+<p>そもそもなんで英語？<br />
+全世界にこのメッセージを読みとって欲しかったの？ 意味なし芳一なのに？</p>
+
+<p>あ、当初は日本語が通らなかったんだっけか……</p>
+
+<p>せめて「テスト」だったらまだ救いがあったのに、ああこれが全世界に公開されているのか、と、鬱々とした思い出じっと最初のつぶやきを見つめる、そんな花金のはじまりであった。</p>
+
+<p>黒歴史ダウンロード機能、まじパねぇっす。</p>") (dc:subject nil "ネットの話題") (dc:creator nil "いちる") (dc:date nil "2013-03-22T16:52:43+09:00"))) ("何定食だか全然わからない写真" "全部真っ白定食。 まるでトランプの神経衰弱みたいなことになっている。 いったいどんな定食なのか、見れども見れども、さっばりわからない。 ああ、僕の頭の中も真っ白になってゆく…… 写真撮り直したら、売上..." "http://kotoripiyopiyo.com/2013/03/%E4%BD%95%E5%AE%9A%E9%A3%9F%E3%81%A0%E3%81%8B%E5%85%A8%E7%84%B6%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84%E5%86%99%E7%9C%9F.html" (20811 51958) new 2 nil nil ((title nil "何定食だか全然わからない写真") (link nil "http://kotoripiyopiyo.com/2013/03/%E4%BD%95%E5%AE%9A%E9%A3%9F%E3%81%A0%E3%81%8B%E5%85%A8%E7%84%B6%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84%E5%86%99%E7%9C%9F.html") (description nil "全部真っ白定食。 まるでトランプの神経衰弱みたいなことになっている。 いったいどんな定食なのか、見れども見れども、さっばりわからない。 ああ、僕の頭の中も真っ白になってゆく…… 写真撮り直したら、売上...") (content:encoded nil "<p>全部真っ白定食。</p>
+<p>まるでトランプの神経衰弱みたいなことになっている。<br />
+いったいどんな定食なのか、見れども見れども、さっばりわからない。
+</p>
+
+<p>ああ、僕の頭の中も真っ白になってゆく……</p>
+<p>写真撮り直したら、売上が10倍くらいアップするんだろうなあ。</p>
+
+<p class=\"asset asset-image\">
+    <a class=\"asset-img-link\" href=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee9a2cb81970d-pi\" style=\"display: inline;\"><img alt=\"何定食だか全然わからない写真\" class=\"asset  asset-image at-xid-6a00d8341bfbdf53ef017ee9a2cb81970d\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee9a2cb81970d-580wi\" title=\"何定食だか全然わからない写真\" /></a></p>
+<p class=\"asset asset-image\">
+    <a class=\"asset-img-link\" href=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017c37ffaf06970b-pi\" style=\"display: inline;\"><img alt=\"何定食だか全然わからない写真\" class=\"asset  asset-image at-xid-6a00d8341bfbdf53ef017c37ffaf06970b\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017c37ffaf06970b-580wi\" title=\"何定食だか全然わからない写真\" /></a></p>") (dc:subject nil "街角スナップ") (dc:subject nil "食べ物") (dc:creator nil "いちる") (dc:date nil "2013-03-22T12:07:34+09:00"))) ("【タリーズ伝説】コーヒーをブラックで飲む人の評価" "先日タリーズにいたら、隣でリクルートスーツ姿の女性数名が、 「コーヒーにミルクも砂糖も何も入れないでブラックで飲む人って、なんか格好つけてて嫌いー」 と話していた。 僕は思わず飲んでいたブラックコーヒ..." "http://kotoripiyopiyo.com/2013/03/coffee20130321.html" (20810 31057) new 3 nil nil ((title nil "【タリーズ伝説】コーヒーをブラックで飲む人の評価") (link nil "http://kotoripiyopiyo.com/2013/03/coffee20130321.html") (description nil "先日タリーズにいたら、隣でリクルートスーツ姿の女性数名が、 「コーヒーにミルクも砂糖も何も入れないでブラックで飲む人って、なんか格好つけてて嫌いー」 と話していた。 僕は思わず飲んでいたブラックコーヒ...") (content:encoded nil "<p>先日タリーズにいたら、隣でリクルートスーツ姿の女性数名が、</p>
+
+<p>「コーヒーにミルクも砂糖も何も入れないでブラックで飲む人って、なんか格好つけてて嫌いー」</p>
+
+<p>と話していた。<br />
+僕は思わず飲んでいたブラックコーヒーを吹いた。</p><p>マジで！？　ブラックコーヒーをブラックのまま飲むと格好つけてるみたいなの？<br />
+僕の場合、コーヒー頼んだらひゃくぱーブラックのまま飲むんだけど！？<br />
+だって、ミルク入り飲みたいんだったらラテ頼めばいいじゃない？　甘いの飲みたかったらモカとかキャラメルなんとか的なの頼めばいいじゃない？　ブラックを飲みたいからブラック頼んだんでしょう？<br />
+金額？　ブラックにミルクやコーヒー入れまくって、周囲から「あああの人はセコい人なのだなあ」という冷たい視線を受ける精神的ストレスの方がコスト高くない？</p>
+
+<p>でもちょっと待って、ブラックでそのまま飲む方がむしろ「あああの人は格好つけているのだなあ」という冷たい視線を受けてるってわけ？</p>
+
+<p>じゃあミルクを入れても入れなくても冷たい視線を受ける運命ってわけ？</p>
+
+<p>八方塞がりじゃない！　僕は自分の無力さを噛み締めながら、目の前のブラックコーヒーをじっと見つめた。<br />
+そして、どう思われてるのかなとドキドキしながらコーヒーを飲んだ。結果としては、隣のリクルート姿の就活生女子を過剰に意識しながらコーヒー飲んでるおじさん、みたいになって、よけいに恥ずかしかった。</p>
+
+<p><a href=\"http://kotoripiyopiyo.com/tul_/\">他のタリーズ伝説</a></p>") (dc:subject nil "タリーズにて起きたこと") (dc:creator nil "いちる") (dc:date nil "2013-03-21T12:06:57+09:00"))) ("飯野賢治さん新曲、19日（火）23時に公開" "どう切り出したらいいのかな……えっと、まずは事実から。 先日逝去された飯野賢治さんが、GLAYのHISASHIさんやFIELD OF VIEWの浅岡雄也さんらと一緒にやっていた音楽ユニット「NORWA..." "http://kotoripiyopiyo.com/2013/03/norway20130318.html" (20806 40202) new 4 nil nil ((title nil "飯野賢治さん新曲、19日（火）23時に公開") (link nil "http://kotoripiyopiyo.com/2013/03/norway20130318.html") (description nil "どう切り出したらいいのかな……えっと、まずは事実から。 先日逝去された飯野賢治さんが、GLAYのHISASHIさんやFIELD OF VIEWの浅岡雄也さんらと一緒にやっていた音楽ユニット「NORWA...") (content:encoded nil "<p>どう切り出したらいいのかな……えっと、まずは事実から。<br />
+先日逝去された飯野賢治さんが、GLAYのHISASHIさんやFIELD OF VIEWの浅岡雄也さんらと一緒にやっていた音楽ユニット「<a href=\"https://www.facebook.com/norwaymusic\" target=\"_blank\">NORWAY</a>」の新作が、明日公開されます。</p><p>NORWAYは、過去の名曲をトリビュートする形で作品を作っているグループです。<br />
+過去にはこんな感じ。</p>
+
+<p><a href=\"http://www.youtube.com/watch?v=vqUakTho0GM&feature=share&list=UUdf_ZvZSvOhFOb3OwdtXVhQ\" target=\"_blank\">Get Wild（TMネットワーク）</a><br />
+<a href=\"https://www.youtube.com/watch?v=NJxn6GG5WP0&list=UUdf_ZvZSvOhFOb3OwdtXVhQ&index=43\" target=\"_blank\">SAY YES（チャゲアス）</a><br />
+<a href=\"https://www.youtube.com/watch?v=L1ZWbXJq7mI&list=UUdf_ZvZSvOhFOb3OwdtXVhQ&index=38\" target=\"_blank\">ネバーエンディングストーリー</a></p>
+
+<p>NORWAYはシーズン毎に期間を区切って活動しています。<br />
+そして明日から第３シーズンがはじまります。</p>
+
+<p>第３シーズンの１曲目は、「<strong>Komm, süsser Tod〜甘き死よ、来たれ</strong>」（エヴァンゲリヲンの挿入歌）。<br />
+飯野さんはピアノ／シンセを担当されているそうです。</p>
+
+<p>予告動画を、以下からご覧いただけます。<br />
+飯野さんの楽しそうな姿が何カ所か出てきます。</p>
+
+<p><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/ZSHbUQzFNTo?rel=0\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>僕は、飯野さんに何度かお会いしたことがあります。またネット上では頻繁にやりとりしていました。</p>
+
+<p>飯野さんは、実際にお会いするときも、ネットでやりとりするときも、いつも上からでも下からでもない、対等な目線で接してくれる方でした。相手の話に真摯に耳を傾け、自分の中の純粋な部分と共鳴させて、よいアイディアやよい気持ちやよい雰囲気をその場に現出させようとしているようでした。</p>
+
+<p>落ち着いた大人の部分と素直な子供の部分、両方ともとても強い方でした。<br />
+ときに彼の繊細すぎる気遣いに申し訳なく思いながら、しかし彼といるときは、いつもリラックスして、自由に何でも言ったり聞いたりすることができました。</p>
+
+<p>彼に「いいね、それ」と言われると、自分の中の純粋な部分、またはクリエイティブな部分が肯定されたような気がして、嬉しかったのをよく覚えています。<br />
+いつも会ってお話しするのを楽しみにしていました。</p>
+
+<p>それと、僕の知っている飯野さんは、常に音楽に強く興味を惹かれていました。音楽や音楽家に、憧れに近い思いを抱いていたようにも思いました。<br />
+NORWAYの全ての曲にも、そんな飯野さんの気持ちがギュッと詰まっているように感じます。<br />
+<a href=\"https://www.facebook.com/norwaymusic\" target=\"_blank\">NORWAYのfacebookページ</a>から全曲チェックできます（新曲も明日公開されます）ので、ぜひご覧ください。</p>") (dc:subject nil "音楽") (dc:creator nil "いちる") (dc:date nil "2013-03-18T13:50:18+09:00"))) ("サカナクション新アルバムで、魚がっ！　魚がっ！" "一匹も出てきませんでした。全然関係なかった。 けど、もしかしたらどこかで一言くらい「さかな」って言ってるかもしれないので、後で聞き直してみようと思います。 と、いうわけで、サカナクション新アルバム、そ..." "http://kotoripiyopiyo.com/2013/03/sakanaction20130318.html" (20806 34415) new 5 nil nil ((title nil "サカナクション新アルバムで、魚がっ！　魚がっ！") (link nil "http://kotoripiyopiyo.com/2013/03/sakanaction20130318.html") (description nil "一匹も出てきませんでした。全然関係なかった。 けど、もしかしたらどこかで一言くらい「さかな」って言ってるかもしれないので、後で聞き直してみようと思います。 と、いうわけで、サカナクション新アルバム、そ...") (content:encoded nil "<p>一匹も出てきませんでした。全然関係なかった。<br />
+けど、もしかしたらどこかで一言くらい「さかな」って言ってるかもしれないので、後で聞き直してみようと思います。</p>
+
+<p>と、いうわけで、サカナクション新アルバム、その名も『sakanaktion』が発売されたので、さっそく購入しました。</p>
+
+<p><a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fsakanaction%252Fid604748196%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\"><img src=\"http://ec2.images-amazon.com/images/I/31M%2BmNmhovL._SY98_CR0,0,98,98_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>sakanaction</strong></a><br />
+サカナクション</p>
+
+<p>[<a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fsakanaction%252Fid604748196%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\">iTMSで詳細を見る</a>]<br />
+[<a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/B00AR15L4W/alittlebird-22/ref=nosim/\" target=\"_blank\">Amazonで詳細を見る</a>]<br clear=\"all\" /></p><p>先行シングル『ミュージック』も人気ですね。</p>
+
+<p><iframe width=\"400\" height=\"225\" src=\"http://www.youtube.com/embed/iVstp5Ozw2o?rel=0\" frameborder=\"0\" allowfullscreen></iframe></p>
+
+<p>さて、アルバム全体を聴いてみた感想としては……</p>
+
+<p><span class=\"pink\"><strong>良かった！</strong></span>　とても良かったです！　今日の通勤電車はとても楽しい１時間でした！</p>
+
+<p>全体的に、従来のアルバムよりもテクノ寄りな気がします。最初の方なんて、一瞬「あれ？　今、間違って<a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fren-jianto-dong-wu%252Fid602912051%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\">電気グルーブの新アルバム</a>聞いてる？」と疑っちゃったくらいですから（<span class=\"smaller\">注：こっちもとても良かったです</span>）。<br />
+ロックなバンドな感じは、減ってるかな。<br />
+でも、どこからどう見てもサカナクションなサウンドに仕上がってます。洋楽でバンドにエレクトロを取り入れてる、例えば<a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fsingles-collection-2001-2011%252Fid479298119%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\">Gorillas</a>とかとは全然違う方向性です。</p>
+
+<p><a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fsingles-collection-2001-2011%252Fid479298119%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\"><img src=\"http://ecx.images-amazon.com/images/I/614inCQR%2BoL._SL500_SS75_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>ザ・シングル・コレクション2001-2011</strong></a><br />
+ゴリラズ</p>
+
+<p>[<a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fsingles-collection-2001-2011%252Fid479298119%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\">iTMS</a>][<a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/B005UQFPM2/alittlebird-22/ref=nosim/\" target=\"_blank\">Amazon</a>]<br clear=\"all\" /></p>
+
+<p>そして僕はこの「サカナクションな感じ」を、とても「J-POP的／日本のロック的」だと感じます。</p>
+
+<p>以前「<a href=\"http://kotoripiyopiyo.com/2013/02/tsutaya20130104.html\">TSUTAYAは便利</a>」というブログ記事に書きましたが、僕は今年のはじめに、今までほとんど聞かなかったJ-POPや日本のロックを聴きまくりました。</p>
+
+<p>サカナクションはそのプロジェクトで発見した最大の成果物です。<br />
+僕がサカナクションを最高だと思ったのは、彼らに（僕が聞き慣れている）欧／米のダンスミュージックの要素が入っているからではなく、彼らがそのような要素を取り入れているにも関わらず、どうしようもなく日本的だったからです。日本のJ-POPやロックの格好いい部分が凝縮されている！　そんな風に感じたのです。</p>
+
+<p>これは僕が、MISIAを「邦楽か洋楽かとか関係ない。とにかくMISIAは最高」と考えているのとは全然違う方向性です。僕は日本の曲として、サカナクションの曲を愛するようになったのです（<span class=\"smaller\">注：MISIAの<a href=\"http://click.linksynergy.com/fs-bin/stat?id=/fJinx4LJuI&offerid=94348&type=3&subid=0&tmpid=2192&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fjp%252Falbum%252Fsuper-best-records-15th-celebration%252Fid594441806%253Fuo%253D4%2526partnerId%253D30\" target=\"_blank\">15周年記念ベストアルバム</a>が出てます。これも良かったです</span>）。</p>
+
+<p>渋谷系ど真ん中の90年代中頃に渋谷HMVとか通い詰めていた渋谷系大好き人たちは、同じような気持ちだったのかもしれません。<br />
+他の国には全然ないノリだけど私にはすごい刺さる！　これは私たちのノリ！　私たちのミュージック！　的な。</p>
+
+<p>ちゃんと思っていることと言えたかどうかかなり謎ですが、とにかくサカナクションの新アルバムはとても良かったです。個々の曲もいいけど、アルバム全体として完成されていると思いますので、ぜひ通して聴いてみてください。</p>") (dc:subject nil "音楽") (dc:creator nil "いちる") (dc:date nil "2013-03-18T12:13:51+09:00"))) ("『攻殻機動隊ARISE』に、士郎正宗氏からコメント" "突然ですが、攻殻機動隊は何派ですか？ 僕はマンガ派です。S.A.C.も映画も好きだけど、でもやっぱマンガの攻殻機動隊がいちばん好きです。 攻殻機動隊 (1) 士郎 正宗 (著) 攻殻機動隊 (2) 士..." "http://kotoripiyopiyo.com/2013/03/kokakua20130314.html" (20802 34428) new 6 nil nil ((title nil "『攻殻機動隊ARISE』に、士郎正宗氏からコメント") (link nil "http://kotoripiyopiyo.com/2013/03/kokakua20130314.html") (description nil "突然ですが、攻殻機動隊は何派ですか？ 僕はマンガ派です。S.A.C.も映画も好きだけど、でもやっぱマンガの攻殻機動隊がいちばん好きです。 攻殻機動隊 (1) 士郎 正宗 (著) 攻殻機動隊 (2) 士...") (content:encoded nil "<p>突然ですが、攻殻機動隊は何派ですか？<br />
+僕はマンガ派です。S.A.C.も映画も好きだけど、でもやっぱマンガの攻殻機動隊がいちばん好きです。</p>
+
+<p><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/406313248X/alittlebird-22/ref=nosim/\" target=\"_blank\"><img src=\"http://ec2.images-amazon.com/images/I/315B3SBRQ3L._SL500_SS100_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>攻殻機動隊 (1)</strong></a><br />
+士郎 正宗 (著) <br clear=\"all\" /></p>
+
+<p><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/406334441X/alittlebird-22/ref=nosim/\" target=\"_blank\"><img src=\"http://ecx.images-amazon.com/images/I/51ZABP4CRRL._SL500_SS100_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>攻殻機動隊 (2)</strong></a><br />
+士郎 正宗 (著) <br clear=\"all\" /></p>
+
+<p>あの、今読んでも超クールでスタイリッシュな世界観。そして難解な展開、何の説明もなく使われる専門用語、隅っこに描かれたちょっとしたものにも込められる膨大な考察と知識。とどめに欄外にビッシリと書かれた科学やテクノロジーについての注釈。<br />
+最初読んだ時はさっぱりわけわかめだったのですが、何回か読んだある日、ほぼ全てのコマ、セリフ、欄外がピシッと理解できて、恐ろしく気持ち良くなりまして。</p>
+
+<p>「ヤベぇ！　超面白いものに出会った！　一生ものだわ！」</p>
+
+<p>それ以来ずっと大好きです。今でも数年に一度は読み返します。</p>
+
+<p>でも、一般的に人気なのは、S.A.C.なのでしょうね。あるいは押井映画版も知名度高い。マンガも全２巻で終わってるし。<br />
+攻殻好きという人と話しても、あまりマンガ版について盛り上がることは少ないというか今までそんなこと一度もなかったんじゃないかな？</p>
+
+<p>「ああ、士郎正宗によるマンガ版はもうだいぶ重要度の低い存在になっているのかなあ」と、常日頃寂しく思っておりました。<br />
+あんなに面白いのに。あんなに最高なのに。</p>
+
+<p>そんな折、そんな攻殻機動隊の新シリーズ「ARISE」が6月22日よりスタートするというパンフをいただきまして、</p>
+
+<p><img alt=\"Kokakua2013031401\" title=\"Kokakua2013031401\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017c37a81bc7970b-800wi\" border=\"0\" /></p><p>つらつらと眺めていたら、ななななな、なんと士郎正宗さんからのコメントが載っているじゃありませんか！</p>
+
+<p><img alt=\"Kokakua2013031402\" title=\"Kokakua2013031402\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee94b58dc970d-800wi\" border=\"0\" /></p>
+
+<p><strong>ああ士郎正宗は攻殻機動隊を忘れてなかった！　攻殻機動隊も士郎正宗を忘れてなかった！</strong>　まだアリなんだ！　イケるんだ！　と、頬が紅潮したので、ここにコメント文を掲載させていただきたく存じます。</p>
+
+<blockquote>
+
+<p>西暦2029年……仮にその時点でトグサが29歳前後とするなら、2013年現在、「攻殻機動隊」の世界では彼は中学生前後。どこでどんな生活をしているでしょうか。もう刑事になろうと心に決めているでしょうか。 <br />
+僕が講談社のヤングマガジン編集部に「攻殻機動隊」の第１話原稿を入稿したのは1989年の春。それから24年、映像作品に限って言えば、押井さんの「攻殻」、映画2本、神山さんの「攻殻」、TVシリーズ2本と長編1本、元々マイナー系オタクマンガだった「攻殻機動隊」というタイトルを育て、積み重ねて下さった関係者の皆様、制作スタッフの方々、そして何より観客視聴者の皆様に深く感謝します。 押井さんの「攻殻」、神山さんの「攻殻」、それぞれに切り口や調理方法が異なり、観客・視聴者諸氏の好みは様々でしょうが、いずれもそれぞれの方向において優れた完成度を誇り、高い評価を受ける作品だったと思います。 <br />
+そして今回新たな第四の「攻殻」、“黄瀬さんの「攻殻機動隊」”が作られる事になりました。冲方さんにも力を貸して頂けると聞いて感謝しております。 年々世の中も進歩して、今やコンピューターネットワークどころか、多くの人が高性能モバイル端末を日常生活で使用する時代になりました。原作自体がだいぶ古いので、映像作品化するにあたって色々と大変な面もあるかと思いますが、黄瀬さんと今回の制作スタッフがどのような新しい攻殻機動隊を生み出し観客視聴者諸氏を楽しませてくれるか期待しています。 <br />
+……あとになって「これは全て疑似記憶で、映像企画など最初から無かった」とか言わないで下さいね。</p>
+
+<p>2013年 2月 12日 士郎正宗</blockquote></p>
+
+<p>や、原作、今読んでも全然古くないです。むしろ今のテクノロジーと、その進化の方向性についての知見は未だに新鮮で、サイバーで、パンクです。<br />
+むしろこれを気に新しい攻殻を描いていただけると幸甚極まりないのですが。</p>") (dc:subject nil "アニメ・コスプレ・コミケ") (dc:creator nil "いちる") (dc:date nil "2013-03-15T11:25:00+09:00"))) ("紙おむつを洗濯機で洗っちゃったときの対処方法" "洗濯機の中で、紙おむつを洗ってしまいまして。 いつ入ったんだろう？　全然記憶にない。 でも眼前の衣類たちにビッシリと付着しているのは、まぎれもなく紙おむつの白い紙くずとブヨブヨした高分子ポリマーです。..." "http://kotoripiyopiyo.com/2013/03/kamiomutsu20130315.html" (20802 29965) new 7 nil nil ((title nil "紙おむつを洗濯機で洗っちゃったときの対処方法") (link nil "http://kotoripiyopiyo.com/2013/03/kamiomutsu20130315.html") (description nil "洗濯機の中で、紙おむつを洗ってしまいまして。 いつ入ったんだろう？　全然記憶にない。 でも眼前の衣類たちにビッシリと付着しているのは、まぎれもなく紙おむつの白い紙くずとブヨブヨした高分子ポリマーです。...") (content:encoded nil "<p>洗濯機の中で、紙おむつを洗ってしまいまして。</p>
+
+<p>いつ入ったんだろう？　全然記憶にない。<br />
+でも眼前の衣類たちにビッシリと付着しているのは、まぎれもなく紙おむつの白い紙くずとブヨブヨした高分子ポリマーです。</p>
+
+<p>これは見なかったことにはできないレベル。なんとかしなきゃ。<br />
+でもー、どうしたらいいんだろう？</p>
+
+<p>ネットで調べたり、自分で試行錯誤したりして、結局以下のような方法で対処しました。<br />
+自分用メモも兼ねてシェアします。</p><p>--------------</p>
+
+<p><strong>１．</strong>まず、いきなり洗濯物は洗濯機から出さない。</p>
+
+<p><strong>２．</strong>衣類を１枚ずつ、振りながら洗濯機から出す。<br />
+まず１枚、ちょっと持ち上げてブルブルと振る。それからもうちょっと持ち上げてブルブル。だいたい衣類１枚につき２〜３段階に分けて、ブルブル振りながら出す。<br />
+気になるなら衣類を裏返してブルブル振る。手ではたき落としたり、ガムテームの裏で貼って取ってもオッケー（触っても人体には影響ないそうです）。<br />
+この時点では完璧に取らなくてもオッケー。</p>
+
+<p><strong>３．</strong>衣類を全部出し終わったら、洗濯機の槽の中を雑巾で拭き掃除。くず取りネットの中も綺麗にお掃除。<br />
+お掃除が終わったら、槽に水をいっぱいためて、衣類を入れずに洗浄。もし「槽洗浄」というメニューが洗濯機にあれば、それを使って洗浄。<br />
+塩を入れて洗うと高分子ポリマーのカサが減って、くず取りネットや排水溝に詰まりにくくなるとも言われていますので、気になる方は大さじ１杯くらい入れてみてください。<br />
+僕の場合は塩を入れなくても大丈夫でした。</p>
+
+<p><strong>４．</strong>さて、衣類の方。普通に乾かして、乾ききったらはたいたりブルブル振ったりして、まだ付着しているクズを落とす。<br />
+全部取り込んだら、念のためもう一回洗濯機で洗う。それで綺麗になったようならオッケー。まだ付着が気になるようだったら２〜４を繰り返す。</p>
+
+<p>--------------</p>
+
+<p>以上です。あー面倒くさかった！！！</p>
+
+<p>「ウチには赤ちゃんがいないし」と思っている方も要注意ですよ。怪しい人物がこっそりあなたの家に忍び込んで、パンパースやメリーズをどっさり洗濯機に入れて帰るかもしれませんからね。</p>") (dc:subject nil "レビュー") (dc:creator nil "いちる") (dc:date nil "2013-03-15T10:10:37+09:00"))) ("工事中で頭を下げてる人、女性版" "工事現場に「頭を下げてる人」のイラストが描いてあるのはもはや日常の光景になっていますが、女性版というのは初めて見ました。 全体的にピンクで、しっかりお化粧もしている様子。 別にたいしたイラストではない..." "http://kotoripiyopiyo.com/2013/03/%E5%B7%A5%E4%BA%8B%E4%B8%AD%E3%81%A7%E9%A0%AD%E3%82%92%E4%B8%8B%E3%81%92%E3%81%A6%E3%82%8B%E4%BA%BA%E5%A5%B3%E6%80%A7%E7%89%88.html" (20801 11851) new 8 nil nil ((title nil "工事中で頭を下げてる人、女性版") (link nil "http://kotoripiyopiyo.com/2013/03/%E5%B7%A5%E4%BA%8B%E4%B8%AD%E3%81%A7%E9%A0%AD%E3%82%92%E4%B8%8B%E3%81%92%E3%81%A6%E3%82%8B%E4%BA%BA%E5%A5%B3%E6%80%A7%E7%89%88.html") (description nil "工事現場に「頭を下げてる人」のイラストが描いてあるのはもはや日常の光景になっていますが、女性版というのは初めて見ました。 全体的にピンクで、しっかりお化粧もしている様子。 別にたいしたイラストではない...") (content:encoded nil "<p>&#x5DE5;&#x4E8B;&#x73FE;&#x5834;&#x306B;&#x300C;&#x982D;&#x3092;&#x4E0B;&#x3052;&#x3066;&#x308B;&#x4EBA;&#x300D;&#x306E;&#x30A4;&#x30E9;&#x30B9;&#x30C8;&#x304C;&#x63CF;&#x3044;&#x3066;&#x3042;&#x308B;&#x306E;&#x306F;&#x3082;&#x306F;&#x3084;&#x65E5;&#x5E38;&#x306E;&#x5149;&#x666F;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x5973;&#x6027;&#x7248;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x521D;&#x3081;&#x3066;&#x898B;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+
+<p>&#x5168;&#x4F53;&#x7684;&#x306B;&#x30D4;&#x30F3;&#x30AF;&#x3067;&#x3001;&#x3057;&#x3063;&#x304B;&#x308A;&#x304A;&#x5316;&#x7CA7;&#x3082;&#x3057;&#x3066;&#x3044;&#x308B;&#x69D8;&#x5B50;&#x3002;</p>
+
+<p>&#x5225;&#x306B;&#x305F;&#x3044;&#x3057;&#x305F;&#x30A4;&#x30E9;&#x30B9;&#x30C8;&#x3067;&#x306F;&#x306A;&#x3044;&#x6C17;&#x3082;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x300C;&#x3044;&#x3044;&#x3088;&#x30FC;&#x591A;&#x5C11;&#x4EA4;&#x901A;&#x4E0D;&#x4FBF;&#x3067;&#x3082;&#x5168;&#x7136;&#x3044;&#x3044;&#x3088;&#x30FC;&#x30AA;&#x30C3;&#x30B1;&#x30FC;&#x30AA;&#x30C3;&#x30B1;&#x30FC;&#x554F;&#x984C;&#x306A;&#x3057;&#x30FC;&#x2606;&#x300D;&#x307F;&#x305F;&#x3044;&#x306A;&#x3001;&#x601D;&#x308F;&#x305A;&#x8A31;&#x3057;&#x3061;&#x3083;&#x3046;&#x611F;&#x304C;&#x7537;&#x6027;&#x7248;&#x6BD4;&#xFF13;&#x500D;&#x304F;&#x3089;&#x3044;&#x306B;&#x306A;&#x308B;&#x304B;&#x3089;&#x4E0D;&#x601D;&#x8B70;&#x3067;&#x3059;&#x3002;<br/>
+&#x653B;&#x6BBB;&#x6A5F;&#x52D5;&#x968A;&#x98A8;&#x306B;&#x8A00;&#x3046;&#x3068;&#x3001;&#x5B8C;&#x5168;&#x306B;&#x8996;&#x899A;&#x523A;&#x6FC0;&#x306B;&#x3088;&#x308B;&#x5FC3;&#x7406;&#x8A98;&#x5C0E;&#x3092;&#x53D7;&#x3051;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+
+<p><br />
+<!-- (DWIM) attachments start here --></p>
+
+<p class=\"asset asset-image\">
+    <a class=\"asset-img-link\"  style=\"display: inline;\" href=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee94920ec970d-pi\"><img class=\"asset  asset-image at-xid-6a00d8341bfbdf53ef017ee94920ec970d\" alt=\"工事中で頭を下げてる人、女性版\" title=\"工事中で頭を下げてる人、女性版\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee94920ec970d-580wi\" /></a><br />
+</p><p class=\"asset asset-image\">
+    <a class=\"asset-img-link\"  style=\"display: inline;\" href=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017d41d54357970c-pi\"><img class=\"asset  asset-image at-xid-6a00d8341bfbdf53ef017d41d54357970c\" alt=\"工事中で頭を下げてる人、女性版\" title=\"工事中で頭を下げてる人、女性版\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017d41d54357970c-580wi\" /></a><br />
+</p>
+") (dc:creator nil "いちる") (dc:date nil "2013-03-14T10:56:27+09:00"))) ("ヴァチカンの切手からイコノロジーを感じる（追記あり）" "絶賛世界一周中のまゆみんから、ヴァチカンからの絵葉書が届きまして。 なんでもヴァチカンには、ローマ法王が空位のときだけ発行され、かつ空位期間しか使えない特別な切手があるのだそうで、それを使って送ってき..." "http://kotoripiyopiyo.com/2013/03/sedevacante20130313.html" (20800 321) new 9 nil nil ((title nil "ヴァチカンの切手からイコノロジーを感じる（追記あり）") (link nil "http://kotoripiyopiyo.com/2013/03/sedevacante20130313.html") (description nil "絶賛世界一周中のまゆみんから、ヴァチカンからの絵葉書が届きまして。 なんでもヴァチカンには、ローマ法王が空位のときだけ発行され、かつ空位期間しか使えない特別な切手があるのだそうで、それを使って送ってき...") (content:encoded nil "<p><a href=\"http://uramayu.com/blog/round-the-world.html\" target=\"_blank\">絶賛世界一周中のまゆみん</a>から、ヴァチカンからの絵葉書が届きまして。</p>
+
+<p><img alt=\"Sedevacante2013031301\" title=\"Sedevacante2013031301\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee93fc255970d-800wi\" border=\"0\" /></p>
+
+<p>なんでもヴァチカンには、ローマ法王が空位のときだけ発行され、かつ空位期間しか使えない特別な切手があるのだそうで、それを使って送ってきてくれたのです。<br />
+以下の切手がその「SE VACANTE」↓</p>
+
+<p><img alt=\"Sedevacante2013031302\" title=\"Sedevacante2013031302\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017ee93fc651970d-800wi\" border=\"0\" /></p>
+
+<p>おー、これは僕が好きな感じのデザインですね。<br />
+僕は学生時代はイコノロジー（図像解釈学）をやっていたので、こういう中世のシンボルっぽい図像が好きなのです。</p>
+
+<p>イコノロジー（or イコノグラフィ）は、絵に描かれているそれぞれのモノがそれぞれ意味を持っていて、その意味から絵画全体のモチーフやメッセージを読み解くという学問です。例えば犬は忠誠を、船は信用を、上を指し示してると神への愛を表している、といった感じで。<br />
+これら図像の意味が分かっていると、中世絵画への理解度が飛躍的に増すと言われています。隅っこに無造作に描かれている置物の意味などが理解できるからです。</p><p>また、中世は言論の自由がなかったし、絵画はアーティストの創作意欲ではなく基本的に教会や貴族からの依頼でクライアントの希望に沿って描かれていました。<br />
+だから画家は、意にそぐわない仕事の以来を受けた時は、図像を巧みに組み合わせて、画家が本当に伝えたいメッセージを埋め込んでいたこともある、と言われています。キリスト教の絵なんだけど実は全く違うメッセージ、例えば老いることの悲しみや錬金術の教義を紹介している、とか。<br />
+まあこの辺は解釈が分かれるところですが、本当だとすると結構ミステリアスです。</p>
+
+<p>この切手の場合は、天使が<del>儀礼的な斧</del>聖ペテロの鍵を２本と儀礼的な傘を持っていますね。ちゃんと調べていないですが、これらは教皇または教皇が関連する儀式の象徴なのでしょう。それは聖なるものなので、当然天使（＝神の使い）が支えている。<br />
+だとすると、この切手の図像の意味は、</p>
+
+<p><strong>「今は教皇の座には誰もいないよ。でもローマ・カトリックの栄光は神が支えてるから大丈夫よ」</strong></p>
+
+<p>という感じかな、と推測できます。</p>
+
+<p>イコノロジーに興味がある方は、若桑みどり先生の著書を読んでみるといいです。<br />
+この辺が入門編で分かりやすいかと。</p>
+
+<p><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/4480089071/alittlebird-22/ref=nosim/\" target=\"_blank\"><img src=\"http://ec2.images-amazon.com/images/I/51C9VZZJFFL._SL500_SS75_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>イメージを読む</strong></a><br />
+若桑 みどり (著) <br clear=\"all\" /></p>
+
+<p><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/414001668X/alittlebird-22/ref=nosim/\" target=\"_blank\"><img src=\"http://ec2.images-amazon.com/images/I/41oypI%2ByyvL._SL500_SS75_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>絵画を読む―イコノロジー入門 (NHKブックス) </strong></a><br />
+若桑 みどり (著) <br clear=\"all\" /></p>
+
+<p>また、慶応のEIRIプロジェクト（旧HUMI）が、図像の意味をまとめた16世紀刊行の辞典「イコノロギア」を<a href=\"http://www.humi.keio.ac.jp/~matsuda/ripa/catalogue/index/jpindex_afr.html\" target=\"_blank\">Web化</a>してくれています。</p>
+
+<p>そんなこんなで、長く楽しめた絵葉書でした。送ってくれてありがとうございました！<br />
+まあ、切手の図像よりも、絵葉書の裏の写真で、</p>
+
+<p><img alt=\"Sedevacante2013031303\" title=\"Sedevacante2013031303\" src=\"http://coolsummer.typepad.com/.a/6a00d8341bfbdf53ef017c379c9c88970b-800wi\" border=\"0\" /></p>
+
+<p>ベネディクト16世が卒業アルバムの集合写真撮影の日に風邪を引いて休んじゃった生徒みたいな扱いを受けている方が気になったのですけどね、実は……</p>
+
+<p>p.s.斧じゃなくて鍵でした！　聖ペトロの天国の門の鍵。デカいですね…</p>") (dc:subject nil "アート") (dc:creator nil "いちる") (dc:date nil "2013-03-13T13:32:01+09:00"))) ("【タリーズ伝説】ジョジョの何巻くらいでわかるのか？" "テスト期間中なのかな？　タリーズで高校生２人が勉強をしていまして。 どうやら数学を勉強していたららしく、片方が突然、 「やべぇ！　何もかもわからねぇ！」 と叫びだしたのです。 もう片方の方は、半ば面倒..." "http://kotoripiyopiyo.com/2013/03/jojo20130311.html" (20797 17915) new 10 nil nil ((title nil "【タリーズ伝説】ジョジョの何巻くらいでわかるのか？") (link nil "http://kotoripiyopiyo.com/2013/03/jojo20130311.html") (description nil "テスト期間中なのかな？　タリーズで高校生２人が勉強をしていまして。 どうやら数学を勉強していたららしく、片方が突然、 「やべぇ！　何もかもわからねぇ！」 と叫びだしたのです。 もう片方の方は、半ば面倒...") (content:encoded nil "<p>テスト期間中なのかな？　タリーズで高校生２人が勉強をしていまして。</p>
+
+<p>どうやら数学を勉強していたららしく、片方が突然、</p>
+
+<p><span class=\"red\">「やべぇ！　何もかもわからねぇ！」</span></p>
+
+<p>と叫びだしたのです。</p>
+
+<p>もう片方の方は、半ば面倒くさそうに、</p>
+
+<p>　<br />
+　<br />
+「大丈夫だよ。その問題集繰り返し解いてれば、徐々にわかってくるからさ……」</p>
+
+<p>　<br />
+　<br />
+と、なだめます。<br />
+しかし何もかもわからない方の高校生は、そんな言葉では納得しません。<br />
+自分より知力も大人度も遥かに先を行っている友人を恨めしげににらみながら、小声でこう訪ねました。</p><p>　<br />
+　<br />
+　<br />
+　<br />
+　<br />
+<span class=\"normal2\">「ジョジョ？　ジョジョの何巻くらいだよ…………」</span></p>
+
+<p>　<br />
+　<br />
+　<br />
+　<br />
+　<br />
+明らかに想定外の質問だったのでしょう。完全に不意をつかれたように、相手は目を見開いてビクッと背を伸ばし（眼鏡もちょっとズレていたかもしれません）、でも何か答えなきゃという義務感に駆られ、アワアワしながら、なんとか一言だけ口にすることができました。</p>
+
+<p>　<br />
+　<br />
+　<br />
+　<br />
+　<br />
+<span class=\"normal2\">「……じゅ、12巻くらいかな……」</span></p>
+
+<p>　<br />
+　<br />
+　<br />
+　<br />
+　<br />
+約斜め前方からその様子をくまなく観察していた僕は、「なんだよ12巻ってw　口から出任せに適当なことをw」と思いながら、一応その巻の内容を調べてみました。<br />
+こんな感じでした。</p>
+
+<p><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/4088510682/alittlebird-22/ref=nosim/\" target=\"_blank\"><img src=\"http://ecx.images-amazon.com/images/I/618PJ7HRR2L._AA160_.jpg\" style=\"float: left; margin: 0px 5px 5px 0px;\" border=\"0\"><strong>ジョジョの奇妙な冒険 12</strong></a></p>
+
+<p><strong>【内容紹介】</strong><br />
+ジョジョはワムウを倒し、心臓の指輪も解けた。だが残った一人カーズは、リサリサを倒し、赤石を手に入れ、ついに<strong>真の究極生物に変身</strong>！　カーズの猛威を前にひたすら逃げつづけるジョジョだが。<br clear=\"all\" /></p>
+
+<p>究極生物に変身、か……<br />
+割と合ってるじゃん。結構適切な巻だったかもしれませんね。</p>
+
+<p>他のタリーズ伝説は<a href=\"http://kotoripiyopiyo.com/tul_/\" target=\"_blank\">こちら</a>から。</p>") (dc:subject nil "タリーズにて起きたこと") (dc:creator nil "いちる") (dc:date nil "2013-03-11T11:48:27+09:00"))))

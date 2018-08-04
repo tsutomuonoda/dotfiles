@@ -1,0 +1,25 @@
+apt-cache show navi2ch
+uname -a
+apt-cache show emacs-snapshot
+apt-cache show emacs-goodies-el
+apt-cache search css-mode
+apt-cache show css-mode
+dpkg -L css-mode
+dpkg -S css-mode
+dpkg -S css-mode
+apt-cache show mu-cite
+dpkg -S php-mode
+apt-cache show php-mode
+apt-cache show php-elisp
+apt-cache search php mode
+apt-cache search php emacs
+apt-cache show php-elisp
+apt-cache show autoinsert.el
+apt-cache search autoinsert.el
+dpkg -S autoinsert.el
+dpkg -S ibuffer.el
+dpkg -S lcomp.el
+dpkg -S lcomp
+apt-cache show emacs-goodies-el
+apt-cache show virtualbox
+apt-cache show vagrant

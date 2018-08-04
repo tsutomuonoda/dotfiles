@@ -1,0 +1,182 @@
+;; -*- coding: utf-8 -*-
+(("Yet Another Hackadelic" "Yet Another Hackadelic" "http://d.hatena.ne.jp/ZIGOROu/" (20813 17230 341997 61000) feed 0 nil nil ((title nil "Yet Another Hackadelic") (link nil "http://d.hatena.ne.jp/ZIGOROu/") (description nil "Yet Another Hackadelic") (dc:creator nil "ZIGOROu") (dc:date nil "2012-08-12T18:11:19+09:00") (items nil (rdf:Seq nil (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ZIGOROu/20120307/1331112122"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ZIGOROu/20120211/1328982756"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ZIGOROu/20120106/1325835374"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ZIGOROu/20111210/1323527007"))) (rdf:li ((rdf:resource . "http://d.hatena.ne.jp/ZIGOROu/20111125/1322218216"))))))) ("[Perl][JPA][お知らせ] perldoc.jp のデザインを公募します！" "こちらでもお知らせしちゃいます！perldoc.jp の運営とデザイン公募のお知らせ - JPA 運営ブログにて詳しく書きましたが、perldoc.jp の運営母体を JPA に移管する事になりましたので、デザインの公募を行います。 もしお知り合いにデザイナー等いましたら、お声がけ下さい" "http://d.hatena.ne.jp/ZIGOROu/20120307/1331112122" (20311 10426) new 1 nil nil ((title nil "[Perl][JPA][お知らせ] perldoc.jp のデザインを公募します！") (link nil "http://d.hatena.ne.jp/ZIGOROu/20120307/1331112122") (description nil " こちらでもお知らせしちゃいます！perldoc.jp の運営とデザイン公募のお知らせ - JPA 運営ブログにて詳しく書きましたが、perldoc.jp の運営母体を JPA に移管する事になりましたので、デザインの公募を行います。 もしお知り合いにデザイナー等いましたら、お声がけ下さい") (content:encoded nil "
+<div class=\"section\"><p>こちらでもお知らせしちゃいます！<a href=\"http://blog.perlassociation.org/2012/03/perldocjp.html\">perldoc.jp の運営とデザイン公募のお知らせ - JPA 運営ブログ</a>にて詳しく書きましたが、perldoc.jp の運営母体を JPA に移管する事になりましたので、デザインの公募を行います。</p><p>もしお知り合いにデザイナー等いましたら、お声がけ下さいませ。</p></div>
+") (dc:creator nil "ZIGOROu") (dc:date nil "2012-03-07T18:22:02+09:00") (dc:subject nil "Perl") (dc:subject nil "JPA") (dc:subject nil "お知らせ"))) ("[API][Architecture] PATCH メソッド、新しい HTTP Status Code" "Spec はあまりミーハーに追いかけても後で痛い目にあったりするもんですが、久しぶりに面白いなーと思ったのでちょっと取り上げてみます。 ちなみに斜め読みなので記事の正確性についてはあまり保証しませんw PATCH Method for HTTP RFC 5789 にある PATCH Method for HTTP" "http://d.hatena.ne.jp/ZIGOROu/20120211/1328982756" (20278 43748) new 2 nil nil ((title nil "[API][Architecture] PATCH メソッド、新しい HTTP Status Code") (link nil "http://d.hatena.ne.jp/ZIGOROu/20120211/1328982756") (description nil " Spec はあまりミーハーに追いかけても後で痛い目にあったりするもんですが、久しぶりに面白いなーと思ったのでちょっと取り上げてみます。 ちなみに斜め読みなので記事の正確性についてはあまり保証しませんw PATCH Method for HTTP RFC 5789 にある PATCH Method for HTTP ") (content:encoded nil "
+<div class=\"section\"><p>Spec はあまりミーハーに追いかけても後で痛い目にあったりするもんですが、久しぶりに面白いなーと思ったのでちょっと取り上げてみます。</p><p>ちなみに斜め読みなので記事の正確性についてはあまり保証しませんw</p><h4> PATCH Method <a href=\"http://javascript.g.hatena.ne.jp/keyword/for\" class=\"okeyword\">for</a> HTTP</h4><p><a href=\"http://tools.ietf.org/html/rfc5789\">RFC 5789</a> にある PATCH Method <a href=\"http://javascript.g.hatena.ne.jp/keyword/for\" class=\"okeyword\">for</a> HTTP ですが、RESTful API の致命的な弱点でもある PUT がリソースの完全なる置き換えなのに対して、PATCH は差分適用である所が中々面白いです。</p><p><a href=\"http://tools.ietf.org/html/rfc5789#section-2.1\">2.1.  A Simple PATCH Example</a> のサンプルを見てみます。</p><pre>
+PATCH /file.txt HTTP/1.1
+Host: www.example.com
+Content-Type: application/example
+If-Match: &#34;e0023aa4e&#34;
+Content-Length: 100
+
+&#91;description of changes]
+</pre><p>Content-Type では元のリソースに対して何らかのパッチ形式を定義して、If-Match ヘッダでは該当するバージョンみたいな物を指定してるんでしょうね。</p><p>例えば SQL ならば、</p><pre class=\"syntax-highlight\"><span class=\"synStatement\">UPDATE</span> resources <span class=\"synStatement\">SET</span><span class=\"synComment\">/* description of changes */</span><span class=\"synSpecial\">WHERE</span> id = <span class=\"synConstant\">'file.txt'</span><span class=\"synStatement\">AND</span> version = <span class=\"synConstant\">'e0023aa4e'</span>;
+</pre><p>みたいなニュアンスなんでしょうね。<a href=\"http://tools.ietf.org/html/rfc5789#section-3.1\">3.1 The Accept-Patch Header</a> で OPTIONS <a href=\"http://javascript.g.hatena.ne.jp/keyword/%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89\" class=\"okeyword\">メソッド</a>として受け入れられる PATCH <a href=\"http://javascript.g.hatena.ne.jp/keyword/%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89\" class=\"okeyword\">メソッド</a>の本文形式を照会出来ると、まぁ良く出来てますねーって印象です。</p><p>OpenSocial の RESTful API だと、<a href=\"http://opensocial-resources.googlecode.com/svn/spec/2.0.1/Core-API-Server.xml#rfc.section.9.3\">9.3 Partial Updates</a> でなんとなーく規定されているように、</p><pre>
+GET /appdata/@me/@self/@app
+
+200 OK
+Content-Type: application/json; charset=utf-8
+ETag: &#34;akb1&#34;
+
+{
+ &#34;pokes&#34; : 3,
+ &#34;last_poke&#34; : &#34;2008-02-13T18:30:02Z&#34;
+}   
+</pre><p>みたいなエントリがあったとして、</p><pre>
+PUT /appdata/@me/@self/@app?fields=pokes
+Content-Type: application/json; charset=utf-8
+If-Match: &#34;akb1&#34;
+
+{
+  &#34;pokes&#34;: 4
+}
+</pre><p>とかが Partial Updates ですね。そういう訳で PUT <a href=\"http://javascript.g.hatena.ne.jp/keyword/%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89\" class=\"okeyword\">メソッド</a>と fields パラメータにより結構強引に差分更新を表現していた所が、より明確な意味での実現が提供されてるって感じです。</p><h4> Additional HTTP Status Codes</h4><p><a href=\"http://tools.ietf.org/html/draft-nottingham-http-new-status-04\">Additional HTTP Status Codes draft-nottingham-http-new-status-04</a> で定義されている幾つかの HTTP Status Code は少なすぎるレスポンスコードの言葉足らずな所を補う意味で良いんじゃないかなーと思ってます。</p><p>まだドラフトなんでアレですけど、今後期待したいなと。</p><h5> 3.  428 Precondition Required</h5><p><a href=\"http://tools.ietf.org/html/draft-nottingham-http-new-status-04#section-3\">3.  428 Precondition Required</a> はさっきの PATCH <a href=\"http://javascript.g.hatena.ne.jp/keyword/%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89\" class=\"okeyword\">メソッド</a>によるリクエストの際に、If-Match によるバージョン指定をクライアントに要求とかそういう事が出来るっぽぃですね。</p><h5> 4. 429 Too Many Requests</h5><p><a href=\"http://tools.ietf.org/html/draft-nottingham-http-new-status-04#section-4\">429 Too Many Requests</a> は現実的に使いたいシーンはあるだろうなーと。</p><p>今、こういうのを表現する際に、<a href=\"http://tools.ietf.org/html/rfc2616#section-10.5.4\">10.5.4 503 Service Unavailable</a> を使ったりしてたんだけど、予めリクエスト数の上限についてガイドラインを提示しているのであれば、これはクライアント側の問題に帰着させるのが正しいと思うので4xxで表現するのが妥当だよなーなんて思う次第であります。</p><h4> See Also</h4><ul><li><a href=\"http://tools.ietf.org/html/rfc5789\">PATCH Method for HTTP</a></li><li><a href=\"http://tools.ietf.org/html/draft-nottingham-http-new-status-04\">Additional HTTP Status Codes draft-nottingham-http-new-status-04</a></li></ul></div>
+") (dc:creator nil "ZIGOROu") (dc:date nil "2012-02-12T02:52:36+09:00") (dc:subject nil "API") (dc:subject nil "Architecture"))) ("[Shell] 今日のワンライナー" "ヘッダ付き CSV の2列目の各行の数値の和を求める、ってのがさらっと書けなかったので社内で聞いたみた。 $ tail -n '+1' mojage.csv | cut -d \",\" -f 2 | awk '{ s+=$1 } END { print s }' とか。面白かったのは、 $ paste -d '+' -s ./mo" "http://d.hatena.ne.jp/ZIGOROu/20120106/1325835374" (20230 42094) new 3 nil nil ((title nil "[Shell] 今日のワンライナー") (link nil "http://d.hatena.ne.jp/ZIGOROu/20120106/1325835374") (description nil " ヘッダ付き CSV の2列目の各行の数値の和を求める、ってのがさらっと書けなかったので社内で聞いたみた。 $ tail -n '+1' mojage.csv | cut -d \",\" -f 2 | awk '{ s+=$1 } END { print s }' とか。面白かったのは、 $ paste -d '+' -s ./mo") (content:encoded nil "
+<div class=\"section\"><p>ヘッダ付き CSV の2列目の各行の数値の和を求める、ってのがさらっと書けなかったので社内で聞いたみた。</p><pre>
+$ tail -n &#39;+1&#39; mojage.csv | cut -d &#34;,&#34; -f 2 | awk &#39;{ s+=$1 } END { print s }&#39;
+</pre><p>とか。面白かったのは、</p><pre>
+$ paste -d &#39;+&#39; -s ./mojage.csv | bc
+</pre><p>みたいな奴。正確には一時ファイルが必要だけど、bc に食わすってのがちょっとお洒落さんだなーと。</p></div>
+") (dc:creator nil "ZIGOROu") (dc:date nil "2012-01-06T16:36:14+09:00") (dc:subject nil "Shell"))) ("[MySQL][Perl] MyTAP + my_prove + MySQL::Sandbox で快適 SQL Unit Testing" "MyTAP という MySQL 上で Test Anything Protocol を実現してしまうというプロダクトがあります。これと TAP::Parser::SourceHandler::MyTAP に付属している my_prove コマンドを使うとかなり簡単に SQL プログラミングでテストを行う事が出来ます。 また MySQL::Sandbox は" "http://d.hatena.ne.jp/ZIGOROu/20111210/1323527007" (20195 27487) new 4 nil nil ((title nil "[MySQL][Perl] MyTAP + my_prove + MySQL::Sandbox で快適 SQL Unit Testing") (link nil "http://d.hatena.ne.jp/ZIGOROu/20111210/1323527007") (description nil " MyTAP という MySQL 上で Test Anything Protocol を実現してしまうというプロダクトがあります。これと TAP::Parser::SourceHandler::MyTAP に付属している my_prove コマンドを使うとかなり簡単に SQL プログラミングでテストを行う事が出来ます。 また MySQL::Sandbox は") (content:encoded nil "
+<div class=\"section\"><p><a href=\"http://theory.github.com/mytap/\">MyTAP</a> という MySQL 上で Test Anything Protocol を実現してしまうというプロダクトがあります。これと <a href=\"https://metacpan.org/module/TAP::Parser::SourceHandler::MyTAP\">TAP::Parser::SourceHandler::MyTAP</a> に付属している my_prove コマンドを使うとかなり簡単に SQL プログラミングでテストを行う事が出来ます。</p><p>また MySQL::Sandbox はだいぶ過去のエントリ<span class=\"footnote\"><a href=\"/ZIGOROu/#f1\" name=\"fn1\" title=\"[http://d.hatena.ne.jp/ZIGOROu/20090607/1244367464]\">*1</a></span><span class=\"footnote\"><a href=\"/ZIGOROu/#f2\" name=\"fn2\" title=\" [http://d.hatena.ne.jp/ZIGOROu/20090608/1244470674]\">*2</a></span>で紹介した事がありますが、異なる version の mysqld を色んな構成で簡単に作れてしまう優れものです。</p><p>今回はこれらを組み合わせてテストする方法について紹介しちゃいます。</p><h4> MyTAP のインストール</h4><p>MySQL::Sandbox を使って作った sandbox が $HOME/sandboxes/rsandbox_5_1_58 にあるとします。</p><pre>
+$ cd ~/sandboxes/rsandbox_5_1_58
+$ ./start_all
+$ wget https://raw.github.com/theory/mytap/master/mytap.sql
+$ ./master/use -e &#34;SET GLOBAL log_bin_trust_function_creators = ON; SOURCE mytap.sql;&#34;
+</pre><p>として mysqld を立ち上げて、さらに mytap.sql をインストールしておきます。</p><h4> テスト実践編</h4><p>次にこんなソースを用意しておきます。</p><pre class=\"syntax-highlight\">
+DELIMITER ;
+
+<span class=\"synStatement\">DROP</span><span class=\"synSpecial\">TABLE</span><span class=\"synSpecial\">IF</span><span class=\"synStatement\">EXISTS</span> foo;
+<span class=\"synStatement\">CREATE</span><span class=\"synSpecial\">TABLE</span> foo (
+  id int(<span class=\"synConstant\">10</span>) unsigned <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span> auto_increment,
+  name <span class=\"synType\">varchar</span>(<span class=\"synConstant\">32</span>) <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span>,
+  primary key(id)
+) ENGINE=InnoDB;
+
+<span class=\"synStatement\">DROP</span><span class=\"synSpecial\">TABLE</span><span class=\"synSpecial\">IF</span><span class=\"synStatement\">EXISTS</span> bar;
+<span class=\"synStatement\">CREATE</span><span class=\"synSpecial\">TABLE</span> bar (
+  id int(<span class=\"synConstant\">10</span>) unsigned <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span> auto_increment,
+  name <span class=\"synType\">varchar</span>(<span class=\"synConstant\">32</span>) <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span>,
+  primary key(id)
+) ENGINE=InnoDB;
+
+<span class=\"synStatement\">DROP</span><span class=\"synSpecial\">TABLE</span><span class=\"synSpecial\">IF</span><span class=\"synStatement\">EXISTS</span> baz;
+<span class=\"synStatement\">CREATE</span><span class=\"synSpecial\">TABLE</span> baz (
+  id int(<span class=\"synConstant\">10</span>) unsigned <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span> auto_increment,
+  name <span class=\"synType\">varchar</span>(<span class=\"synConstant\">32</span>) <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span>,
+  primary key(id)
+) ENGINE=InnoDB;
+
+<span class=\"synStatement\">DROP</span><span class=\"synSpecial\">TABLE</span><span class=\"synSpecial\">IF</span><span class=\"synStatement\">EXISTS</span> table_rows_stat;
+<span class=\"synStatement\">CREATE</span><span class=\"synSpecial\">TABLE</span> table_rows_stat (
+  id int(<span class=\"synConstant\">10</span>) unsigned <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span> auto_increment,
+  table_name <span class=\"synType\">varchar</span>(<span class=\"synConstant\">128</span>) <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span>,
+  <span class=\"synSpecial\">rows</span> bigint(<span class=\"synConstant\">20</span>) unsigned <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span>,
+  published_on int(<span class=\"synConstant\">10</span>) unsigned <span class=\"synStatement\">not</span><span class=\"synSpecial\">null</span>,
+  primary key(id),
+  key on_table_name_and_published_on (table_name, published_on)
+) ENGINE=InnoDB;
+
+<span class=\"synStatement\">DROP</span><span class=\"synSpecial\">PROCEDURE</span><span class=\"synSpecial\">IF</span><span class=\"synStatement\">EXISTS</span> record_table_rows_stat;
+DELIMITER //
+<span class=\"synStatement\">CREATE</span><span class=\"synSpecial\">PROCEDURE</span> record_table_rows_stat(match_table_pattern <span class=\"synType\">VARCHAR</span>(<span class=\"synConstant\">255</span>))
+<span class=\"synSpecial\">BEGIN</span>
+  DECLARE done INT <span class=\"synSpecial\">DEFAULT</span><span class=\"synConstant\">0</span>;
+  DECLARE a_table <span class=\"synType\">VARCHAR</span>(<span class=\"synConstant\">255</span>);
+  DECLARE matches_table_cursor <span class=\"synSpecial\">CURSOR</span><span class=\"synSpecial\">FOR</span><span class=\"synStatement\">SELECT</span> TABLE_NAME <span class=\"synSpecial\">FROM</span> information_schema.TABLES <span class=\"synSpecial\">WHERE</span> TABLE_SCHEMA = DATABASE() <span class=\"synStatement\">AND</span> TABLE_NAME REGEXP @match_table_pattern;
+  DECLARE CONTINUE HANDLER <span class=\"synSpecial\">FOR</span> SQLSTATE <span class=\"synConstant\">'02000'</span><span class=\"synStatement\">SET</span> done = <span class=\"synConstant\">1</span>;
+
+  <span class=\"synStatement\">SET</span> @match_table_pattern = match_table_pattern;
+
+  OPEN matches_table_cursor;
+
+  REPEAT
+    FETCH matches_table_cursor <span class=\"synSpecial\">INTO</span> a_table;
+    <span class=\"synSpecial\">IF</span> done = <span class=\"synConstant\">0</span><span class=\"synSpecial\">THEN</span><span class=\"synStatement\">SET</span> @rows_count_query = CONCAT(<span class=\"synConstant\">'SELECT COUNT(*) INTO @rows_count FROM '</span>, a_table);      
+      PREPARE rows_count_stmt <span class=\"synSpecial\">FROM</span> @rows_count_query;
+      <span class=\"synStatement\">EXECUTE</span> rows_count_stmt;
+      <span class=\"synComment\">/* SELECT @a_table, @rows_count; */</span><span class=\"synStatement\">INSERT</span><span class=\"synSpecial\">INTO</span> table_rows_stat(table_name, <span class=\"synSpecial\">rows</span>, published_on) <span class=\"synSpecial\">VALUES</span>(a_table, @rows_count, UNIX_TIMESTAMP());
+      DEALLOCATE PREPARE rows_count_stmt;
+    <span class=\"synSpecial\">END</span><span class=\"synSpecial\">IF</span>;
+  UNTIL done <span class=\"synSpecial\">END</span> REPEAT;
+
+  CLOSE matches_table_cursor;
+<span class=\"synSpecial\">END</span>;
+//
+DELIMITER ;
+</pre><p>正規表現でマッチしたテーブルを COUNT して table_rows_stat テーブルに突っ込むつもりの PROCEDURE です。実用性はまったく考えてませんw</p><p>この PROCEDURE がちゃんと動くか てすとしてみましょう。</p><p>テストはこんな感じです。</p><pre class=\"syntax-highlight\"><span class=\"synStatement\">SELECT</span> tap.plan(<span class=\"synConstant\">6</span>);
+
+<span class=\"synComment\">/* setup schema */</span>
+SOURCE schema/example.sql;
+
+<span class=\"synComment\">/* call procedure and insert rows */</span><span class=\"synStatement\">SET</span> TIMESTAMP = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:00:00'</span>);
+CALL record_table_rows_stat(<span class=\"synConstant\">'(foo|bar|baz)'</span>);
+
+<span class=\"synStatement\">SET</span> TIMESTAMP = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:05:00'</span>);
+<span class=\"synStatement\">INSERT</span><span class=\"synSpecial\">INTO</span> foo(name) <span class=\"synSpecial\">VALUES</span>(<span class=\"synConstant\">'a'</span>), (<span class=\"synConstant\">'b'</span>), (<span class=\"synConstant\">'c'</span>);
+<span class=\"synStatement\">INSERT</span><span class=\"synSpecial\">INTO</span> bar(name) <span class=\"synSpecial\">VALUES</span>(<span class=\"synConstant\">'a'</span>), (<span class=\"synConstant\">'b'</span>), (<span class=\"synConstant\">'c'</span>), (<span class=\"synConstant\">'d'</span>), (<span class=\"synConstant\">'e'</span>);
+<span class=\"synStatement\">INSERT</span><span class=\"synSpecial\">INTO</span> baz(name) <span class=\"synSpecial\">VALUES</span>(<span class=\"synConstant\">'a'</span>), (<span class=\"synConstant\">'b'</span>), (<span class=\"synConstant\">'c'</span>), (<span class=\"synConstant\">'d'</span>);
+
+<span class=\"synStatement\">SET</span> TIMESTAMP = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:10:00'</span>);
+CALL record_table_rows_stat(<span class=\"synConstant\">'(foo|bar|baz)'</span>);
+
+<span class=\"synComment\">/* testing */</span><span class=\"synStatement\">SET</span> TIMESTAMP = <span class=\"synConstant\">0</span>;
+
+<span class=\"synStatement\">SELECT</span> tap.diag(<span class=\"synConstant\">'At first, all table rows are empty'</span>);
+
+<span class=\"synStatement\">SELECT</span> tap.eq(<span class=\"synSpecial\">rows</span>, <span class=\"synConstant\">0</span>, CONCAT(<span class=\"synConstant\">'The rows of '</span>, table_name, <span class=\"synConstant\">' at '</span>, FROM_UNIXTIME(published_on), <span class=\"synConstant\">' equals '</span>, <span class=\"synConstant\">0</span>)) 
+  <span class=\"synSpecial\">FROM</span> table_rows_stat <span class=\"synSpecial\">WHERE</span> published_on = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:00:00'</span>) <span class=\"synSpecial\">ORDER</span><span class=\"synSpecial\">BY</span> id <span class=\"synSpecial\">ASC</span>;
+
+<span class=\"synStatement\">SELECT</span> tap.diag(<span class=\"synConstant\">'Second, all table has few rows'</span>);
+
+<span class=\"synStatement\">SELECT</span> tap.eq(<span class=\"synSpecial\">rows</span>, <span class=\"synConstant\">3</span>, CONCAT(<span class=\"synConstant\">'The rows of '</span>, table_name, <span class=\"synConstant\">' at '</span>, FROM_UNIXTIME(published_on), <span class=\"synConstant\">' equals '</span>, <span class=\"synConstant\">3</span>)) 
+  <span class=\"synSpecial\">FROM</span> table_rows_stat <span class=\"synSpecial\">WHERE</span> table_name = <span class=\"synConstant\">'foo'</span><span class=\"synStatement\">AND</span> published_on = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:10:00'</span>) ;
+<span class=\"synStatement\">SELECT</span> tap.eq(<span class=\"synSpecial\">rows</span>, <span class=\"synConstant\">5</span>, CONCAT(<span class=\"synConstant\">'The rows of '</span>, table_name, <span class=\"synConstant\">' at '</span>, FROM_UNIXTIME(published_on), <span class=\"synConstant\">' equals '</span>, <span class=\"synConstant\">5</span>)) 
+  <span class=\"synSpecial\">FROM</span> table_rows_stat <span class=\"synSpecial\">WHERE</span> table_name = <span class=\"synConstant\">'bar'</span><span class=\"synStatement\">AND</span> published_on = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:10:00'</span>) ;
+<span class=\"synStatement\">SELECT</span> tap.eq(<span class=\"synSpecial\">rows</span>, <span class=\"synConstant\">4</span>, CONCAT(<span class=\"synConstant\">'The rows of '</span>, table_name, <span class=\"synConstant\">' at '</span>, FROM_UNIXTIME(published_on), <span class=\"synConstant\">' equals '</span>, <span class=\"synConstant\">4</span>)) 
+  <span class=\"synSpecial\">FROM</span> table_rows_stat <span class=\"synSpecial\">WHERE</span> table_name = <span class=\"synConstant\">'baz'</span><span class=\"synStatement\">AND</span> published_on = UNIX_TIMESTAMP(<span class=\"synConstant\">'2011-12-10 12:10:00'</span>) ;
+
+CALL tap.finish();
+</pre><p>これらをこんな感じで配置します。</p><pre>
+$ tree .
+.
+├── schema
+│&#38;#160;&#38;#160; └── example.sql
+└── t
+    └── test_record_rows_stat.my
+</pre><p>この状態で、</p><pre>
+$ my_prove --verbose --database example --mysql-bin ~/sandboxes/rsandbox_5_1_58/master/use t/
+t/test_record_rows_stat.my .. 
+1..6
+# At first, all table rows are empty
+ok 1 - The rows of bar at 2011-12-10 12:00:00 equals 0
+ok 2 - The rows of baz at 2011-12-10 12:00:00 equals 0
+ok 3 - The rows of foo at 2011-12-10 12:00:00 equals 0
+# Second, all table has few rows
+ok 4 - The rows of foo at 2011-12-10 12:10:00 equals 3
+ok 5 - The rows of bar at 2011-12-10 12:10:00 equals 5
+ok 6 - The rows of baz at 2011-12-10 12:10:00 equals 4
+ok
+All tests successful.
+Files=1, Tests=6,  0 wallclock secs ( 0.02 usr +  0.01 sys =  0.03 CPU)
+Result: PASS
+</pre><p>みたいにやりますよ。</p><p>ちょっと BK ですが、--mysql-bin オプションで作った sandbox の master に付属している mysql コマンドを指定しちゃった方が幸せです。</p><h4> まとめ</h4><p>これで好きなビルド方法で好きなバージョンの好きな構成にて、SQLだけのテストが書けますよと。</p><p>例えば mysql のバージョン移行時に何かしたりだとか、あるいは監視系にも使えるかもしれないし、セットアップ時の項目のテストにも出来そうですね。SHOW VARIABLES とか使ってですけど。</p><p>何かと夢が広がりんぐですねー。</p></div><div class=\"footnote\"><p class=\"footnote\"><a href=\"/ZIGOROu/#fn1\" name=\"f1\">*1</a>：<a href=\"http://d.hatena.ne.jp/ZIGOROu/20090607/1244367464\">http://d.hatena.ne.jp/ZIGOROu/20090607/1244367464</a></p><p class=\"footnote\"><a href=\"/ZIGOROu/#fn2\" name=\"f2\">*2</a>： <a href=\"http://d.hatena.ne.jp/ZIGOROu/20090608/1244470674\">http://d.hatena.ne.jp/ZIGOROu/20090608/1244470674</a></p></div>
+") (dc:creator nil "ZIGOROu") (dc:date nil "2011-12-10T23:23:27+09:00") (dc:subject nil "MySQL") (dc:subject nil "Perl"))) ("[MySQL] replication status plugin のインストール" "Replication Status Plugin という物がありまして、SHOW SLAVE STATUS で取れる値が information_schema.SLAVE_STATUS テーブルから取れるよって代物です。 SHOW 系のコマンドって変数代入出来ないから SQL でホゲホゲする事が出来ないんですよね。なのでこういう物があると" "http://d.hatena.ne.jp/ZIGOROu/20111125/1322218216" (20175 29416) new 5 nil nil ((title nil "[MySQL] replication status plugin のインストール") (link nil "http://d.hatena.ne.jp/ZIGOROu/20111125/1322218216") (description nil " Replication Status Plugin という物がありまして、SHOW SLAVE STATUS で取れる値が information_schema.SLAVE_STATUS テーブルから取れるよって代物です。 SHOW 系のコマンドって変数代入出来ないから SQL でホゲホゲする事が出来ないんですよね。なのでこういう物があると") (content:encoded nil "
+<div class=\"section\"><p><a href=\"https://code.launchpad.net/~hartmut-php/is-replication-status/devel\">Replication Status Plugin</a> という物がありまして、SHOW SLAVE STATUS で取れる値が information_schema.SLAVE_STATUS テーブルから取れるよって代物です。</p><p>SHOW 系のコマンドって<a href=\"http://javascript.g.hatena.ne.jp/keyword/%E5%A4%89%E6%95%B0\" class=\"okeyword\">変数</a>代入出来ないから SQL でホゲホゲする事が出来ないんですよね。なのでこういう物があると中々便利かなと。</p><p><a href=\"https://answers.launchpad.net/is-replication-status/+question/64749\">how do I install the Mysql Replication Status plugin</a> に書いてあるまんまですが、こんな感じでインストールします。BUILDDIR が MySQL を一回ビルドしたディレクトリ、INSTALLDIR が MySQL をインストールした(--<a href=\"http://javascript.g.hatena.ne.jp/keyword/prefix\" class=\"okeyword\">prefix</a>で指定した値)ディレクトリだとして、</p><pre>
+$ wget http://launchpad.net/is-replication-status/trunk/0.1/+download/MySQL-is_replication_status-0.1.tar.gz
+$ tar xfz MySQL-is_replication_status-0.1.tar.gz 
+$ cd MySQL-is_replication_status-0.1
+$ ./configure --with-mysql-src=$BUILDDIR --prefix=$INSTALLDIR
+$ make
+$ make install
+</pre><p>みたいな感じにしておくと、$INSTALLDIR/lib 以下に is_replication_status.a is_replication_status.la, is_replication_status.so ファイルが出来上がります。</p><p>このままだと install 出来ないので、</p><pre>
+$ cd $INSTALLDIR/lib/
+$ mv -v is_replication_status.&#42; mysql/plugin
+</pre><p>としてあげてから、おもむろに MySQL のコンソールより、</p><pre class=\"syntax-highlight\">
+INSTALL PLUGIN MASTER STATUS soname <span class=\"synConstant\">'is_replication_status.so'</span>;
+INSTALL PLUGIN SLAVE_STATUS soname <span class=\"synConstant\">'is_replication_status.so'</span>;
+</pre><p>とかしてやるとインストール完了です。</p><h4> 利用方法</h4><p>もの凄い簡単です。SHOW SLAVE STATUS で取得出来るフィールドがそのままカラム名になっていて、テーブルには1レコードしか入ってませんので、例えば</p><pre class=\"syntax-highlight\">
+USE information_schema;
+<span class=\"synStatement\">SELECT</span> Exec_Master_Log_Pos <span class=\"synSpecial\">FROM</span> SLAVE_STATUS;
+</pre><p>みたいな感じで使います。</p></div>
+") (dc:creator nil "ZIGOROu") (dc:date nil "2011-11-25T19:50:16+09:00") (dc:subject nil "MySQL"))))

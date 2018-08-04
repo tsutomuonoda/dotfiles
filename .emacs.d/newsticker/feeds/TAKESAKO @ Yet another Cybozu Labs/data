@@ -1,0 +1,930 @@
+;; -*- coding: utf-8 -*-
+(("TAKESAKO @ Yet another Cybozu Labs" "サイボウズ・ラボで働く Shibuya.pm 二代目リーダーのブログ" "http://developer.cybozu.co.jp/takesako" (20813 17156 395026 587000) feed 0 nil nil ((title nil "TAKESAKO @ Yet another Cybozu Labs") (atom:link ((href . "http://developer.cybozu.co.jp/takesako/feed") (rel . "self") (type . "application/rss+xml"))) (link nil "http://developer.cybozu.co.jp/takesako") (description nil "サイボウズ・ラボで働く Shibuya.pm 二代目リーダーのブログ") (lastBuildDate nil "Tue, 12 Feb 2013 12:39:10 +0000") (language nil "ja") (sy:updatePeriod nil "hourly") (sy:updateFrequency nil "1") (generator nil "http://wordpress.org/?v=3.5.1") (item nil (title nil "2月28日(木)Shibuya.XSS 特別編 (SecurityDays)") (link nil "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html") (comments nil "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html#comments") (pubDate nil "Fri, 08 Feb 2013 10:08:38 +0000") (dc:creator nil "takesako") (category nil "未分類") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/?p=243") (description nil "1月に開催した「エンジニアサポートCROSS 2013」での「出張Shibuya &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>1月に開催した「エンジニアサポートCROSS 2013」での「出張Shibuya.XSS」では<br />
+たくさんの方にご来場いただき、ありがとうございました。<br />
+ノロウイルスに感染して当日欠席だった @hasegawayosuke さんのリベンジ企画として<br />
+2月28日(木)18:00～渋谷ヒカリエホールにて「Shibuya.XSS 特別編」を開催いたします。</p><h2>■ Shibuya.XSS 特別編 (SecurityDays)</h2><p><a href=\"http://www.f2ff.jp/secd/2013/night/\">http://www.f2ff.jp/secd/2013/night/</a></p><pre style=\"background-color: #fefefe; border: 1px #666666 solid; padding: 8px;\">
+SecurityDays【N-1】2月28日（木）18:15-21:10
+「セキュリティリサーチの最前線 ～危険を察知する感性を磨け～」
+
+【会場】
+渋谷ヒカリエ9F（ヒカリエホール）
+
+【プログラム】
+2月28日(木）
+18:00：受付開始
+18:15-18:55：「Shibuya.XSS 特別編!! いつもどおりの豪華キャストでお送りします！」
+19:00-19:40：「Information Gathering　技法」
+19:45-20:25：「MITB in Androidの可能性」
+20:30-21:30：懇親会
+
+【参加費】
+1,000円（消費税込み）
+
+【ライトニングトーク＆セッション】
+Shibuya.XSS 特別編!! いつもどおりの豪華キャストでお送りします！
+(1) tessy：AVTOKYO / sutegoma2 代表
+(2) サイボウズ・ラボ株式会社 竹迫良範
+(3) 株式会社ディー・エヌ・エー CTO室 奥一穂
+(4) ネットエージェント株式会社 はせがわようすけ
+(5) NHN Japan mala
+(6) セキュリティキャンプ2012卒業生/慶應義塾大学 中安恒樹
+</pre><p>こちらのイベントは「SecurityDays」の有料セッションの一コマとなっています。<br />
+申し込みの際は、<a href=\"https://reg.f2ff.jp/public/application/add/191?lang=ja\">以下のページ</a>から<br /><b>【N-1】18:15-21:10「セキュリティリサーチの最前線 ～危険を察知する感性を磨け～」</b><br />
+をチェックして、必要事項をご記入の上、お申し込みください。</p><p><a href=\"https://reg.f2ff.jp/public/application/add/191?lang=ja\"><img src=\"http://developer.cybozu.co.jp/takesako/wp-content/uploads/2013/02/shibuyaxss-securitydays.png\" alt=\"shibuyaxss-securitydays\" class=\"alignnone size-medium wp-image-244\" /></a></p><p>「※携帯電話やフリーメール以外のアドレスでご登録ください。」とありますが、<br />
+Gmailのメールアドレスでも登録できるようです。<br />
+ちなみに、住所の番地も「全角で入力」する必要がありますのでご注意ください。</p><p>20:30～同会場でピザ付きの懇親会が開催されますので、どうぞお楽しみください。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html/feed") (slash:comments nil "0")) (item nil (title nil "出張Shibuya.XSS「HTML5×セキュリティ」を開催します") (link nil "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html") (comments nil "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html#comments") (pubDate nil "Wed, 16 Jan 2013 08:06:59 +0000") (dc:creator nil "takesako") (category nil "未分類") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/?p=232") (description nil "今週末1/18(金)に開催される「エンジニアサポートCROSS 2013」にて、 &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>今週末1/18(金)に開催される「エンジニアサポートCROSS 2013」にて、出張Shibuya.XSS「HTML5×セキュリティ」を開催します！</p><h2>「エンジニアサポートCROSS 2013」</h2><p>　<a href=\"http://www.cross-party.com\">http://www.cross-party.com</a><br />
+　開催日時：2013年1月18日（金）10:30～17:30、17:45～20:00<br />
+　開催場所：ベルサール新宿グランド<br />
+　参加者数：(定員：1000人)</p><h2>■HTML5 x セキュリティ（B会場）11:40～12:40</h2><p><a href=\"http://www.cross-party.com/programs/?p=143\"><img src=\"http://developer.cybozu.co.jp/takesako/wp-content/uploads/2013/01/html5security.png\" alt=\" \" title=\"HTML5×セキュリティ\" width=\"372\" height=\"231\" class=\"alignnone size-full wp-image-233\" /></a></p><p>セッションオーナー<br />
+　竹迫良範 (@takesako) / サイボウズ・ラボ株式会社<br />
+登壇者<br />
+　mala / NHN Japan株式会社<br />
+　はまちや２（セキュリティエンジニア）<br />
+　はせがわようすけ / ネットエージェント株式会社</p><p>今回は200人入れる会場を手配できましたので、クロスする話をみんなで楽しく出来ればと思います。<br />
+このセッションは諸事情により写真撮影は禁止となっています。</p><p><ins>追記：1/18(金) 14:30</ins><br />
+無事開催できました。出張Shibuya.XSS「HTML5 x セキュリティ」をトゥギャりました。<br /><a href=\"http://togetter.com/li/441062\">http://togetter.com/li/441062</a></p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html/feed") (slash:comments nil "0")) (item nil (title nil "ジュンク堂「今度こそわかる!? PRMLの学習の学習」トークセッション開催") (link nil "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html#comments") (pubDate nil "Fri, 14 Sep 2012 02:34:53 +0000") (dc:creator nil "takesako") (category nil "PRML") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/?p=7") (description nil "PRML同人誌 『パターン認識と機械学習の学習』（暗黒通信団） 刊行記念トークセ &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<div><a href=\"http://www.junkudo.co.jp/tenpo/evtalk.html#20121011_talk\">PRML同人誌 『パターン認識と機械学習の学習』（暗黒通信団） 刊行記念トークセッション <br /><b>「今度こそわかる!? PRMLの学習の学習」</b>のお知らせ</a></p><ul><li>日　時：2012年10月11日（木）19時30分 &#65374; 
+<li>会　場：ジュンク堂 池袋本店 4階喫茶コーナーにて
+<li>入場料：1,000円（ドリンク付）
+<li>定　員：40名
+</ul><h3>登壇者</h3><ol><li>神嶌敏弘 (原著パターン認識と機械学習 翻訳者)
+<li>naoya_t （PRML読書会／PRML復々習レーン主宰）
+<li>中谷秀洋（サイボウズ・ラボPRML読書会主宰）
+<li>光成滋生（著者）
+<li>竹迫良範（編集／インタビューア）
+</ol><p>
+C M. Bishop 著「Pattern Recognition and Machine Learning」の日本語版<br />
+『パターン認識と機械学習 ─ ベイズ理論による統計的予測』（通称PRML本）が<br />
+シュプリンガー・ジャパンの出版事業を継承した丸善出版から出版されました。<br /><br />
+　様々な機械学習の理論やパターン認識の手法をベイズ理論に基づいて解説した<br />
+ガチな教科書でありながらも、親しみやすくて分かりやすいカラーの図やグラフが満載で「これならきっと僕にも読めそうかも」と思って購入した人も多いでしょう。<br />
+　実際に「図版が綺麗だった」という理由でPRML上巻を購入したnaoya_tさんは、1章でも2章でも読み進めることが出来たら下巻を買おうと決意しました。しかし、自力で読み進めることが難しいとすぐに気付き、近所の公民館を借りてPRML読書会を主催。そこに集まった技術者と一緒にPRML本を1章から読み進めて、途中の数式展開を追いかけながら内容を理解していくという輪講形式の読書会が広がりました。<br />
+　その後、サイボウズ・ラボの社内PRML読書会に参加していた光成さんが作成した<a href=\"http://prml.in/\">PRMLのアンチョコ（教科書ガイド）</a>が暗黒通信団より同人誌の体裁として発刊され、ジュンク堂書店 池袋本店2012年7月第1週のベストセラー第1位となりました。<br />
+　そんなにPRMLを読むのは難しいのか。数学の知識が必要なのか。本当にベイズ理論に挫折するのか。日本全国各地で開催されている「PRML読書会」の謎に迫ります。</p><p>&#9670;講師紹介&#9670;<br /><strong>神嶌敏弘</strong>（かみしま としひろ）<br />
+『パターン認識と機械学習 ─ ベイズ理論による統計的予測』日本語翻訳の立役者。<br />
+機械学習やデータマイニングの手法について研究。TwitterID @shima__shima で有名。<br /><strong>naoya_t</strong><br />
+機械学習・自然言語処理エンジニア。2009年5月から都内で PRML 読書会を主宰。後に <br />
+PRML復習レーン、同復々習レーンを主宰。趣味で読み始めたつもりのPRMLに助けられる日々。<br /><strong>中谷秀洋</strong>（なかたに しゅうよう）<br />
+サイボウズ・ラボ社内でPRML読書会を主宰。gihyo.jpで「機械学習 はじめよう」を連載中。<br /><strong>光成滋生</strong>（みつなり しげお）<br />
+『パターン認識と機械学習の学習』著者。オリジナルのPRMLアンチョコはCC BY 3.0で公開。<br /><strong>竹迫良範</strong>（たけさこ よしのり）<br />
+暗黒通信団にて『PRMLの学習』を出版、コミケでもないのに初版1000部が2日で消え、困惑。</p><p>&#9632;イベントに関するお問い合わせ、<a href=\"http://www.junkudo.co.jp/tenpo/evtalk.html#20121011_talk\">ご予約</a>は下記の電話番号へお願いいたします。<br />
+ジュンク堂書店池袋本店<br />
+TEL 03-5956-6111<br />
+東京都豊島区南池袋2-15-5
+</div>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html/feed") (slash:comments nil "0")) (item nil (title nil "超エンジニアミーティング（ニコニコ超会議）でビデオ出演しました") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html#comments") (pubDate nil "Mon, 30 Apr 2012 12:07:49 +0000") (dc:creator nil "takesako") (category nil "Polyglot") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa/") (description nil "4/28(土)4/29(日)幕張メッセで開催された「ニコニコ超会議」のサブイベン &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>4/28(土)4/29(日)幕張メッセで開催された「ニコニコ超会議」のサブイベント「超エンジニアミーティング」の「エンジニア100連発」企画にて、ビデオ出演させていただきました。そのときの録画をニコニコ動画にアップロードしましたので、お知らせします。</p><p><script type=\"text/javascript\" src=\"http://ext.nicovideo.jp/thumb_watch/sm17691239\"></script><br /><noscript><a href=\"http://www.nicovideo.jp/watch/sm17691239\">【ニコニコ動画】エンジニア100連発「超エンジニアミーティング」in ニコニコ超会議</a></noscript><p>過去の私の作品の中から「ニコニコ」にちなんだ「顔文字」系プログラミングの話をピックアップしていくつか紹介させていただきました。元の依頼が、完成度・すでに発表済みであるかどうかなどを問わず、自由な発想の元に作られた作品をテンポよくプレゼンし、聴衆の「今すぐ何かを作りたい！」という創作意欲を掻き立てるようなデモに下さい、という依頼でしたので、そのような構成で引き受けました。</p><p>いろいろ過去に発表しているネタとほとんどかぶっているので、私のプレゼンを見ている人にとって新鮮味はないかと思いますが、部屋で淡々と一人で解説している貴重な動画ですので、お楽しみいただければと思います。音声にノイズが混じっていてすみません。収録したのがノートパソコン付属のマイクで、しかも夜中の一人部屋の中だったので、少しテンションが低めになっています。テンションが低いことを予めご了承いただければと思います。</p><p><a href=\"https://twitter.com/takesako/status/196079528630681600\"><img alt=\"ニコニコ超会議「超エンジニアミーティング」ビデオ出演で申し訳ありません。現在、私はどこで何をしているかと言うと、長野県の標高650mの（東京スカイツリーより若干高い）宿舎で洗濯を干しています\" title=\"ニコニコ超会議「超エンジニアミーティング」ビデオ出演で申し訳ありません。現在、私はどこで何をしているかと言うと、長野県の標高650mの（東京スカイツリーより若干高い）宿舎で洗濯を干しています\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/30/tweetnagano.png\" border=\"0\"  /></a></p><p>「ニコニコ超会議」は「ニコニコ動画のすべて（だいたい）を地上に再現する」をコンセプトとして開催されたニコニコ動画のあらゆるジャンルを網羅したフェスイベントということで、私も参加したかったのですが、あいにくこの時期は長野県に滞在していたため、現地での参加は見送り、ビデオ出演（録画放送）での登壇となりました。</p><div>当日、登壇者用の机はこんな感じだったらしいですw<br/><br /><a href=\"https://twitter.com/materia_x64/status/196074134445363202\"><img alt=\"登壇者用の机\" title=\"登壇者用の机\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/05/01/chokaigitakesako.jpg\" border=\"0\"  /></a></div><p>他の登壇者の皆さんも面白い発表をされていたようで、現地に参加できず残念でした。</p><p><a href=\"http://info.nicovideo.jp/conference/cho-engineer-meeting/\"><img alt=\"エンジニア100連発\" title=\"エンジニア100連発\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/30/chokaigi100.png\" border=\"0\"  /></a></p><p>次回もしもこのような機会がまたあるとすれば今度は新ネタ盛りだくさんで現地に行きたいと思います。貴重な機会をありがとうございました。</p><h3>【参考記事】</h3><ol><li><a href=\"http://hoshi.air-nifty.com/diary/2012/04/in-e9eb.html\">「超エンジニアミーティング」 in ニコニコ超会議を全部取材してみた</a></li><li><a href=\"http://togetter.com/li/294832\">超エンジニアミーティング in ニコニコ超会議 #cho_engmtg &#8211; Togetter</a></li></ol>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html/feed") (slash:comments nil "0")) (item nil (title nil "昨年に引き続きサイボウズ・ラボユース第2期生を募集") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html#comments") (pubDate nil "Thu, 12 Apr 2012 03:41:32 +0000") (dc:creator nil "takesako") (category nil "cybozu") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f/") (description nil "本日2012年4月12日(木)より、サイボウズ・ラボユース第2期生の募集を開始し &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>本日2012年4月12日(木)より、<a href=\"http://group.cybozu.jp/news/12041201.html\">サイボウズ・ラボユース第2期生の募集を開始</a>しました。</p><p><a href=\"http://group.cybozu.jp/news/12041201.html\"><img border=\"0\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/12/cybozupr20120412.png\" title=\"Cybozupr20120412\" alt=\"Cybozupr20120412\" /></a></p><p>2011年より開始した第1期の試みが好評でしたので、第2期も継続してこのような取り組みをすることにいたしました。</p><p>応募の締め切りが4月24日(火)17時までとなっていますので、早めのご応募をお待ちしております。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html/feed") (slash:comments nil "0")) (item nil (title nil "SECCON CTFで出題したマインスイーパー問題") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html#comments") (pubDate nil "Wed, 11 Apr 2012 18:04:06 +0000") (dc:creator nil "takesako") (category nil "CTF") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236/") (description nil "今年の2月、九州工業大学の飯塚キャンパスにて「第1回SECCON CTF福岡大会 &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>今年の2月、九州工業大学の飯塚キャンパスにて<a href=\"http://www.atmarkit.co.jp/fsecurity/special/167ctf/01.html\">「第1回SECCON CTF福岡大会」</a>を<a href=\"http://www.seccon.jp/p/ctf.html\">有志のボランティアメンバー</a>で開催しました。</p><p><a title=\"P1090216.JPG by takesako, on Flickr\" href=\"http://www.flickr.com/photos/takesako/6792717170/\"><img width=\"320\" height=\"240\" alt=\"P1090216.JPG\" src=\"http://farm8.staticflickr.com/7052/6792717170_d2f1070410_n.jpg\" /></a></p><p>
+CTF(Capture The Flag)の競技大会の中では、セキュリティ技術（フォレンジック、暗号、リバースエンジニアリング、ネットワーク解析、Web脆弱性）にフォーカスしたものだけではなく、コンピュータ技術に関する幅広い知識や経験を問うこと言うことで、純粋にプログラミングに関する問題も出しているのですが、その中で、私の出題したPerlワンライナーの問題もこちらのブログで公開してみます。
+</p><pre>■問題：マインスイーパー
+改行コードがLFの以下の2つのファイルがあるとする。
+（※CR LFでないことに注意）
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a>
+................
+................
+....***.....***.
+...**.*....**.*.
+..**......**....
+...*****...*****
+...*.*.*...*.*.*
+...*.***...*.***
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a>
+#!perl -p0
+s+\\.+map/\\e/g,$`.000000x3^($^x3).$_+eg
+このファイルを実行すると以下の出力結果が得られる。
+$ ./<a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a> &lt; <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a>
+0000000000000000
+0000000000000000
+0000***00000***0
+000**0*0000**0*0
+00**000000**0000
+000*****000*****
+000*0*0*000*0*0*
+000*0***000*0***
+このとき、入力の*をマインスイーパーの爆弾のある場所と見立てて、
+周辺にある爆弾の個数を数えて0～8の数字を出力するように
+元のプログラムの一部を書き換えよ。
+具体的には、以下の出力が得られるようにプログラムを修正せよ。
+$ ./<a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a> &lt; <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a> &gt; <a href=\"http://developer.cybozu.co.jp/takesako/files/correct_answer\">correct_answer</a>
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/correct_answer\">correct_answer</a>
+0000000000000000
+0001232100012321
+0013***20013***2
+013**5*2013**5*2
+01**654311**6543
+014*****214*****
+003*7*8*303*7*8*
+002*4***202*4***
+回答は、プログラム中の「000000」の箇所を置き換えた文字列を入力せよ。
+ただし、入力行の幅は半角16文字＋改行LF(1文字)で固定として良い。
+置き換える文字列は7bit-ASCIIの印字可能な範囲内の文字とし、
+複数の回答が考えられる場合は最短の文字列を正解とする。
+同じ長さで複数回答が考えられる場合は、ASCIIの辞書順に
+ソートし、若い方の回答を正解とする。</pre><pre>■ヒント
+ヒント１：「000000」を「111111」に置き換えて実行してみよ
+ヒント２：「000000」を「111e11」に置き換えて実行してみよ
+ヒント３：「000000」を「555555」に置き換えて実行してみよ
+ヒント４：1行目!#perl -p0 はどんな意味を持つか調べてみよ
+</pre><p>実は、出題日と同日に発売された<a href=\"http://gihyo.jp/magazine/SD/archive/2012/201203\">「Software Design 2012年3月号」</a>のハック特集のページで、この問題の回答そのものが紹介されていたのですが、会場にいる参加者は誰も気づかなかったというヲチがありました。</p><p>自分の力で解いてみるのも面白いので、ある程度の期間が過ぎたら回答と解説のページを別途掲載するようにしてみたいと思います。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html/feed") (slash:comments nil "0")) (item nil (title nil "PRML副読本「パターン認識と機械学習の学習」を出版します") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html#comments") (pubDate nil "Sun, 01 Apr 2012 14:59:33 +0000") (dc:creator nil "takesako") (category nil "告知") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf/") (description nil "2010年～2011年に社内で開催した機械学習勉強会の『パターン認識と機械学習』 &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>2010年～2011年に社内で開催した機械学習勉強会の『パターン認識と機械学習』読書会で、光成さんが素晴らしいアンチョコを作ってくれました。PDFファイルは既にgithub 上で公開されていますが、このまま埋もれさせておくのはもったいないということで、<a href=\"http://prml.in/\">暗黒通信団の同人誌として正式に出版</a>されることが決まりました。</p><p><img border=\"0\" alt=\"20120401prml\" title=\"20120401prml\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/01/20120401prml.png\" /></p><p>※ 表紙のデザインは今後変更される可能性があります。</p><pre>目次は以下の通りです。
+第 1 章&nbsp; 「序論」のための確率用語
+&nbsp; &nbsp;1.1&nbsp; &nbsp;&nbsp; &nbsp;確率変数は変数なのか..............................&nbsp; 7
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.1&nbsp; &nbsp;確率空間(Ω, F, P).............................&nbsp; 7
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.2&nbsp; &nbsp;σ 加法族.....................................&nbsp; 8
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.3&nbsp; &nbsp;確率変数X.....................................&nbsp; 8
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.4&nbsp; &nbsp;確率変数は写像である..........................&nbsp; 9
+第 2 章&nbsp; 「確率分布」のための数学
+&nbsp; &nbsp;2.1&nbsp; &nbsp;&nbsp; &nbsp;微積分の復習...................................... 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.1&nbsp; &nbsp;変数変換...................................... 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.2&nbsp; &nbsp;奇関数の積分.................................. 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.3&nbsp; &nbsp;exp(−x) の積分................................ 12
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.4&nbsp; &nbsp;ガウス分布の積分.............................. 13
+&nbsp; &nbsp;2.2&nbsp; &nbsp;&nbsp; &nbsp;線形代数の復習.................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.1&nbsp; &nbsp;行列の積...................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.2&nbsp; &nbsp;トレース...................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.3&nbsp; &nbsp;行列式........................................ 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.4&nbsp; &nbsp;行列の種類.................................... 15
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.5&nbsp; &nbsp;ブロック行列の逆行列.......................... 16
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.6&nbsp; &nbsp;三角化........................................ 18
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.7&nbsp; &nbsp;対称行列...................................... 18
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.8&nbsp; &nbsp;2 次形式...................................... 19
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.9&nbsp; &nbsp;多変量ガウス分布.............................. 20
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.10&nbsp; 行列の微分.................................... 21
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.11&nbsp; ガウス分布の最尤推定.......................... 25
+第 3 章&nbsp; 「線形回帰モデル」のための数学
+&nbsp; &nbsp;3.1&nbsp; &nbsp;&nbsp; &nbsp;最小二乗法........................................ 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.1&nbsp; &nbsp;微分の復習.................................... 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.2&nbsp; &nbsp;誤差関数の最小化.............................. 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.3&nbsp; &nbsp;正射影........................................ 28
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.4&nbsp; &nbsp;行列での微分.................................. 29
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.5&nbsp; &nbsp;Woodbury の逆行列の公式....................... 29
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.6&nbsp; &nbsp;正定値対称行列................................ 30
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.7&nbsp; &nbsp;予測分布の分散................................ 31
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.8&nbsp; &nbsp;カルバック距離................................ 32
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.9&nbsp; &nbsp;エビデンス関数の評価の式変形.................. 33
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.10&nbsp; ヘッセ行列.................................... 34
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.11&nbsp; エビデンス関数の最大化の式変形................ 34
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.12&nbsp; パラメータの関係.............................. 35
+第 4 章&nbsp; 「線形識別モデル」のための数学
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.1&nbsp; &nbsp;&nbsp; &nbsp;クラス分類問題............................... 39
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.2&nbsp; &nbsp;&nbsp; &nbsp;行列の微分の復習............................. 40
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.3&nbsp; &nbsp;&nbsp; &nbsp;多クラス..................................... 41
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.4&nbsp; &nbsp;&nbsp; &nbsp;分類における最小二乗......................... 42
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.5&nbsp; &nbsp;&nbsp; &nbsp;フィッシャーの線形判別....................... 42
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.6&nbsp; &nbsp;&nbsp; &nbsp;最小二乗との関連............................. 44
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.7&nbsp; &nbsp;&nbsp; &nbsp;確率的生成モデル............................. 46
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.8&nbsp; &nbsp;&nbsp; &nbsp;連続値入力................................... 46
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.9&nbsp; &nbsp;&nbsp; &nbsp;最尤解....................................... 47
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.10&nbsp; &nbsp;&nbsp; ロジスティック回帰........................... 49
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.11&nbsp; &nbsp;&nbsp; 反復再重み付け最小二乗....................... 50
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.12&nbsp; &nbsp;&nbsp; Jensen の不等式.............................. 52
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.13&nbsp; &nbsp;&nbsp; 多クラスロジスティック回帰................... 53
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.14&nbsp; &nbsp;&nbsp; プロビット回帰............................... 54
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.15&nbsp; &nbsp;&nbsp; 正準連結関数................................. 55
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.16&nbsp; &nbsp;&nbsp; ラプラス近似................................. 57
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.17&nbsp; &nbsp;&nbsp; モデルの比較とBIC............................ 58
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.18&nbsp; &nbsp;&nbsp; ディラックのデルタ関数....................... 59
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.19&nbsp; &nbsp;&nbsp; ロジスティックシグモイド関数と
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; プロビット関数の逆関数....................... 59
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.20&nbsp; &nbsp;&nbsp; ベイズロジスティック回帰..................... 61
+第 9 章&nbsp; 「混合モデルと」の数式の補足
+&nbsp; &nbsp;9.1&nbsp; &nbsp;&nbsp; &nbsp;復習.............................................. 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.1&nbsp; &nbsp; 行列の公式................................... 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.2&nbsp; &nbsp; 微分......................................... 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.3&nbsp; &nbsp; ガウス分布................................... 66
+&nbsp; &nbsp;9.2&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布.................................... 66
+&nbsp; &nbsp;9.3&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布の EM アルゴリズム.................. 67
+&nbsp; &nbsp;9.4&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布再訪................................ 69
+&nbsp; &nbsp;9.5&nbsp; &nbsp;&nbsp; &nbsp;K-means&nbsp; との関連................................. 70
+&nbsp; &nbsp;9.6&nbsp; &nbsp;&nbsp; &nbsp;混合ベルヌーイ分布................................ 71
+&nbsp; &nbsp;9.7&nbsp; &nbsp;&nbsp; &nbsp;ベイズ線形回帰に関する EM アルゴリズム............ 73
+&nbsp; &nbsp;9.8&nbsp; &nbsp;&nbsp; &nbsp;一般の EM アルゴリズム............................ 74
+&nbsp; &nbsp;9.9&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布のオンライン版 EM アルゴリズム...... 76
+第 10 章 「近似推論法」の数式の補足
+&nbsp; &nbsp; 10.1&nbsp; &nbsp;&nbsp; この章でよく使われる公式......................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.1&nbsp; ガンマ関数................................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.2&nbsp; ディリクレ分布............................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.3&nbsp; ガンマ分布................................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.4&nbsp; 正規分布..................................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.5&nbsp; スチューデントのt 分布....................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.6&nbsp; ウィシャート分布............................. 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.7&nbsp; 行列の公式................................... 81
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.8&nbsp; カルバック距離............................... 81
+&nbsp; &nbsp; 10.2&nbsp; &nbsp;&nbsp; 下限と下界....................................... 81
+&nbsp; &nbsp; 10.3&nbsp; &nbsp; 分解による近似の持つ性質.......................... 82
+&nbsp; &nbsp; 10.4&nbsp; &nbsp; α ダイバージェンス............................... 83
+&nbsp; &nbsp; 10.5&nbsp; &nbsp; 例：一変数ガウス分布.............................. 84
+&nbsp; &nbsp; 10.6&nbsp; &nbsp; モデル比較........................................ 86
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.6.1&nbsp; 変分混合ガウス分布........................... 87
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.6.2&nbsp; 変分事後分布................................. 87
+&nbsp; &nbsp; 10.7&nbsp; &nbsp; 変分下限.......................................... 91
+&nbsp; &nbsp; 10.8&nbsp; &nbsp; 予測分布.......................................... 95
+索引</pre><p>ISBNを取得していますので、将来的には一般書店やオンラインショップでも取り扱いは可能になるかと思います。<br />
+まだ流通はしていません。価格は現在調整中で、印刷所に見積もりをもらった結果、予価1,000円前後になる見込みです。<br />
+一般書店に流通させる場合は、即売会とは異なり、定価よりも安い値段で卸す必要があるため、原価相当での設定となります。</p><p>
+今回の同人誌出版にさしあたって、事前に関係者にご相談させていただいたところ、原著からコピーしているのではなく自分で一から数式を書き起こしているのであれば問題ないでしょう、というコメントをいただきました。<br />
+今後のスケジュールですが、数式の校正とレイアウトの調整、第 11 章の補足なども付け加えて、ページ数は 120 程度、5月下旬頃に正式に出版となる予定です。
+</p><p>というお話なのですが、マニアックすぎて、誰も買いませんよね。。。</p><p><ins></p><h3>2012年7月 追記</h3><p><a href=\"http://prml.in/\">パターン認識と機械学習の学習－ベイズ理論に挫折しないための数学 （光成 滋生 著）ISBN:	978-4873101668</a><br />
+として出版されました。<br /></ins></p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html/feed") (slash:comments nil "3")) (item nil (title nil "サイボウズ・ラボユースを1年間やってみてわかったこと") (link nil "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html#comments") (pubDate nil "Thu, 22 Mar 2012 08:21:56 +0000") (dc:creator nil "takesako") (category nil "cybozu") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/03/1-909f/") (description nil "サイボウズ&#12539;ラボユース 2011年度 活動報告 View more &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<div style=\"width:510px\" id=\"__ss_11508978\"><strong style=\"display:block;margin:12px 0 4px\"><a href=\"http://www.slideshare.net/takesako/cybozu-labsyouth-20120210\" title=\"サイボウズ&#12539;ラボユース 2011年度 活動報告\" target=\"_blank\">サイボウズ&#12539;ラボユース 2011年度 活動報告</a></strong><iframe src=\"http://www.slideshare.net/slideshow/embed_code/11508978\" width=\"510\" height=\"426\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe><div style=\"padding:5px 0 12px\"> View more <a href=\"http://www.slideshare.net/\" target=\"_blank\">presentations</a> from <a href=\"http://www.slideshare.net/takesako\" target=\"_blank\">takesako</a></div></p></div><p><a href=\"http://cybozulabs-youth.blogspot.jp/\">サイボウズ・ラボユース</a>とは、2011年から始めた学生支援制度で、詳細は…中谷さんによる解説<a href=\"http://d.hatena.ne.jp/n_shuyo/20120322/labs_youth\">サイボウズ・ラボユースってなに？ &#8211; Mi manca qualche giovedi`?</a>が詳しいです。<br />
+一部、引用すると：</p><dl><dt>サイボウズ・ラボユースで「何をやってもらう」か。</dt><dd>実は設問がすでに間違っている。ラボユースは「やってもらう」ところではなく、自分から「やりたいこと」をやるところ。<br />
+というわけでインターンとは全然違う。サイボウズの業務の一部をやってもらうなんてありえない(本人がよほど強く希望でもしない限り)。そもそも NDA(秘密保持契約)すら結ばないし。
+</dd><dt>サイボウズ・ラボユースに応募するには</dt><dd>対象が学生なのはさすがにわかると思うのでおいとくと、上で書いたように「やりたいこと」がある人というのが必須要件。<br />
+「開発支援」なので、コンピュータの上で動く何かを作ることが核になっていること。<br />
+そして成果をサイボウズも利用できる形式(ライセンス等)でオープンにできること。<br />
+この2点が満たされていればOK。
+</dd><dt>サイボウズ・ラボユースで何が得られるか</dt><dd>サイボウズ・ラボに通うことができれば、奨励金がもらえる。<br />
+ぶっちゃけて言ってしまえば、アルバイトだ。といっても上で書いたように指示された仕事をするのではなく、自分のやりたい開発をやる。<br />
+遠方であるなどの事情でサイボウズ・ラボに通えない場合は、ラボユースのサブメンバーといって、オンラインで同様のサポートを受けたり、遠方の学会/カンファレンスなどへの参加費(交通費・宿泊費)の援助が受けられる。
+</dd></dl><p>あとは、サイボウズ・ラボの社員から直々に指導を得られるということで、自画自賛ですが、なかなかこんな制度をやっている会社は珍しいと思います。</p><h3>■ サイボウズ・ラボユース 最終成果報告会</h3><p>というわけで、3/26(月)秋葉原ダイビル5Fにて、1年やってみた<a href=\"http://cybozulabs-youth.blogspot.jp/\">サイボウズ・ラボユース</a>の最終成果報告会を開催します！</p><pre style=\"border: 1px solid rgb(102, 102, 102); padding: 6px; background-color: rgb(246, 246, 246);\">
+　開催日時：2012年 3/26(月) 13:00～17:00
+　開催場所：秋葉原ダイビル5階（カンファレンスフロア5A）
+　参加費用：無料（懇親会も無料）
+　申し込み：必要 <a href=\"http://atnd.org/events/26861\">http://atnd.org/events/26861</a> (ATND参加枠を追加)
+</pre><pre style=\"border: 1px solid rgb(102, 102, 102); padding: 6px; background-color: rgb(246, 246, 246);\">
+【タイムテーブル】
+　13:00　開場（受付）
+　13:10　サイボウズ・ラボユースの紹介
+　　 　　司会：竹迫良範（サイボウズ・ラボ）
+　13:15　サイボウズ・ラボユース第1期生5名による成果発表
+　 1. 桐井祐樹「Ruby・Raccを使用した言語処理系の日本語プログラミング化」
+　 2. 新屋良磨「世界最速の正規表現JITエンジンの実装」@sinya8282
+　 3. 林　拓人「型システムの拡張と型推論」
+　 4. 鈴木勇介「世界で一番仕様に忠実なJavaScript処理系の作成」
+　 5. 粟本真一「現役高校生の考えるクラウドOSの設計と実装」
+　15:30　ライトニングトーク大会
+　 1.「ラボユースを振り返って ～指導者の立場から～」光成滋生（サイボウズ・ラボ）
+　 2.「拡張ライブラリ作成による高速化」itochan
+　 3.「Python による自然言語処理（仮）」torotoki
+　 4.「定理証明器 Agda2 による型無しλ計算の合流性の証明」pi8027
+　 5.「エンジニアが儲けられるコードリーディングプラットフォーム『CodeLibrary』」はむへい
+　 6.「ハニーポット上でパケットをダンプ&#038;解析」ぷおりん
+　 7.「やってよかったOS作り」川合秀実（サイボウズ・ラボ）
+　16:10　サイボウズ・ラボユース第2期生の募集について
+　　 　　説明＆質疑応答
+　16:30　卒業式
+　　 　　主　催：サイボウズ株式会社 感動課
+　　 　　表　彰：青野慶久（サイボウズ株式会社　代表取締役社長）
+　　 　　総　評：畑慎也（サイボウズ・ラボ株式会社　代表取締役社長）
+　16:50　撤　収
+　17:00　懇親会（別の会場に移動して開催、30名程度）
+　　 　　参加費：無料
+　　 　　乾　杯：山田理（サイボウズ株式会社　取締役副社長）
+　19:30　解　散
+</pre><p>いろいろマニアックな話からライトな話まで、プログラミングの最先端の開発の話が聞けると思います。</p><p>
+一つ、鈴木(id:Constellation)さんの「世界で一番仕様に忠実なJavaScript処理系の作成」は、相当マニアックな展開になることが予想されます。<br />
+RegisterVMとStackVMはどちらが速いのか、v8やSpiderMonkeyの実装がどこが駄目なのか、言語処理系の高速化のテクニック等盛りだくさんです。<br />
+発表時間がオーバーしないかどうか主催者側としては少し心配しています…。
+</p><p>若干名ながらATND枠も新設しましたので、ぜひお気軽にお越しください。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html/feed") (slash:comments nil "0")) (item nil (title nil "プログラミング言語APLで謹賀新年Golf") (link nil "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html#comments") (pubDate nil "Sun, 01 Jan 2012 11:45:35 +0000") (dc:creator nil "takesako") (category nil "Golf") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42/") (description nil "2012年の元旦ということで、プログラミング言語APLで謹賀新年Golfをやって &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>2012年の元旦ということで、プログラミング言語APLで謹賀新年Golfをやってみました。<br /><a href=\"http://www.flickr.com/photos/takesako/6611466081/\" title=\"APL2012golf-73byte by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7022/6611466081_7c77be066b_z.jpg\" width=\"640\" height=\"351\" alt=\"APL2012golf-73byte\"></a><br /><a href=\"http://ja.wikipedia.org/wiki/APL\">APLとはA Programming Languageの略</a>で、1957年のFORTRAN登場以降にケネス・アイバーソン博士によって発明された数式処理のための記法をIBMが対話型のプログラミング言語として修正し実装したものです。当時は⍳{iota}や⍴{rho}など特殊な記号を入力するためのAPLキーボードがあったそうです。<br /><a href=\"http://www.flickr.com/photos/takesako/6611441653/\" title=\"APL-keyboard by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7152/6611441653_5fe5d7b7fc.jpg\" width=\"500\" height=\"234\" alt=\"APL-keyboard\"></a><br />
+今ではAPLフォントの記号はすべてUnicodeの中で定義されています。<br />
+先月開催したサイボウズ・ラボユース冬の合宿では、林拓人さんが筑波大学の図書館から借りてきたAPLの教科書があったので少し斜め読みしてみました。それで、APLの記号の使い方が大体わかったので、今回の謹賀新年Golfをしてみることにしました。<br />
+まずは91文字のAPLプログラム。<br />
+11×((3⊖5 o↑1⌽(1 o⍴⍳o)∊3 o)+1⊖5 o↑1⌽(2 o⍴⍳o)∊3 7 o)+1-((5 o⍴0,⍳27)∊o(o+10))∨(5 o⍴⍳o)∊2×⍳o←13</p><pre>
+11 11 11 0 11 11 11 0 11 0 11 11 11
+0  0 11 0 11  0 11 0 11 0  0  0 11
+11 11 11 0 11  0 11 0 11 0 11 11 11
+11  0  0 0 11  0 11 0 11 0 11  0  0
+11 11 11 0 11 11 11 0 11 0 11 11 11
+</pre><p>こんな感じで上のAPLの1行プログラムを実行すると、5×13のマトリクスで表現された  2 0 1 2 という 0 1 の数列が出力されます。バイナリアンになった気持ちで、0は空白、11はドットで塗り潰す、という心の眼で実行結果を見てください。今年の西暦2012に見えますよね？</p><pre>
+■■■□■■■□■□■■■
+□□■□■□■□■□□□■
+■■■□■□■□■□■■■
+■□□□■□■□■□■□□
+■■■□■■■□■□■■■
+</pre><p>もうちょっと数列の作り方を工夫すればコードが短くなるかな、と思ってGolfしたのがこちら。67文字。<br />
+11×1+(8⌽1⊖5 o↑2 1⍴1)-(⍵+3⌽⍵←4⊖5 o↑3 3⍴7⌽5<⍳9)+5 o⍴¯2⌽(o⍴⍳o←13)∊2×⍳4</p><pre>
+11 11 11 0 11 11 11 0 11 0 11 11 11
+0  0 11 0 11  0 11 0 11 0  0  0 11
+11 11 11 0 11  0 11 0 11 0 11 11 11
+11  0  0 0 11  0 11 0 11 0 11  0  0
+11 11 11 0 11 11 11 0 11 0 11 11 11
+</pre><p>24文字も短くなっています！<br />
+非常に簡潔なコードですね。<br />
+APLの処理系はたくさんあるのですが、<a href=\"http://sourceforge.net/projects/openapl/\">openAPL</a>という処理系がオープンソースで公開されていて、Ubuntuでも何とか動かすことができました。<br /><a href=\"http://www.flickr.com/photos/takesako/6573744609/\" title=\"openAPL  by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7014/6573744609_270de5ce4e.jpg\" width=\"500\" height=\"308\" alt=\"openAPL \"></a><br />
+しかし、X11のAPLフォントとキーバインドの設定がよくわからなかったので、結局はWindowsで動作するAPL処理系の一つ<a href=\"http://www.nars2000.org/\">NARS2000</a>でプログラムを作成しました。林さんも合宿中はこの処理系を使ってAPLプログラミングを楽しんでいました。<br />
+■APLによるFizzBuzzとLifeGame (林拓人さん作)<br /><a href=\"http://www.flickr.com/photos/takesako/6581142439/\" title=\"APLによるFizzBuzzとLifeGame (林拓人さん作) by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7009/6581142439_09890d5269.jpg\" width=\"500\" height=\"375\" alt=\"APLによるFizzBuzzとLifeGame (林拓人さん作)\"></a><br />
+林さんは合宿中、自分でFizzBuzzやライフゲームのコードをフルスクラッチから書き起こしていて、かっこよかったです。<br /><a href=\"http://www.flickr.com/photos/takesako/6581143963/\" title=\"林拓人さんによるAPLプログラミング紹介 by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7002/6581143963_f529d9e26e.jpg\" width=\"500\" height=\"375\" alt=\"林拓人さんによるAPLプログラミング紹介\"></a><br />
+というわけで、今年の元旦は<a href=\"http://www.atmarkit.co.jp/news/200902/13/matz.html\">未来のプログラミング言語として評価の高いAPL</a>の書き初めでした。<br />
+Javaアプレットとして動作する<a href=\"http://lparis45.free.fr/apl.html\">APLette</a>という冗談のような名前のプログラムもあるそうです。ただ、こちらはAPLフォントによる直接入力ができないので、ASCIIテキストの記法で入力してあげる必要があります。<br /><a href=\"http://ja.wikipedia.org/wiki/J_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)\">プログラミング言語J</a>の記法に馴染めなかったという人も、APLの記号ならわかりやすく理解できるかもしれません。温故知新のAPL。ぜひ、みなさんも楽しいAPLライフをお過ごしください。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html/feed") (slash:comments nil "0")) (item nil (title nil "BlackHat AbuDhabi 2011 壮行会（セキュそば前夜祭）開催しました") (link nil "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html") (comments nil "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html#comments") (pubDate nil "Fri, 09 Dec 2011 16:42:17 +0000") (dc:creator nil "takesako") (category nil "BlackHat") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58/") (description nil "土曜日から戸隠で開催される第22回セキュそばの前夜祭も兼ねて、Black Hat &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>土曜日から戸隠で開催される<a href=\"http://secusoba.info/index.php?%E7%AC%AC22%E5%9B%9E%EF%BC%8812%E6%9C%8810%E6%97%A5%EF%BC%89\">第22回セキュそば</a>の前夜祭も兼ねて、<a href=\"https://www.blackhat.com/html/bh-ad-11/bh-ad-11-briefings.html#Oi\">Black Hat Abu Dhabi 2011</a> で日本人ハッカーとして発表される大居さん(<a href=\"https://twitter.com/a4lg\">@a4lg</a>さん)の壮行会を開催しました。</p><h2>BlackHat AbuDhabi 2011 壮行会（セキュそば前夜祭）</h2><p>日時： 2011/12/9(金)18:30-22:00<br />
+URL： <a href=\"http://atnd.org/events/23175\">http://atnd.org/events/23175</a><br/><br />
+場所： <a href=\"http://www.netagent.co.jp/company.html\">ネットエージェント本社セミナールーム</a><br />
+住所： <a href=\"http://maps.google.com/maps?q=東京都墨田区江東橋4-26-5\">東京都墨田区江東橋4-26-5 東京トラフィック錦糸町ビル9F</a><br />
+ハッシュタグ： <a href=\"https://twitter.com/#!/search/%23blacksoba\">#blacksoba</a></p><p><img alt=\"6482109859_a6dfc545f4_m\" title=\"6482109859_a6dfc545f4_m\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2011/12/10/6482109859_a6dfc545f4_m.jpg\" border=\"0\"  /><br /><img alt=\"6482112765_c6aee3ca64_m\" title=\"6482112765_c6aee3ca64_m\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2011/12/10/6482112765_c6aee3ca64_m.jpg\" border=\"0\"  /></p><h3>Technical Talks (前半)</h3><ol><li>@takesako – POC2011 different from Japanese and Korean Hacker community (10min)</li><li>@Eidwinds – Action of the owner whom a smart phone shows (10min)</li><li>@sonodam – On Automatic Detection of <span class=\"caps\">SQL</span> Injection Attacks (5min)</li><li>@takesako – How to make x86 Hangul shellcode (5min)</li><li>@murachue – We won the victory in <span class=\"caps\">HITB</span><span class=\"caps\">CTF</span> (10min)</li><li>@07c00 – Heuristic packet analyzing (10min)</li><li>@sonodam – Security camp and <span class=\"caps\">CTF</span> in Japan (10min)</li><li>@security4all – talk about <span class=\"caps\">OWASP</span> Tokyo (5min)</li><li>@sen_u – Hardening zero (pre event) (5min)</li><li>@lumin &#8211; That&#8217;s terrible. Smart phone packet capture (5min)</li><li>@murachue – How to make it shut up Twitter client (5min)</li><li>@takesako – Introduction to Return-Oriented Programming (5min)</li><li>@takesako – Introduction to <span class=\"caps\">JIT</span>-Spraying attacks (5min)</li><li>@takesako – Hacking my MineSweeper with Win32::GuiTest (10min)</li></ol><h3>English Talks (後半)</h3><ol><li>@07c00 – Heuristic packet analyzing (in English)</li><li>@sen_u – Hardening zero (pre event) (in English)</li><li>@sonodam – Security camp and <span class=\"caps\">CTF</span> in Japan (in English)</li><li>@wakatono &#8211; Real Hardware Verification by Software for Bootstrap Using <span class=\"caps\">TSC</span> (in English)</li><li>@Eidwinds – Action of the owner whom a smart phone shows (in English)</li></ol><p>金曜日の夜ならネットエージェントさんの会議室が使えるかも、という話だったので、急遽前日の午後に勉強会を開催しようかという話を提案して、ANTDを立ち上げたのが12/8(木)18:15頃。告知開始してからおよそ24時間で上記トークが集まりました。本当にびっくりしました。</p><p>軽食のデリバリーを私の方で担当して、当日の司会進行は@07c00さんに全面的にお願いしてしまいました。今年はAVTokyoに参加できずネタ消化できなかった悔しさがあったためか、ここぞとばかり自分の発表ばかりしてしまい、すみませんでした。今後は自重しようかと思います。</p><p>発表者の皆さま、急な無茶ぶりの中にも関わらず英語のプレゼン資料を準備して下さって本当にありがとうございました！ゆるい進行だったので途中いろいろご不便をおかけすることもあったかと思いますが、突然のお願いにもかかわらず気持ちよく対応していただきましてありがとうございました。</p><p>今後また、Black Hat で日本人スピーカの人が出てきたらこのような壮行会的なことを開催しようと思いますので、#blacksoba の次回作をご期待ください。ネットエージェントの社員の皆さま、会場の準備・後片付けも最後まで本当にありがとうございました！</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html/feed") (slash:comments nil "0")))) ("2月28日(木)Shibuya.XSS 特別編 (SecurityDays)" "<p>1月に開催した「エンジニアサポートCROSS 2013」での「出張Shibuya.XSS」では<br />
+たくさんの方にご来場いただき、ありがとうございました。<br />
+ノロウイルスに感染して当日欠席だった @hasegawayosuke さんのリベンジ企画として<br />
+2月28日(木)18:00～渋谷ヒカリエホールにて「Shibuya.XSS 特別編」を開催いたします。</p><h2>■ Shibuya.XSS 特別編 (SecurityDays)</h2><p><a href=\"http://www.f2ff.jp/secd/2013/night/\">http://www.f2ff.jp/secd/2013/night/</a></p><pre style=\"background-color: #fefefe; border: 1px #666666 solid; padding: 8px;\">
+SecurityDays【N-1】2月28日（木）18:15-21:10
+「セキュリティリサーチの最前線 ～危険を察知する感性を磨け～」
+【会場】
+渋谷ヒカリエ9F（ヒカリエホール）
+【プログラム】
+2月28日(木）
+18:00：受付開始
+18:15-18:55：「Shibuya.XSS 特別編!! いつもどおりの豪華キャストでお送りします！」
+19:00-19:40：「Information Gathering　技法」
+19:45-20:25：「MITB in Androidの可能性」
+20:30-21:30：懇親会
+【参加費】
+1,000円（消費税込み）
+【ライトニングトーク＆セッション】
+Shibuya.XSS 特別編!! いつもどおりの豪華キャストでお送りします！
+(1) tessy：AVTOKYO / sutegoma2 代表
+(2) サイボウズ・ラボ株式会社 竹迫良範
+(3) 株式会社ディー・エヌ・エー CTO室 奥一穂
+(4) ネットエージェント株式会社 はせがわようすけ
+(5) NHN Japan mala
+(6) セキュリティキャンプ2012卒業生/慶應義塾大学 中安恒樹
+</pre><p>こちらのイベントは「SecurityDays」の有料セッションの一コマとなっています。<br />
+申し込みの際は、<a href=\"https://reg.f2ff.jp/public/application/add/191?lang=ja\">以下のページ</a>から<br /><b>【N-1】18:15-21:10「セキュリティリサーチの最前線 ～危険を察知する感性を磨け～」</b><br />
+をチェックして、必要事項をご記入の上、お申し込みください。</p><p><a href=\"https://reg.f2ff.jp/public/application/add/191?lang=ja\"><img src=\"http://developer.cybozu.co.jp/takesako/wp-content/uploads/2013/02/shibuyaxss-securitydays.png\" alt=\"shibuyaxss-securitydays\" class=\"alignnone size-medium wp-image-244\" /></a></p><p>「※携帯電話やフリーメール以外のアドレスでご登録ください。」とありますが、<br />
+Gmailのメールアドレスでも登録できるようです。<br />
+ちなみに、住所の番地も「全角で入力」する必要がありますのでご注意ください。</p><p>20:30～同会場でピザ付きの懇親会が開催されますので、どうぞお楽しみください。</p>" "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html" (20756 52902) new 1 nil nil ((title nil "2月28日(木)Shibuya.XSS 特別編 (SecurityDays)") (link nil "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html") (comments nil "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html#comments") (pubDate nil "Fri, 08 Feb 2013 10:08:38 +0000") (dc:creator nil "takesako") (category nil "未分類") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/?p=243") (description nil "1月に開催した「エンジニアサポートCROSS 2013」での「出張Shibuya &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>1月に開催した「エンジニアサポートCROSS 2013」での「出張Shibuya.XSS」では<br />
+たくさんの方にご来場いただき、ありがとうございました。<br />
+ノロウイルスに感染して当日欠席だった @hasegawayosuke さんのリベンジ企画として<br />
+2月28日(木)18:00～渋谷ヒカリエホールにて「Shibuya.XSS 特別編」を開催いたします。</p><h2>■ Shibuya.XSS 特別編 (SecurityDays)</h2><p><a href=\"http://www.f2ff.jp/secd/2013/night/\">http://www.f2ff.jp/secd/2013/night/</a></p><pre style=\"background-color: #fefefe; border: 1px #666666 solid; padding: 8px;\">
+SecurityDays【N-1】2月28日（木）18:15-21:10
+「セキュリティリサーチの最前線 ～危険を察知する感性を磨け～」
+
+【会場】
+渋谷ヒカリエ9F（ヒカリエホール）
+
+【プログラム】
+2月28日(木）
+18:00：受付開始
+18:15-18:55：「Shibuya.XSS 特別編!! いつもどおりの豪華キャストでお送りします！」
+19:00-19:40：「Information Gathering　技法」
+19:45-20:25：「MITB in Androidの可能性」
+20:30-21:30：懇親会
+
+【参加費】
+1,000円（消費税込み）
+
+【ライトニングトーク＆セッション】
+Shibuya.XSS 特別編!! いつもどおりの豪華キャストでお送りします！
+(1) tessy：AVTOKYO / sutegoma2 代表
+(2) サイボウズ・ラボ株式会社 竹迫良範
+(3) 株式会社ディー・エヌ・エー CTO室 奥一穂
+(4) ネットエージェント株式会社 はせがわようすけ
+(5) NHN Japan mala
+(6) セキュリティキャンプ2012卒業生/慶應義塾大学 中安恒樹
+</pre><p>こちらのイベントは「SecurityDays」の有料セッションの一コマとなっています。<br />
+申し込みの際は、<a href=\"https://reg.f2ff.jp/public/application/add/191?lang=ja\">以下のページ</a>から<br /><b>【N-1】18:15-21:10「セキュリティリサーチの最前線 ～危険を察知する感性を磨け～」</b><br />
+をチェックして、必要事項をご記入の上、お申し込みください。</p><p><a href=\"https://reg.f2ff.jp/public/application/add/191?lang=ja\"><img src=\"http://developer.cybozu.co.jp/takesako/wp-content/uploads/2013/02/shibuyaxss-securitydays.png\" alt=\"shibuyaxss-securitydays\" class=\"alignnone size-medium wp-image-244\" /></a></p><p>「※携帯電話やフリーメール以外のアドレスでご登録ください。」とありますが、<br />
+Gmailのメールアドレスでも登録できるようです。<br />
+ちなみに、住所の番地も「全角で入力」する必要がありますのでご注意ください。</p><p>20:30～同会場でピザ付きの懇親会が開催されますので、どうぞお楽しみください。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2013/02/securitydays.html/feed") (slash:comments nil "0"))) ("出張Shibuya.XSS「HTML5×セキュリティ」を開催します" "<p>今週末1/18(金)に開催される「エンジニアサポートCROSS 2013」にて、出張Shibuya.XSS「HTML5×セキュリティ」を開催します！</p><h2>「エンジニアサポートCROSS 2013」</h2><p>　<a href=\"http://www.cross-party.com\">http://www.cross-party.com</a><br />
+　開催日時：2013年1月18日（金）10:30～17:30、17:45～20:00<br />
+　開催場所：ベルサール新宿グランド<br />
+　参加者数：(定員：1000人)</p><h2>■HTML5 x セキュリティ（B会場）11:40～12:40</h2><p><a href=\"http://www.cross-party.com/programs/?p=143\"><img src=\"http://developer.cybozu.co.jp/takesako/wp-content/uploads/2013/01/html5security.png\" alt=\" \" title=\"HTML5×セキュリティ\" width=\"372\" height=\"231\" class=\"alignnone size-full wp-image-233\" /></a></p><p>セッションオーナー<br />
+　竹迫良範 (@takesako) / サイボウズ・ラボ株式会社<br />
+登壇者<br />
+　mala / NHN Japan株式会社<br />
+　はまちや２（セキュリティエンジニア）<br />
+　はせがわようすけ / ネットエージェント株式会社</p><p>今回は200人入れる会場を手配できましたので、クロスする話をみんなで楽しく出来ればと思います。<br />
+このセッションは諸事情により写真撮影は禁止となっています。</p><p><ins>追記：1/18(金) 14:30</ins><br />
+無事開催できました。出張Shibuya.XSS「HTML5 x セキュリティ」をトゥギャりました。<br /><a href=\"http://togetter.com/li/441062\">http://togetter.com/li/441062</a></p>" "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html" (20726 24483) new 2 nil nil ((title nil "出張Shibuya.XSS「HTML5×セキュリティ」を開催します") (link nil "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html") (comments nil "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html#comments") (pubDate nil "Wed, 16 Jan 2013 08:06:59 +0000") (dc:creator nil "takesako") (category nil "未分類") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/?p=232") (description nil "今週末1/18(金)に開催される「エンジニアサポートCROSS 2013」にて、 &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>今週末1/18(金)に開催される「エンジニアサポートCROSS 2013」にて、出張Shibuya.XSS「HTML5×セキュリティ」を開催します！</p><h2>「エンジニアサポートCROSS 2013」</h2><p>　<a href=\"http://www.cross-party.com\">http://www.cross-party.com</a><br />
+　開催日時：2013年1月18日（金）10:30～17:30、17:45～20:00<br />
+　開催場所：ベルサール新宿グランド<br />
+　参加者数：(定員：1000人)</p><h2>■HTML5 x セキュリティ（B会場）11:40～12:40</h2><p><a href=\"http://www.cross-party.com/programs/?p=143\"><img src=\"http://developer.cybozu.co.jp/takesako/wp-content/uploads/2013/01/html5security.png\" alt=\" \" title=\"HTML5×セキュリティ\" width=\"372\" height=\"231\" class=\"alignnone size-full wp-image-233\" /></a></p><p>セッションオーナー<br />
+　竹迫良範 (@takesako) / サイボウズ・ラボ株式会社<br />
+登壇者<br />
+　mala / NHN Japan株式会社<br />
+　はまちや２（セキュリティエンジニア）<br />
+　はせがわようすけ / ネットエージェント株式会社</p><p>今回は200人入れる会場を手配できましたので、クロスする話をみんなで楽しく出来ればと思います。<br />
+このセッションは諸事情により写真撮影は禁止となっています。</p><p><ins>追記：1/18(金) 14:30</ins><br />
+無事開催できました。出張Shibuya.XSS「HTML5 x セキュリティ」をトゥギャりました。<br /><a href=\"http://togetter.com/li/441062\">http://togetter.com/li/441062</a></p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2013/01/cross2013xss.html/feed") (slash:comments nil "0"))) ("ジュンク堂「今度こそわかる!? PRMLの学習の学習」トークセッション開催" "<div><a href=\"http://www.junkudo.co.jp/tenpo/evtalk.html#20121011_talk\">PRML同人誌 『パターン認識と機械学習の学習』（暗黒通信団） 刊行記念トークセッション <br /><b>「今度こそわかる!? PRMLの学習の学習」</b>のお知らせ</a></p><ul><li>日　時：2012年10月11日（木）19時30分 ～
+<li>会　場：ジュンク堂 池袋本店 4階喫茶コーナーにて
+<li>入場料：1,000円（ドリンク付）
+<li>定　員：40名
+</ul><h3>登壇者</h3><ol><li>神嶌敏弘 (原著パターン認識と機械学習 翻訳者)
+<li>naoya_t （PRML読書会／PRML復々習レーン主宰）
+<li>中谷秀洋（サイボウズ・ラボPRML読書会主宰）
+<li>光成滋生（著者）
+<li>竹迫良範（編集／インタビューア）
+</ol><p>
+C M. Bishop 著「Pattern Recognition and Machine Learning」の日本語版<br />
+『パターン認識と機械学習 ─ ベイズ理論による統計的予測』（通称PRML本）が<br />
+シュプリンガー・ジャパンの出版事業を継承した丸善出版から出版されました。<br /><br />
+　様々な機械学習の理論やパターン認識の手法をベイズ理論に基づいて解説した<br />
+ガチな教科書でありながらも、親しみやすくて分かりやすいカラーの図やグラフが満載で「これならきっと僕にも読めそうかも」と思って購入した人も多いでしょう。<br />
+　実際に「図版が綺麗だった」という理由でPRML上巻を購入したnaoya_tさんは、1章でも2章でも読み進めることが出来たら下巻を買おうと決意しました。しかし、自力で読み進めることが難しいとすぐに気付き、近所の公民館を借りてPRML読書会を主催。そこに集まった技術者と一緒にPRML本を1章から読み進めて、途中の数式展開を追いかけながら内容を理解していくという輪講形式の読書会が広がりました。<br />
+　その後、サイボウズ・ラボの社内PRML読書会に参加していた光成さんが作成した<a href=\"http://prml.in/\">PRMLのアンチョコ（教科書ガイド）</a>が暗黒通信団より同人誌の体裁として発刊され、ジュンク堂書店 池袋本店2012年7月第1週のベストセラー第1位となりました。<br />
+　そんなにPRMLを読むのは難しいのか。数学の知識が必要なのか。本当にベイズ理論に挫折するのか。日本全国各地で開催されている「PRML読書会」の謎に迫ります。</p><p>◆講師紹介◆<br /><strong>神嶌敏弘</strong>（かみしま としひろ）<br />
+『パターン認識と機械学習 ─ ベイズ理論による統計的予測』日本語翻訳の立役者。<br />
+機械学習やデータマイニングの手法について研究。TwitterID @shima__shima で有名。<br /><strong>naoya_t</strong><br />
+機械学習・自然言語処理エンジニア。2009年5月から都内で PRML 読書会を主宰。後に <br />
+PRML復習レーン、同復々習レーンを主宰。趣味で読み始めたつもりのPRMLに助けられる日々。<br /><strong>中谷秀洋</strong>（なかたに しゅうよう）<br />
+サイボウズ・ラボ社内でPRML読書会を主宰。gihyo.jpで「機械学習 はじめよう」を連載中。<br /><strong>光成滋生</strong>（みつなり しげお）<br />
+『パターン認識と機械学習の学習』著者。オリジナルのPRMLアンチョコはCC BY 3.0で公開。<br /><strong>竹迫良範</strong>（たけさこ よしのり）<br />
+暗黒通信団にて『PRMLの学習』を出版、コミケでもないのに初版1000部が2日で消え、困惑。</p><p>■イベントに関するお問い合わせ、<a href=\"http://www.junkudo.co.jp/tenpo/evtalk.html#20121011_talk\">ご予約</a>は下記の電話番号へお願いいたします。<br />
+ジュンク堂書店池袋本店<br />
+TEL 03-5956-6111<br />
+東京都豊島区南池袋2-15-5
+</div>" "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html" (20562 38861) new 3 nil nil ((title nil "ジュンク堂「今度こそわかる!? PRMLの学習の学習」トークセッション開催") (link nil "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html#comments") (pubDate nil "Fri, 14 Sep 2012 02:34:53 +0000") (dc:creator nil "takesako") (category nil "PRML") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/?p=7") (description nil "PRML同人誌 『パターン認識と機械学習の学習』（暗黒通信団） 刊行記念トークセ &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<div><a href=\"http://www.junkudo.co.jp/tenpo/evtalk.html#20121011_talk\">PRML同人誌 『パターン認識と機械学習の学習』（暗黒通信団） 刊行記念トークセッション <br /><b>「今度こそわかる!? PRMLの学習の学習」</b>のお知らせ</a></p><ul><li>日　時：2012年10月11日（木）19時30分 &#65374; 
+<li>会　場：ジュンク堂 池袋本店 4階喫茶コーナーにて
+<li>入場料：1,000円（ドリンク付）
+<li>定　員：40名
+</ul><h3>登壇者</h3><ol><li>神嶌敏弘 (原著パターン認識と機械学習 翻訳者)
+<li>naoya_t （PRML読書会／PRML復々習レーン主宰）
+<li>中谷秀洋（サイボウズ・ラボPRML読書会主宰）
+<li>光成滋生（著者）
+<li>竹迫良範（編集／インタビューア）
+</ol><p>
+C M. Bishop 著「Pattern Recognition and Machine Learning」の日本語版<br />
+『パターン認識と機械学習 ─ ベイズ理論による統計的予測』（通称PRML本）が<br />
+シュプリンガー・ジャパンの出版事業を継承した丸善出版から出版されました。<br /><br />
+　様々な機械学習の理論やパターン認識の手法をベイズ理論に基づいて解説した<br />
+ガチな教科書でありながらも、親しみやすくて分かりやすいカラーの図やグラフが満載で「これならきっと僕にも読めそうかも」と思って購入した人も多いでしょう。<br />
+　実際に「図版が綺麗だった」という理由でPRML上巻を購入したnaoya_tさんは、1章でも2章でも読み進めることが出来たら下巻を買おうと決意しました。しかし、自力で読み進めることが難しいとすぐに気付き、近所の公民館を借りてPRML読書会を主催。そこに集まった技術者と一緒にPRML本を1章から読み進めて、途中の数式展開を追いかけながら内容を理解していくという輪講形式の読書会が広がりました。<br />
+　その後、サイボウズ・ラボの社内PRML読書会に参加していた光成さんが作成した<a href=\"http://prml.in/\">PRMLのアンチョコ（教科書ガイド）</a>が暗黒通信団より同人誌の体裁として発刊され、ジュンク堂書店 池袋本店2012年7月第1週のベストセラー第1位となりました。<br />
+　そんなにPRMLを読むのは難しいのか。数学の知識が必要なのか。本当にベイズ理論に挫折するのか。日本全国各地で開催されている「PRML読書会」の謎に迫ります。</p><p>&#9670;講師紹介&#9670;<br /><strong>神嶌敏弘</strong>（かみしま としひろ）<br />
+『パターン認識と機械学習 ─ ベイズ理論による統計的予測』日本語翻訳の立役者。<br />
+機械学習やデータマイニングの手法について研究。TwitterID @shima__shima で有名。<br /><strong>naoya_t</strong><br />
+機械学習・自然言語処理エンジニア。2009年5月から都内で PRML 読書会を主宰。後に <br />
+PRML復習レーン、同復々習レーンを主宰。趣味で読み始めたつもりのPRMLに助けられる日々。<br /><strong>中谷秀洋</strong>（なかたに しゅうよう）<br />
+サイボウズ・ラボ社内でPRML読書会を主宰。gihyo.jpで「機械学習 はじめよう」を連載中。<br /><strong>光成滋生</strong>（みつなり しげお）<br />
+『パターン認識と機械学習の学習』著者。オリジナルのPRMLアンチョコはCC BY 3.0で公開。<br /><strong>竹迫良範</strong>（たけさこ よしのり）<br />
+暗黒通信団にて『PRMLの学習』を出版、コミケでもないのに初版1000部が2日で消え、困惑。</p><p>&#9632;イベントに関するお問い合わせ、<a href=\"http://www.junkudo.co.jp/tenpo/evtalk.html#20121011_talk\">ご予約</a>は下記の電話番号へお願いいたします。<br />
+ジュンク堂書店池袋本店<br />
+TEL 03-5956-6111<br />
+東京都豊島区南池袋2-15-5
+</div>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/09/prml-talk.html/feed") (slash:comments nil "0"))) ("超エンジニアミーティング（ニコニコ超会議）でビデオ出演しました" "<p>4/28(土)4/29(日)幕張メッセで開催された「ニコニコ超会議」のサブイベント「超エンジニアミーティング」の「エンジニア100連発」企画にて、ビデオ出演させていただきました。そのときの録画をニコニコ動画にアップロードしましたので、お知らせします。</p><p><script type=\"text/javascript\" src=\"http://ext.nicovideo.jp/thumb_watch/sm17691239\"></script><br /><noscript><a href=\"http://www.nicovideo.jp/watch/sm17691239\">【ニコニコ動画】エンジニア100連発「超エンジニアミーティング」in ニコニコ超会議</a></noscript><p>過去の私の作品の中から「ニコニコ」にちなんだ「顔文字」系プログラミングの話をピックアップしていくつか紹介させていただきました。元の依頼が、完成度・すでに発表済みであるかどうかなどを問わず、自由な発想の元に作られた作品をテンポよくプレゼンし、聴衆の「今すぐ何かを作りたい！」という創作意欲を掻き立てるようなデモに下さい、という依頼でしたので、そのような構成で引き受けました。</p><p>いろいろ過去に発表しているネタとほとんどかぶっているので、私のプレゼンを見ている人にとって新鮮味はないかと思いますが、部屋で淡々と一人で解説している貴重な動画ですので、お楽しみいただければと思います。音声にノイズが混じっていてすみません。収録したのがノートパソコン付属のマイクで、しかも夜中の一人部屋の中だったので、少しテンションが低めになっています。テンションが低いことを予めご了承いただければと思います。</p><p><a href=\"https://twitter.com/takesako/status/196079528630681600\"><img alt=\"ニコニコ超会議「超エンジニアミーティング」ビデオ出演で申し訳ありません。現在、私はどこで何をしているかと言うと、長野県の標高650mの（東京スカイツリーより若干高い）宿舎で洗濯を干しています\" title=\"ニコニコ超会議「超エンジニアミーティング」ビデオ出演で申し訳ありません。現在、私はどこで何をしているかと言うと、長野県の標高650mの（東京スカイツリーより若干高い）宿舎で洗濯を干しています\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/30/tweetnagano.png\" border=\"0\"  /></a></p><p>「ニコニコ超会議」は「ニコニコ動画のすべて（だいたい）を地上に再現する」をコンセプトとして開催されたニコニコ動画のあらゆるジャンルを網羅したフェスイベントということで、私も参加したかったのですが、あいにくこの時期は長野県に滞在していたため、現地での参加は見送り、ビデオ出演（録画放送）での登壇となりました。</p><div>当日、登壇者用の机はこんな感じだったらしいですw<br/><br /><a href=\"https://twitter.com/materia_x64/status/196074134445363202\"><img alt=\"登壇者用の机\" title=\"登壇者用の机\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/05/01/chokaigitakesako.jpg\" border=\"0\"  /></a></div><p>他の登壇者の皆さんも面白い発表をされていたようで、現地に参加できず残念でした。</p><p><a href=\"http://info.nicovideo.jp/conference/cho-engineer-meeting/\"><img alt=\"エンジニア100連発\" title=\"エンジニア100連発\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/30/chokaigi100.png\" border=\"0\"  /></a></p><p>次回もしもこのような機会がまたあるとすれば今度は新ネタ盛りだくさんで現地に行きたいと思います。貴重な機会をありがとうございました。</p><h3>【参考記事】</h3><ol><li><a href=\"http://hoshi.air-nifty.com/diary/2012/04/in-e9eb.html\">「超エンジニアミーティング」 in ニコニコ超会議を全部取材してみた</a></li><li><a href=\"http://togetter.com/li/294832\">超エンジニアミーティング in ニコニコ超会議 #cho_engmtg – Togetter</a></li></ol>" "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html" (20382 32917) new 4 nil nil ((title nil "超エンジニアミーティング（ニコニコ超会議）でビデオ出演しました") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html#comments") (pubDate nil "Mon, 30 Apr 2012 12:07:49 +0000") (dc:creator nil "takesako") (category nil "Polyglot") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa/") (description nil "4/28(土)4/29(日)幕張メッセで開催された「ニコニコ超会議」のサブイベン &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>4/28(土)4/29(日)幕張メッセで開催された「ニコニコ超会議」のサブイベント「超エンジニアミーティング」の「エンジニア100連発」企画にて、ビデオ出演させていただきました。そのときの録画をニコニコ動画にアップロードしましたので、お知らせします。</p><p><script type=\"text/javascript\" src=\"http://ext.nicovideo.jp/thumb_watch/sm17691239\"></script><br /><noscript><a href=\"http://www.nicovideo.jp/watch/sm17691239\">【ニコニコ動画】エンジニア100連発「超エンジニアミーティング」in ニコニコ超会議</a></noscript><p>過去の私の作品の中から「ニコニコ」にちなんだ「顔文字」系プログラミングの話をピックアップしていくつか紹介させていただきました。元の依頼が、完成度・すでに発表済みであるかどうかなどを問わず、自由な発想の元に作られた作品をテンポよくプレゼンし、聴衆の「今すぐ何かを作りたい！」という創作意欲を掻き立てるようなデモに下さい、という依頼でしたので、そのような構成で引き受けました。</p><p>いろいろ過去に発表しているネタとほとんどかぶっているので、私のプレゼンを見ている人にとって新鮮味はないかと思いますが、部屋で淡々と一人で解説している貴重な動画ですので、お楽しみいただければと思います。音声にノイズが混じっていてすみません。収録したのがノートパソコン付属のマイクで、しかも夜中の一人部屋の中だったので、少しテンションが低めになっています。テンションが低いことを予めご了承いただければと思います。</p><p><a href=\"https://twitter.com/takesako/status/196079528630681600\"><img alt=\"ニコニコ超会議「超エンジニアミーティング」ビデオ出演で申し訳ありません。現在、私はどこで何をしているかと言うと、長野県の標高650mの（東京スカイツリーより若干高い）宿舎で洗濯を干しています\" title=\"ニコニコ超会議「超エンジニアミーティング」ビデオ出演で申し訳ありません。現在、私はどこで何をしているかと言うと、長野県の標高650mの（東京スカイツリーより若干高い）宿舎で洗濯を干しています\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/30/tweetnagano.png\" border=\"0\"  /></a></p><p>「ニコニコ超会議」は「ニコニコ動画のすべて（だいたい）を地上に再現する」をコンセプトとして開催されたニコニコ動画のあらゆるジャンルを網羅したフェスイベントということで、私も参加したかったのですが、あいにくこの時期は長野県に滞在していたため、現地での参加は見送り、ビデオ出演（録画放送）での登壇となりました。</p><div>当日、登壇者用の机はこんな感じだったらしいですw<br/><br /><a href=\"https://twitter.com/materia_x64/status/196074134445363202\"><img alt=\"登壇者用の机\" title=\"登壇者用の机\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/05/01/chokaigitakesako.jpg\" border=\"0\"  /></a></div><p>他の登壇者の皆さんも面白い発表をされていたようで、現地に参加できず残念でした。</p><p><a href=\"http://info.nicovideo.jp/conference/cho-engineer-meeting/\"><img alt=\"エンジニア100連発\" title=\"エンジニア100連発\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/30/chokaigi100.png\" border=\"0\"  /></a></p><p>次回もしもこのような機会がまたあるとすれば今度は新ネタ盛りだくさんで現地に行きたいと思います。貴重な機会をありがとうございました。</p><h3>【参考記事】</h3><ol><li><a href=\"http://hoshi.air-nifty.com/diary/2012/04/in-e9eb.html\">「超エンジニアミーティング」 in ニコニコ超会議を全部取材してみた</a></li><li><a href=\"http://togetter.com/li/294832\">超エンジニアミーティング in ニコニコ超会議 #cho_engmtg &#8211; Togetter</a></li></ol>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/post-3ffa.html/feed") (slash:comments nil "0"))) ("昨年に引き続きサイボウズ・ラボユース第2期生を募集" "<p>本日2012年4月12日(木)より、<a href=\"http://group.cybozu.jp/news/12041201.html\">サイボウズ・ラボユース第2期生の募集を開始</a>しました。</p><p><a href=\"http://group.cybozu.jp/news/12041201.html\"><img border=\"0\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/12/cybozupr20120412.png\" title=\"Cybozupr20120412\" alt=\"Cybozupr20120412\" /></a></p><p>2011年より開始した第1期の試みが好評でしたので、第2期も継続してこのような取り組みをすることにいたしました。</p><p>応募の締め切りが4月24日(火)17時までとなっていますので、早めのご応募をお待ちしております。</p>" "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html" (20358 20204) new 5 nil nil ((title nil "昨年に引き続きサイボウズ・ラボユース第2期生を募集") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html#comments") (pubDate nil "Thu, 12 Apr 2012 03:41:32 +0000") (dc:creator nil "takesako") (category nil "cybozu") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f/") (description nil "本日2012年4月12日(木)より、サイボウズ・ラボユース第2期生の募集を開始し &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>本日2012年4月12日(木)より、<a href=\"http://group.cybozu.jp/news/12041201.html\">サイボウズ・ラボユース第2期生の募集を開始</a>しました。</p><p><a href=\"http://group.cybozu.jp/news/12041201.html\"><img border=\"0\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/12/cybozupr20120412.png\" title=\"Cybozupr20120412\" alt=\"Cybozupr20120412\" /></a></p><p>2011年より開始した第1期の試みが好評でしたので、第2期も継続してこのような取り組みをすることにいたしました。</p><p>応募の締め切りが4月24日(火)17時までとなっていますので、早めのご応募をお待ちしております。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/2-b87f.html/feed") (slash:comments nil "0"))) ("SECCON CTFで出題したマインスイーパー問題" "<p>今年の2月、九州工業大学の飯塚キャンパスにて<a href=\"http://www.atmarkit.co.jp/fsecurity/special/167ctf/01.html\">「第1回SECCON CTF福岡大会」</a>を<a href=\"http://www.seccon.jp/p/ctf.html\">有志のボランティアメンバー</a>で開催しました。</p><p><a title=\"P1090216.JPG by takesako, on Flickr\" href=\"http://www.flickr.com/photos/takesako/6792717170/\"><img width=\"320\" height=\"240\" alt=\"P1090216.JPG\" src=\"http://farm8.staticflickr.com/7052/6792717170_d2f1070410_n.jpg\" /></a></p><p>
+CTF(Capture The Flag)の競技大会の中では、セキュリティ技術（フォレンジック、暗号、リバースエンジニアリング、ネットワーク解析、Web脆弱性）にフォーカスしたものだけではなく、コンピュータ技術に関する幅広い知識や経験を問うこと言うことで、純粋にプログラミングに関する問題も出しているのですが、その中で、私の出題したPerlワンライナーの問題もこちらのブログで公開してみます。
+</p><pre>■問題：マインスイーパー
+改行コードがLFの以下の2つのファイルがあるとする。
+（※CR LFでないことに注意）
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a>
+................
+................
+....***.....***.
+...**.*....**.*.
+..**......**....
+...*****...*****
+...*.*.*...*.*.*
+...*.***...*.***
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a>
+#!perl -p0
+s+\\.+map/\\e/g,$`.000000x3^($^x3).$_+eg
+このファイルを実行すると以下の出力結果が得られる。
+$ ./<a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a> &lt; <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a>
+0000000000000000
+0000000000000000
+0000***00000***0
+000**0*0000**0*0
+00**000000**0000
+000*****000*****
+000*0*0*000*0*0*
+000*0***000*0***
+このとき、入力の*をマインスイーパーの爆弾のある場所と見立てて、
+周辺にある爆弾の個数を数えて0～8の数字を出力するように
+元のプログラムの一部を書き換えよ。
+具体的には、以下の出力が得られるようにプログラムを修正せよ。
+$ ./<a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a> &lt; <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a> &gt; <a href=\"http://developer.cybozu.co.jp/takesako/files/correct_answer\">correct_answer</a>
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/correct_answer\">correct_answer</a>
+0000000000000000
+0001232100012321
+0013***20013***2
+013**5*2013**5*2
+01**654311**6543
+014*****214*****
+003*7*8*303*7*8*
+002*4***202*4***
+回答は、プログラム中の「000000」の箇所を置き換えた文字列を入力せよ。
+ただし、入力行の幅は半角16文字＋改行LF(1文字)で固定として良い。
+置き換える文字列は7bit-ASCIIの印字可能な範囲内の文字とし、
+複数の回答が考えられる場合は最短の文字列を正解とする。
+同じ長さで複数回答が考えられる場合は、ASCIIの辞書順に
+ソートし、若い方の回答を正解とする。</pre><pre>■ヒント
+ヒント１：「000000」を「111111」に置き換えて実行してみよ
+ヒント２：「000000」を「111e11」に置き換えて実行してみよ
+ヒント３：「000000」を「555555」に置き換えて実行してみよ
+ヒント４：1行目!#perl -p0 はどんな意味を持つか調べてみよ
+</pre><p>実は、出題日と同日に発売された<a href=\"http://gihyo.jp/magazine/SD/archive/2012/201203\">「Software Design 2012年3月号」</a>のハック特集のページで、この問題の回答そのものが紹介されていたのですが、会場にいる参加者は誰も気づかなかったというヲチがありました。</p><p>自分の力で解いてみるのも面白いので、ある程度の期間が過ぎたら回答と解説のページを別途掲載するようにしてみたいと思います。</p>" "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html" (20357 51094) new 6 nil nil ((title nil "SECCON CTFで出題したマインスイーパー問題") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html#comments") (pubDate nil "Wed, 11 Apr 2012 18:04:06 +0000") (dc:creator nil "takesako") (category nil "CTF") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236/") (description nil "今年の2月、九州工業大学の飯塚キャンパスにて「第1回SECCON CTF福岡大会 &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>今年の2月、九州工業大学の飯塚キャンパスにて<a href=\"http://www.atmarkit.co.jp/fsecurity/special/167ctf/01.html\">「第1回SECCON CTF福岡大会」</a>を<a href=\"http://www.seccon.jp/p/ctf.html\">有志のボランティアメンバー</a>で開催しました。</p><p><a title=\"P1090216.JPG by takesako, on Flickr\" href=\"http://www.flickr.com/photos/takesako/6792717170/\"><img width=\"320\" height=\"240\" alt=\"P1090216.JPG\" src=\"http://farm8.staticflickr.com/7052/6792717170_d2f1070410_n.jpg\" /></a></p><p>
+CTF(Capture The Flag)の競技大会の中では、セキュリティ技術（フォレンジック、暗号、リバースエンジニアリング、ネットワーク解析、Web脆弱性）にフォーカスしたものだけではなく、コンピュータ技術に関する幅広い知識や経験を問うこと言うことで、純粋にプログラミングに関する問題も出しているのですが、その中で、私の出題したPerlワンライナーの問題もこちらのブログで公開してみます。
+</p><pre>■問題：マインスイーパー
+改行コードがLFの以下の2つのファイルがあるとする。
+（※CR LFでないことに注意）
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a>
+................
+................
+....***.....***.
+...**.*....**.*.
+..**......**....
+...*****...*****
+...*.*.*...*.*.*
+...*.***...*.***
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a>
+#!perl -p0
+s+\\.+map/\\e/g,$`.000000x3^($^x3).$_+eg
+このファイルを実行すると以下の出力結果が得られる。
+$ ./<a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a> &lt; <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a>
+0000000000000000
+0000000000000000
+0000***00000***0
+000**0*0000**0*0
+00**000000**0000
+000*****000*****
+000*0*0*000*0*0*
+000*0***000*0***
+このとき、入力の*をマインスイーパーの爆弾のある場所と見立てて、
+周辺にある爆弾の個数を数えて0～8の数字を出力するように
+元のプログラムの一部を書き換えよ。
+具体的には、以下の出力が得られるようにプログラムを修正せよ。
+$ ./<a href=\"http://developer.cybozu.co.jp/takesako/files/minesweeper16.pl\">minesweeper16.pl</a> &lt; <a href=\"http://developer.cybozu.co.jp/takesako/files/16x8.txt\">16x8.txt</a> &gt; <a href=\"http://developer.cybozu.co.jp/takesako/files/correct_answer\">correct_answer</a>
+$ cat <a href=\"http://developer.cybozu.co.jp/takesako/files/correct_answer\">correct_answer</a>
+0000000000000000
+0001232100012321
+0013***20013***2
+013**5*2013**5*2
+01**654311**6543
+014*****214*****
+003*7*8*303*7*8*
+002*4***202*4***
+回答は、プログラム中の「000000」の箇所を置き換えた文字列を入力せよ。
+ただし、入力行の幅は半角16文字＋改行LF(1文字)で固定として良い。
+置き換える文字列は7bit-ASCIIの印字可能な範囲内の文字とし、
+複数の回答が考えられる場合は最短の文字列を正解とする。
+同じ長さで複数回答が考えられる場合は、ASCIIの辞書順に
+ソートし、若い方の回答を正解とする。</pre><pre>■ヒント
+ヒント１：「000000」を「111111」に置き換えて実行してみよ
+ヒント２：「000000」を「111e11」に置き換えて実行してみよ
+ヒント３：「000000」を「555555」に置き換えて実行してみよ
+ヒント４：1行目!#perl -p0 はどんな意味を持つか調べてみよ
+</pre><p>実は、出題日と同日に発売された<a href=\"http://gihyo.jp/magazine/SD/archive/2012/201203\">「Software Design 2012年3月号」</a>のハック特集のページで、この問題の回答そのものが紹介されていたのですが、会場にいる参加者は誰も気づかなかったというヲチがありました。</p><p>自分の力で解いてみるのも面白いので、ある程度の期間が過ぎたら回答と解説のページを別途掲載するようにしてみたいと思います。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/seccon-ctf-4236.html/feed") (slash:comments nil "0"))) ("PRML副読本「パターン認識と機械学習の学習」を出版します" "<p>2010年～2011年に社内で開催した機械学習勉強会の『パターン認識と機械学習』読書会で、光成さんが素晴らしいアンチョコを作ってくれました。PDFファイルは既にgithub 上で公開されていますが、このまま埋もれさせておくのはもったいないということで、<a href=\"http://prml.in/\">暗黒通信団の同人誌として正式に出版</a>されることが決まりました。</p><p><img border=\"0\" alt=\"20120401prml\" title=\"20120401prml\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/01/20120401prml.png\" /></p><p>※ 表紙のデザインは今後変更される可能性があります。</p><pre>目次は以下の通りです。
+第 1 章&nbsp; 「序論」のための確率用語
+&nbsp; &nbsp;1.1&nbsp; &nbsp;&nbsp; &nbsp;確率変数は変数なのか..............................&nbsp; 7
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.1&nbsp; &nbsp;確率空間(Ω, F, P).............................&nbsp; 7
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.2&nbsp; &nbsp;σ 加法族.....................................&nbsp; 8
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.3&nbsp; &nbsp;確率変数X.....................................&nbsp; 8
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.4&nbsp; &nbsp;確率変数は写像である..........................&nbsp; 9
+第 2 章&nbsp; 「確率分布」のための数学
+&nbsp; &nbsp;2.1&nbsp; &nbsp;&nbsp; &nbsp;微積分の復習...................................... 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.1&nbsp; &nbsp;変数変換...................................... 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.2&nbsp; &nbsp;奇関数の積分.................................. 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.3&nbsp; &nbsp;exp(−x) の積分................................ 12
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.4&nbsp; &nbsp;ガウス分布の積分.............................. 13
+&nbsp; &nbsp;2.2&nbsp; &nbsp;&nbsp; &nbsp;線形代数の復習.................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.1&nbsp; &nbsp;行列の積...................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.2&nbsp; &nbsp;トレース...................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.3&nbsp; &nbsp;行列式........................................ 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.4&nbsp; &nbsp;行列の種類.................................... 15
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.5&nbsp; &nbsp;ブロック行列の逆行列.......................... 16
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.6&nbsp; &nbsp;三角化........................................ 18
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.7&nbsp; &nbsp;対称行列...................................... 18
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.8&nbsp; &nbsp;2 次形式...................................... 19
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.9&nbsp; &nbsp;多変量ガウス分布.............................. 20
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.10&nbsp; 行列の微分.................................... 21
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.11&nbsp; ガウス分布の最尤推定.......................... 25
+第 3 章&nbsp; 「線形回帰モデル」のための数学
+&nbsp; &nbsp;3.1&nbsp; &nbsp;&nbsp; &nbsp;最小二乗法........................................ 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.1&nbsp; &nbsp;微分の復習.................................... 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.2&nbsp; &nbsp;誤差関数の最小化.............................. 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.3&nbsp; &nbsp;正射影........................................ 28
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.4&nbsp; &nbsp;行列での微分.................................. 29
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.5&nbsp; &nbsp;Woodbury の逆行列の公式....................... 29
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.6&nbsp; &nbsp;正定値対称行列................................ 30
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.7&nbsp; &nbsp;予測分布の分散................................ 31
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.8&nbsp; &nbsp;カルバック距離................................ 32
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.9&nbsp; &nbsp;エビデンス関数の評価の式変形.................. 33
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.10&nbsp; ヘッセ行列.................................... 34
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.11&nbsp; エビデンス関数の最大化の式変形................ 34
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.12&nbsp; パラメータの関係.............................. 35
+第 4 章&nbsp; 「線形識別モデル」のための数学
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.1&nbsp; &nbsp;&nbsp; &nbsp;クラス分類問題............................... 39
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.2&nbsp; &nbsp;&nbsp; &nbsp;行列の微分の復習............................. 40
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.3&nbsp; &nbsp;&nbsp; &nbsp;多クラス..................................... 41
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.4&nbsp; &nbsp;&nbsp; &nbsp;分類における最小二乗......................... 42
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.5&nbsp; &nbsp;&nbsp; &nbsp;フィッシャーの線形判別....................... 42
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.6&nbsp; &nbsp;&nbsp; &nbsp;最小二乗との関連............................. 44
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.7&nbsp; &nbsp;&nbsp; &nbsp;確率的生成モデル............................. 46
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.8&nbsp; &nbsp;&nbsp; &nbsp;連続値入力................................... 46
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.9&nbsp; &nbsp;&nbsp; &nbsp;最尤解....................................... 47
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.10&nbsp; &nbsp;&nbsp; ロジスティック回帰........................... 49
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.11&nbsp; &nbsp;&nbsp; 反復再重み付け最小二乗....................... 50
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.12&nbsp; &nbsp;&nbsp; Jensen の不等式.............................. 52
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.13&nbsp; &nbsp;&nbsp; 多クラスロジスティック回帰................... 53
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.14&nbsp; &nbsp;&nbsp; プロビット回帰............................... 54
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.15&nbsp; &nbsp;&nbsp; 正準連結関数................................. 55
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.16&nbsp; &nbsp;&nbsp; ラプラス近似................................. 57
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.17&nbsp; &nbsp;&nbsp; モデルの比較とBIC............................ 58
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.18&nbsp; &nbsp;&nbsp; ディラックのデルタ関数....................... 59
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.19&nbsp; &nbsp;&nbsp; ロジスティックシグモイド関数と
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; プロビット関数の逆関数....................... 59
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.20&nbsp; &nbsp;&nbsp; ベイズロジスティック回帰..................... 61
+第 9 章&nbsp; 「混合モデルと」の数式の補足
+&nbsp; &nbsp;9.1&nbsp; &nbsp;&nbsp; &nbsp;復習.............................................. 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.1&nbsp; &nbsp; 行列の公式................................... 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.2&nbsp; &nbsp; 微分......................................... 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.3&nbsp; &nbsp; ガウス分布................................... 66
+&nbsp; &nbsp;9.2&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布.................................... 66
+&nbsp; &nbsp;9.3&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布の EM アルゴリズム.................. 67
+&nbsp; &nbsp;9.4&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布再訪................................ 69
+&nbsp; &nbsp;9.5&nbsp; &nbsp;&nbsp; &nbsp;K-means&nbsp; との関連................................. 70
+&nbsp; &nbsp;9.6&nbsp; &nbsp;&nbsp; &nbsp;混合ベルヌーイ分布................................ 71
+&nbsp; &nbsp;9.7&nbsp; &nbsp;&nbsp; &nbsp;ベイズ線形回帰に関する EM アルゴリズム............ 73
+&nbsp; &nbsp;9.8&nbsp; &nbsp;&nbsp; &nbsp;一般の EM アルゴリズム............................ 74
+&nbsp; &nbsp;9.9&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布のオンライン版 EM アルゴリズム...... 76
+第 10 章 「近似推論法」の数式の補足
+&nbsp; &nbsp; 10.1&nbsp; &nbsp;&nbsp; この章でよく使われる公式......................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.1&nbsp; ガンマ関数................................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.2&nbsp; ディリクレ分布............................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.3&nbsp; ガンマ分布................................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.4&nbsp; 正規分布..................................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.5&nbsp; スチューデントのt 分布....................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.6&nbsp; ウィシャート分布............................. 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.7&nbsp; 行列の公式................................... 81
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.8&nbsp; カルバック距離............................... 81
+&nbsp; &nbsp; 10.2&nbsp; &nbsp;&nbsp; 下限と下界....................................... 81
+&nbsp; &nbsp; 10.3&nbsp; &nbsp; 分解による近似の持つ性質.......................... 82
+&nbsp; &nbsp; 10.4&nbsp; &nbsp; α ダイバージェンス............................... 83
+&nbsp; &nbsp; 10.5&nbsp; &nbsp; 例：一変数ガウス分布.............................. 84
+&nbsp; &nbsp; 10.6&nbsp; &nbsp; モデル比較........................................ 86
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.6.1&nbsp; 変分混合ガウス分布........................... 87
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.6.2&nbsp; 変分事後分布................................. 87
+&nbsp; &nbsp; 10.7&nbsp; &nbsp; 変分下限.......................................... 91
+&nbsp; &nbsp; 10.8&nbsp; &nbsp; 予測分布.......................................... 95
+索引</pre><p>ISBNを取得していますので、将来的には一般書店やオンラインショップでも取り扱いは可能になるかと思います。<br />
+まだ流通はしていません。価格は現在調整中で、印刷所に見積もりをもらった結果、予価1,000円前後になる見込みです。<br />
+一般書店に流通させる場合は、即売会とは異なり、定価よりも安い値段で卸す必要があるため、原価相当での設定となります。</p><p>
+今回の同人誌出版にさしあたって、事前に関係者にご相談させていただいたところ、原著からコピーしているのではなく自分で一から数式を書き起こしているのであれば問題ないでしょう、というコメントをいただきました。<br />
+今後のスケジュールですが、数式の校正とレイアウトの調整、第 11 章の補足なども付け加えて、ページ数は 120 程度、5月下旬頃に正式に出版となる予定です。
+</p><p>というお話なのですが、マニアックすぎて、誰も買いませんよね。。。</p><p><ins></p><h3>2012年7月 追記</h3><p><a href=\"http://prml.in/\">パターン認識と機械学習の学習－ベイズ理論に挫折しないための数学 （光成 滋生 著）ISBN:	978-4873101668</a><br />
+として出版されました。<br /></ins></p>" "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html" (20344 27989) new 7 nil nil ((title nil "PRML副読本「パターン認識と機械学習の学習」を出版します") (link nil "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html#comments") (pubDate nil "Sun, 01 Apr 2012 14:59:33 +0000") (dc:creator nil "takesako") (category nil "告知") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf/") (description nil "2010年～2011年に社内で開催した機械学習勉強会の『パターン認識と機械学習』 &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>2010年～2011年に社内で開催した機械学習勉強会の『パターン認識と機械学習』読書会で、光成さんが素晴らしいアンチョコを作ってくれました。PDFファイルは既にgithub 上で公開されていますが、このまま埋もれさせておくのはもったいないということで、<a href=\"http://prml.in/\">暗黒通信団の同人誌として正式に出版</a>されることが決まりました。</p><p><img border=\"0\" alt=\"20120401prml\" title=\"20120401prml\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2012/04/01/20120401prml.png\" /></p><p>※ 表紙のデザインは今後変更される可能性があります。</p><pre>目次は以下の通りです。
+第 1 章&nbsp; 「序論」のための確率用語
+&nbsp; &nbsp;1.1&nbsp; &nbsp;&nbsp; &nbsp;確率変数は変数なのか..............................&nbsp; 7
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.1&nbsp; &nbsp;確率空間(Ω, F, P).............................&nbsp; 7
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.2&nbsp; &nbsp;σ 加法族.....................................&nbsp; 8
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.3&nbsp; &nbsp;確率変数X.....................................&nbsp; 8
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1.1.4&nbsp; &nbsp;確率変数は写像である..........................&nbsp; 9
+第 2 章&nbsp; 「確率分布」のための数学
+&nbsp; &nbsp;2.1&nbsp; &nbsp;&nbsp; &nbsp;微積分の復習...................................... 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.1&nbsp; &nbsp;変数変換...................................... 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.2&nbsp; &nbsp;奇関数の積分.................................. 11
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.3&nbsp; &nbsp;exp(−x) の積分................................ 12
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.1.4&nbsp; &nbsp;ガウス分布の積分.............................. 13
+&nbsp; &nbsp;2.2&nbsp; &nbsp;&nbsp; &nbsp;線形代数の復習.................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.1&nbsp; &nbsp;行列の積...................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.2&nbsp; &nbsp;トレース...................................... 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.3&nbsp; &nbsp;行列式........................................ 14
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.4&nbsp; &nbsp;行列の種類.................................... 15
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.5&nbsp; &nbsp;ブロック行列の逆行列.......................... 16
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.6&nbsp; &nbsp;三角化........................................ 18
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.7&nbsp; &nbsp;対称行列...................................... 18
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.8&nbsp; &nbsp;2 次形式...................................... 19
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.9&nbsp; &nbsp;多変量ガウス分布.............................. 20
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.10&nbsp; 行列の微分.................................... 21
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 2.2.11&nbsp; ガウス分布の最尤推定.......................... 25
+第 3 章&nbsp; 「線形回帰モデル」のための数学
+&nbsp; &nbsp;3.1&nbsp; &nbsp;&nbsp; &nbsp;最小二乗法........................................ 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.1&nbsp; &nbsp;微分の復習.................................... 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.2&nbsp; &nbsp;誤差関数の最小化.............................. 27
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.3&nbsp; &nbsp;正射影........................................ 28
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.4&nbsp; &nbsp;行列での微分.................................. 29
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.5&nbsp; &nbsp;Woodbury の逆行列の公式....................... 29
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.6&nbsp; &nbsp;正定値対称行列................................ 30
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.7&nbsp; &nbsp;予測分布の分散................................ 31
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.8&nbsp; &nbsp;カルバック距離................................ 32
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.9&nbsp; &nbsp;エビデンス関数の評価の式変形.................. 33
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.10&nbsp; ヘッセ行列.................................... 34
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.11&nbsp; エビデンス関数の最大化の式変形................ 34
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3.1.12&nbsp; パラメータの関係.............................. 35
+第 4 章&nbsp; 「線形識別モデル」のための数学
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.1&nbsp; &nbsp;&nbsp; &nbsp;クラス分類問題............................... 39
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.2&nbsp; &nbsp;&nbsp; &nbsp;行列の微分の復習............................. 40
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.3&nbsp; &nbsp;&nbsp; &nbsp;多クラス..................................... 41
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.4&nbsp; &nbsp;&nbsp; &nbsp;分類における最小二乗......................... 42
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.5&nbsp; &nbsp;&nbsp; &nbsp;フィッシャーの線形判別....................... 42
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.6&nbsp; &nbsp;&nbsp; &nbsp;最小二乗との関連............................. 44
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.7&nbsp; &nbsp;&nbsp; &nbsp;確率的生成モデル............................. 46
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.8&nbsp; &nbsp;&nbsp; &nbsp;連続値入力................................... 46
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.9&nbsp; &nbsp;&nbsp; &nbsp;最尤解....................................... 47
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.10&nbsp; &nbsp;&nbsp; ロジスティック回帰........................... 49
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.11&nbsp; &nbsp;&nbsp; 反復再重み付け最小二乗....................... 50
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.12&nbsp; &nbsp;&nbsp; Jensen の不等式.............................. 52
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.13&nbsp; &nbsp;&nbsp; 多クラスロジスティック回帰................... 53
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.14&nbsp; &nbsp;&nbsp; プロビット回帰............................... 54
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.15&nbsp; &nbsp;&nbsp; 正準連結関数................................. 55
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.16&nbsp; &nbsp;&nbsp; ラプラス近似................................. 57
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.17&nbsp; &nbsp;&nbsp; モデルの比較とBIC............................ 58
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.18&nbsp; &nbsp;&nbsp; ディラックのデルタ関数....................... 59
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.19&nbsp; &nbsp;&nbsp; ロジスティックシグモイド関数と
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; プロビット関数の逆関数....................... 59
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 4.20&nbsp; &nbsp;&nbsp; ベイズロジスティック回帰..................... 61
+第 9 章&nbsp; 「混合モデルと」の数式の補足
+&nbsp; &nbsp;9.1&nbsp; &nbsp;&nbsp; &nbsp;復習.............................................. 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.1&nbsp; &nbsp; 行列の公式................................... 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.2&nbsp; &nbsp; 微分......................................... 65
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9.1.3&nbsp; &nbsp; ガウス分布................................... 66
+&nbsp; &nbsp;9.2&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布.................................... 66
+&nbsp; &nbsp;9.3&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布の EM アルゴリズム.................. 67
+&nbsp; &nbsp;9.4&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布再訪................................ 69
+&nbsp; &nbsp;9.5&nbsp; &nbsp;&nbsp; &nbsp;K-means&nbsp; との関連................................. 70
+&nbsp; &nbsp;9.6&nbsp; &nbsp;&nbsp; &nbsp;混合ベルヌーイ分布................................ 71
+&nbsp; &nbsp;9.7&nbsp; &nbsp;&nbsp; &nbsp;ベイズ線形回帰に関する EM アルゴリズム............ 73
+&nbsp; &nbsp;9.8&nbsp; &nbsp;&nbsp; &nbsp;一般の EM アルゴリズム............................ 74
+&nbsp; &nbsp;9.9&nbsp; &nbsp;&nbsp; &nbsp;混合ガウス分布のオンライン版 EM アルゴリズム...... 76
+第 10 章 「近似推論法」の数式の補足
+&nbsp; &nbsp; 10.1&nbsp; &nbsp;&nbsp; この章でよく使われる公式......................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.1&nbsp; ガンマ関数................................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.2&nbsp; ディリクレ分布............................... 79
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.3&nbsp; ガンマ分布................................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.4&nbsp; 正規分布..................................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.5&nbsp; スチューデントのt 分布....................... 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.6&nbsp; ウィシャート分布............................. 80
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.7&nbsp; 行列の公式................................... 81
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.1.8&nbsp; カルバック距離............................... 81
+&nbsp; &nbsp; 10.2&nbsp; &nbsp;&nbsp; 下限と下界....................................... 81
+&nbsp; &nbsp; 10.3&nbsp; &nbsp; 分解による近似の持つ性質.......................... 82
+&nbsp; &nbsp; 10.4&nbsp; &nbsp; α ダイバージェンス............................... 83
+&nbsp; &nbsp; 10.5&nbsp; &nbsp; 例：一変数ガウス分布.............................. 84
+&nbsp; &nbsp; 10.6&nbsp; &nbsp; モデル比較........................................ 86
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.6.1&nbsp; 変分混合ガウス分布........................... 87
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;10.6.2&nbsp; 変分事後分布................................. 87
+&nbsp; &nbsp; 10.7&nbsp; &nbsp; 変分下限.......................................... 91
+&nbsp; &nbsp; 10.8&nbsp; &nbsp; 予測分布.......................................... 95
+索引</pre><p>ISBNを取得していますので、将来的には一般書店やオンラインショップでも取り扱いは可能になるかと思います。<br />
+まだ流通はしていません。価格は現在調整中で、印刷所に見積もりをもらった結果、予価1,000円前後になる見込みです。<br />
+一般書店に流通させる場合は、即売会とは異なり、定価よりも安い値段で卸す必要があるため、原価相当での設定となります。</p><p>
+今回の同人誌出版にさしあたって、事前に関係者にご相談させていただいたところ、原著からコピーしているのではなく自分で一から数式を書き起こしているのであれば問題ないでしょう、というコメントをいただきました。<br />
+今後のスケジュールですが、数式の校正とレイアウトの調整、第 11 章の補足なども付け加えて、ページ数は 120 程度、5月下旬頃に正式に出版となる予定です。
+</p><p>というお話なのですが、マニアックすぎて、誰も買いませんよね。。。</p><p><ins></p><h3>2012年7月 追記</h3><p><a href=\"http://prml.in/\">パターン認識と機械学習の学習－ベイズ理論に挫折しないための数学 （光成 滋生 著）ISBN:	978-4873101668</a><br />
+として出版されました。<br /></ins></p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/04/prml-2fcf.html/feed") (slash:comments nil "3"))) ("サイボウズ・ラボユースを1年間やってみてわかったこと" "<div style=\"width:510px\" id=\"__ss_11508978\"><strong style=\"display:block;margin:12px 0 4px\"><a href=\"http://www.slideshare.net/takesako/cybozu-labsyouth-20120210\" title=\"サイボウズ・ラボユース 2011年度 活動報告\" target=\"_blank\">サイボウズ・ラボユース 2011年度 活動報告</a></strong><iframe src=\"http://www.slideshare.net/slideshow/embed_code/11508978\" width=\"510\" height=\"426\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe><div style=\"padding:5px 0 12px\"> View more <a href=\"http://www.slideshare.net/\" target=\"_blank\">presentations</a> from <a href=\"http://www.slideshare.net/takesako\" target=\"_blank\">takesako</a></div></p></div><p><a href=\"http://cybozulabs-youth.blogspot.jp/\">サイボウズ・ラボユース</a>とは、2011年から始めた学生支援制度で、詳細は…中谷さんによる解説<a href=\"http://d.hatena.ne.jp/n_shuyo/20120322/labs_youth\">サイボウズ・ラボユースってなに？ – Mi manca qualche giovedi`?</a>が詳しいです。<br />
+一部、引用すると：</p><dl><dt>サイボウズ・ラボユースで「何をやってもらう」か。</dt><dd>実は設問がすでに間違っている。ラボユースは「やってもらう」ところではなく、自分から「やりたいこと」をやるところ。<br />
+というわけでインターンとは全然違う。サイボウズの業務の一部をやってもらうなんてありえない(本人がよほど強く希望でもしない限り)。そもそも NDA(秘密保持契約)すら結ばないし。
+</dd><dt>サイボウズ・ラボユースに応募するには</dt><dd>対象が学生なのはさすがにわかると思うのでおいとくと、上で書いたように「やりたいこと」がある人というのが必須要件。<br />
+「開発支援」なので、コンピュータの上で動く何かを作ることが核になっていること。<br />
+そして成果をサイボウズも利用できる形式(ライセンス等)でオープンにできること。<br />
+この2点が満たされていればOK。
+</dd><dt>サイボウズ・ラボユースで何が得られるか</dt><dd>サイボウズ・ラボに通うことができれば、奨励金がもらえる。<br />
+ぶっちゃけて言ってしまえば、アルバイトだ。といっても上で書いたように指示された仕事をするのではなく、自分のやりたい開発をやる。<br />
+遠方であるなどの事情でサイボウズ・ラボに通えない場合は、ラボユースのサブメンバーといって、オンラインで同様のサポートを受けたり、遠方の学会/カンファレンスなどへの参加費(交通費・宿泊費)の援助が受けられる。
+</dd></dl><p>あとは、サイボウズ・ラボの社員から直々に指導を得られるということで、自画自賛ですが、なかなかこんな制度をやっている会社は珍しいと思います。</p><h3>■ サイボウズ・ラボユース 最終成果報告会</h3><p>というわけで、3/26(月)秋葉原ダイビル5Fにて、1年やってみた<a href=\"http://cybozulabs-youth.blogspot.jp/\">サイボウズ・ラボユース</a>の最終成果報告会を開催します！</p><pre style=\"border: 1px solid rgb(102, 102, 102); padding: 6px; background-color: rgb(246, 246, 246);\">
+　開催日時：2012年 3/26(月) 13:00～17:00
+　開催場所：秋葉原ダイビル5階（カンファレンスフロア5A）
+　参加費用：無料（懇親会も無料）
+　申し込み：必要 <a href=\"http://atnd.org/events/26861\">http://atnd.org/events/26861</a> (ATND参加枠を追加)
+</pre><pre style=\"border: 1px solid rgb(102, 102, 102); padding: 6px; background-color: rgb(246, 246, 246);\">
+【タイムテーブル】
+　13:00　開場（受付）
+　13:10　サイボウズ・ラボユースの紹介
+　　 　　司会：竹迫良範（サイボウズ・ラボ）
+　13:15　サイボウズ・ラボユース第1期生5名による成果発表
+　 1. 桐井祐樹「Ruby・Raccを使用した言語処理系の日本語プログラミング化」
+　 2. 新屋良磨「世界最速の正規表現JITエンジンの実装」@sinya8282
+　 3. 林　拓人「型システムの拡張と型推論」
+　 4. 鈴木勇介「世界で一番仕様に忠実なJavaScript処理系の作成」
+　 5. 粟本真一「現役高校生の考えるクラウドOSの設計と実装」
+　15:30　ライトニングトーク大会
+　 1.「ラボユースを振り返って ～指導者の立場から～」光成滋生（サイボウズ・ラボ）
+　 2.「拡張ライブラリ作成による高速化」itochan
+　 3.「Python による自然言語処理（仮）」torotoki
+　 4.「定理証明器 Agda2 による型無しλ計算の合流性の証明」pi8027
+　 5.「エンジニアが儲けられるコードリーディングプラットフォーム『CodeLibrary』」はむへい
+　 6.「ハニーポット上でパケットをダンプ&解析」ぷおりん
+　 7.「やってよかったOS作り」川合秀実（サイボウズ・ラボ）
+　16:10　サイボウズ・ラボユース第2期生の募集について
+　　 　　説明＆質疑応答
+　16:30　卒業式
+　　 　　主　催：サイボウズ株式会社 感動課
+　　 　　表　彰：青野慶久（サイボウズ株式会社　代表取締役社長）
+　　 　　総　評：畑慎也（サイボウズ・ラボ株式会社　代表取締役社長）
+　16:50　撤　収
+　17:00　懇親会（別の会場に移動して開催、30名程度）
+　　 　　参加費：無料
+　　 　　乾　杯：山田理（サイボウズ株式会社　取締役副社長）
+　19:30　解　散
+</pre><p>いろいろマニアックな話からライトな話まで、プログラミングの最先端の開発の話が聞けると思います。</p><p>
+一つ、鈴木(id:Constellation)さんの「世界で一番仕様に忠実なJavaScript処理系の作成」は、相当マニアックな展開になることが予想されます。<br />
+RegisterVMとStackVMはどちらが速いのか、v8やSpiderMonkeyの実装がどこが駄目なのか、言語処理系の高速化のテクニック等盛りだくさんです。<br />
+発表時間がオーバーしないかどうか主催者側としては少し心配しています…。
+</p><p>若干名ながらATND枠も新設しましたので、ぜひお気軽にお越しください。</p>" "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html" (20330 57636) new 8 nil nil ((title nil "サイボウズ・ラボユースを1年間やってみてわかったこと") (link nil "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html#comments") (pubDate nil "Thu, 22 Mar 2012 08:21:56 +0000") (dc:creator nil "takesako") (category nil "cybozu") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/03/1-909f/") (description nil "サイボウズ&#12539;ラボユース 2011年度 活動報告 View more &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<div style=\"width:510px\" id=\"__ss_11508978\"><strong style=\"display:block;margin:12px 0 4px\"><a href=\"http://www.slideshare.net/takesako/cybozu-labsyouth-20120210\" title=\"サイボウズ&#12539;ラボユース 2011年度 活動報告\" target=\"_blank\">サイボウズ&#12539;ラボユース 2011年度 活動報告</a></strong><iframe src=\"http://www.slideshare.net/slideshow/embed_code/11508978\" width=\"510\" height=\"426\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe><div style=\"padding:5px 0 12px\"> View more <a href=\"http://www.slideshare.net/\" target=\"_blank\">presentations</a> from <a href=\"http://www.slideshare.net/takesako\" target=\"_blank\">takesako</a></div></p></div><p><a href=\"http://cybozulabs-youth.blogspot.jp/\">サイボウズ・ラボユース</a>とは、2011年から始めた学生支援制度で、詳細は…中谷さんによる解説<a href=\"http://d.hatena.ne.jp/n_shuyo/20120322/labs_youth\">サイボウズ・ラボユースってなに？ &#8211; Mi manca qualche giovedi`?</a>が詳しいです。<br />
+一部、引用すると：</p><dl><dt>サイボウズ・ラボユースで「何をやってもらう」か。</dt><dd>実は設問がすでに間違っている。ラボユースは「やってもらう」ところではなく、自分から「やりたいこと」をやるところ。<br />
+というわけでインターンとは全然違う。サイボウズの業務の一部をやってもらうなんてありえない(本人がよほど強く希望でもしない限り)。そもそも NDA(秘密保持契約)すら結ばないし。
+</dd><dt>サイボウズ・ラボユースに応募するには</dt><dd>対象が学生なのはさすがにわかると思うのでおいとくと、上で書いたように「やりたいこと」がある人というのが必須要件。<br />
+「開発支援」なので、コンピュータの上で動く何かを作ることが核になっていること。<br />
+そして成果をサイボウズも利用できる形式(ライセンス等)でオープンにできること。<br />
+この2点が満たされていればOK。
+</dd><dt>サイボウズ・ラボユースで何が得られるか</dt><dd>サイボウズ・ラボに通うことができれば、奨励金がもらえる。<br />
+ぶっちゃけて言ってしまえば、アルバイトだ。といっても上で書いたように指示された仕事をするのではなく、自分のやりたい開発をやる。<br />
+遠方であるなどの事情でサイボウズ・ラボに通えない場合は、ラボユースのサブメンバーといって、オンラインで同様のサポートを受けたり、遠方の学会/カンファレンスなどへの参加費(交通費・宿泊費)の援助が受けられる。
+</dd></dl><p>あとは、サイボウズ・ラボの社員から直々に指導を得られるということで、自画自賛ですが、なかなかこんな制度をやっている会社は珍しいと思います。</p><h3>■ サイボウズ・ラボユース 最終成果報告会</h3><p>というわけで、3/26(月)秋葉原ダイビル5Fにて、1年やってみた<a href=\"http://cybozulabs-youth.blogspot.jp/\">サイボウズ・ラボユース</a>の最終成果報告会を開催します！</p><pre style=\"border: 1px solid rgb(102, 102, 102); padding: 6px; background-color: rgb(246, 246, 246);\">
+　開催日時：2012年 3/26(月) 13:00～17:00
+　開催場所：秋葉原ダイビル5階（カンファレンスフロア5A）
+　参加費用：無料（懇親会も無料）
+　申し込み：必要 <a href=\"http://atnd.org/events/26861\">http://atnd.org/events/26861</a> (ATND参加枠を追加)
+</pre><pre style=\"border: 1px solid rgb(102, 102, 102); padding: 6px; background-color: rgb(246, 246, 246);\">
+【タイムテーブル】
+　13:00　開場（受付）
+　13:10　サイボウズ・ラボユースの紹介
+　　 　　司会：竹迫良範（サイボウズ・ラボ）
+　13:15　サイボウズ・ラボユース第1期生5名による成果発表
+　 1. 桐井祐樹「Ruby・Raccを使用した言語処理系の日本語プログラミング化」
+　 2. 新屋良磨「世界最速の正規表現JITエンジンの実装」@sinya8282
+　 3. 林　拓人「型システムの拡張と型推論」
+　 4. 鈴木勇介「世界で一番仕様に忠実なJavaScript処理系の作成」
+　 5. 粟本真一「現役高校生の考えるクラウドOSの設計と実装」
+　15:30　ライトニングトーク大会
+　 1.「ラボユースを振り返って ～指導者の立場から～」光成滋生（サイボウズ・ラボ）
+　 2.「拡張ライブラリ作成による高速化」itochan
+　 3.「Python による自然言語処理（仮）」torotoki
+　 4.「定理証明器 Agda2 による型無しλ計算の合流性の証明」pi8027
+　 5.「エンジニアが儲けられるコードリーディングプラットフォーム『CodeLibrary』」はむへい
+　 6.「ハニーポット上でパケットをダンプ&#038;解析」ぷおりん
+　 7.「やってよかったOS作り」川合秀実（サイボウズ・ラボ）
+　16:10　サイボウズ・ラボユース第2期生の募集について
+　　 　　説明＆質疑応答
+　16:30　卒業式
+　　 　　主　催：サイボウズ株式会社 感動課
+　　 　　表　彰：青野慶久（サイボウズ株式会社　代表取締役社長）
+　　 　　総　評：畑慎也（サイボウズ・ラボ株式会社　代表取締役社長）
+　16:50　撤　収
+　17:00　懇親会（別の会場に移動して開催、30名程度）
+　　 　　参加費：無料
+　　 　　乾　杯：山田理（サイボウズ株式会社　取締役副社長）
+　19:30　解　散
+</pre><p>いろいろマニアックな話からライトな話まで、プログラミングの最先端の開発の話が聞けると思います。</p><p>
+一つ、鈴木(id:Constellation)さんの「世界で一番仕様に忠実なJavaScript処理系の作成」は、相当マニアックな展開になることが予想されます。<br />
+RegisterVMとStackVMはどちらが速いのか、v8やSpiderMonkeyの実装がどこが駄目なのか、言語処理系の高速化のテクニック等盛りだくさんです。<br />
+発表時間がオーバーしないかどうか主催者側としては少し心配しています…。
+</p><p>若干名ながらATND枠も新設しましたので、ぜひお気軽にお越しください。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/03/1-909f.html/feed") (slash:comments nil "0"))) ("プログラミング言語APLで謹賀新年Golf" "<p>2012年の元旦ということで、プログラミング言語APLで謹賀新年Golfをやってみました。<br /><a href=\"http://www.flickr.com/photos/takesako/6611466081/\" title=\"APL2012golf-73byte by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7022/6611466081_7c77be066b_z.jpg\" width=\"640\" height=\"351\" alt=\"APL2012golf-73byte\"></a><br /><a href=\"http://ja.wikipedia.org/wiki/APL\">APLとはA Programming Languageの略</a>で、1957年のFORTRAN登場以降にケネス・アイバーソン博士によって発明された数式処理のための記法をIBMが対話型のプログラミング言語として修正し実装したものです。当時は⍳{iota}や⍴{rho}など特殊な記号を入力するためのAPLキーボードがあったそうです。<br /><a href=\"http://www.flickr.com/photos/takesako/6611441653/\" title=\"APL-keyboard by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7152/6611441653_5fe5d7b7fc.jpg\" width=\"500\" height=\"234\" alt=\"APL-keyboard\"></a><br />
+今ではAPLフォントの記号はすべてUnicodeの中で定義されています。<br />
+先月開催したサイボウズ・ラボユース冬の合宿では、林拓人さんが筑波大学の図書館から借りてきたAPLの教科書があったので少し斜め読みしてみました。それで、APLの記号の使い方が大体わかったので、今回の謹賀新年Golfをしてみることにしました。<br />
+まずは91文字のAPLプログラム。<br />
+11×((3⊖5 o↑1⌽(1 o⍴⍳o)∊3 o)+1⊖5 o↑1⌽(2 o⍴⍳o)∊3 7 o)+1-((5 o⍴0,⍳27)∊o(o+10))∨(5 o⍴⍳o)∊2×⍳o←13</p><pre>
+11 11 11 0 11 11 11 0 11 0 11 11 11
+0  0 11 0 11  0 11 0 11 0  0  0 11
+11 11 11 0 11  0 11 0 11 0 11 11 11
+11  0  0 0 11  0 11 0 11 0 11  0  0
+11 11 11 0 11 11 11 0 11 0 11 11 11
+</pre><p>こんな感じで上のAPLの1行プログラムを実行すると、5×13のマトリクスで表現された  2 0 1 2 という 0 1 の数列が出力されます。バイナリアンになった気持ちで、0は空白、11はドットで塗り潰す、という心の眼で実行結果を見てください。今年の西暦2012に見えますよね？</p><pre>
+■■■□■■■□■□■■■
+□□■□■□■□■□□□■
+■■■□■□■□■□■■■
+■□□□■□■□■□■□□
+■■■□■■■□■□■■■
+</pre><p>もうちょっと数列の作り方を工夫すればコードが短くなるかな、と思ってGolfしたのがこちら。67文字。<br />
+11×1+(8⌽1⊖5 o↑2 1⍴1)-(⍵+3⌽⍵←4⊖5 o↑3 3⍴7⌽5<⍳9)+5 o⍴¯2⌽(o⍴⍳o←13)∊2×⍳4</p><pre>
+11 11 11 0 11 11 11 0 11 0 11 11 11
+0  0 11 0 11  0 11 0 11 0  0  0 11
+11 11 11 0 11  0 11 0 11 0 11 11 11
+11  0  0 0 11  0 11 0 11 0 11  0  0
+11 11 11 0 11 11 11 0 11 0 11 11 11
+</pre><p>24文字も短くなっています！<br />
+非常に簡潔なコードですね。<br />
+APLの処理系はたくさんあるのですが、<a href=\"http://sourceforge.net/projects/openapl/\">openAPL</a>という処理系がオープンソースで公開されていて、Ubuntuでも何とか動かすことができました。<br /><a href=\"http://www.flickr.com/photos/takesako/6573744609/\" title=\"openAPL  by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7014/6573744609_270de5ce4e.jpg\" width=\"500\" height=\"308\" alt=\"openAPL \"></a><br />
+しかし、X11のAPLフォントとキーバインドの設定がよくわからなかったので、結局はWindowsで動作するAPL処理系の一つ<a href=\"http://www.nars2000.org/\">NARS2000</a>でプログラムを作成しました。林さんも合宿中はこの処理系を使ってAPLプログラミングを楽しんでいました。<br />
+■APLによるFizzBuzzとLifeGame (林拓人さん作)<br /><a href=\"http://www.flickr.com/photos/takesako/6581142439/\" title=\"APLによるFizzBuzzとLifeGame (林拓人さん作) by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7009/6581142439_09890d5269.jpg\" width=\"500\" height=\"375\" alt=\"APLによるFizzBuzzとLifeGame (林拓人さん作)\"></a><br />
+林さんは合宿中、自分でFizzBuzzやライフゲームのコードをフルスクラッチから書き起こしていて、かっこよかったです。<br /><a href=\"http://www.flickr.com/photos/takesako/6581143963/\" title=\"林拓人さんによるAPLプログラミング紹介 by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7002/6581143963_f529d9e26e.jpg\" width=\"500\" height=\"375\" alt=\"林拓人さんによるAPLプログラミング紹介\"></a><br />
+というわけで、今年の元旦は<a href=\"http://www.atmarkit.co.jp/news/200902/13/matz.html\">未来のプログラミング言語として評価の高いAPL</a>の書き初めでした。<br />
+Javaアプレットとして動作する<a href=\"http://lparis45.free.fr/apl.html\">APLette</a>という冗談のような名前のプログラムもあるそうです。ただ、こちらはAPLフォントによる直接入力ができないので、ASCIIテキストの記法で入力してあげる必要があります。<br /><a href=\"http://ja.wikipedia.org/wiki/J_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)\">プログラミング言語J</a>の記法に馴染めなかったという人も、APLの記号ならわかりやすく理解できるかもしれません。温故知新のAPL。ぜひ、みなさんも楽しいAPLライフをお過ごしください。</p>" "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html" (20224 18271) new 9 nil nil ((title nil "プログラミング言語APLで謹賀新年Golf") (link nil "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html") (comments nil "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html#comments") (pubDate nil "Sun, 01 Jan 2012 11:45:35 +0000") (dc:creator nil "takesako") (category nil "Golf") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42/") (description nil "2012年の元旦ということで、プログラミング言語APLで謹賀新年Golfをやって &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>2012年の元旦ということで、プログラミング言語APLで謹賀新年Golfをやってみました。<br /><a href=\"http://www.flickr.com/photos/takesako/6611466081/\" title=\"APL2012golf-73byte by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7022/6611466081_7c77be066b_z.jpg\" width=\"640\" height=\"351\" alt=\"APL2012golf-73byte\"></a><br /><a href=\"http://ja.wikipedia.org/wiki/APL\">APLとはA Programming Languageの略</a>で、1957年のFORTRAN登場以降にケネス・アイバーソン博士によって発明された数式処理のための記法をIBMが対話型のプログラミング言語として修正し実装したものです。当時は⍳{iota}や⍴{rho}など特殊な記号を入力するためのAPLキーボードがあったそうです。<br /><a href=\"http://www.flickr.com/photos/takesako/6611441653/\" title=\"APL-keyboard by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7152/6611441653_5fe5d7b7fc.jpg\" width=\"500\" height=\"234\" alt=\"APL-keyboard\"></a><br />
+今ではAPLフォントの記号はすべてUnicodeの中で定義されています。<br />
+先月開催したサイボウズ・ラボユース冬の合宿では、林拓人さんが筑波大学の図書館から借りてきたAPLの教科書があったので少し斜め読みしてみました。それで、APLの記号の使い方が大体わかったので、今回の謹賀新年Golfをしてみることにしました。<br />
+まずは91文字のAPLプログラム。<br />
+11×((3⊖5 o↑1⌽(1 o⍴⍳o)∊3 o)+1⊖5 o↑1⌽(2 o⍴⍳o)∊3 7 o)+1-((5 o⍴0,⍳27)∊o(o+10))∨(5 o⍴⍳o)∊2×⍳o←13</p><pre>
+11 11 11 0 11 11 11 0 11 0 11 11 11
+0  0 11 0 11  0 11 0 11 0  0  0 11
+11 11 11 0 11  0 11 0 11 0 11 11 11
+11  0  0 0 11  0 11 0 11 0 11  0  0
+11 11 11 0 11 11 11 0 11 0 11 11 11
+</pre><p>こんな感じで上のAPLの1行プログラムを実行すると、5×13のマトリクスで表現された  2 0 1 2 という 0 1 の数列が出力されます。バイナリアンになった気持ちで、0は空白、11はドットで塗り潰す、という心の眼で実行結果を見てください。今年の西暦2012に見えますよね？</p><pre>
+■■■□■■■□■□■■■
+□□■□■□■□■□□□■
+■■■□■□■□■□■■■
+■□□□■□■□■□■□□
+■■■□■■■□■□■■■
+</pre><p>もうちょっと数列の作り方を工夫すればコードが短くなるかな、と思ってGolfしたのがこちら。67文字。<br />
+11×1+(8⌽1⊖5 o↑2 1⍴1)-(⍵+3⌽⍵←4⊖5 o↑3 3⍴7⌽5<⍳9)+5 o⍴¯2⌽(o⍴⍳o←13)∊2×⍳4</p><pre>
+11 11 11 0 11 11 11 0 11 0 11 11 11
+0  0 11 0 11  0 11 0 11 0  0  0 11
+11 11 11 0 11  0 11 0 11 0 11 11 11
+11  0  0 0 11  0 11 0 11 0 11  0  0
+11 11 11 0 11 11 11 0 11 0 11 11 11
+</pre><p>24文字も短くなっています！<br />
+非常に簡潔なコードですね。<br />
+APLの処理系はたくさんあるのですが、<a href=\"http://sourceforge.net/projects/openapl/\">openAPL</a>という処理系がオープンソースで公開されていて、Ubuntuでも何とか動かすことができました。<br /><a href=\"http://www.flickr.com/photos/takesako/6573744609/\" title=\"openAPL  by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7014/6573744609_270de5ce4e.jpg\" width=\"500\" height=\"308\" alt=\"openAPL \"></a><br />
+しかし、X11のAPLフォントとキーバインドの設定がよくわからなかったので、結局はWindowsで動作するAPL処理系の一つ<a href=\"http://www.nars2000.org/\">NARS2000</a>でプログラムを作成しました。林さんも合宿中はこの処理系を使ってAPLプログラミングを楽しんでいました。<br />
+■APLによるFizzBuzzとLifeGame (林拓人さん作)<br /><a href=\"http://www.flickr.com/photos/takesako/6581142439/\" title=\"APLによるFizzBuzzとLifeGame (林拓人さん作) by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7009/6581142439_09890d5269.jpg\" width=\"500\" height=\"375\" alt=\"APLによるFizzBuzzとLifeGame (林拓人さん作)\"></a><br />
+林さんは合宿中、自分でFizzBuzzやライフゲームのコードをフルスクラッチから書き起こしていて、かっこよかったです。<br /><a href=\"http://www.flickr.com/photos/takesako/6581143963/\" title=\"林拓人さんによるAPLプログラミング紹介 by takesako, on Flickr\"><img src=\"http://farm8.staticflickr.com/7002/6581143963_f529d9e26e.jpg\" width=\"500\" height=\"375\" alt=\"林拓人さんによるAPLプログラミング紹介\"></a><br />
+というわけで、今年の元旦は<a href=\"http://www.atmarkit.co.jp/news/200902/13/matz.html\">未来のプログラミング言語として評価の高いAPL</a>の書き初めでした。<br />
+Javaアプレットとして動作する<a href=\"http://lparis45.free.fr/apl.html\">APLette</a>という冗談のような名前のプログラムもあるそうです。ただ、こちらはAPLフォントによる直接入力ができないので、ASCIIテキストの記法で入力してあげる必要があります。<br /><a href=\"http://ja.wikipedia.org/wiki/J_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)\">プログラミング言語J</a>の記法に馴染めなかったという人も、APLの記号ならわかりやすく理解できるかもしれません。温故知新のAPL。ぜひ、みなさんも楽しいAPLライフをお過ごしください。</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2012/01/aplgolf-1e42.html/feed") (slash:comments nil "0"))) ("BlackHat AbuDhabi 2011 壮行会（セキュそば前夜祭）開催しました" "<p>土曜日から戸隠で開催される<a href=\"http://secusoba.info/index.php?%E7%AC%AC22%E5%9B%9E%EF%BC%8812%E6%9C%8810%E6%97%A5%EF%BC%89\">第22回セキュそば</a>の前夜祭も兼ねて、<a href=\"https://www.blackhat.com/html/bh-ad-11/bh-ad-11-briefings.html#Oi\">Black Hat Abu Dhabi 2011</a> で日本人ハッカーとして発表される大居さん(<a href=\"https://twitter.com/a4lg\">@a4lg</a>さん)の壮行会を開催しました。</p><h2>BlackHat AbuDhabi 2011 壮行会（セキュそば前夜祭）</h2><p>日時： 2011/12/9(金)18:30-22:00<br />
+URL： <a href=\"http://atnd.org/events/23175\">http://atnd.org/events/23175</a><br/><br />
+場所： <a href=\"http://www.netagent.co.jp/company.html\">ネットエージェント本社セミナールーム</a><br />
+住所： <a href=\"http://maps.google.com/maps?q=東京都墨田区江東橋4-26-5\">東京都墨田区江東橋4-26-5 東京トラフィック錦糸町ビル9F</a><br />
+ハッシュタグ： <a href=\"https://twitter.com/#!/search/%23blacksoba\">#blacksoba</a></p><p><img alt=\"6482109859_a6dfc545f4_m\" title=\"6482109859_a6dfc545f4_m\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2011/12/10/6482109859_a6dfc545f4_m.jpg\" border=\"0\"  /><br /><img alt=\"6482112765_c6aee3ca64_m\" title=\"6482112765_c6aee3ca64_m\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2011/12/10/6482112765_c6aee3ca64_m.jpg\" border=\"0\"  /></p><h3>Technical Talks (前半)</h3><ol><li>@takesako – POC2011 different from Japanese and Korean Hacker community (10min)</li><li>@Eidwinds – Action of the owner whom a smart phone shows (10min)</li><li>@sonodam – On Automatic Detection of <span class=\"caps\">SQL</span> Injection Attacks (5min)</li><li>@takesako – How to make x86 Hangul shellcode (5min)</li><li>@murachue – We won the victory in <span class=\"caps\">HITB</span><span class=\"caps\">CTF</span> (10min)</li><li>@07c00 – Heuristic packet analyzing (10min)</li><li>@sonodam – Security camp and <span class=\"caps\">CTF</span> in Japan (10min)</li><li>@security4all – talk about <span class=\"caps\">OWASP</span> Tokyo (5min)</li><li>@sen_u – Hardening zero (pre event) (5min)</li><li>@lumin – That’s terrible. Smart phone packet capture (5min)</li><li>@murachue – How to make it shut up Twitter client (5min)</li><li>@takesako – Introduction to Return-Oriented Programming (5min)</li><li>@takesako – Introduction to <span class=\"caps\">JIT</span>-Spraying attacks (5min)</li><li>@takesako – Hacking my MineSweeper with Win32::GuiTest (10min)</li></ol><h3>English Talks (後半)</h3><ol><li>@07c00 – Heuristic packet analyzing (in English)</li><li>@sen_u – Hardening zero (pre event) (in English)</li><li>@sonodam – Security camp and <span class=\"caps\">CTF</span> in Japan (in English)</li><li>@wakatono – Real Hardware Verification by Software for Bootstrap Using <span class=\"caps\">TSC</span> (in English)</li><li>@Eidwinds – Action of the owner whom a smart phone shows (in English)</li></ol><p>金曜日の夜ならネットエージェントさんの会議室が使えるかも、という話だったので、急遽前日の午後に勉強会を開催しようかという話を提案して、ANTDを立ち上げたのが12/8(木)18:15頃。告知開始してからおよそ24時間で上記トークが集まりました。本当にびっくりしました。</p><p>軽食のデリバリーを私の方で担当して、当日の司会進行は@07c00さんに全面的にお願いしてしまいました。今年はAVTokyoに参加できずネタ消化できなかった悔しさがあったためか、ここぞとばかり自分の発表ばかりしてしまい、すみませんでした。今後は自重しようかと思います。</p><p>発表者の皆さま、急な無茶ぶりの中にも関わらず英語のプレゼン資料を準備して下さって本当にありがとうございました！ゆるい進行だったので途中いろいろご不便をおかけすることもあったかと思いますが、突然のお願いにもかかわらず気持ちよく対応していただきましてありがとうございました。</p><p>今後また、Black Hat で日本人スピーカの人が出てきたらこのような壮行会的なことを開催しようと思いますので、#blacksoba の次回作をご期待ください。ネットエージェントの社員の皆さま、会場の準備・後片付けも最後まで本当にありがとうございました！</p>" "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html" (20194 14953) new 10 nil nil ((title nil "BlackHat AbuDhabi 2011 壮行会（セキュそば前夜祭）開催しました") (link nil "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html") (comments nil "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html#comments") (pubDate nil "Fri, 09 Dec 2011 16:42:17 +0000") (dc:creator nil "takesako") (category nil "BlackHat") (guid ((isPermaLink . "false")) "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58/") (description nil "土曜日から戸隠で開催される第22回セキュそばの前夜祭も兼ねて、Black Hat &#8230; <a href=\"http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html\">続きを読む <span class=\"meta-nav\">&#8594;</span></a>") (content:encoded nil "<p>土曜日から戸隠で開催される<a href=\"http://secusoba.info/index.php?%E7%AC%AC22%E5%9B%9E%EF%BC%8812%E6%9C%8810%E6%97%A5%EF%BC%89\">第22回セキュそば</a>の前夜祭も兼ねて、<a href=\"https://www.blackhat.com/html/bh-ad-11/bh-ad-11-briefings.html#Oi\">Black Hat Abu Dhabi 2011</a> で日本人ハッカーとして発表される大居さん(<a href=\"https://twitter.com/a4lg\">@a4lg</a>さん)の壮行会を開催しました。</p><h2>BlackHat AbuDhabi 2011 壮行会（セキュそば前夜祭）</h2><p>日時： 2011/12/9(金)18:30-22:00<br />
+URL： <a href=\"http://atnd.org/events/23175\">http://atnd.org/events/23175</a><br/><br />
+場所： <a href=\"http://www.netagent.co.jp/company.html\">ネットエージェント本社セミナールーム</a><br />
+住所： <a href=\"http://maps.google.com/maps?q=東京都墨田区江東橋4-26-5\">東京都墨田区江東橋4-26-5 東京トラフィック錦糸町ビル9F</a><br />
+ハッシュタグ： <a href=\"https://twitter.com/#!/search/%23blacksoba\">#blacksoba</a></p><p><img alt=\"6482109859_a6dfc545f4_m\" title=\"6482109859_a6dfc545f4_m\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2011/12/10/6482109859_a6dfc545f4_m.jpg\" border=\"0\"  /><br /><img alt=\"6482112765_c6aee3ca64_m\" title=\"6482112765_c6aee3ca64_m\" src=\"http://developer.cybozu.co.jp/photos/uncategorized/2011/12/10/6482112765_c6aee3ca64_m.jpg\" border=\"0\"  /></p><h3>Technical Talks (前半)</h3><ol><li>@takesako – POC2011 different from Japanese and Korean Hacker community (10min)</li><li>@Eidwinds – Action of the owner whom a smart phone shows (10min)</li><li>@sonodam – On Automatic Detection of <span class=\"caps\">SQL</span> Injection Attacks (5min)</li><li>@takesako – How to make x86 Hangul shellcode (5min)</li><li>@murachue – We won the victory in <span class=\"caps\">HITB</span><span class=\"caps\">CTF</span> (10min)</li><li>@07c00 – Heuristic packet analyzing (10min)</li><li>@sonodam – Security camp and <span class=\"caps\">CTF</span> in Japan (10min)</li><li>@security4all – talk about <span class=\"caps\">OWASP</span> Tokyo (5min)</li><li>@sen_u – Hardening zero (pre event) (5min)</li><li>@lumin &#8211; That&#8217;s terrible. Smart phone packet capture (5min)</li><li>@murachue – How to make it shut up Twitter client (5min)</li><li>@takesako – Introduction to Return-Oriented Programming (5min)</li><li>@takesako – Introduction to <span class=\"caps\">JIT</span>-Spraying attacks (5min)</li><li>@takesako – Hacking my MineSweeper with Win32::GuiTest (10min)</li></ol><h3>English Talks (後半)</h3><ol><li>@07c00 – Heuristic packet analyzing (in English)</li><li>@sen_u – Hardening zero (pre event) (in English)</li><li>@sonodam – Security camp and <span class=\"caps\">CTF</span> in Japan (in English)</li><li>@wakatono &#8211; Real Hardware Verification by Software for Bootstrap Using <span class=\"caps\">TSC</span> (in English)</li><li>@Eidwinds – Action of the owner whom a smart phone shows (in English)</li></ol><p>金曜日の夜ならネットエージェントさんの会議室が使えるかも、という話だったので、急遽前日の午後に勉強会を開催しようかという話を提案して、ANTDを立ち上げたのが12/8(木)18:15頃。告知開始してからおよそ24時間で上記トークが集まりました。本当にびっくりしました。</p><p>軽食のデリバリーを私の方で担当して、当日の司会進行は@07c00さんに全面的にお願いしてしまいました。今年はAVTokyoに参加できずネタ消化できなかった悔しさがあったためか、ここぞとばかり自分の発表ばかりしてしまい、すみませんでした。今後は自重しようかと思います。</p><p>発表者の皆さま、急な無茶ぶりの中にも関わらず英語のプレゼン資料を準備して下さって本当にありがとうございました！ゆるい進行だったので途中いろいろご不便をおかけすることもあったかと思いますが、突然のお願いにもかかわらず気持ちよく対応していただきましてありがとうございました。</p><p>今後また、Black Hat で日本人スピーカの人が出てきたらこのような壮行会的なことを開催しようと思いますので、#blacksoba の次回作をご期待ください。ネットエージェントの社員の皆さま、会場の準備・後片付けも最後まで本当にありがとうございました！</p>
+") (wfw:commentRss nil "http://developer.cybozu.co.jp/takesako/2011/12/blackhat-abudha-ff58.html/feed") (slash:comments nil "0"))))

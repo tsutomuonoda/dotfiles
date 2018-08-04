@@ -1,0 +1,5 @@
+(autoload 'add-signature "c-sig" "c-sig" t)
+(autoload 'delete-signature "c-sig" "c-sig" t)
+(autoload 'insert-signature-eref "c-sig" "c-sig" t)
+(autoload 'insert-signature-automatically "c-sig" "c-sig" t)
+(autoload 'insert-signature-randomly "c-sig" "c-sig" t)

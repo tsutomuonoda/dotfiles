@@ -1,0 +1,34 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".hatena.ne.jp"
+  [url-cookie "b" "$1$0Mb8OhKw$KWf7OvSLVeI1so.MdrEsr0" "18 Mar 33 05:50:50 [GMT]" "/" ".hatena.ne.jp" nil])
+ ("marmalade-repo.org"
+  [url-cookie "httpOnly" nil "Tue, 09 Jul 2013 11:24:04 GMT" "/" "marmalade-repo.org" nil]
+  [url-cookie "connect.sid" "AAfcuPhwbiTrxC9I79CePW3U.A3lVsuaCNAsIBmYt47oCq0Lt1c63sCz6SRaG6m4ZDFU" "Tue, 09 Jul 2013 11:24:04 GMT" "/" "marmalade-repo.org" nil])
+ (".ft.com"
+  [url-cookie "FT_M" "D=D|F=|R=0" "23-Mar-2014 06:50:28.00 GMT" "/" ".ft.com" nil])
+ (".facebook.com"
+  [url-cookie "datr" "u0JNUXO3mwFTyl8B4kTsOu0f" "23-Mar-2015 05:50:51.00 GMT" "/" ".facebook.com" nil])
+ (".blog.goo.ne.jp"
+  [url-cookie "BLOGTracking" "220.47.189.251.1364017850739827" "21 Mar 23 05:50:50 [GMT]" "/" ".blog.goo.ne.jp" nil])
+ (".github.com"
+  [url-cookie "logged_in" "no" "23-Mar-2033 06:50:04.00 GMT" "/" ".github.com" nil]
+  [url-cookie "HttpOnly" nil "23-Mar-2033 06:50:04.00 GMT" "/" ".github.com" nil])
+ (".twitter.com"
+  [url-cookie "guest_id" "v1%3A136401785120290244" "23-Mar-2015 05:50:51.00 UTC" "/" ".twitter.com" nil])
+ ("feeds.timesonline.co.uk"
+  [url-cookie "MF2" "1sxgwdvd20nue" "23 Mar 15 05:50:51 [GMT]" "/" "feeds.timesonline.co.uk" nil])
+ (".google.co.jp"
+  [url-cookie "PREF" "ID=c66806e19cbd825d:U=0c5c9bdaf7d46b39:FF=0:TM=1364017860:LM=1364021439:S=H6sV30S8lUH_w6RC" "23-Mar-2015 06:50:39.00 GMT" "/" ".google.co.jp" nil]
+  [url-cookie "NID" "67=XdgslpePA2JLjP8J6TlMYOgCCrSudBUusHuwe7j1r_r1gi33o0sSP-bfk3HxS5MtzZqMKG69HHF6837kxrv1e_jIQiJe_woZP61zMlHSpmrROqb-WVhe4X1ec7QIUWLU" "22-Sep-2013 05:51:00.00 GMT" "/" ".google.co.jp" nil]
+  [url-cookie "HttpOnly" nil "22-Sep-2013 05:51:00.00 GMT" "/" ".google.co.jp" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

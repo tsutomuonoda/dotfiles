@@ -1,0 +1,1011 @@
+;; -*- coding: utf-8 -*-
+(("taichino.com" "永遠のネバーランド" "http://taichino.com" (20813 17150 374631 231000) feed 0 nil nil ((title nil "taichino.com") (atom:link ((href . "http://taichino.com/feed") (rel . "self") (type . "application/rss+xml"))) (link nil "http://taichino.com") (description nil "永遠のネバーランド") (lastBuildDate nil "Mon, 18 Mar 2013 05:12:09 +0000") (language nil "ja") (sy:updatePeriod nil "hourly") (sy:updateFrequency nil "1") (generator nil "http://wordpress.org/?v=3.5.1") (item nil (title nil "画像を特徴色を調べる") (link nil "http://taichino.com/programming/python-programming/4101") (comments nil "http://taichino.com/programming/python-programming/4101#comments") (pubDate nil "Mon, 18 Mar 2013 05:10:27 +0000") (dc:creator nil "taichino") (category nil "python") (category nil "median cut") (category nil "pyside") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4101") (description nil "ちょっと画像の類似度を使って分類実験したいと思います。 それでどうやって画像の類似度を測ろうかなぁと悩んだので [...]") (content:encoded nil "<p>ちょっと画像の類似度を使って分類実験したいと思います。</p><p>それでどうやって画像の類似度を測ろうかなぁと悩んだのですが、その画像を代表する幾つかの色でパレットを作って、その距離でもって類似度にするのが簡単そうなのでやってみることにしました。</p><p>なお画像の特徴色は正式な言葉ではありません。英語だとDominant Colorという単語はあるようですが、対応する日本語はわかりませんでした。この記事ではDominant Colorの意味で特徴色と書きたいと思います。</p><p><span id=\"more-4101\"></span></p><h4>Median Cut</h4><p>じゃあどうやって特徴色を抜き出そうかなと色々調べていると、よくよく考えてみると当たり前なんですが、<a href=\"http://en.wikipedia.org/wiki/Color_quantization\" title=\"Color Quantization\" target=\"_blank\">画像の減色処理</a>で同じような事が行われているというのが分かりました。そして減色処理で使われてるらしいアルゴリズムに<a href=\"http://en.wikipedia.org/wiki/Median_cut\" title=\"Median Cut\" target=\"_blank\">Median Cut</a>というのがあります。</p><p>Wikipediaに説明が無いので、ざっと書くと以下のようなアルゴリズムです。<a href=\"http://www.youtube.com/watch?feature=player_embedded&#038;v=VMxBaaAO3NE\" title=\"Median Cut Movie \" target=\"_blank\">youtubeにこのアルゴリズムが良く解る動画</a>があるので合わせて参照ください。</p><ol><li>画像の各ピクセルをRGB空間に写像する</li><li>ピクセルの分布範囲が最も広いRGBのいずれかの軸を対象に、ピクセル数が等分になるように空間を2分割する</li><li>分割された空間のうち、最もピクセルの分布範囲が大きい軸を持つ空間を次の分割対象とする</li><li>2〜3を繰り返して、必要な個数までRGB空間を分割する</li><li>分割された部分空間毎に、その部分空間に含まれるピクセルの平均色を出す</li></ol><p>このアルゴリズムを実装してみた、スクリーンショットが以下になります。表示している画像の下に出てる四角のパレットみたいなのが、抽出された特徴色です。<a href=\"http://taichino.com/programming/python-programming/4085\" title=\"Hello PySide World\">前回のPySide</a>はこれの為だったわけですね。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.03.17-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.03.17-PM.png\" alt=\"mediancut1\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4102\" /></a></p><p>最初は良い感じやん！と思いましたが、色々試しているとダメなケースがチラホラ出てきます。例えば以下のような場合。</p><p>変な色が入ってくる。あと白が2つある。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.17.48-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.17.48-PM.png\" alt=\"median cut2\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4103\" /></a></p><p>赤が出てほしいけど出てない。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.28.51-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.28.51-AM.png\" alt=\"mediancut3\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4104\" /></a></p><p>イラスト調の画像だと上手く使われている色が出ていないし、写真でも明らかに画像の特徴を示すワンポイントカラーが出ない傾向があります。何でこんな事になるかというと、ピクセル数を等分するように空間を分割している為に、</p><ul><li>同じ色が複数の空間にまたがって分割される</li><li>分割時に面積が重視されているので、面積が小さいワンポイントカラー部分がもれる</li></ul><p>と言った事が発生しています。</p><h4>Modified Median Cut</h4><p>これだとちょっとなぁと思って調べていると、<a href=\"http://tpgit.github.com/UnOfficialLeptDocs/leptonica/color-quantization.html#modified-median-cut-implementation\" title=\"leptonica\" target=\"_blank\">このページ</a>が見つかりました。leptonicaという画像処理ライブラリの解説ページで、Median Cutがイケテないから修正版としてModified Median Cutを実装しているよと書かれています。</p><p>両者の違いは色々あるのですが、一番の違いは空間分割時にヒストグラムを用いて、ピクセル数をピッタリ等分ではなく大体等分に制約を緩めて、同じ色が複数の空間にまたがらないようになっている事です。また謎のヒューリスティックですが、ピクセル数を元に空間を分割するのは全体の85%までで、残りの15%はピクセル数 x 空間の体積を元に分割するようにされています。</p><p>このModified Median Cutはどうも厳密なアルゴリズムの定義は無くて、パラメータを色々弄って一番良さそうなところで落ち着けたという雰囲気です。良く解らないコードを書くのはあれなので、ヒストグラムを用いる部分を僕も使わせてもらいました。それで実装した結果が以下。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.16-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.16-AM.png\" alt=\"modified median cut 1\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4105\" /></a></p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.02-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.02-AM.png\" alt=\"modified median cut2\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4106\" /></a></p><p>まぁまぁマトモな結果が出ているような気がしますので、これからこれを使って画像分類の実験をしてみようと思います。一応今回書いたコードは<a href=\"https://github.com/taichino/dominant_color_sample\" title=\"dominant color sample on github\" target=\"_blank\">githubに上げている</a>ので、何か変な事してたら教えてください。</p><p>あとさっきのleptonicaのページによると、減色処理だと<a href=\"http://tpgit.github.com/UnOfficialLeptDocs/leptonica/color-quantization.html#octree-implementation\" title=\"octree\" target=\"_blank\">今はoctreeっていうアルゴリズムが一番イケテル</a>らしいですが、疲れたので調べていません。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/python-programming/4101/feed") (slash:comments nil "0")) (item nil (title nil "Hello PySide World") (link nil "http://taichino.com/programming/python-programming/4085") (comments nil "http://taichino.com/programming/python-programming/4085#comments") (pubDate nil "Thu, 14 Mar 2013 17:56:00 +0000") (dc:creator nil "taichino") (category nil "python") (category nil "pyside") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4085") (description nil "面倒で放置してますが、2年くらい前からPySideを覚えたいなーと思っていました。昔少し触ってたんですけど綺麗 [...]") (content:encoded nil "<p>面倒で放置してますが、2年くらい前から<a href=\"http://qt-project.org/wiki/Category:LanguageBindings::PySide\" title=\"PySide\" target=\"_blank\">PySide</a>を覚えたいなーと思っていました。昔少し触ってたんですけど綺麗に忘れていて、やっぱり記事書きながら覚えていこうと思います。</p><p><span id=\"more-4085\"></span></p><p>まずインストール。本来はPython3.x環境で使った方が良いらしいので、pipで入れようとしたのですが色々エラーになって解決出来ませんでした。まだ本気じゃないのでbrewで良しとしています。/usr/local/lib/python2.7/site-packagesにインストールされるのでパスを通しておきましょう。</p><pre class=\"brush: bash; gutter: false; first-line: 1; highlight: []; html-script: false\">
+$ brew install pyside
+</pre><p>何も覚えてなかったので、<a href=\"http://qt-project.org/wiki/PySide-Tutorials-by-Experience-Level\" title=\"PySide tutorials\" target=\"_blank\">チュートリアルの最初の方</a>を見ながら、画像を読み込んで表示するだけのコードを書いてみました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+from PySide import QtCore, QtGui
+
+class ImageViewer(QtGui.QWidget):
+    def __init__(self):
+        super(ImageViewer, self).__init__()
+        self.setWindowTitle(&#039;ImageViewer&#039;)
+
+        self.imageLabel = QtGui.QLabel()
+        self.imageLabel.setBackgroundRole(QtGui.QPalette.Base)
+        self.filenameLabel = QtGui.QLabel()
+        self.button = QtGui.QPushButton(&#039;open&#039;)
+        self.button.clicked.connect(self.open)
+
+        layout = QtGui.QVBoxLayout()
+        layout.addWidget(self.imageLabel)
+        layout.addWidget(self.filenameLabel)
+        layout.addWidget(self.button)
+        self.setLayout(layout)
+        self.resize(300, 300)
+
+    def open(self):
+        (path, type) = QtGui.QFileDialog.getOpenFileName(self, &quot;Open File&quot;)
+        image = QtGui.QImage(path)
+        self.imageLabel.setPixmap(QtGui.QPixmap.fromImage(image).scaledToWidth(300))
+        self.filenameLabel.setText(os.path.basename(path))
+
+
+if __name__ == &#039;__main__&#039;:
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    iv = ImageViewer()
+    iv.show()
+    sys.exit(app.exec_())
+</pre><p>実行するとこんな感じになります。ボタンを押したらファイル選択ダイアログがでて画像を選ぶと表示される良くあるやつですね。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.21.23-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.21.23-PM.png\" alt=\"pyside1\" width=\"454\" height=\"459\" class=\"alignnone size-full wp-image-4086\" /></a></p><p>処理は適当ですけど、コードが簡単だし1ファイルで完結してるしで嬉しいです。<del datetime=\"2013-03-14T17:38:08+00:00\">プロジェクトファイルとかイチイチ作ってられねーんだよ。カスが。</del>細かいレイアウトとか本気でやり出したら辛い事になりそうですけど。サイズを指定以外で、座標とかの数字が出てきてないのも素敵ですね。</p><p>あと描画系のAPIを確認しとこうと、ついでに書いてみました。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.31.09-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.31.09-PM.png\" alt=\"pyside2\" width=\"414\" height=\"436\" class=\"alignnone size-full wp-image-4087\" /></a></p><p>描画イベント内でグラフィックコンテキストのbegin/end間で描画命令積んで行くという、どこでも見かける感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+from PySide import QtGui, QtCore
+
+class Drawing(QtGui.QWidget):
+    def __init__(self):
+        super(Drawing, self).__init__()
+        self.setWindowTitle(&#039;Drawing&#039;)
+        self.resize(300, 300)
+
+    def paintEvent(self, e):
+
+        ctx = QtGui.QPainter()
+        ctx.begin(self)
+
+        ctx.setPen(QtGui.QColor(168, 34, 3))
+        ctx.drawText(e.rect(), QtCore.Qt.AlignCenter, u&#039;日本語&#039;)
+        
+        ctx.setPen(QtCore.Qt.red)
+        ctx.drawPoint(100, 100)
+        
+        ctx.setBrush(QtCore.Qt.blue)
+        ctx.drawRect(10, 10, 50, 50)
+
+        mybrush = QtGui.QBrush(QtCore.Qt.Dense3Pattern)
+        ctx.setBrush(mybrush)
+        ctx.drawRect(70, 10, 50, 50)
+
+        pen = QtGui.QPen(QtCore.Qt.black, 2, QtCore.Qt.DashLine)
+        ctx.setPen(pen)
+        ctx.drawLine(20, 80, 250, 250)
+
+        path = QtGui.QPainterPath()
+        path.addRoundRect(QtCore.QRectF(130, 10, 50, 50), 20)
+        ctx.drawPath(path)
+
+        ctx.end()
+
+
+if __name__ == &#039;__main__&#039;:
+    app = QtGui.QApplication(sys.argv)
+    drawing = Drawing()
+    drawing.show()
+    sys.exit(app.exec_())
+</pre><p>なんとかサンプルくらいなら作り始められそうです。</p><p>まだ詰まるような事も何もしてないのですが、学習初期の情報源としては、<a href=\"https://github.com/PySide/Examples/tree/master/examples\" title=\"PySide Examples\" target=\"_blank\">この公式サンプル群</a>が役に立ちそうです。Qtのサンプル群をPySideにポートしたもののようです。</p><p>まだ全然把握出来てないのですけど、手元でちょっとした実験に使うにはもってこいの環境っぽいですね。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/python-programming/4085/feed") (slash:comments nil "0")) (item nil (title nil "TOC13の1Cの2問目 (TheOlympiadInInformatics)") (link nil "http://taichino.com/programming/cc/4073") (comments nil "http://taichino.com/programming/cc/4073#comments") (pubDate nil "Tue, 12 Mar 2013 17:11:04 +0000") (dc:creator nil "taichino") (category nil "C/C++") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4073") (description nil "前回は数年ぶりのTopCoderで、コンテスト中にエディタの設定に手間取ったりしたので、今回こそはと思って参加 [...]") (content:encoded nil "<p><a href=\"http://taichino.com/programming/topcoder/3988\" title=\"TOC13の1Bの2問目(EllysFigurines)\">前回</a>は数年ぶりのTopCoderで、コンテスト中にエディタの設定に手間取ったりしたので、今回こそはと思って参加しました。2問解けてまぁ行けたかなと思ってたら、2問目がシステムテストで落ちてて、またダメでした。生きるのが辛いです。</p><p>今回間違えた問題が<a href=\"http://community.topcoder.com/stat?c=problem_statement&#038;pm=12456&#038;rd=15585\" title=\"TheOlympiadInInformatics\" target=\"_blank\">これ</a>です。</p><p>問題は人数不明のテスト受験者達が、人数がバラバラのグループに分けられていて、グループ毎の合計点数のみ与えられたときに、自分がK番以内の成績を取るには何点必要かというもの。</p><p><span id=\"more-4073\"></span></p><p>最初に書いてたコードが以下です。単純に0点から順に順位を計算して行っています。</p><pre class=\"brush: cpp; gutter: false; first-line: 1; highlight: []; html-script: false\">
+int find(vector &lt;int&gt; sums, int k) {
+    int max_score = 0;
+    for (int i = 0; i &lt; sums.size(); i++) {
+        max_score = max(max_score, sums[i]);
+    }
+
+    int score = 0;
+    for (; score &lt; max_score; score++) {
+        int possible = 0;
+        bool found = true;
+        for (int j = 0; j &lt; sums.size(); j++) {
+            int value = sums[j];
+            possible += (value / (score + 1));
+            if (possible &gt; k) {
+                found = false;
+                break;
+            }
+        }
+
+        if (found) {
+            break;
+        }
+    }
+    
+    return score;
+}
+</pre><p>後でシステムテストを走らせてみると、Time Exceededになってました。それで問題文を見るとKの範囲が0〜10億で、あーそれはダメだという事で、他の人のもチラチラ見ながら二分探索で書き直したのが以下。</p><pre class=\"brush: cpp; gutter: false; first-line: 1; highlight: []; html-script: false\">
+int find(vector&lt;int&gt; sums, int k) {
+    int lo = 0;
+    int hi = *max_element(sums.begin(), sums.end());
+    int mid;
+    while (lo &lt; hi) {
+        mid = (lo + hi) / 2;
+        
+        int possible = 0;
+        for (int i = 0; i &lt; sums.size(); i++) {
+            possible += (sums[i] / (mid + 1));
+        }
+
+        if (possible &lt;= k) {  // 取り過ぎ
+            hi = mid;
+        }
+        else {                // 足りない
+            lo = mid + 1;
+        }
+    }
+    
+    return lo;
+}
+</pre><p>条件を満たしている際の、上限値の付け替えがmid &#8211; 1じゃ無くてmidなところが注意で、これはその時のmidが条件を満たす下限値になっている可能性があるからですね。</p><p>あとvectorから最大値取得するのにstd::max_elementとかあるんですね。初めて知りました。</p><p>まぁ制約条件を読飛ばしているとか話にならないので、次は気をつけようと思います。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/cc/4073/feed") (slash:comments nil "0")) (item nil (title nil "2月の月次レビュー") (link nil "http://taichino.com/daily-life/monthly_review/4059") (comments nil "http://taichino.com/daily-life/monthly_review/4059#comments") (pubDate nil "Thu, 07 Mar 2013 04:22:58 +0000") (dc:creator nil "taichino") (category nil "月次レビュー") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4059") (description nil "月次レビューが心の負担になってきてるのですが、まぁ1年くらいは続けたいと思います。というわけで2月のレビュー。 [...]") (content:encoded nil "<p>月次レビューが心の負担になってきてるのですが、まぁ1年くらいは続けたいと思います。というわけで2月のレビュー。</p><p><span id=\"more-4059\"></span></p><h3>2月の結果</h3><p>2月は消化ポモドーロは148で、6記事書きました。</p><p><strong>累積:</strong></p><ul><li>288/1440 ポモドーロ</li><li>14/50 エントリ</li></ul><p>ペースは引き続き悪くない感じです。</p><p>それで、2月の目標は何だったかというと1社にアプライするというのと、英語ブログを書き始めるというものでした。<a href=\"http://taichino.com/daily-life/3972\" title=\"WordPressのマルチサイト機能で英語ブログ作った\">英語のブログは作った</a>し、アプライもしましたので一応達成しました。で、結果はどうなったのという話ですが、残念ながら落ちました。正直働いてみたいなと思ってたのは1社しかなかったのでまぁまぁショックです。詳細は就職活動が一段落したらまとめる予定です。</p><p>アメリカの採用面接は技術的な事聞かれるらしいって言うので、アルゴリズムとかの復習でポモドーロの大部分を消化しました。アルゴリズムイントロダクションとかマスタリングTCP/IPとかを読み直したり、topcoder再開したりしていました。topcoderのSRMは1回で75分と短いので面倒くさがらずに出来るだけ参加していこうと思います。時間帯がマチマチなのが辛いですが。</p><h3>3月のやる事</h3><p>さて、今月やる事です。</p><ul><li>別の会社にアプライ</li><li>簡単なアプリ1個書く</li><li>週1で英語の記事書く</li></ul><p>これ想像より働くの難しいんじゃね？って思い始めました。今月はLinkedInで何件か仲介屋さんからメッセージを貰ってるので、そっち方面からアプローチしてみる予定です。なんかちょっと長引きそうで嫌です。何とか早いところケリをつけたいですね。</p><p>それとTitaniumでアプリを1個作ろうと思います。簡単なやつで完成重視でいきます。とりあえず今月中にAppStoreに審査出して来月くらいにリリースする感じで。大風呂敷広げて完成してないアプリの残骸が、手元に幾つかあるので同じ失敗をしないようにしたいですね。</p><p>あと全くネタが無くて既に辛いのですが、せっかくなので週1くらいは英語の記事を書こうと思います。</p><p>あんまり経験が無かったのですが、就職活動中ってなんかフワフワして集中できず良くないです。面接での英語の受け答えの準備に終わりがないので、頭の何処かですっとその事を考えてしまっているのが原因ですが、イマイチ対処方法が分かりません。相手がある事なので一方的に頑張って終わりに出来ずイライラが続いているという、今日この頃です。</p>
+") (wfw:commentRss nil "http://taichino.com/daily-life/monthly_review/4059/feed") (slash:comments nil "0")) (item nil (title nil "PythonでStackOverflowのAPIを叩く") (link nil "http://taichino.com/programming/4045") (comments nil "http://taichino.com/programming/4045#comments") (pubDate nil "Tue, 05 Mar 2013 22:48:18 +0000") (dc:creator nil "taichino") (category nil "programming") (category nil "python") (category nil "stack exchange") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4045") (description nil "表題の件ですが、大した事は無いのですがバージョンが変わってちょっと調べるのに手間がかかったので書いておきます。 [...]") (content:encoded nil "<p>表題の件ですが、大した事は無いのですがバージョンが変わってちょっと調べるのに手間がかかったので書いておきます。正確にはStackOverflow単独のAPIは無くてStackExchangeのAPIです。ちなみに<a href=\"http://taichino.com/programming/3993\" title=\"Pythonの隠された機能9つ\">先ほどの記事</a>はStackOverflowのAPIを弄っていて見つけました。</p><p><span id=\"more-4045\"></span></p><p>ここでは<a href=\"https://pypi.python.org/pypi/py-stackexchange\" title=\"Py-StackExchange on pypi\" target=\"_blank\">Py-StackExchangeモジュール</a>を使用します。Stack.PYというモジュールもありますが、ちょっと機能が足りてない雰囲気でした。</p><pre class=\"brush: bash; gutter: false; first-line: 1; highlight: []; html-script: false\">
+$ pip install py-stackexchange
+</pre><p>コードは以下のような感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+from stackexchange import Site, StackOverflow
+
+so = Site(StackOverflow)
+for q in so.search(order=&#039;desc&#039;,
+                   sort=&#039;votes&#039;,
+                   tagged=&#039;python&#039;,
+                   pagesize=10)[:10]:
+    print &#039;{0:&gt;8}{1:&gt;6}  {2}&#039;.format(q.id, q.score,q.title)
+</pre><p><a href=\"http://api.stackexchange.com/docs\" title=\"API docs of stackexchange\" target=\"_blank\">APIドキュメント</a>がかなり親切なので、使用可能なAPIやパラメータはドキュメントを参照します。なおコメントの投稿等、書き込みが必要な場合は<a href=\"http://stackapps.com/apps/oauth/register\">このページ</a>からアプリケーション登録を行う必要があります。</p><p>上のサンプルだとStackOverflowをターゲットにしていますが、StackEchangeのサイトは沢山あります。下記で一覧っぽいリストを取得してみました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+&gt;&gt; import stackexchange
+&gt;&gt; dir(stackexchange.sites)
+[&#039;AndroidEnthusiasts&#039;,
+ &#039;AndroidEnthusiastsMeta&#039;,
+ &#039;Apple&#039;,
+ &#039;AppleMeta&#039;,
+ &#039;AskUbuntu&#039;,
+ &#039;AskUbuntuMeta&#039;,
+ &#039;Astronomy&#039;,
+ &#039;AstronomyMeta&#039;,
+ &#039;AudioRecordingandProduction&#039;,
+ &#039;AudioRecordingandProductionMeta&#039;,
+ &#039;Bicycles&#039;,
+ &#039;BicyclesMeta&#039;,
+ &#039;BoardandCardGames&#039;,
+ &#039;BoardandCardGamesMeta&#039;,
+ &#039;CodeGolf&#039;,
+ &#039;CodeGolfMeta&#039;,
+ &#039;CodeReview&#039;,
+ &#039;CodeReviewMeta&#039;,
+ &#039;Cooking&#039;,
+ &#039;CookingMeta&#039;,
+ &#039;DatabaseAdministrators&#039;,
+ &#039;DatabaseAdministratorsMeta&#039;,
+ &#039;DrupalAnswers&#039;,
+ &#039;DrupalAnswersMeta&#039;,
+ &#039;ElectricalEngineering&#039;,
+ &#039;ElectricalEngineeringMeta&#039;,
+ &#039;EnglishLanguageandUsage&#039;,
+ &#039;EnglishLanguageandUsageMeta&#039;,
+ &#039;FitnessandNutrition&#039;,
+ &#039;FitnessandNutritionMeta&#039;,
+ &#039;GIS&#039;,
+ &#039;GISMeta&#039;,
+ &#039;GameDevelopment&#039;,
+ &#039;GameDevelopmentMeta&#039;,
+ &#039;Gaming&#039;,
+ &#039;GamingMeta&#039;,
+ &#039;GardeningandLandscaping&#039;,
+ &#039;GardeningandLandscapingMeta&#039;,
+ &#039;GermanLanguageandUsage&#039;,
+ &#039;GermanLanguageandUsageMeta&#039;,
+ &#039;GraphicDesign&#039;,
+ &#039;GraphicDesignMeta&#039;,
+ &#039;HomeImprovement&#039;,
+ &#039;HomeImprovementMeta&#039;,
+ &#039;Homebrew&#039;,
+ &#039;HomebrewMeta&#039;,
+ &#039;ITSecurity&#039;,
+ &#039;ITSecurityMeta&#039;,
+ &#039;JapaneseLanguageandUsage&#039;,
+ &#039;JapaneseLanguageandUsageMeta&#039;,
+ &#039;JewishLifeandLearning&#039;,
+ &#039;JewishLifeandLearningMeta&#039;,
+ &#039;Mathematics&#039;,
+ &#039;MathematicsMeta&#039;,
+ &#039;MetaServerFault&#039;,
+ &#039;MetaStackOverflow&#039;,
+ &#039;MetaSuperUser&#039;,
+ &#039;MotorVehicleMaintenanceandRepair&#039;,
+ &#039;MotorVehicleMaintenanceandRepairMeta&#039;,
+ &#039;MusicalPracticeandPerformance&#039;,
+ &#039;MusicalPracticeandPerformanceMeta&#039;,
+ &#039;OnStartups&#039;,
+ &#039;OnStartupsMeta&#039;,
+ &#039;Parenting&#039;,
+ &#039;ParentingMeta&#039;,
+ &#039;PersonalFinanceandMoney&#039;,
+ &#039;PersonalFinanceandMoneyMeta&#039;,
+ &#039;PersonalProductivity&#039;,
+ &#039;PersonalProductivityMeta&#039;,
+ &#039;Philosophy&#039;,
+ &#039;PhilosophyMeta&#039;,
+ &#039;Photography&#039;,
+ &#039;PhotographyMeta&#039;,
+ &#039;Physics&#039;,
+ &#039;PhysicsMeta&#039;,
+ &#039;Programmers&#039;,
+ &#039;ProgrammersMeta&#039;,
+ &#039;ProjectManagement&#039;,
+ &#039;ProjectManagementMeta&#039;,
+ &#039;QuantitativeFinance&#039;,
+ &#039;QuantitativeFinanceMeta&#039;,
+ &#039;RoleplayingGames&#039;,
+ &#039;RoleplayingGamesMeta&#039;,
+ &#039;ScienceFictionandFantasy&#039;,
+ &#039;ScienceFictionandFantasyMeta&#039;,
+ &#039;ServerFault&#039;,
+ &#039;SharePoint&#039;,
+ &#039;SharePointMeta&#039;,
+ &#039;Skeptics&#039;,
+ &#039;SkepticsMeta&#039;,
+ &#039;SoftwareQualityAssuranceandTesting&#039;,
+ &#039;SoftwareQualityAssuranceandTestingMeta&#039;,
+ &#039;StackApps&#039;,
+ &#039;StackOverflow&#039;,
+ &#039;StatisticalAnalysis&#039;,
+ &#039;StatisticalAnalysisMeta&#039;,
+ &#039;SuperUser&#039;,
+ &#039;TeXLaTeX&#039;,
+ &#039;TeXLaTeXMeta&#039;,
+ &#039;TheoreticalComputerScience&#039;,
+ &#039;TheoreticalComputerScienceMeta&#039;,
+ &#039;Travel&#039;,
+ &#039;TravelMeta&#039;,
+ &#039;UnixandLinux&#039;,
+ &#039;UnixandLinuxMeta&#039;,
+ &#039;UserExperience&#039;,
+ &#039;UserExperienceMeta&#039;,
+ &#039;WebApplications&#039;,
+ &#039;WebApplicationsMeta&#039;,
+ &#039;Webmasters&#039;,
+ &#039;WebmastersMeta&#039;,
+ &#039;WordPress&#039;,
+ &#039;WordPressMeta&#039;,
+ &#039;Writers&#039;,
+ &#039;WritersMeta&#039;,
+ &#039;__SEAPI&#039;,
+ &#039;__builtins__&#039;,
+ &#039;__doc__&#039;,
+ &#039;__file__&#039;,
+ &#039;__name__&#039;,
+ &#039;__package__&#039;,
+ &#039;stackexchange&#039;]
+</pre><p>以上です。気が向いたらこのAPI使ってミニミニサイトを作ってみようと思います。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/4045/feed") (slash:comments nil "0")) (item nil (title nil "Pythonの隠された機能9つ") (link nil "http://taichino.com/programming/3993") (comments nil "http://taichino.com/programming/3993#comments") (pubDate nil "Tue, 05 Mar 2013 21:11:50 +0000") (dc:creator nil "taichino") (category nil "programming") (category nil "python") (guid ((isPermaLink . "false")) "http://taichino.com/?p=3993") (description nil "StackOverflowでHidden features of Pythonという面白い質問がありました。原 [...]") (content:encoded nil "<p>StackOverflowで<a href=\"http://stackoverflow.com/questions/101268/hidden-features-of-python\" title=\"Hidden features of Python\" target=\"_blank\">Hidden features of Python</a>という面白い質問がありました。原文の方では何十も項目があるのですが、独断と偏見で9個に絞って紹介します。</p><p><span id=\"more-3993\"></span></p><h3>1. chaining comparision operator</h3><p>不等式を連結出来るなんて初めて知りました。スーパーかっこいいです。今まで1 &lt; x and x &lt; 10とか書き続けてました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+if 1 &lt; x &lt; 10:
+    print &quot;yay&quot;
+if x &lt; 10 &lt; x*10 &lt; 100:
+    print &quot;yaay!&quot;
+if 5 == x &gt; 4:
+    print &quot;yaaay!!&quot;
+</pre><p>他の言語でも出来んの？と思ってちょっと調べてみましたが、どうもPythonだけっぽいです。やっぱりPython最高ですね！</p><p><strong>2013.03.05 追記</strong><br />
+twitterで突っ込まれました。Pythonだけって言うのは嘘でした。</p><p>まず<a href=\"http://coffeescript.org/\" title=\"coffeescript\" target=\"_blank\">CoffeeScript</a>で同じ事が可能です。Pythonのドキュメントにリンクが張られてるので、元ネタはPythonっぽいですが。</p><pre class=\"brush: text; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+if 0 &lt; x &lt; 10 &lt; x*x
+    console.log &#039;yay!&#039;
+</pre><p>そして各種Lisp方言では演算子の結合は当たり前の話ですね。忘れてました。下記はscheme。CommonLispは書いた事無いからパッと書けないです。</p><pre class=\"brush: text; gutter: false; first-line: 1; highlight: []; html-script: false\">
+(let ((x 5))
+  (if (&lt; 0 x 10)
+	  (print &quot;yay&quot;)))
+</pre><p><del datetime=\"2013-03-06T05:12:29+00:00\">だがRuby、てめぇはダメだ。</del><br /><strong>2013.03.05 追記2</strong><br /><a href=\"https://twitter.com/yashigani\" title=\"yashigani\" target=\"_blank\">@yashigani</a>さんに色々教えてもらったのに流石に全否定はダメかなということで、下記Ruby。</p><pre class=\"brush: ruby; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+case x
+when 0..10
+  puts &#039;yay!&#039;
+</pre><p>確かにcaseも範囲式も便利で同等の処理を綺麗に処理しているのは分かるのですが、このコンテキストだとちょっと違うかなって。</p><h3>2. try-except構文のelse</h3><p>これも知りませんでした。try-except中で例外が発生しなかった場合elseブロックが実行されます。いつもtry-exceptの中が膨れがちで、しかも思わぬ例外が出たりして嫌だなぁと思っていたのですが、普通に構文として解決策が提供されていました。モグリですいません。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+filename = raw_input(&quot;Please enter a filename: &quot;)
+try:
+    f = open(filename, &#039;r&#039;)
+except IOError:
+    print &#039;cannot open&#039;, filename
+else:
+    # try-excpetの中に書くよりイイネ！
+    print filename, &#039;has&#039;, len(f.readlines()), &#039;lines&#039;
+    f.close()
+</pre><h3>3. for構文のelseとgoto</h3><p>さっきのと似てるんですが、forループ中にbreakされなかった場合にelseブロックが実行されます。あとループつながりでgotoがPythonでも使えるよという。gotoは知りませんでした。どちらも時々欲しくなります。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+# ループで何か探したりするのに便利
+for i in foo:
+    if i == 0:
+        break
+else:
+    print(&quot;i was never 0&quot;)
+
+# ネストループから脱出
+from goto import goto, label
+for i in range(1, 10):
+    for j in range(1, 20):
+        for k in range(1, 30):
+            print i, j, k
+            if k == 3:
+                goto .end # breaking out from a deeply nested loop
+label .end
+print &quot;Finished&quot;
+</pre><p>ちなみにgotoはサードパーティモジュールとして提供されているのでインストールしないと使えません。<br /><del datetime=\"2013-03-06T11:52:16+00:00\">$ pip install goto</del></p><p><strong style=\"color:red\">2013.03.06 追記</strong><br />
+すいません、pipでインストールできるgotoは別物でした。<a href=\"http://entrian.com/goto/\" title=\"goto\" target=\"_blank\">コチラのコード</a>をお試しください。あと念のため言っておきますが、gotoはジョークモジュールなので本気で使うとかは無いです。ちゃんとループばらしたコード書きましょう。</p><h3>4. enumerate</h3><p>これは定番だと思いますが、for文中でインデックスにアクセスできます。ちなみにenumerateの第2引数を指定すると開始インデックスを0から変更出来ます。あまり使わないですけど。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+a = [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;, &#039;d&#039;, &#039;e&#039;]
+for index, item in enumerate(a):
+    print index, item
+
+# 開始indexを1に変更
+for index, item in enumerate(a, 1):
+    print index, item
+</pre><h3>5. New Style Format</h3><p>Python2.6から使えるようです。知りませんでした。個人的に％の構文はちょっと気持ち悪かったので良い感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+print(&quot;The {foo} is {bar}&quot;.format(foo=&#039;answer&#039;, bar=42))
+print(&quot;The {0} is {1}&quot;.format(&#039;answer&#039;,42))
+</pre><h3>6. dictのget</h3><p>辞書に指定のキーが含まれてない場合に、デフォルト値を指定出来るget。DjangoのQueryDictのメソッドだと思い込んでいました。ビルトインの辞書に実装されてたんですね。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+a = {&#039;a&#039;:10, &#039;b&#039;:20}
+print a.get(&#039;c&#039;, 30)
+</pre><h3>7, 8, 9. オモシロimport文3つ</h3><p>やった事無い人は試してみましょう。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+import antigravity
+from __future__ import braces
+import this
+</pre><p>以上、他にも色々な項目が紹介されているので元ページも是非ご覧下さい。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/3993/feed") (slash:comments nil "2")))) ("画像を特徴色を調べる" "<p>ちょっと画像の類似度を使って分類実験したいと思います。</p><p>それでどうやって画像の類似度を測ろうかなぁと悩んだのですが、その画像を代表する幾つかの色でパレットを作って、その距離でもって類似度にするのが簡単そうなのでやってみることにしました。</p><p>なお画像の特徴色は正式な言葉ではありません。英語だとDominant Colorという単語はあるようですが、対応する日本語はわかりませんでした。この記事ではDominant Colorの意味で特徴色と書きたいと思います。</p><p><span id=\"more-4101\"></span></p><h4>Median Cut</h4><p>じゃあどうやって特徴色を抜き出そうかなと色々調べていると、よくよく考えてみると当たり前なんですが、<a href=\"http://en.wikipedia.org/wiki/Color_quantization\" title=\"Color Quantization\" target=\"_blank\">画像の減色処理</a>で同じような事が行われているというのが分かりました。そして減色処理で使われてるらしいアルゴリズムに<a href=\"http://en.wikipedia.org/wiki/Median_cut\" title=\"Median Cut\" target=\"_blank\">Median Cut</a>というのがあります。</p><p>Wikipediaに説明が無いので、ざっと書くと以下のようなアルゴリズムです。<a href=\"http://www.youtube.com/watch?feature=player_embedded&v=VMxBaaAO3NE\" title=\"Median Cut Movie \" target=\"_blank\">youtubeにこのアルゴリズムが良く解る動画</a>があるので合わせて参照ください。</p><ol><li>画像の各ピクセルをRGB空間に写像する</li><li>ピクセルの分布範囲が最も広いRGBのいずれかの軸を対象に、ピクセル数が等分になるように空間を2分割する</li><li>分割された空間のうち、最もピクセルの分布範囲が大きい軸を持つ空間を次の分割対象とする</li><li>2〜3を繰り返して、必要な個数までRGB空間を分割する</li><li>分割された部分空間毎に、その部分空間に含まれるピクセルの平均色を出す</li></ol><p>このアルゴリズムを実装してみた、スクリーンショットが以下になります。表示している画像の下に出てる四角のパレットみたいなのが、抽出された特徴色です。<a href=\"http://taichino.com/programming/python-programming/4085\" title=\"Hello PySide World\">前回のPySide</a>はこれの為だったわけですね。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.03.17-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.03.17-PM.png\" alt=\"mediancut1\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4102\" /></a></p><p>最初は良い感じやん！と思いましたが、色々試しているとダメなケースがチラホラ出てきます。例えば以下のような場合。</p><p>変な色が入ってくる。あと白が2つある。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.17.48-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.17.48-PM.png\" alt=\"median cut2\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4103\" /></a></p><p>赤が出てほしいけど出てない。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.28.51-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.28.51-AM.png\" alt=\"mediancut3\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4104\" /></a></p><p>イラスト調の画像だと上手く使われている色が出ていないし、写真でも明らかに画像の特徴を示すワンポイントカラーが出ない傾向があります。何でこんな事になるかというと、ピクセル数を等分するように空間を分割している為に、</p><ul><li>同じ色が複数の空間にまたがって分割される</li><li>分割時に面積が重視されているので、面積が小さいワンポイントカラー部分がもれる</li></ul><p>と言った事が発生しています。</p><h4>Modified Median Cut</h4><p>これだとちょっとなぁと思って調べていると、<a href=\"http://tpgit.github.com/UnOfficialLeptDocs/leptonica/color-quantization.html#modified-median-cut-implementation\" title=\"leptonica\" target=\"_blank\">このページ</a>が見つかりました。leptonicaという画像処理ライブラリの解説ページで、Median Cutがイケテないから修正版としてModified Median Cutを実装しているよと書かれています。</p><p>両者の違いは色々あるのですが、一番の違いは空間分割時にヒストグラムを用いて、ピクセル数をピッタリ等分ではなく大体等分に制約を緩めて、同じ色が複数の空間にまたがらないようになっている事です。また謎のヒューリスティックですが、ピクセル数を元に空間を分割するのは全体の85%までで、残りの15%はピクセル数 x 空間の体積を元に分割するようにされています。</p><p>このModified Median Cutはどうも厳密なアルゴリズムの定義は無くて、パラメータを色々弄って一番良さそうなところで落ち着けたという雰囲気です。良く解らないコードを書くのはあれなので、ヒストグラムを用いる部分を僕も使わせてもらいました。それで実装した結果が以下。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.16-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.16-AM.png\" alt=\"modified median cut 1\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4105\" /></a></p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.02-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.02-AM.png\" alt=\"modified median cut2\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4106\" /></a></p><p>まぁまぁマトモな結果が出ているような気がしますので、これからこれを使って画像分類の実験をしてみようと思います。一応今回書いたコードは<a href=\"https://github.com/taichino/dominant_color_sample\" title=\"dominant color sample on github\" target=\"_blank\">githubに上げている</a>ので、何か変な事してたら教えてください。</p><p>あとさっきのleptonicaのページによると、減色処理だと<a href=\"http://tpgit.github.com/UnOfficialLeptDocs/leptonica/color-quantization.html#octree-implementation\" title=\"octree\" target=\"_blank\">今はoctreeっていうアルゴリズムが一番イケテル</a>らしいですが、疲れたので調べていません。</p>" "http://taichino.com/programming/python-programming/4101" (20806 41411) new 1 nil nil ((title nil "画像を特徴色を調べる") (link nil "http://taichino.com/programming/python-programming/4101") (comments nil "http://taichino.com/programming/python-programming/4101#comments") (pubDate nil "Mon, 18 Mar 2013 05:10:27 +0000") (dc:creator nil "taichino") (category nil "python") (category nil "median cut") (category nil "pyside") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4101") (description nil "ちょっと画像の類似度を使って分類実験したいと思います。 それでどうやって画像の類似度を測ろうかなぁと悩んだので [...]") (content:encoded nil "<p>ちょっと画像の類似度を使って分類実験したいと思います。</p><p>それでどうやって画像の類似度を測ろうかなぁと悩んだのですが、その画像を代表する幾つかの色でパレットを作って、その距離でもって類似度にするのが簡単そうなのでやってみることにしました。</p><p>なお画像の特徴色は正式な言葉ではありません。英語だとDominant Colorという単語はあるようですが、対応する日本語はわかりませんでした。この記事ではDominant Colorの意味で特徴色と書きたいと思います。</p><p><span id=\"more-4101\"></span></p><h4>Median Cut</h4><p>じゃあどうやって特徴色を抜き出そうかなと色々調べていると、よくよく考えてみると当たり前なんですが、<a href=\"http://en.wikipedia.org/wiki/Color_quantization\" title=\"Color Quantization\" target=\"_blank\">画像の減色処理</a>で同じような事が行われているというのが分かりました。そして減色処理で使われてるらしいアルゴリズムに<a href=\"http://en.wikipedia.org/wiki/Median_cut\" title=\"Median Cut\" target=\"_blank\">Median Cut</a>というのがあります。</p><p>Wikipediaに説明が無いので、ざっと書くと以下のようなアルゴリズムです。<a href=\"http://www.youtube.com/watch?feature=player_embedded&#038;v=VMxBaaAO3NE\" title=\"Median Cut Movie \" target=\"_blank\">youtubeにこのアルゴリズムが良く解る動画</a>があるので合わせて参照ください。</p><ol><li>画像の各ピクセルをRGB空間に写像する</li><li>ピクセルの分布範囲が最も広いRGBのいずれかの軸を対象に、ピクセル数が等分になるように空間を2分割する</li><li>分割された空間のうち、最もピクセルの分布範囲が大きい軸を持つ空間を次の分割対象とする</li><li>2〜3を繰り返して、必要な個数までRGB空間を分割する</li><li>分割された部分空間毎に、その部分空間に含まれるピクセルの平均色を出す</li></ol><p>このアルゴリズムを実装してみた、スクリーンショットが以下になります。表示している画像の下に出てる四角のパレットみたいなのが、抽出された特徴色です。<a href=\"http://taichino.com/programming/python-programming/4085\" title=\"Hello PySide World\">前回のPySide</a>はこれの為だったわけですね。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.03.17-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.03.17-PM.png\" alt=\"mediancut1\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4102\" /></a></p><p>最初は良い感じやん！と思いましたが、色々試しているとダメなケースがチラホラ出てきます。例えば以下のような場合。</p><p>変な色が入ってくる。あと白が2つある。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.17.48-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-17-at-11.17.48-PM.png\" alt=\"median cut2\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4103\" /></a></p><p>赤が出てほしいけど出てない。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.28.51-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.28.51-AM.png\" alt=\"mediancut3\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4104\" /></a></p><p>イラスト調の画像だと上手く使われている色が出ていないし、写真でも明らかに画像の特徴を示すワンポイントカラーが出ない傾向があります。何でこんな事になるかというと、ピクセル数を等分するように空間を分割している為に、</p><ul><li>同じ色が複数の空間にまたがって分割される</li><li>分割時に面積が重視されているので、面積が小さいワンポイントカラー部分がもれる</li></ul><p>と言った事が発生しています。</p><h4>Modified Median Cut</h4><p>これだとちょっとなぁと思って調べていると、<a href=\"http://tpgit.github.com/UnOfficialLeptDocs/leptonica/color-quantization.html#modified-median-cut-implementation\" title=\"leptonica\" target=\"_blank\">このページ</a>が見つかりました。leptonicaという画像処理ライブラリの解説ページで、Median Cutがイケテないから修正版としてModified Median Cutを実装しているよと書かれています。</p><p>両者の違いは色々あるのですが、一番の違いは空間分割時にヒストグラムを用いて、ピクセル数をピッタリ等分ではなく大体等分に制約を緩めて、同じ色が複数の空間にまたがらないようになっている事です。また謎のヒューリスティックですが、ピクセル数を元に空間を分割するのは全体の85%までで、残りの15%はピクセル数 x 空間の体積を元に分割するようにされています。</p><p>このModified Median Cutはどうも厳密なアルゴリズムの定義は無くて、パラメータを色々弄って一番良さそうなところで落ち着けたという雰囲気です。良く解らないコードを書くのはあれなので、ヒストグラムを用いる部分を僕も使わせてもらいました。それで実装した結果が以下。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.16-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.16-AM.png\" alt=\"modified median cut 1\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4105\" /></a></p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.02-AM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-18-at-12.32.02-AM.png\" alt=\"modified median cut2\" width=\"454\" height=\"612\" class=\"alignnone size-full wp-image-4106\" /></a></p><p>まぁまぁマトモな結果が出ているような気がしますので、これからこれを使って画像分類の実験をしてみようと思います。一応今回書いたコードは<a href=\"https://github.com/taichino/dominant_color_sample\" title=\"dominant color sample on github\" target=\"_blank\">githubに上げている</a>ので、何か変な事してたら教えてください。</p><p>あとさっきのleptonicaのページによると、減色処理だと<a href=\"http://tpgit.github.com/UnOfficialLeptDocs/leptonica/color-quantization.html#octree-implementation\" title=\"octree\" target=\"_blank\">今はoctreeっていうアルゴリズムが一番イケテル</a>らしいですが、疲れたので調べていません。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/python-programming/4101/feed") (slash:comments nil "0"))) ("Hello PySide World" "<p>面倒で放置してますが、2年くらい前から<a href=\"http://qt-project.org/wiki/Category:LanguageBindings::PySide\" title=\"PySide\" target=\"_blank\">PySide</a>を覚えたいなーと思っていました。昔少し触ってたんですけど綺麗に忘れていて、やっぱり記事書きながら覚えていこうと思います。</p><p><span id=\"more-4085\"></span></p><p>まずインストール。本来はPython3.x環境で使った方が良いらしいので、pipで入れようとしたのですが色々エラーになって解決出来ませんでした。まだ本気じゃないのでbrewで良しとしています。/usr/local/lib/python2.7/site-packagesにインストールされるのでパスを通しておきましょう。</p><pre class=\"brush: bash; gutter: false; first-line: 1; highlight: []; html-script: false\">
+$ brew install pyside
+</pre><p>何も覚えてなかったので、<a href=\"http://qt-project.org/wiki/PySide-Tutorials-by-Experience-Level\" title=\"PySide tutorials\" target=\"_blank\">チュートリアルの最初の方</a>を見ながら、画像を読み込んで表示するだけのコードを書いてみました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os
+from PySide import QtCore, QtGui
+class ImageViewer(QtGui.QWidget):
+def __init__(self):
+super(ImageViewer, self).__init__()
+self.setWindowTitle('ImageViewer')
+self.imageLabel = QtGui.QLabel()
+self.imageLabel.setBackgroundRole(QtGui.QPalette.Base)
+self.filenameLabel = QtGui.QLabel()
+self.button = QtGui.QPushButton('open')
+self.button.clicked.connect(self.open)
+layout = QtGui.QVBoxLayout()
+layout.addWidget(self.imageLabel)
+layout.addWidget(self.filenameLabel)
+layout.addWidget(self.button)
+self.setLayout(layout)
+self.resize(300, 300)
+def open(self):
+(path, type) = QtGui.QFileDialog.getOpenFileName(self, &quot;Open File&quot;)
+image = QtGui.QImage(path)
+self.imageLabel.setPixmap(QtGui.QPixmap.fromImage(image).scaledToWidth(300))
+self.filenameLabel.setText(os.path.basename(path))
+if __name__ == '__main__':
+import sys
+app = QtGui.QApplication(sys.argv)
+iv = ImageViewer()
+iv.show()
+sys.exit(app.exec_())
+</pre><p>実行するとこんな感じになります。ボタンを押したらファイル選択ダイアログがでて画像を選ぶと表示される良くあるやつですね。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.21.23-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.21.23-PM.png\" alt=\"pyside1\" width=\"454\" height=\"459\" class=\"alignnone size-full wp-image-4086\" /></a></p><p>処理は適当ですけど、コードが簡単だし1ファイルで完結してるしで嬉しいです。<del datetime=\"2013-03-14T17:38:08+00:00\">プロジェクトファイルとかイチイチ作ってられねーんだよ。カスが。</del>細かいレイアウトとか本気でやり出したら辛い事になりそうですけど。サイズを指定以外で、座標とかの数字が出てきてないのも素敵ですね。</p><p>あと描画系のAPIを確認しとこうと、ついでに書いてみました。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.31.09-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.31.09-PM.png\" alt=\"pyside2\" width=\"414\" height=\"436\" class=\"alignnone size-full wp-image-4087\" /></a></p><p>描画イベント内でグラフィックコンテキストのbegin/end間で描画命令積んで行くという、どこでも見かける感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys
+from PySide import QtGui, QtCore
+class Drawing(QtGui.QWidget):
+def __init__(self):
+super(Drawing, self).__init__()
+self.setWindowTitle('Drawing')
+self.resize(300, 300)
+def paintEvent(self, e):
+ctx = QtGui.QPainter()
+ctx.begin(self)
+ctx.setPen(QtGui.QColor(168, 34, 3))
+ctx.drawText(e.rect(), QtCore.Qt.AlignCenter, u'日本語')
+ctx.setPen(QtCore.Qt.red)
+ctx.drawPoint(100, 100)
+ctx.setBrush(QtCore.Qt.blue)
+ctx.drawRect(10, 10, 50, 50)
+mybrush = QtGui.QBrush(QtCore.Qt.Dense3Pattern)
+ctx.setBrush(mybrush)
+ctx.drawRect(70, 10, 50, 50)
+pen = QtGui.QPen(QtCore.Qt.black, 2, QtCore.Qt.DashLine)
+ctx.setPen(pen)
+ctx.drawLine(20, 80, 250, 250)
+path = QtGui.QPainterPath()
+path.addRoundRect(QtCore.QRectF(130, 10, 50, 50), 20)
+ctx.drawPath(path)
+ctx.end()
+if __name__ == '__main__':
+app = QtGui.QApplication(sys.argv)
+drawing = Drawing()
+drawing.show()
+sys.exit(app.exec_())
+</pre><p>なんとかサンプルくらいなら作り始められそうです。</p><p>まだ詰まるような事も何もしてないのですが、学習初期の情報源としては、<a href=\"https://github.com/PySide/Examples/tree/master/examples\" title=\"PySide Examples\" target=\"_blank\">この公式サンプル群</a>が役に立ちそうです。Qtのサンプル群をPySideにポートしたもののようです。</p><p>まだ全然把握出来てないのですけど、手元でちょっとした実験に使うにはもってこいの環境っぽいですね。</p>" "http://taichino.com/programming/python-programming/4085" (20802 3888) new 2 nil nil ((title nil "Hello PySide World") (link nil "http://taichino.com/programming/python-programming/4085") (comments nil "http://taichino.com/programming/python-programming/4085#comments") (pubDate nil "Thu, 14 Mar 2013 17:56:00 +0000") (dc:creator nil "taichino") (category nil "python") (category nil "pyside") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4085") (description nil "面倒で放置してますが、2年くらい前からPySideを覚えたいなーと思っていました。昔少し触ってたんですけど綺麗 [...]") (content:encoded nil "<p>面倒で放置してますが、2年くらい前から<a href=\"http://qt-project.org/wiki/Category:LanguageBindings::PySide\" title=\"PySide\" target=\"_blank\">PySide</a>を覚えたいなーと思っていました。昔少し触ってたんですけど綺麗に忘れていて、やっぱり記事書きながら覚えていこうと思います。</p><p><span id=\"more-4085\"></span></p><p>まずインストール。本来はPython3.x環境で使った方が良いらしいので、pipで入れようとしたのですが色々エラーになって解決出来ませんでした。まだ本気じゃないのでbrewで良しとしています。/usr/local/lib/python2.7/site-packagesにインストールされるのでパスを通しておきましょう。</p><pre class=\"brush: bash; gutter: false; first-line: 1; highlight: []; html-script: false\">
+$ brew install pyside
+</pre><p>何も覚えてなかったので、<a href=\"http://qt-project.org/wiki/PySide-Tutorials-by-Experience-Level\" title=\"PySide tutorials\" target=\"_blank\">チュートリアルの最初の方</a>を見ながら、画像を読み込んで表示するだけのコードを書いてみました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+from PySide import QtCore, QtGui
+
+class ImageViewer(QtGui.QWidget):
+    def __init__(self):
+        super(ImageViewer, self).__init__()
+        self.setWindowTitle(&#039;ImageViewer&#039;)
+
+        self.imageLabel = QtGui.QLabel()
+        self.imageLabel.setBackgroundRole(QtGui.QPalette.Base)
+        self.filenameLabel = QtGui.QLabel()
+        self.button = QtGui.QPushButton(&#039;open&#039;)
+        self.button.clicked.connect(self.open)
+
+        layout = QtGui.QVBoxLayout()
+        layout.addWidget(self.imageLabel)
+        layout.addWidget(self.filenameLabel)
+        layout.addWidget(self.button)
+        self.setLayout(layout)
+        self.resize(300, 300)
+
+    def open(self):
+        (path, type) = QtGui.QFileDialog.getOpenFileName(self, &quot;Open File&quot;)
+        image = QtGui.QImage(path)
+        self.imageLabel.setPixmap(QtGui.QPixmap.fromImage(image).scaledToWidth(300))
+        self.filenameLabel.setText(os.path.basename(path))
+
+
+if __name__ == &#039;__main__&#039;:
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    iv = ImageViewer()
+    iv.show()
+    sys.exit(app.exec_())
+</pre><p>実行するとこんな感じになります。ボタンを押したらファイル選択ダイアログがでて画像を選ぶと表示される良くあるやつですね。<br /><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.21.23-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.21.23-PM.png\" alt=\"pyside1\" width=\"454\" height=\"459\" class=\"alignnone size-full wp-image-4086\" /></a></p><p>処理は適当ですけど、コードが簡単だし1ファイルで完結してるしで嬉しいです。<del datetime=\"2013-03-14T17:38:08+00:00\">プロジェクトファイルとかイチイチ作ってられねーんだよ。カスが。</del>細かいレイアウトとか本気でやり出したら辛い事になりそうですけど。サイズを指定以外で、座標とかの数字が出てきてないのも素敵ですね。</p><p>あと描画系のAPIを確認しとこうと、ついでに書いてみました。</p><p><a href=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.31.09-PM.png\"><img src=\"http://taichino.com/wp-content/uploads/2013/03/Screen-Shot-2013-03-14-at-1.31.09-PM.png\" alt=\"pyside2\" width=\"414\" height=\"436\" class=\"alignnone size-full wp-image-4087\" /></a></p><p>描画イベント内でグラフィックコンテキストのbegin/end間で描画命令積んで行くという、どこでも見かける感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+from PySide import QtGui, QtCore
+
+class Drawing(QtGui.QWidget):
+    def __init__(self):
+        super(Drawing, self).__init__()
+        self.setWindowTitle(&#039;Drawing&#039;)
+        self.resize(300, 300)
+
+    def paintEvent(self, e):
+
+        ctx = QtGui.QPainter()
+        ctx.begin(self)
+
+        ctx.setPen(QtGui.QColor(168, 34, 3))
+        ctx.drawText(e.rect(), QtCore.Qt.AlignCenter, u&#039;日本語&#039;)
+        
+        ctx.setPen(QtCore.Qt.red)
+        ctx.drawPoint(100, 100)
+        
+        ctx.setBrush(QtCore.Qt.blue)
+        ctx.drawRect(10, 10, 50, 50)
+
+        mybrush = QtGui.QBrush(QtCore.Qt.Dense3Pattern)
+        ctx.setBrush(mybrush)
+        ctx.drawRect(70, 10, 50, 50)
+
+        pen = QtGui.QPen(QtCore.Qt.black, 2, QtCore.Qt.DashLine)
+        ctx.setPen(pen)
+        ctx.drawLine(20, 80, 250, 250)
+
+        path = QtGui.QPainterPath()
+        path.addRoundRect(QtCore.QRectF(130, 10, 50, 50), 20)
+        ctx.drawPath(path)
+
+        ctx.end()
+
+
+if __name__ == &#039;__main__&#039;:
+    app = QtGui.QApplication(sys.argv)
+    drawing = Drawing()
+    drawing.show()
+    sys.exit(app.exec_())
+</pre><p>なんとかサンプルくらいなら作り始められそうです。</p><p>まだ詰まるような事も何もしてないのですが、学習初期の情報源としては、<a href=\"https://github.com/PySide/Examples/tree/master/examples\" title=\"PySide Examples\" target=\"_blank\">この公式サンプル群</a>が役に立ちそうです。Qtのサンプル群をPySideにポートしたもののようです。</p><p>まだ全然把握出来てないのですけど、手元でちょっとした実験に使うにはもってこいの環境っぽいですね。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/python-programming/4085/feed") (slash:comments nil "0"))) ("TOC13の1Cの2問目 (TheOlympiadInInformatics)" "<p><a href=\"http://taichino.com/programming/topcoder/3988\" title=\"TOC13の1Bの2問目(EllysFigurines)\">前回</a>は数年ぶりのTopCoderで、コンテスト中にエディタの設定に手間取ったりしたので、今回こそはと思って参加しました。2問解けてまぁ行けたかなと思ってたら、2問目がシステムテストで落ちてて、またダメでした。生きるのが辛いです。</p><p>今回間違えた問題が<a href=\"http://community.topcoder.com/stat?c=problem_statement&pm=12456&rd=15585\" title=\"TheOlympiadInInformatics\" target=\"_blank\">これ</a>です。</p><p>問題は人数不明のテスト受験者達が、人数がバラバラのグループに分けられていて、グループ毎の合計点数のみ与えられたときに、自分がK番以内の成績を取るには何点必要かというもの。</p><p><span id=\"more-4073\"></span></p><p>最初に書いてたコードが以下です。単純に0点から順に順位を計算して行っています。</p><pre class=\"brush: cpp; gutter: false; first-line: 1; highlight: []; html-script: false\">
+int find(vector &lt;int&gt; sums, int k) {
+int max_score = 0;
+for (int i = 0; i &lt; sums.size(); i++) {
+max_score = max(max_score, sums[i]);
+}
+int score = 0;
+for (; score &lt; max_score; score++) {
+int possible = 0;
+bool found = true;
+for (int j = 0; j &lt; sums.size(); j++) {
+int value = sums[j];
+possible += (value / (score + 1));
+if (possible &gt; k) {
+found = false;
+break;
+}
+}
+if (found) {
+break;
+}
+}
+return score;
+}
+</pre><p>後でシステムテストを走らせてみると、Time Exceededになってました。それで問題文を見るとKの範囲が0〜10億で、あーそれはダメだという事で、他の人のもチラチラ見ながら二分探索で書き直したのが以下。</p><pre class=\"brush: cpp; gutter: false; first-line: 1; highlight: []; html-script: false\">
+int find(vector&lt;int&gt; sums, int k) {
+int lo = 0;
+int hi = *max_element(sums.begin(), sums.end());
+int mid;
+while (lo &lt; hi) {
+mid = (lo + hi) / 2;
+int possible = 0;
+for (int i = 0; i &lt; sums.size(); i++) {
+possible += (sums[i] / (mid + 1));
+}
+if (possible &lt;= k) {  // 取り過ぎ
+hi = mid;
+}
+else {                // 足りない
+lo = mid + 1;
+}
+}
+return lo;
+}
+</pre><p>条件を満たしている際の、上限値の付け替えがmid – 1じゃ無くてmidなところが注意で、これはその時のmidが条件を満たす下限値になっている可能性があるからですね。</p><p>あとvectorから最大値取得するのにstd::max_elementとかあるんですね。初めて知りました。</p><p>まぁ制約条件を読飛ばしているとか話にならないので、次は気をつけようと思います。</p>" "http://taichino.com/programming/cc/4073" (20799 25000) new 3 nil nil ((title nil "TOC13の1Cの2問目 (TheOlympiadInInformatics)") (link nil "http://taichino.com/programming/cc/4073") (comments nil "http://taichino.com/programming/cc/4073#comments") (pubDate nil "Tue, 12 Mar 2013 17:11:04 +0000") (dc:creator nil "taichino") (category nil "C/C++") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4073") (description nil "前回は数年ぶりのTopCoderで、コンテスト中にエディタの設定に手間取ったりしたので、今回こそはと思って参加 [...]") (content:encoded nil "<p><a href=\"http://taichino.com/programming/topcoder/3988\" title=\"TOC13の1Bの2問目(EllysFigurines)\">前回</a>は数年ぶりのTopCoderで、コンテスト中にエディタの設定に手間取ったりしたので、今回こそはと思って参加しました。2問解けてまぁ行けたかなと思ってたら、2問目がシステムテストで落ちてて、またダメでした。生きるのが辛いです。</p><p>今回間違えた問題が<a href=\"http://community.topcoder.com/stat?c=problem_statement&#038;pm=12456&#038;rd=15585\" title=\"TheOlympiadInInformatics\" target=\"_blank\">これ</a>です。</p><p>問題は人数不明のテスト受験者達が、人数がバラバラのグループに分けられていて、グループ毎の合計点数のみ与えられたときに、自分がK番以内の成績を取るには何点必要かというもの。</p><p><span id=\"more-4073\"></span></p><p>最初に書いてたコードが以下です。単純に0点から順に順位を計算して行っています。</p><pre class=\"brush: cpp; gutter: false; first-line: 1; highlight: []; html-script: false\">
+int find(vector &lt;int&gt; sums, int k) {
+    int max_score = 0;
+    for (int i = 0; i &lt; sums.size(); i++) {
+        max_score = max(max_score, sums[i]);
+    }
+
+    int score = 0;
+    for (; score &lt; max_score; score++) {
+        int possible = 0;
+        bool found = true;
+        for (int j = 0; j &lt; sums.size(); j++) {
+            int value = sums[j];
+            possible += (value / (score + 1));
+            if (possible &gt; k) {
+                found = false;
+                break;
+            }
+        }
+
+        if (found) {
+            break;
+        }
+    }
+    
+    return score;
+}
+</pre><p>後でシステムテストを走らせてみると、Time Exceededになってました。それで問題文を見るとKの範囲が0〜10億で、あーそれはダメだという事で、他の人のもチラチラ見ながら二分探索で書き直したのが以下。</p><pre class=\"brush: cpp; gutter: false; first-line: 1; highlight: []; html-script: false\">
+int find(vector&lt;int&gt; sums, int k) {
+    int lo = 0;
+    int hi = *max_element(sums.begin(), sums.end());
+    int mid;
+    while (lo &lt; hi) {
+        mid = (lo + hi) / 2;
+        
+        int possible = 0;
+        for (int i = 0; i &lt; sums.size(); i++) {
+            possible += (sums[i] / (mid + 1));
+        }
+
+        if (possible &lt;= k) {  // 取り過ぎ
+            hi = mid;
+        }
+        else {                // 足りない
+            lo = mid + 1;
+        }
+    }
+    
+    return lo;
+}
+</pre><p>条件を満たしている際の、上限値の付け替えがmid &#8211; 1じゃ無くてmidなところが注意で、これはその時のmidが条件を満たす下限値になっている可能性があるからですね。</p><p>あとvectorから最大値取得するのにstd::max_elementとかあるんですね。初めて知りました。</p><p>まぁ制約条件を読飛ばしているとか話にならないので、次は気をつけようと思います。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/cc/4073/feed") (slash:comments nil "0"))) ("2月の月次レビュー" "<p>月次レビューが心の負担になってきてるのですが、まぁ1年くらいは続けたいと思います。というわけで2月のレビュー。</p><p><span id=\"more-4059\"></span></p><h3>2月の結果</h3><p>2月は消化ポモドーロは148で、6記事書きました。</p><p><strong>累積:</strong></p><ul><li>288/1440 ポモドーロ</li><li>14/50 エントリ</li></ul><p>ペースは引き続き悪くない感じです。</p><p>それで、2月の目標は何だったかというと1社にアプライするというのと、英語ブログを書き始めるというものでした。<a href=\"http://taichino.com/daily-life/3972\" title=\"WordPressのマルチサイト機能で英語ブログ作った\">英語のブログは作った</a>し、アプライもしましたので一応達成しました。で、結果はどうなったのという話ですが、残念ながら落ちました。正直働いてみたいなと思ってたのは1社しかなかったのでまぁまぁショックです。詳細は就職活動が一段落したらまとめる予定です。</p><p>アメリカの採用面接は技術的な事聞かれるらしいって言うので、アルゴリズムとかの復習でポモドーロの大部分を消化しました。アルゴリズムイントロダクションとかマスタリングTCP/IPとかを読み直したり、topcoder再開したりしていました。topcoderのSRMは1回で75分と短いので面倒くさがらずに出来るだけ参加していこうと思います。時間帯がマチマチなのが辛いですが。</p><h3>3月のやる事</h3><p>さて、今月やる事です。</p><ul><li>別の会社にアプライ</li><li>簡単なアプリ1個書く</li><li>週1で英語の記事書く</li></ul><p>これ想像より働くの難しいんじゃね？って思い始めました。今月はLinkedInで何件か仲介屋さんからメッセージを貰ってるので、そっち方面からアプローチしてみる予定です。なんかちょっと長引きそうで嫌です。何とか早いところケリをつけたいですね。</p><p>それとTitaniumでアプリを1個作ろうと思います。簡単なやつで完成重視でいきます。とりあえず今月中にAppStoreに審査出して来月くらいにリリースする感じで。大風呂敷広げて完成してないアプリの残骸が、手元に幾つかあるので同じ失敗をしないようにしたいですね。</p><p>あと全くネタが無くて既に辛いのですが、せっかくなので週1くらいは英語の記事を書こうと思います。</p><p>あんまり経験が無かったのですが、就職活動中ってなんかフワフワして集中できず良くないです。面接での英語の受け答えの準備に終わりがないので、頭の何処かですっとその事を考えてしまっているのが原因ですが、イマイチ対処方法が分かりません。相手がある事なので一方的に頑張って終わりに出来ずイライラが続いているという、今日この頃です。</p>" "http://taichino.com/daily-life/monthly_review/4059" (20792 5666) new 4 nil nil ((title nil "2月の月次レビュー") (link nil "http://taichino.com/daily-life/monthly_review/4059") (comments nil "http://taichino.com/daily-life/monthly_review/4059#comments") (pubDate nil "Thu, 07 Mar 2013 04:22:58 +0000") (dc:creator nil "taichino") (category nil "月次レビュー") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4059") (description nil "月次レビューが心の負担になってきてるのですが、まぁ1年くらいは続けたいと思います。というわけで2月のレビュー。 [...]") (content:encoded nil "<p>月次レビューが心の負担になってきてるのですが、まぁ1年くらいは続けたいと思います。というわけで2月のレビュー。</p><p><span id=\"more-4059\"></span></p><h3>2月の結果</h3><p>2月は消化ポモドーロは148で、6記事書きました。</p><p><strong>累積:</strong></p><ul><li>288/1440 ポモドーロ</li><li>14/50 エントリ</li></ul><p>ペースは引き続き悪くない感じです。</p><p>それで、2月の目標は何だったかというと1社にアプライするというのと、英語ブログを書き始めるというものでした。<a href=\"http://taichino.com/daily-life/3972\" title=\"WordPressのマルチサイト機能で英語ブログ作った\">英語のブログは作った</a>し、アプライもしましたので一応達成しました。で、結果はどうなったのという話ですが、残念ながら落ちました。正直働いてみたいなと思ってたのは1社しかなかったのでまぁまぁショックです。詳細は就職活動が一段落したらまとめる予定です。</p><p>アメリカの採用面接は技術的な事聞かれるらしいって言うので、アルゴリズムとかの復習でポモドーロの大部分を消化しました。アルゴリズムイントロダクションとかマスタリングTCP/IPとかを読み直したり、topcoder再開したりしていました。topcoderのSRMは1回で75分と短いので面倒くさがらずに出来るだけ参加していこうと思います。時間帯がマチマチなのが辛いですが。</p><h3>3月のやる事</h3><p>さて、今月やる事です。</p><ul><li>別の会社にアプライ</li><li>簡単なアプリ1個書く</li><li>週1で英語の記事書く</li></ul><p>これ想像より働くの難しいんじゃね？って思い始めました。今月はLinkedInで何件か仲介屋さんからメッセージを貰ってるので、そっち方面からアプローチしてみる予定です。なんかちょっと長引きそうで嫌です。何とか早いところケリをつけたいですね。</p><p>それとTitaniumでアプリを1個作ろうと思います。簡単なやつで完成重視でいきます。とりあえず今月中にAppStoreに審査出して来月くらいにリリースする感じで。大風呂敷広げて完成してないアプリの残骸が、手元に幾つかあるので同じ失敗をしないようにしたいですね。</p><p>あと全くネタが無くて既に辛いのですが、せっかくなので週1くらいは英語の記事を書こうと思います。</p><p>あんまり経験が無かったのですが、就職活動中ってなんかフワフワして集中できず良くないです。面接での英語の受け答えの準備に終わりがないので、頭の何処かですっとその事を考えてしまっているのが原因ですが、イマイチ対処方法が分かりません。相手がある事なので一方的に頑張って終わりに出来ずイライラが続いているという、今日この頃です。</p>
+") (wfw:commentRss nil "http://taichino.com/daily-life/monthly_review/4059/feed") (slash:comments nil "0"))) ("PythonでStackOverflowのAPIを叩く" "<p>表題の件ですが、大した事は無いのですがバージョンが変わってちょっと調べるのに手間がかかったので書いておきます。正確にはStackOverflow単独のAPIは無くてStackExchangeのAPIです。ちなみに<a href=\"http://taichino.com/programming/3993\" title=\"Pythonの隠された機能9つ\">先ほどの記事</a>はStackOverflowのAPIを弄っていて見つけました。</p><p><span id=\"more-4045\"></span></p><p>ここでは<a href=\"https://pypi.python.org/pypi/py-stackexchange\" title=\"Py-StackExchange on pypi\" target=\"_blank\">Py-StackExchangeモジュール</a>を使用します。Stack.PYというモジュールもありますが、ちょっと機能が足りてない雰囲気でした。</p><pre class=\"brush: bash; gutter: false; first-line: 1; highlight: []; html-script: false\">
+$ pip install py-stackexchange
+</pre><p>コードは以下のような感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+from stackexchange import Site, StackOverflow
+so = Site(StackOverflow)
+for q in so.search(order='desc',
+sort='votes',
+tagged='python',
+pagesize=10)[:10]:
+print '{0:&gt;8}{1:&gt;6}  {2}'.format(q.id, q.score,q.title)
+</pre><p><a href=\"http://api.stackexchange.com/docs\" title=\"API docs of stackexchange\" target=\"_blank\">APIドキュメント</a>がかなり親切なので、使用可能なAPIやパラメータはドキュメントを参照します。なおコメントの投稿等、書き込みが必要な場合は<a href=\"http://stackapps.com/apps/oauth/register\">このページ</a>からアプリケーション登録を行う必要があります。</p><p>上のサンプルだとStackOverflowをターゲットにしていますが、StackEchangeのサイトは沢山あります。下記で一覧っぽいリストを取得してみました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+&gt;&gt; import stackexchange
+&gt;&gt; dir(stackexchange.sites)
+['AndroidEnthusiasts',
+'AndroidEnthusiastsMeta',
+'Apple',
+'AppleMeta',
+'AskUbuntu',
+'AskUbuntuMeta',
+'Astronomy',
+'AstronomyMeta',
+'AudioRecordingandProduction',
+'AudioRecordingandProductionMeta',
+'Bicycles',
+'BicyclesMeta',
+'BoardandCardGames',
+'BoardandCardGamesMeta',
+'CodeGolf',
+'CodeGolfMeta',
+'CodeReview',
+'CodeReviewMeta',
+'Cooking',
+'CookingMeta',
+'DatabaseAdministrators',
+'DatabaseAdministratorsMeta',
+'DrupalAnswers',
+'DrupalAnswersMeta',
+'ElectricalEngineering',
+'ElectricalEngineeringMeta',
+'EnglishLanguageandUsage',
+'EnglishLanguageandUsageMeta',
+'FitnessandNutrition',
+'FitnessandNutritionMeta',
+'GIS',
+'GISMeta',
+'GameDevelopment',
+'GameDevelopmentMeta',
+'Gaming',
+'GamingMeta',
+'GardeningandLandscaping',
+'GardeningandLandscapingMeta',
+'GermanLanguageandUsage',
+'GermanLanguageandUsageMeta',
+'GraphicDesign',
+'GraphicDesignMeta',
+'HomeImprovement',
+'HomeImprovementMeta',
+'Homebrew',
+'HomebrewMeta',
+'ITSecurity',
+'ITSecurityMeta',
+'JapaneseLanguageandUsage',
+'JapaneseLanguageandUsageMeta',
+'JewishLifeandLearning',
+'JewishLifeandLearningMeta',
+'Mathematics',
+'MathematicsMeta',
+'MetaServerFault',
+'MetaStackOverflow',
+'MetaSuperUser',
+'MotorVehicleMaintenanceandRepair',
+'MotorVehicleMaintenanceandRepairMeta',
+'MusicalPracticeandPerformance',
+'MusicalPracticeandPerformanceMeta',
+'OnStartups',
+'OnStartupsMeta',
+'Parenting',
+'ParentingMeta',
+'PersonalFinanceandMoney',
+'PersonalFinanceandMoneyMeta',
+'PersonalProductivity',
+'PersonalProductivityMeta',
+'Philosophy',
+'PhilosophyMeta',
+'Photography',
+'PhotographyMeta',
+'Physics',
+'PhysicsMeta',
+'Programmers',
+'ProgrammersMeta',
+'ProjectManagement',
+'ProjectManagementMeta',
+'QuantitativeFinance',
+'QuantitativeFinanceMeta',
+'RoleplayingGames',
+'RoleplayingGamesMeta',
+'ScienceFictionandFantasy',
+'ScienceFictionandFantasyMeta',
+'ServerFault',
+'SharePoint',
+'SharePointMeta',
+'Skeptics',
+'SkepticsMeta',
+'SoftwareQualityAssuranceandTesting',
+'SoftwareQualityAssuranceandTestingMeta',
+'StackApps',
+'StackOverflow',
+'StatisticalAnalysis',
+'StatisticalAnalysisMeta',
+'SuperUser',
+'TeXLaTeX',
+'TeXLaTeXMeta',
+'TheoreticalComputerScience',
+'TheoreticalComputerScienceMeta',
+'Travel',
+'TravelMeta',
+'UnixandLinux',
+'UnixandLinuxMeta',
+'UserExperience',
+'UserExperienceMeta',
+'WebApplications',
+'WebApplicationsMeta',
+'Webmasters',
+'WebmastersMeta',
+'WordPress',
+'WordPressMeta',
+'Writers',
+'WritersMeta',
+'__SEAPI',
+'__builtins__',
+'__doc__',
+'__file__',
+'__name__',
+'__package__',
+'stackexchange']
+</pre><p>以上です。気が向いたらこのAPI使ってミニミニサイトを作ってみようと思います。</p>" "http://taichino.com/programming/4045" (20790 30258) new 5 nil nil ((title nil "PythonでStackOverflowのAPIを叩く") (link nil "http://taichino.com/programming/4045") (comments nil "http://taichino.com/programming/4045#comments") (pubDate nil "Tue, 05 Mar 2013 22:48:18 +0000") (dc:creator nil "taichino") (category nil "programming") (category nil "python") (category nil "stack exchange") (guid ((isPermaLink . "false")) "http://taichino.com/?p=4045") (description nil "表題の件ですが、大した事は無いのですがバージョンが変わってちょっと調べるのに手間がかかったので書いておきます。 [...]") (content:encoded nil "<p>表題の件ですが、大した事は無いのですがバージョンが変わってちょっと調べるのに手間がかかったので書いておきます。正確にはStackOverflow単独のAPIは無くてStackExchangeのAPIです。ちなみに<a href=\"http://taichino.com/programming/3993\" title=\"Pythonの隠された機能9つ\">先ほどの記事</a>はStackOverflowのAPIを弄っていて見つけました。</p><p><span id=\"more-4045\"></span></p><p>ここでは<a href=\"https://pypi.python.org/pypi/py-stackexchange\" title=\"Py-StackExchange on pypi\" target=\"_blank\">Py-StackExchangeモジュール</a>を使用します。Stack.PYというモジュールもありますが、ちょっと機能が足りてない雰囲気でした。</p><pre class=\"brush: bash; gutter: false; first-line: 1; highlight: []; html-script: false\">
+$ pip install py-stackexchange
+</pre><p>コードは以下のような感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+from stackexchange import Site, StackOverflow
+
+so = Site(StackOverflow)
+for q in so.search(order=&#039;desc&#039;,
+                   sort=&#039;votes&#039;,
+                   tagged=&#039;python&#039;,
+                   pagesize=10)[:10]:
+    print &#039;{0:&gt;8}{1:&gt;6}  {2}&#039;.format(q.id, q.score,q.title)
+</pre><p><a href=\"http://api.stackexchange.com/docs\" title=\"API docs of stackexchange\" target=\"_blank\">APIドキュメント</a>がかなり親切なので、使用可能なAPIやパラメータはドキュメントを参照します。なおコメントの投稿等、書き込みが必要な場合は<a href=\"http://stackapps.com/apps/oauth/register\">このページ</a>からアプリケーション登録を行う必要があります。</p><p>上のサンプルだとStackOverflowをターゲットにしていますが、StackEchangeのサイトは沢山あります。下記で一覧っぽいリストを取得してみました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+&gt;&gt; import stackexchange
+&gt;&gt; dir(stackexchange.sites)
+[&#039;AndroidEnthusiasts&#039;,
+ &#039;AndroidEnthusiastsMeta&#039;,
+ &#039;Apple&#039;,
+ &#039;AppleMeta&#039;,
+ &#039;AskUbuntu&#039;,
+ &#039;AskUbuntuMeta&#039;,
+ &#039;Astronomy&#039;,
+ &#039;AstronomyMeta&#039;,
+ &#039;AudioRecordingandProduction&#039;,
+ &#039;AudioRecordingandProductionMeta&#039;,
+ &#039;Bicycles&#039;,
+ &#039;BicyclesMeta&#039;,
+ &#039;BoardandCardGames&#039;,
+ &#039;BoardandCardGamesMeta&#039;,
+ &#039;CodeGolf&#039;,
+ &#039;CodeGolfMeta&#039;,
+ &#039;CodeReview&#039;,
+ &#039;CodeReviewMeta&#039;,
+ &#039;Cooking&#039;,
+ &#039;CookingMeta&#039;,
+ &#039;DatabaseAdministrators&#039;,
+ &#039;DatabaseAdministratorsMeta&#039;,
+ &#039;DrupalAnswers&#039;,
+ &#039;DrupalAnswersMeta&#039;,
+ &#039;ElectricalEngineering&#039;,
+ &#039;ElectricalEngineeringMeta&#039;,
+ &#039;EnglishLanguageandUsage&#039;,
+ &#039;EnglishLanguageandUsageMeta&#039;,
+ &#039;FitnessandNutrition&#039;,
+ &#039;FitnessandNutritionMeta&#039;,
+ &#039;GIS&#039;,
+ &#039;GISMeta&#039;,
+ &#039;GameDevelopment&#039;,
+ &#039;GameDevelopmentMeta&#039;,
+ &#039;Gaming&#039;,
+ &#039;GamingMeta&#039;,
+ &#039;GardeningandLandscaping&#039;,
+ &#039;GardeningandLandscapingMeta&#039;,
+ &#039;GermanLanguageandUsage&#039;,
+ &#039;GermanLanguageandUsageMeta&#039;,
+ &#039;GraphicDesign&#039;,
+ &#039;GraphicDesignMeta&#039;,
+ &#039;HomeImprovement&#039;,
+ &#039;HomeImprovementMeta&#039;,
+ &#039;Homebrew&#039;,
+ &#039;HomebrewMeta&#039;,
+ &#039;ITSecurity&#039;,
+ &#039;ITSecurityMeta&#039;,
+ &#039;JapaneseLanguageandUsage&#039;,
+ &#039;JapaneseLanguageandUsageMeta&#039;,
+ &#039;JewishLifeandLearning&#039;,
+ &#039;JewishLifeandLearningMeta&#039;,
+ &#039;Mathematics&#039;,
+ &#039;MathematicsMeta&#039;,
+ &#039;MetaServerFault&#039;,
+ &#039;MetaStackOverflow&#039;,
+ &#039;MetaSuperUser&#039;,
+ &#039;MotorVehicleMaintenanceandRepair&#039;,
+ &#039;MotorVehicleMaintenanceandRepairMeta&#039;,
+ &#039;MusicalPracticeandPerformance&#039;,
+ &#039;MusicalPracticeandPerformanceMeta&#039;,
+ &#039;OnStartups&#039;,
+ &#039;OnStartupsMeta&#039;,
+ &#039;Parenting&#039;,
+ &#039;ParentingMeta&#039;,
+ &#039;PersonalFinanceandMoney&#039;,
+ &#039;PersonalFinanceandMoneyMeta&#039;,
+ &#039;PersonalProductivity&#039;,
+ &#039;PersonalProductivityMeta&#039;,
+ &#039;Philosophy&#039;,
+ &#039;PhilosophyMeta&#039;,
+ &#039;Photography&#039;,
+ &#039;PhotographyMeta&#039;,
+ &#039;Physics&#039;,
+ &#039;PhysicsMeta&#039;,
+ &#039;Programmers&#039;,
+ &#039;ProgrammersMeta&#039;,
+ &#039;ProjectManagement&#039;,
+ &#039;ProjectManagementMeta&#039;,
+ &#039;QuantitativeFinance&#039;,
+ &#039;QuantitativeFinanceMeta&#039;,
+ &#039;RoleplayingGames&#039;,
+ &#039;RoleplayingGamesMeta&#039;,
+ &#039;ScienceFictionandFantasy&#039;,
+ &#039;ScienceFictionandFantasyMeta&#039;,
+ &#039;ServerFault&#039;,
+ &#039;SharePoint&#039;,
+ &#039;SharePointMeta&#039;,
+ &#039;Skeptics&#039;,
+ &#039;SkepticsMeta&#039;,
+ &#039;SoftwareQualityAssuranceandTesting&#039;,
+ &#039;SoftwareQualityAssuranceandTestingMeta&#039;,
+ &#039;StackApps&#039;,
+ &#039;StackOverflow&#039;,
+ &#039;StatisticalAnalysis&#039;,
+ &#039;StatisticalAnalysisMeta&#039;,
+ &#039;SuperUser&#039;,
+ &#039;TeXLaTeX&#039;,
+ &#039;TeXLaTeXMeta&#039;,
+ &#039;TheoreticalComputerScience&#039;,
+ &#039;TheoreticalComputerScienceMeta&#039;,
+ &#039;Travel&#039;,
+ &#039;TravelMeta&#039;,
+ &#039;UnixandLinux&#039;,
+ &#039;UnixandLinuxMeta&#039;,
+ &#039;UserExperience&#039;,
+ &#039;UserExperienceMeta&#039;,
+ &#039;WebApplications&#039;,
+ &#039;WebApplicationsMeta&#039;,
+ &#039;Webmasters&#039;,
+ &#039;WebmastersMeta&#039;,
+ &#039;WordPress&#039;,
+ &#039;WordPressMeta&#039;,
+ &#039;Writers&#039;,
+ &#039;WritersMeta&#039;,
+ &#039;__SEAPI&#039;,
+ &#039;__builtins__&#039;,
+ &#039;__doc__&#039;,
+ &#039;__file__&#039;,
+ &#039;__name__&#039;,
+ &#039;__package__&#039;,
+ &#039;stackexchange&#039;]
+</pre><p>以上です。気が向いたらこのAPI使ってミニミニサイトを作ってみようと思います。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/4045/feed") (slash:comments nil "0"))) ("Pythonの隠された機能9つ" "<p>StackOverflowで<a href=\"http://stackoverflow.com/questions/101268/hidden-features-of-python\" title=\"Hidden features of Python\" target=\"_blank\">Hidden features of Python</a>という面白い質問がありました。原文の方では何十も項目があるのですが、独断と偏見で9個に絞って紹介します。</p><p><span id=\"more-3993\"></span></p><h3>1. chaining comparision operator</h3><p>不等式を連結出来るなんて初めて知りました。スーパーかっこいいです。今まで1 &lt; x and x &lt; 10とか書き続けてました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+if 1 &lt; x &lt; 10:
+print &quot;yay&quot;
+if x &lt; 10 &lt; x*10 &lt; 100:
+print &quot;yaay!&quot;
+if 5 == x &gt; 4:
+print &quot;yaaay!!&quot;
+</pre><p>他の言語でも出来んの？と思ってちょっと調べてみましたが、どうもPythonだけっぽいです。やっぱりPython最高ですね！</p><p><strong>2013.03.05 追記</strong><br />
+twitterで突っ込まれました。Pythonだけって言うのは嘘でした。</p><p>まず<a href=\"http://coffeescript.org/\" title=\"coffeescript\" target=\"_blank\">CoffeeScript</a>で同じ事が可能です。Pythonのドキュメントにリンクが張られてるので、元ネタはPythonっぽいですが。</p><pre class=\"brush: text; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+if 0 &lt; x &lt; 10 &lt; x*x
+console.log 'yay!'
+</pre><p>そして各種Lisp方言では演算子の結合は当たり前の話ですね。忘れてました。下記はscheme。CommonLispは書いた事無いからパッと書けないです。</p><pre class=\"brush: text; gutter: false; first-line: 1; highlight: []; html-script: false\">
+(let ((x 5))
+(if (&lt; 0 x 10)
+(print &quot;yay&quot;)))
+</pre><p><del datetime=\"2013-03-06T05:12:29+00:00\">だがRuby、てめぇはダメだ。</del><br /><strong>2013.03.05 追記2</strong><br /><a href=\"https://twitter.com/yashigani\" title=\"yashigani\" target=\"_blank\">@yashigani</a>さんに色々教えてもらったのに流石に全否定はダメかなということで、下記Ruby。</p><pre class=\"brush: ruby; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+case x
+when 0..10
+puts 'yay!'
+</pre><p>確かにcaseも範囲式も便利で同等の処理を綺麗に処理しているのは分かるのですが、このコンテキストだとちょっと違うかなって。</p><h3>2. try-except構文のelse</h3><p>これも知りませんでした。try-except中で例外が発生しなかった場合elseブロックが実行されます。いつもtry-exceptの中が膨れがちで、しかも思わぬ例外が出たりして嫌だなぁと思っていたのですが、普通に構文として解決策が提供されていました。モグリですいません。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+filename = raw_input(&quot;Please enter a filename: &quot;)
+try:
+f = open(filename, 'r')
+except IOError:
+print 'cannot open', filename
+else:
+# try-excpetの中に書くよりイイネ！
+print filename, 'has', len(f.readlines()), 'lines'
+f.close()
+</pre><h3>3. for構文のelseとgoto</h3><p>さっきのと似てるんですが、forループ中にbreakされなかった場合にelseブロックが実行されます。あとループつながりでgotoがPythonでも使えるよという。gotoは知りませんでした。どちらも時々欲しくなります。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+# ループで何か探したりするのに便利
+for i in foo:
+if i == 0:
+break
+else:
+print(&quot;i was never 0&quot;)
+# ネストループから脱出
+from goto import goto, label
+for i in range(1, 10):
+for j in range(1, 20):
+for k in range(1, 30):
+print i, j, k
+if k == 3:
+goto .end # breaking out from a deeply nested loop
+label .end
+print &quot;Finished&quot;
+</pre><p>ちなみにgotoはサードパーティモジュールとして提供されているのでインストールしないと使えません。<br /><del datetime=\"2013-03-06T11:52:16+00:00\">$ pip install goto</del></p><p><strong style=\"color:red\">2013.03.06 追記</strong><br />
+すいません、pipでインストールできるgotoは別物でした。<a href=\"http://entrian.com/goto/\" title=\"goto\" target=\"_blank\">コチラのコード</a>をお試しください。あと念のため言っておきますが、gotoはジョークモジュールなので本気で使うとかは無いです。ちゃんとループばらしたコード書きましょう。</p><h3>4. enumerate</h3><p>これは定番だと思いますが、for文中でインデックスにアクセスできます。ちなみにenumerateの第2引数を指定すると開始インデックスを0から変更出来ます。あまり使わないですけど。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+a = ['a', 'b', 'c', 'd', 'e']
+for index, item in enumerate(a):
+print index, item
+# 開始indexを1に変更
+for index, item in enumerate(a, 1):
+print index, item
+</pre><h3>5. New Style Format</h3><p>Python2.6から使えるようです。知りませんでした。個人的に％の構文はちょっと気持ち悪かったので良い感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+print(&quot;The {foo} is {bar}&quot;.format(foo='answer', bar=42))
+print(&quot;The {0} is {1}&quot;.format('answer',42))
+</pre><h3>6. dictのget</h3><p>辞書に指定のキーが含まれてない場合に、デフォルト値を指定出来るget。DjangoのQueryDictのメソッドだと思い込んでいました。ビルトインの辞書に実装されてたんですね。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+a = {'a':10, 'b':20}
+print a.get('c', 30)
+</pre><h3>7, 8, 9. オモシロimport文3つ</h3><p>やった事無い人は試してみましょう。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+import antigravity
+from __future__ import braces
+import this
+</pre><p>以上、他にも色々な項目が紹介されているので元ページも是非ご覧下さい。</p>" "http://taichino.com/programming/3993" (20790 24470) new 6 nil nil ((title nil "Pythonの隠された機能9つ") (link nil "http://taichino.com/programming/3993") (comments nil "http://taichino.com/programming/3993#comments") (pubDate nil "Tue, 05 Mar 2013 21:11:50 +0000") (dc:creator nil "taichino") (category nil "programming") (category nil "python") (guid ((isPermaLink . "false")) "http://taichino.com/?p=3993") (description nil "StackOverflowでHidden features of Pythonという面白い質問がありました。原 [...]") (content:encoded nil "<p>StackOverflowで<a href=\"http://stackoverflow.com/questions/101268/hidden-features-of-python\" title=\"Hidden features of Python\" target=\"_blank\">Hidden features of Python</a>という面白い質問がありました。原文の方では何十も項目があるのですが、独断と偏見で9個に絞って紹介します。</p><p><span id=\"more-3993\"></span></p><h3>1. chaining comparision operator</h3><p>不等式を連結出来るなんて初めて知りました。スーパーかっこいいです。今まで1 &lt; x and x &lt; 10とか書き続けてました。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+if 1 &lt; x &lt; 10:
+    print &quot;yay&quot;
+if x &lt; 10 &lt; x*10 &lt; 100:
+    print &quot;yaay!&quot;
+if 5 == x &gt; 4:
+    print &quot;yaaay!!&quot;
+</pre><p>他の言語でも出来んの？と思ってちょっと調べてみましたが、どうもPythonだけっぽいです。やっぱりPython最高ですね！</p><p><strong>2013.03.05 追記</strong><br />
+twitterで突っ込まれました。Pythonだけって言うのは嘘でした。</p><p>まず<a href=\"http://coffeescript.org/\" title=\"coffeescript\" target=\"_blank\">CoffeeScript</a>で同じ事が可能です。Pythonのドキュメントにリンクが張られてるので、元ネタはPythonっぽいですが。</p><pre class=\"brush: text; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+if 0 &lt; x &lt; 10 &lt; x*x
+    console.log &#039;yay!&#039;
+</pre><p>そして各種Lisp方言では演算子の結合は当たり前の話ですね。忘れてました。下記はscheme。CommonLispは書いた事無いからパッと書けないです。</p><pre class=\"brush: text; gutter: false; first-line: 1; highlight: []; html-script: false\">
+(let ((x 5))
+  (if (&lt; 0 x 10)
+	  (print &quot;yay&quot;)))
+</pre><p><del datetime=\"2013-03-06T05:12:29+00:00\">だがRuby、てめぇはダメだ。</del><br /><strong>2013.03.05 追記2</strong><br /><a href=\"https://twitter.com/yashigani\" title=\"yashigani\" target=\"_blank\">@yashigani</a>さんに色々教えてもらったのに流石に全否定はダメかなということで、下記Ruby。</p><pre class=\"brush: ruby; gutter: false; first-line: 1; highlight: []; html-script: false\">
+x = 5
+case x
+when 0..10
+  puts &#039;yay!&#039;
+</pre><p>確かにcaseも範囲式も便利で同等の処理を綺麗に処理しているのは分かるのですが、このコンテキストだとちょっと違うかなって。</p><h3>2. try-except構文のelse</h3><p>これも知りませんでした。try-except中で例外が発生しなかった場合elseブロックが実行されます。いつもtry-exceptの中が膨れがちで、しかも思わぬ例外が出たりして嫌だなぁと思っていたのですが、普通に構文として解決策が提供されていました。モグリですいません。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+filename = raw_input(&quot;Please enter a filename: &quot;)
+try:
+    f = open(filename, &#039;r&#039;)
+except IOError:
+    print &#039;cannot open&#039;, filename
+else:
+    # try-excpetの中に書くよりイイネ！
+    print filename, &#039;has&#039;, len(f.readlines()), &#039;lines&#039;
+    f.close()
+</pre><h3>3. for構文のelseとgoto</h3><p>さっきのと似てるんですが、forループ中にbreakされなかった場合にelseブロックが実行されます。あとループつながりでgotoがPythonでも使えるよという。gotoは知りませんでした。どちらも時々欲しくなります。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+# ループで何か探したりするのに便利
+for i in foo:
+    if i == 0:
+        break
+else:
+    print(&quot;i was never 0&quot;)
+
+# ネストループから脱出
+from goto import goto, label
+for i in range(1, 10):
+    for j in range(1, 20):
+        for k in range(1, 30):
+            print i, j, k
+            if k == 3:
+                goto .end # breaking out from a deeply nested loop
+label .end
+print &quot;Finished&quot;
+</pre><p>ちなみにgotoはサードパーティモジュールとして提供されているのでインストールしないと使えません。<br /><del datetime=\"2013-03-06T11:52:16+00:00\">$ pip install goto</del></p><p><strong style=\"color:red\">2013.03.06 追記</strong><br />
+すいません、pipでインストールできるgotoは別物でした。<a href=\"http://entrian.com/goto/\" title=\"goto\" target=\"_blank\">コチラのコード</a>をお試しください。あと念のため言っておきますが、gotoはジョークモジュールなので本気で使うとかは無いです。ちゃんとループばらしたコード書きましょう。</p><h3>4. enumerate</h3><p>これは定番だと思いますが、for文中でインデックスにアクセスできます。ちなみにenumerateの第2引数を指定すると開始インデックスを0から変更出来ます。あまり使わないですけど。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+a = [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;, &#039;d&#039;, &#039;e&#039;]
+for index, item in enumerate(a):
+    print index, item
+
+# 開始indexを1に変更
+for index, item in enumerate(a, 1):
+    print index, item
+</pre><h3>5. New Style Format</h3><p>Python2.6から使えるようです。知りませんでした。個人的に％の構文はちょっと気持ち悪かったので良い感じです。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+print(&quot;The {foo} is {bar}&quot;.format(foo=&#039;answer&#039;, bar=42))
+print(&quot;The {0} is {1}&quot;.format(&#039;answer&#039;,42))
+</pre><h3>6. dictのget</h3><p>辞書に指定のキーが含まれてない場合に、デフォルト値を指定出来るget。DjangoのQueryDictのメソッドだと思い込んでいました。ビルトインの辞書に実装されてたんですね。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+a = {&#039;a&#039;:10, &#039;b&#039;:20}
+print a.get(&#039;c&#039;, 30)
+</pre><h3>7, 8, 9. オモシロimport文3つ</h3><p>やった事無い人は試してみましょう。</p><pre class=\"brush: python; gutter: false; first-line: 1; highlight: []; html-script: false\">
+import antigravity
+from __future__ import braces
+import this
+</pre><p>以上、他にも色々な項目が紹介されているので元ページも是非ご覧下さい。</p>
+") (wfw:commentRss nil "http://taichino.com/programming/3993/feed") (slash:comments nil "2"))))

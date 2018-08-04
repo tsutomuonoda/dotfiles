@@ -1,0 +1,1716 @@
+;; -*- coding: utf-8 -*-
+(("Instagram Engineering" "We’re sharing the tools + techniques we’ve learned in bringing photo-sharing to millions of people" "http://instagram-engineering.tumblr.com/" (20813 17150 802199 725000) feed 0 nil nil ((atom:link ((rel . "hub") (href . "http://tumblr.superfeedr.com/") (xmlns:atom . "http://www.w3.org/2005/Atom"))) (description nil "We’re sharing the tools + techniques we’ve learned in bringing photo-sharing to millions of people") (title nil "Instagram Engineering") (generator nil "Tumblr (3.0; @instagram-engineering)") (link nil "http://instagram-engineering.tumblr.com/") (item nil (title nil "Handling Growth with Postgres: 5 Tips From Instagram") (description nil "<p>As we&#8217;ve scaled Instagram to an ever-growing number of active users, Postgres has continued to be our solid foundation and the canonical data storage for most of the data created by our users. While <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">less than a year ago</a>, we blogged about how we &#8220;stored a lot of data&#8221; at Instagram at 90 likes per second, we&#8217;re now pushing over 10,000 likes per second at peak&#8212;and our fundamental storage technology hasn&#8217;t changed. </p>
+
+<p>Over the last two and a half years, we&#8217;ve picked up a few tips and tools about scaling Postgres that we wanted to share&#8212;things we wish we knew when we first launched Instagram. Some of these are Postgres-specific while others are present in other databases as well. For background on how we&#8217;ve horizontally partitioned Postgres, check out our <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">Sharding and IDs at Instagram</a> post.</p>
+
+<h2>1. Partial Indexes</h2>
+
+<p>If you find yourself frequently filtering your queries by a particular characteristic, and that characteristic is present in a minority of your rows, partial indexes may be a big win.</p>
+
+<p>As an example, when searching tags on Instagram, we try to surface tags that are likely to have many photos in them. While we use technologies like ElasticSearch for fancier searches in our application, this is one case where the database was good enough. Let&#8217;s see what Postgres does when searching tag names and ordering by number of photos:</p>
+
+<pre><code>EXPLAIN ANALYZE SELECT id from tags WHERE name LIKE 'snow%' ORDER BY media_count DESC LIMIT 10;      
+QUERY PLAN   
+---------                                                                  
+ Limit  (cost=1780.73..1780.75 rows=10 width=32) (actual time=215.211..215.228 rows=10 loops=1)
+   -&gt;  Sort  (cost=1780.73..1819.36 rows=15455 width=32) (actual time=215.209..215.215 rows=10 loops=1)
+         Sort Key: media_count
+         Sort Method:  top-N heapsort  Memory: 25kB
+         -&gt;  Index Scan using tags_search on tags_tag  (cost=0.00..1446.75 rows=15455 width=32) (actual time=0.020..162.708 rows=64572 loops=1)
+               Index Cond: (((name)::text ~&gt;=~ 'snow'::text) AND ((name)::text ~&lt;~ 'snox'::text))
+               Filter: ((name)::text ~~ 'snow%'::text)
+ Total runtime: 215.275 ms
+(8 rows)
+
+</code></pre>
+
+<p>Notice how Postgres had to sort through 15,000 rows to get the right result. Since tags (for example) exhibit a long-tail pattern, we can instead first try a query against tags with over 100 photos; we&#8217;ll do:</p>
+
+<pre><code>CREATE INDEX CONCURRENTLY on tags (name text_pattern_ops) WHERE media_count &gt;= 100
+</code></pre>
+
+<p>Now the query plan looks like:</p>
+
+<pre><code>EXPLAIN ANALYZE SELECT * from tags WHERE name LIKE 'snow%' AND media_count &gt;= 100 ORDER BY media_count DESC LIMIT 10;
+
+QUERY PLAN
+ Limit  (cost=224.73..224.75 rows=10 width=32) (actual time=3.088..3.105 rows=10 loops=1)
+   -&gt;  Sort  (cost=224.73..225.15 rows=169 width=32) (actual time=3.086..3.090 rows=10 loops=1)
+         Sort Key: media_count
+         Sort Method:  top-N heapsort  Memory: 25kB
+         -&gt;  Index Scan using tags_tag_name_idx on tags_tag  (cost=0.00..221.07 rows=169 width=32) (actual time=0.021..2.360 rows=924 loops=1)
+               Index Cond: (((name)::text ~&gt;=~ 'snow'::text) AND ((name)::text ~&lt;~ 'snox'::text))
+               Filter: ((name)::text ~~ 'snow%'::text)
+ Total runtime: 3.137 ms
+(8 rows)
+</code></pre>
+
+<p>Notice that Postgres only had to visit 169 rows, which was way faster. Postgres&#8217; query planner is pretty good at evaluating constraints too; if you later decided that you wanted to query tags with over 500 photos, since those are a subset of this index, it will still use the right partial index.</p>
+
+<h2>2. Functional Indexes</h2>
+
+<p>On some of our tables, we need to index strings (for example, 64 character base64 tokens) that are quite long, and creating an index on those strings ends up duplicating a lot of data. For these, Postgres&#8217; functional index feature can be very helpful:</p>
+
+<pre><code>CREATE INDEX CONCURRENTLY on tokens (substr(token), 0, 8)
+</code></pre>
+
+<p>While there will be multiple rows that match that prefix, having Postgres match those prefixes and then filter down is quick, and the resulting index was 1/10th the size it would have been had we indexed the entire string.</p>
+
+<h2>3. pg_reorg For Compaction</h2>
+
+<p>Over time, Postgres tables can become fragmented on disk (due to Postgres&#8217; <a href=\"http://en.wikipedia.org/wiki/Multiversion_concurrency_control\">MVCC</a> concurrency model, for example). Also, most of the time, row insertion order does not match the order in which you want rows returned. For example, if you&#8217;re often querying for all likes created by one user, it&#8217;s helpful to have those likes be contiguous on disk, to minimize disk seeks.</p>
+
+<p>Our solution to this is to use <a href=\"http://pgfoundry.org/projects/reorg/\">pg_reorg</a>, which does a 3-step process to &#8220;compact&#8221; a table:</p>
+
+<ol><li>Acquire an exclusive lock on the table</li>
+<li>Create a temporary table to accumulate changes, and add a trigger on the original table that replicates any changes to this temp table</li>
+<li>Do a CREATE TABLE using a SELECT FROM…ORDER BY, which will create a new table in index order on disk</li>
+<li>Sync the changes from the temp table that happened after the SELECT FROM started</li>
+<li>Cut over to the new table</li>
+</ol><p>There are some details in there around lock acquisition etc, but that&#8217;s the general approach. We vetted the tool and tried several test runs before running in production, and we&#8217;ve run dozens of reorgs across hundreds of machines without issues.</p>
+
+<h2>4. WAL-E for WAL archiving and backups</h2>
+
+<p>We use and contribute code to <a href=\"https://github.com/heroku/WAL-E\">WAL-E</a>, Heroku&#8217;s toolkit for continuous archiving of Postgres Write-Ahead Log files. Using WAL-E has simplified our backup and new-replica bootstrap process significantly.</p>
+
+<p>At its core, WAL-E is a program that archives every WAL files generated by your PG server to Amazon&#8217;s S3, using Postgres&#8217; archive_command. These WAL files can then be used, in combination with a base backup, to restore a DB to any point since that base backup. The combination of regular base backups and the WAL archiving means we can quickly bootstrap a new read-replica or failover slave, too.</p>
+
+<p>We&#8217;ve made our simple wrapper script for monitoring repeated failures to archive a file <a href=\"https://gist.github.com/4550560\">available on GitHub</a>.</p>
+
+<h2>5. Autocommit mode and async mode in psycopg2</h2>
+
+<p>Over time, we&#8217;ve started using more advanced features in psycopg2, the Python driver for Postgres.</p>
+
+<p>The first is autocommit mode; in this mode, Psycopg2 won&#8217;t issue BEGIN/COMMIT for any queries; instead, every query runs in its own single-statement transaction. This is particularly useful for read-only queries where transaction semantics aren&#8217;t needed. It&#8217;s as easy as doing:</p>
+
+<pre><code>connection.autocommit = True
+</code></pre>
+
+<p>This lowered chatter between our application servers and DBs significantly, and lowered system CPU as well on the database boxes. Further, since we use PGBouncer for our connection pooling, this change allows connections to be returned to the pool sooner.</p>
+
+<p>More details on how this interacts with Django&#8217;s db handling <a href=\"http://thebuild.com/blog/2009/11/07/django-postgresql-and-autocommit/\">here</a>.</p>
+
+<p>Another useful psycopg2 feature is the ability to register a <a href=\"http://initd.org/psycopg/docs/advanced.html#support-for-coroutine-libraries\">wait_callback</a> for coroutine support. Using this allows for concurrent querying across multiple connections at once, which is useful for fan-out queries that hit multiple nodes&#8212;the socket will wake up and notify when there&#8217;s data to be read (we use Python&#8217;s select module for handling the wake-ups). This also plays well with cooperative multi-threading libraries like eventlet or gevent; check out <a href=\"http://pypi.python.org/pypi/psycogreen/1.0\">psycogreen</a> for an example implementation.</p>
+
+<p>Overall, we&#8217;ve been very happy with Postgres&#8217; performance and reliability. If you&#8217;re interested in working on one of the world&#8217;s largest Postgres installations with a small team of infrastructure hackers, get in touch at infrajobs &lt;at&gt; instagram.com.</p>
+
+<p><i>You can discuss this post at <a href=\"http://news.ycombinator.com/item?id=5075009\">Hacker News</a></i></p>
+
+<p><i>Mike Krieger, co-founder</i></p>") (link nil "http://instagram-engineering.tumblr.com/post/40781627982") (guid nil "http://instagram-engineering.tumblr.com/post/40781627982") (pubDate nil "Thu, 17 Jan 2013 12:30:00 -0800")) (item nil (title nil "redis-faina: a query analysis tool for Redis") (description nil "<p>As we mentioned in our <a href=\"http://instagram-engineering.tumblr.com/post/20541814340/keeping-instagram-up-with-over-a-million-new-users-in\">previous blog</a>, we’re big fans of tools and techniques for introspecting our live traffic to see what exactly is going on. One tool we use frequently is <a href=\"http://pgfouine.projects.postgresql.org/\">PGFouine</a>, a query traffic analyzer for PostgreSQL. We recently found that we also needed a similar tool for <a href=\"http://redis.io\">Redis</a>, our swiss-army-knife list/set/etc storage.</p>
+<p>We call it <a href=\"https://github.com/Instagram/redis-faina\">redis-faina</a> and we&#8217;re making it open source so you can use it to monitor Redis as well (pgfouine = ‘pgweasel’ in French, redis-faina = ‘redisweasel’ in Italian as a tribute to Redis’ Italian heritage).</p>
+<p>At its core, redis-faina uses the Redis MONITOR command, which echoes every single command (with arguments) sent to a Redis instance. It parses these entries, and aggregates stats on the most commonly-hit keys, the queries that took up the most amount of time, and the most common key prefixes as well. Using it, we’ve cut the number of requests on one of our systems from 23,000 requests per second to ~11,000, by identifying places where we could batch-fetch information or eliminate extraneous commands.</p>
+<p>Usage is simple:</p>
+<pre># reading from stdin
+redis-cli -p 6490 MONITOR | head -n &lt;NUMBER OF LINES TO ANALYZE&gt; | ./redis-faina.py
+
+# reading a file
+redis-cli -p 6490 MONITOR | head -n &lt;...&gt; &gt; /tmp/outfile.txt
+./redis-faina.py /tmp/outfile.txt
+</pre>
+<p>The output (anonymized below with ‘zzz’s) looks as follows:</p>
+<pre>Overall Stats
+========================================
+Lines Processed     117773
+Commands/Sec        11483.44
+
+Top Prefixes
+========================================
+friendlist          69945
+followedbycounter   25419
+followingcounter    10139
+recentcomments      3276
+queued              7
+
+Top Keys
+========================================
+friendlist:zzz:1:2     534
+followingcount:zzz     227
+friendlist:zxz:1:2     167
+friendlist:xzz:1:2     165
+friendlist:yzz:1:2     160
+friendlist:gzz:1:2     160
+friendlist:zdz:1:2     160
+friendlist:zpz:1:2     156
+
+Top Commands
+========================================
+SISMEMBER   59545
+HGET        27681
+HINCRBY     9413
+SMEMBERS    9254
+MULTI       3520
+EXEC        3520
+LPUSH       1620
+EXPIRE      1598
+
+Command Time (microsecs)
+========================================
+Median      78.25
+75%         105.0
+90%         187.25
+99%         411.0
+
+Heaviest Commands (microsecs)
+========================================
+SISMEMBER   5331651.0
+HGET        2618868.0
+HINCRBY     961192.5
+SMEMBERS    856817.5
+MULTI       311339.5
+SADD        54900.75
+SREM        40771.25
+EXEC        28678.5
+
+Slowest Calls
+========================================
+3490.75     \"SMEMBERS\" \"friendlist:zzz:1:2\"
+2362.0      \"SMEMBERS\" \"friendlist:xzz:1:3\"
+2061.0      \"SMEMBERS\" \"friendlist:zpz:1:2\"
+1961.0      \"SMEMBERS\" \"friendlist:yzz:1:2\"
+1947.5      \"SMEMBERS\" \"friendlist:zpz:1:2\"
+1459.0      \"SISMEMBER\" \"friendlist:hzz:1:2\" \"zzz\"
+1416.25     \"SMEMBERS\" \"friendlist:zhz:1:2\"
+1389.75     \"SISMEMBER\" \"friendlist:zzx:1:2\" \"zzz\"
+</pre>
+<p>One caveat on timing: MONITOR only shows the time a command completed, not when it started. On a very busy Redis server (like most of ours), this is fine because there’s always a request waiting to execute, but if you’re at a lesser rate of requests, the time taken will not be accurate.</p>
+<p>Also, MONITORing calls doesn’t come for free, so we mostly use to sample for a couple hundred thousand lines to get a representative sample.</p>
+<p>Want to add more stats and improvements to redis-faina? <a href=\"https://github.com/Instagram/redis-faina\">Fork and send pull requests</a>!</p>
+<p>Want to work on analyzing, optimizing and designing systems that handle hundreds of thousands of requests per second across many, many machines? <a href=\"http://instagram.com/about/jobs/\">We&#8217;re hiring! Drop us a note</a> and tell us a bit about yourself - we’re actively building out our dev &amp; devops team.</p>") (link nil "http://instagram-engineering.tumblr.com/post/23132009381") (guid nil "http://instagram-engineering.tumblr.com/post/23132009381") (pubDate nil "Tue, 15 May 2012 16:44:49 -0700")) (item nil (title nil "Keeping Instagram up with over a million new users in twelve hours") (description nil "<p>On Tuesday we launched <a href=\"https://play.google.com/store/apps/details?id=com.instagram.android\">Instagram for Android</a>, and it’s had a fantastic response so far. The last few weeks (on the infrastructure side) have been all about capacity planning and preparation to get everything in place, but on launch day itself the challenge is to find problems quickly, get to the bottom of them, and roll out fixes ASAP. Here are some tools &amp; techniques we used to tackle problems as they arose:</p>
+<h2 id=\"statsd\">statsd</h2>
+<p>We love <a href=\"http://github.com/etsy/statsd/\">statsd</a> at Instagram. Written by <a href=\"http://github.com/etsy/\">Etsy</a>, it’s a network daemon that aggregates and rolls-up data into Graphite. At its core, it has two types of statistics: counter and timers. We use the counters to track everything from number of signups per second to number of likes, and we use timers to time generation of feeds, how long it takes to follow users, and any other major action.</p>
+<p>The single biggest reason we love statsd is how quickly stats show up and get updated in Graphite. Stats are basically realtime (in our system, they’re about 10 seconds delayed), which allows us to evaluate system and code changes immediately. Stats can be added at will, so if we discover a new metric to track, we can have it up and running very quickly. You can specify a sample rate, so we sprinkle logging calls throughout the web application at relatively low sample rates, without affecting performance.</p>
+<p>Takeaway: having realtime stats that can be added dynamically lets you diagnose and firefight without having to wait to receive new data.</p>
+<h2 id=\"dogslow\">Dogslow</h2>
+<p>Written by <a href=\"http://blog.bitbucket.org/2011/05/17/tracking-slow-requests-with-dogslow/\">Bitbucket</a>, Dogslow is a piece of Django middleware that will watch your running processes, and if notices any taking longer than <em>N</em> seconds, will snapshot the current process and write the file to disk. We’ve found it’s too intrusive to run all the time, but when trying to identify bottlenecks that may have cropped up, it’s very useful (we’ve added a switch to enable it in our web servers).</p>
+<p>We found, halfway through launch day, that processes that were taking over 1.5s to return a response were often stuck in memcached set() and get_many(). Switching over to Munin, which we use to track our machine stats over time, we saw that our memcached boxes were pushing 50k req/s, and though they weren’t maxing out the CPU, they were busy enough to slow down the application servers.</p>
+<p>Takeaway: it’s often one piece of the backend infrastructure that becomes a bottleneck, and figuring out the point at which your real, live appservers get stuck can help surface the issue.</p>
+<h2 id=\"replicationread-slaves\">Replication &amp; Read-slaves</h2>
+<p>Two of our main data backends—<a href=\"http://redis.io\">Redis</a> and <a href=\"http://postgresql.org/\">PostgreSQL</a>—both support easy replication and read-slaving. When one of our Redis DBs crossed 40k req/s, and started becoming a bottleneck, bringing up another machine, <a href=\"http://redis.io/topics/replication\">SYNCing to the master</a>, and sending read queries to it took less than 20 minutes. For machines we knew would be busy ahead of time, we’d brought up read-slaves, but in a couple of cases, machines reacted differently under load than we’d projected, and it was useful to split reads off quickly.</p>
+<p>For Postgres, we use a combination of <a href=\"http://wiki.postgresql.org/wiki/Streaming_Replication\">Streaming Replication</a> and Amazon EBS Snapshots to bring up a new read-slave quickly. All of our master DBs stream to backup slaves that take frequent EBS snapshots; from these snapshots, we can have a new read-slave up and running, and caught up to the master, in around 20 minutes. Having our machines in an easily scriptable environment like AWS make provisioning and deploying new read-slaves a quick command-line task.</p>
+<p>Takeaway: if read capacity is likely to be a concern, bringing up read-slaves ahead of time and getting them in rotation is ideal; if any new read issues crop up, however, know ahead of time what your options are for bringing more read capacity into rotation.</p>
+<h2 id=\"pgfouine\">PGFouine</h2>
+<p><a href=\"http://pgfouine.projects.postgresql.org/\">PGFouine</a> is a tool that analyzes PostgreSQL query logs and generates a page of analytics on their impact on your database; sliced by the “heaviest”, or most frequent, or slowest queries. To ease running it, we’ve created a Fabric script that will connect to a database, set it to log every query, wait 30 seconds, then download the file and run a pgfouine analysis on it; it’s available <a href=\"https://gist.github.com/2307647\">as a gist</a>. PGFouine is our core tool in analyzing database performance and figuring out which queries could use memcached in front of them, which ones are fetching more data than is necessary, etc; as DBs showed signs of stress on launch day, we would run PGFouine, deploy targeted code improvement to relieve hotspots, and then run it again to make sure those changes had the correct effect.</p>
+<p>It’s important to know what a “normal” day looks like for your databases, too, for a baseline, so we run PGFouine periodically to gather statistics on non-stressed-out database instances, too.</p>
+<p>Takeaway: Database log analysis (especially coupled with a tight iteration loop on optimizing queries and caching what’s needed)</p>
+<h2 id=\"onemorething\">One more thing</h2>
+<p>Another tool that helped us get through the first day was one we wrote ourselves—node2dm, a node.js server for delivering push notifications to Android’s C2DM service. It&#8217;s handled over 5 million push notifications for us so far.</p>
+<p>We surveyed the different options for C2DM servers, but didn’t find any open source ones that looked like they were being actively maintained, or fully supported the Google service. We’re <a href=\"http://github.com/Instagram/node2dm\">open sourcing node2dm</a> today; feel free to fork and pull-request if you have any suggestions for improvements.</p>
+<h2 id=\"wewantyou\">Interested?</h2>
+<p>If all of this is interesting/exciting to you, and you’d like to chat more about working with us, <a href=\"http://instagram.jobscore.com/jobs/instagram/engineer/bXctey0Oir4kCZeJe4bk1X\">drop us a note</a>; we’d love to hear from you.</p>
+<p>You can <a href=\"http://news.ycombinator.com/item?id=3804351\">discuss this post</a> at Hacker News.</p>
+<p>&#8212;</p>
+<p><em>Mike Krieger, co-founder</em></p>") (link nil "http://instagram-engineering.tumblr.com/post/20541814340") (guid nil "http://instagram-engineering.tumblr.com/post/20541814340") (pubDate nil "Thu, 05 Apr 2012 13:02:00 -0700")) (item nil (title nil "What Powers Instagram: Hundreds of Instances, Dozens of Technologies") (description nil "<p>One of the questions we always get asked at meet-ups and conversations with other engineers is, “what’s your stack?” We thought it would be fun to give a sense of all the systems that power Instagram, at a high-level; you can look forward to more in-depth descriptions of some of these systems in the future. This is how our system has evolved in the just-over-1-year that we’ve been live, and while there are parts we’re always re-working, this is a glimpse of how a startup with a small engineering team can scale to our 14 million+ users in a little over a year. Our core principles when choosing a system are:</p>
+<ul><li>Keep it very simple</li>
+<li>Don’t re-invent the wheel</li>
+<li>Go with proven and solid technologies when you can</li>
+</ul><p>We’ll go from top to bottom:</p>
+<h2>OS / Hosting</h2>
+<p>We run Ubuntu Linux 11.04 (“Natty Narwhal”) on Amazon EC2. We’ve found previous versions of Ubuntu had all sorts of unpredictable freezing episodes on EC2 under high traffic, but Natty has been solid. We’ve only got 3 engineers, and our needs are still evolving, so self-hosting isn’t an option we’ve explored too deeply yet, though is something we may revisit in the future given the unparalleled growth in usage.</p>
+<h2>Load Balancing</h2>
+<p>Every request to Instagram servers goes through load balancing machines; we used to run 2&#160;<a href=\"http://nginx.org\">nginx</a> machines and DNS Round-Robin between them. The downside of this approach is the time it takes for DNS to update in case one of the machines needs to get decomissioned. Recently, we moved to using Amazon’s Elastic Load Balancer, with 3 NGINX instances behind it that can be swapped in and out (and are automatically taken out of rotation if they fail a health check). We also terminate our SSL at the ELB level, which lessens the CPU load on nginx. We use Amazon’s Route53 for DNS, which they’ve recently added a pretty good GUI tool for in the AWS console.</p>
+<h2>Application Servers</h2>
+<p>Next up comes the application servers that handle our requests. We run <a href=\"https://www.djangoproject.com/\">Django</a> on Amazon High-CPU Extra-Large machines, and as our usage grows we’ve gone from just a few of these machines to over 25 of them (luckily, this is one area that’s easy to horizontally scale as they are stateless). We’ve found that our particular work-load is very CPU-bound rather than memory-bound, so the High-CPU Extra-Large instance type provides the right balance of memory and CPU.</p>
+<p>We use <a href=\"http://Gunicorn\"><a href=\"http://gunicorn.org/\">http://gunicorn.org/</a></a> as our WSGI server; we used to use mod_wsgi and Apache, but found Gunicorn was much easier to configure, and less CPU-intensive. To run commands on many instances at once (like deploying code), we use <a href=\"http://fabric.readthedocs.org/en/1.3.3/index.html\">Fabric</a>, which recently added a useful parallel mode so that deploys take a matter of seconds.</p>
+<h2>Data storage</h2>
+<p>Most of our data (users, photo metadata, tags, etc) lives in PostgreSQL; we’ve <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">previously written</a> about how we shard across our different Postgres instances. Our main shard cluster involves 12 Quadruple Extra-Large memory instances (and twelve replicas in a different zone.)</p>
+<p>We’ve found that Amazon’s network disk system (EBS) doesn&#8217;t support enough disk seeks per second, so having all of our working set in memory is extremely important.  To get reasonable IO performance, we set up our EBS drives in a software RAID using mdadm.</p>
+<p>As a quick tip, we’ve found that <a href=\"http://hoytech.com/vmtouch/vmtouch.c\">vmtouch</a> is a fantastic tool for managing what data is in memory, especially when failing over from one machine to another where there is no active memory profile already. <a href=\"https://gist.github.com/1424540\">Here is the script</a> we use to parse the output of a vmtouch run on one machine and print out the corresponding vmtouch command to run on another system to match its current memory status.</p>
+<p>All of our PostgreSQL instances run in a master-replica setup using Streaming Replication, and we use EBS snapshotting to take frequent backups of our systems. We use XFS as our file system, which lets us freeze &amp; unfreeze the RAID arrays when snapshotting, in order to guarantee a consistent snapshot (our original inspiration came from <a href=\"http://alestic.com/2009/09/ec2-consistent-snapshot\">ec2-consistent-snapshot</a>. To get streaming replication started, our favorite tool is <a href=\"https://github.com/greg2ndQuadrant/repmgr\">repmgr</a> by the folks at 2ndQuadrant.</p>
+<p>To connect to our databases from our app servers, we made early on that had a huge impact on performance was using <a href=\"http://pgfoundry.org/projects/pgbouncer/\">Pgbouncer</a> to pool our connections to PostgreSQL. We found <a href=\"http://thebuild.com/blog/\">Christophe Pettus’s blog</a> to be a great resource for Django, PostgreSQL and Pgbouncer tips.</p>
+<p>The photos themselves go straight to Amazon S3, which currently stores several terabytes of photo data for us. We use Amazon CloudFront as our CDN, which helps with image load times from users around the world (like in Japan, our second most-popular country).</p>
+<p>We also use <a href=\"http://redis.io/\">Redis</a> extensively; it powers our main feed, our activity feed, our sessions system (<a href=\"https://gist.github.com/910392\">here’s our Django session backend</a>), and other <a href=\"http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value-pairs\">related systems</a>. All of Redis’ data needs to fit in memory, so we end up running several Quadruple Extra-Large Memory instances for Redis, too, and occasionally shard across a few Redis instances for any given subsystem. We run Redis in a master-replica setup, and have the replicas constantly saving the DB out to disk, and finally use EBS snapshots to backup those DB dumps (we found that dumping the DB on the master was too taxing). Since Redis allows writes to its replicas, it makes for very easy online failover to a new Redis machine, without requiring any downtime.</p>
+<p>For our <a href=\"http://instagram.com/developer/endpoints/media/#get_media_search\">geo-search API</a>, we used PostgreSQL for many months, but once our Media entries were sharded, moved over to using <a href=\"http://lucene.apache.org/solr/\">Apache Solr</a>. It has a simple JSON interface, so as far as our application is concerned, it’s just another API to consume.</p>
+<p>Finally, like any modern Web service, we use Memcached for caching, and currently have 6 Memcached instances, which we connect to using pylibmc &amp; libmemcached. Amazon has an Elastic Cache service they’ve recently launched, but it’s not any cheaper than running our instances, so we haven’t pushed ourselves to switch quite yet.</p>
+<h2>Task Queue &amp; Push Notifications</h2>
+<p>When a user decides to share out an Instagram photo to Twitter or Facebook, or when we need to notify one of our <a href=\"http://instagram.com/developer/realtime/\">Real-time subscribers</a> of a new photo posted, we push that task into <a href=\"http://gearman.org/\">Gearman</a>, a task queue system originally written at Danga. Doing it asynchronously through the task queue means that media uploads can finish quickly, while the ‘heavy lifting’ can run in the background. We have about 200 workers (all written in Python) consuming the task queue at any given time, split between the services we share to. We also do our feed fan-out in Gearman, so posting is as responsive for a new user as it is for a user with many followers.</p>
+<p>For doing push notifications, the most cost-effective solution we found was <a href=\"http://PyAPNS\"><a href=\"https://github.com/samuraisam/pyapns\">https://github.com/samuraisam/pyapns</a></a>, an open-source Twisted service that has handled over a billion push notifications for us, and has been rock-solid.</p>
+<h2>Monitoring</h2>
+<p>With 100+ instances, it’s important to keep on top of what’s going on across the board. We use <a href=\"http://munin-monitoring.org/\">Munin</a> to graph metrics across all of our system, and also alert us if anything is outside of its normal range. We write a lot of custom Munin plugins, building on top of <a href=\"http://samuelks.com/python-munin/\">Python-Munin</a>, to graph metrics that aren’t system-level (for example, signups per minute, photos posted per second, etc). We use <a href=\"http://pingdom.com\">Pingdom</a> for external monitoring of the service, and <a href=\"http://pagerduty.com\">PagerDuty</a> for handling notifications and incidents.</p>
+<p>For Python error reporting, we use <a href=\"http://pypi.python.org/pypi/django-sentry\">Sentry</a>, an awesome open-source Django app written by the folks at Disqus. At any given time, we can sign-on and see what errors are happening across our system, in real time.</p>
+<h2>You?</h2>
+<p>If this description of our systems interests you, or if you’re hopping up and down ready to tell us all the things you’d change in the system, we’d love to hear from you. <a href=\"http://instagr.am/about/jobs/\">We’re looking for a DevOps person to join us and help us tame our EC2 instance herd</a>.</p>") (link nil "http://instagram-engineering.tumblr.com/post/13649370142") (guid nil "http://instagram-engineering.tumblr.com/post/13649370142") (pubDate nil "Fri, 02 Dec 2011 14:29:42 -0800")) (item nil (title nil "Instagram Engineering Challenge: The Unshredder") (description nil "<p><img src=\"http://media.tumblr.com/tumblr_luifuzcjzz1qm4rc3.png\"/></p>
+
+
+
+<p>In our office, we have a pretty amazing paper shredder. Seriously, the thing shreds just about anything. It even has a special slot for credit cards (why anyone would want to regularly shred credit cards is beyond me, but I digress&#8230;).</p>
+
+
+
+<p>One day, after shredding some paper, I thought to myself: shredding paper is a pretty insecure way of destroying important stuff. I figured, it&#8217;s a small set of shreds that are all relatively uniform in width and could be pieced back together algorithmically in a fraction of a second.</p>
+
+
+
+<p>So, I sat down and though about what approach I&#8217;d use to piece the document back together. It&#8217;s unlike a regular puzzle in that all the pieces are exactly the same size, so you can&#8217;t rely upon the spatial domain to solve piecing shreds together. However, if you think about it, there&#8217;s a pretty simple approach that would allow you to find matches in a different domain. That is, imagine you&#8217;re sitting there trying to find a match between two pieces. What are you looking for to decide whether they&#8217;re a fit or not?</p>
+
+
+
+<p>Anyway, we got really excited about writing a script to take in an image of shreds of paper and piece them back into an original document. It&#8217;s an interesting challenge that marries image processing with an interesting algorithmic challenge as well.</p>
+
+
+
+<p><strong>THE CHALLENGE</strong></p>
+
+
+
+<p>Your challenge, if you choose to accept it, is to write a simple script that takes a shredded image in as input:</p>
+
+
+
+<p><img src=\"http://media.tumblr.com/tumblr_luigsoCv3s1qm4rc3.png\"/></p>
+
+
+
+<p>and outputs an unshredded and reconstituted image. That is, imagine if you took an image, divided it into an even number of columns and shuffled those columns randomly to produce a shredded image. Then, take that image into the script and output the original image:</p>
+
+
+
+<p><img src=\"http://media.tumblr.com/tumblr_luih7og6QM1qm4rc3.png\"/></p>
+
+
+
+<p>We tackled this, and our solution took a few hours plus another few hours for the bonus challenge (more on that later).</p>
+
+
+
+<p><strong>THE REWARD</strong></p>
+
+
+
+<p><strong>Due to overwhelming response, we&#8217;ve run out of our entire stock of tee-shirts!</strong> With future challenges we&#8217;ll be offering a reward for the first group of people who respond.</p>
+
+
+
+<p><strong>GUIDELINES</strong></p>
+
+
+
+<p>1) Choose a scripting language of your choice. We chose Python for its relative ease prototyping and availability of the Python Imaging Library (PIL) that allowed us to do the image stuff we wanted to do. You can easily use something like C++ or Ruby for this as well.</p>
+
+
+
+<p>2) Produce a script that reads in a shredded image (like the one below) and produces the original image. For this image, you can assume shreds are 32 pixels wide and uniformly spaced across the image horizontally. These shreds are scattered at random and if rearranged, will yield the original image.</p>
+
+
+
+<p><strong>Use <a href=\"http://instagram-static.s3.amazonaws.com/images/TokyoPanoramaShredded.png\">this image</a> as the source image - it&#8217;s 640 pixels wide and 359 pixels high.</strong></p>
+
+
+
+<p>3) Your solution should algorithmically unshred the image. This means it should work on arbitrarily shredded images we feed your script that are shredded in the same manner.</p>
+
+
+
+<p>4) <strong>BONUS CHALLENGE</strong>: We went the extra mile and made our script even spiffier by auto-detecting how wide the uniform strips are. Extra bonus points to anyone who works this into their solution. But first, we&#8217;d recommend getting your script to work assuming 32 pixel-wide shreds. For this you can assume shreds will never end up next to each other correctly in the source image.</p>
+
+
+
+<p>5) The key to this problem is being able to access pixel data in the image. We used Python Imaging Library - PIL (<a href=\"http://www.pythonware.com/products/pil/\" title=\"http://www.pythonware.com/products/pil/\"><a href=\"http://www.pythonware.com/products/pil/\">http://www.pythonware.com/products/pil/</a></a>) which made it very easy to parse. See the PIL tips below. If you&#8217;re using Ruby, check out RMagick (<a href=\"http://rmagick.rubyforge.org/\" title=\"http://rmagick.rubyforge.org/\"><a href=\"http://rmagick.rubyforge.org/\">http://rmagick.rubyforge.org/</a></a>) which is a gem that serves the same purpose as PIL. C++ has the boost libraries and included is &#8220;GIL&#8221; which will help you. If you&#8217;re using another language, there are most certainly equivalents of PIL, RMagick, and GIL.</p>
+
+
+
+<p><strong>SUBMIT YOUR SOLUTION</strong></p>
+
+
+
+<p>We&#8217;re no longer offering the tee-shirt reward but if you&#8217;re still interested in working with us, please submit your information &amp; a link to your solution here: <a href=\"http://bit.ly/unshredder\" target=\"_blank\"><a href=\"http://bit.ly/unshredder\">http://bit.ly/unshredder</a></a></p>
+
+
+
+<p><strong>PIL TIPS</strong></p>
+
+
+
+<pre>from PIL import Image
+image = Image.open(‘file.jpg’)
+data = image.getdata() # This gets pixel data
+
+# Access an arbitrary pixel. Data is stored as a 2d array where rows are
+# sequential. Each element in the array is a RGBA tuple (red, green, blue,
+# alpha).
+
+x, y = 20, 90
+def get_pixel_value(x, y):
+   width, height = image.size
+   pixel = data[y * width + x]
+   return pixel
+print get_pixel_value(20, 30)
+
+# Create a new image of the same size as the original
+# and copy a region into the new image
+NUMBER_OF_COLUMNS = 5
+unshredded = Image.new(“RGBA”, image.size)
+shred_width = unshredded.size[0]/NUMBER_OF_COLUMNS
+shred_number = 1
+x1, y1 = shred_width * shred_number, 0
+x2, y2 = x1 + shred_width, height
+source_region = image.crop(x1, y1, x2, y2)
+destination_point = (0, 0)
+unshredded.paste(source_region, destination_point)
+# Output the new image
+unshredded.save(“unshredded.jpg”, “JPEG”)</pre>
+
+<p><strong>TIPS</strong></p>
+
+
+
+<p>1) Don&#8217;t overthink it. Use of really complex algorithms isn&#8217;t needed. Our solution WITH the bonus exercise comes in at just over 150 lines of python.</p>
+
+
+
+<p>2) Think about how you would quantify whether or not two shreds &#8216;fit&#8217; together by using pixel data</p>
+
+
+
+<p>3) Assume you&#8217;re using the source image, or other normal photographs without edge-case patterns.</p>
+
+
+
+<p>4) There are edge cases where the script we wrote with our approach will not work because of repeating patterns. This is OK in your script as well. Don&#8217;t worry about special cases – focus on making the sample images work that we&#8217;ve provided.</p>
+
+
+
+<p>4) Bonus Challenge: If you decide you want to auto-detect how many columns there are in an image, you should remember that there are a finite amount of columns that are possible given an image of a certain width if you assume columns are evenly distributed and uniformly sized.</p>
+
+
+
+<p><strong>SHREDDER</strong></p>
+
+
+
+<p>If you&#8217;d like to produce your own sample images, you can use our simple script here to generate some:</p>
+
+
+
+<pre>from PIL import Image
+from random import shuffle
+
+SHREDS = 10
+image = Image.open(“sample.png”)
+shredded = Image.new(“RGBA”, image.size)
+width, height = image.size
+shred_width = width/SHREDS
+sequence = range(0, SHREDS)
+shuffle(sequence)
+
+for i, shred_index in enumerate(sequence):
+    shred_x1, shred_y1 = shred_width * shred_index, 0
+    shred_x2, shred_y2 = shred_x1 + shred_width, height
+    region =image.crop((shred_x1, shred_y1, shred_x2, shred_y2))
+    shredded.paste(region, (shred_width * i, 0))
+
+shredded.save(“sample_shredded.png”)</pre>") (link nil "http://instagram-engineering.tumblr.com/post/12651721845") (guid nil "http://instagram-engineering.tumblr.com/post/12651721845") (pubDate nil "Fri, 11 Nov 2011 11:48:00 -0800")) (item nil (title nil "Storing hundreds of millions of simple key-value pairs in Redis") (description nil "<p>When transitioning systems, sometimes you have to build a little scaffolding. At Instagram, we recently had to do just that: for legacy reasons, we need to keep around a mapping of about 300 million photos back to the user ID that created them, in order to know which shard to query (see more info about <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">our sharding setup</a>). While eventually all clients and API applications will have been updated to pass us the full information, there are still plenty who have old information cached. We needed a solution that would:</p>
+<ol><li>Look up keys and return values very quickly</li>
+<li>Fit the data in memory, and ideally within one of the EC2 high-memory types (the 17GB or 34GB, rather than the 68GB instance type)</li>
+<li>Fit well into our existing infrastructure</li>
+<li>Be persistent, so that we wouldn’t have to re-populate it if a server died</li>
+</ol><p>One simple solution to this problem would be to simply store them as a bunch of rows in a database, with “Media ID” and “User ID” columns. However, a SQL database seemed like overkill given that these IDs were never updated (only inserted), didn’t need to be transactional, and didn’t have any relations with other tables.</p>
+<p>Instead, we turned to <a href=\"http://redis.io\">Redis</a>, an advanced key-value store that we use extensively here at Instagram (for example, it powers our main feed). Redis is a key-value swiss-army knife; rather than just normal “Set key, get key” mechanics like Memcached, it provides powerful aggregate types like sorted sets and lists. It has a configurable persistence model, where it background saves at a specified interval, and can be run in a master-slave setup. All of our Redis deployments run in master-slave, with the slave set to save to disk about every minute.</p>
+<p>At first, we decided to use Redis in the simplest way possible: for each ID, the key would be the media ID, and the value would be the user ID:</p>
+<pre><code>SET media:1155315 939
+GET media:1155315
+&gt; 939
+</code></pre>
+<p>While prototyping this solution, however, we found that Redis needed about 70&#160;MB to store 1,000,000 keys this way. Extrapolating to the 300,000,000 we would eventually need, it was looking to be around 21GB worth of data—already bigger than the 17GB instance type on Amazon EC2.</p>
+<p>We asked the always-helpful <a href=\"https://twitter.com/#!/pnoordhuis\">Pieter Noordhuis</a>, one of Redis’ core developers, for input, and he suggested we use Redis hashes. Hashes in Redis are dictionaries that are can be encoded in memory very efficiently; the Redis setting ‘hash-zipmap-max-entries’ configures the maximum number of entries a hash can have while still being encoded efficiently. We found this setting was best around 1000; any higher and the HSET commands would cause noticeable CPU activity. For more details, you can <a href=\"https://github.com/antirez/redis/blob/unstable/src/zipmap.c\">check out the zipmap source file</a>.</p>
+<p>To take advantage of the hash type, we bucket all our Media IDs into buckets of 1000 (we just take the ID, divide by 1000 and discard the remainder). That determines which key we fall into; next, within the hash that lives at that key, the Media ID is the lookup key *within* the hash, and the user ID is the value. An example, given a Media ID of 1155315, which means it falls into bucket 1155 (1155315 / 1000 = 1155):</p>
+<pre><code>HSET \"mediabucket:1155\" \"1155315\" \"939\"
+HGET \"mediabucket:1155\" \"1155315\"
+&gt; \"939\"
+</code></pre>
+<p>The size difference was pretty striking; with our 1,000,000 key prototype (encoded into 1,000 hashes of 1,000 sub-keys each), Redis only needs 16MB to store the information. Expanding to 300 million keys, the total is just under 5GB—which in fact, even fits in the much cheaper m1.large instance type on Amazon, about 1/3 of the cost of the larger instance we would have needed otherwise. Best of all, lookups in hashes are still O(1), making them very quick.</p>
+<p>If you’re interested in trying these combinations out, the script we used to run these tests is <a href=\"https://gist.github.com/1329319\">available as a Gist on GitHub</a> (we also included Memcached in the script, for comparison—it took about 52MB for the million keys). And if you’re interested in working on these sorts of problems with us, <a href=\"http://instagram.com/about/jobs/\">drop us a note, we’re hiring!</a>.</p>
+<p><br/>Comments? Questions? <a href=\"http://news.ycombinator.com/item?id=3183276\">Discuss this post at Hacker News</a>.</p>
+<hr><p>Mike Krieger, co-founder</p>") (link nil "http://instagram-engineering.tumblr.com/post/12202313862") (guid nil "http://instagram-engineering.tumblr.com/post/12202313862") (pubDate nil "Tue, 01 Nov 2011 11:00:00 -0700")) (item nil (title nil "Simplifying EC2 SSH Connections") (description nil "<p>Here at Instagram, we run our infrastructure on Amazon Web Services, running instances on their Elastic Compute Cloud (EC2). Since we&#8217;re often spinning up new machines and changing details of our infrastructure, there&#8217;s an ever-growing list of machines that we SSH into.</p>
+<p>To authenticate with our instances, we use public key authentication (the recommended way of doing SSH log-ins to EC2 machines), but we need to figure out what host we&#8217;re connecting to first. A common way of connecting to an EC2 instance is via it&#8217;s public hostname (ec2-x-x-x-x.compute-1.amazonaws.com). However, managing a list of these hostnames once there are several of them is tedious. Because of this, we wrote EC2-SSH, a set of Python scripts that help easily connect to EC2 instances, and that we&#8217;re open sourcing for the community&#8217;s benefit.</p>
+<p>EC2-SSH takes advantage of the EC2 instance tagging. If you&#8217;re using the web console, when launching a new instance, Amazon prompts you to provide an optional value for the (pre-filled) &#8220;Name&#8221; tag. Tags can also be edited using the available EC2 command line tools.</p>
+<p>Assuming you&#8217;ve already tagged all of your instances with names, using EC2-SSH is as easy as using regular SSH with hostnames— because, behind the scenes, that&#8217;s all it&#8217;s really doing. Better illustrated with an example: Let&#8217;s assume you have an instance tagged with the name &#8220;nginx3&#8221;; using EC2-SSH you could connect to the instance by typing `ec2-ssh nginx3` into your terminal.</p>
+<p>EC2-SSH first calls the Amazon EC2 web service, resolving the tag name (in this case &#8220;nginx3&#8221;) to the public DNS address. It then substitutes out the tag name with the hostname and sends it, along with any other arguments and parameters, to `/usr/bin/ssh`.</p>
+<p>The `ec2-ssh` script is small shell script that calls another Python script, `ec2-host`, that eventually calls `/usr/bin/ssh`. Let&#8217;s detail out the process in depth:</p>
+<p>The Python script `ec2-host` is distributed in the EC2-SSH Python package and can be used unaccompanied— you might find it rather useful, in fact. Let&#8217;s take a look at it&#8217;s usage output:</p>
+<pre><code>% ec2-host --help
+
+Usage: ec2-host [-k KEY] [-s SECRET] [NAME]
+Prints server host name.
+
+  --help                  display this help and exit
+  -k, --aws-key KEY       EC2 Key, defaults to ENV[<span>AWS_ACCESS_KEY_ID</span>]<br/></code><code>  -s, --aws-secret SECRET EC2 Secret, defaults to ENV[AWS_SECRET_ACCESS_KEY]
+</code></pre>
+<p>By default, with no arguments, `ec2-host` host will return a list of all running EC2 instances and their associated public host names. I often use `ec2-host` this way, combined with grep I use it to filter out and identify a specific instance, or set of instances. Here&#8217;s an example:</p>
+<pre><code>% ec2-host | grep django
+django1    ec2-x-x-x-x.amazonaws.com
+django2    ec2-x-x-x-x.amazonaws.com
+....
+</code></pre>
+<p>When passing the value of an instance&#8217;s &#8220;Name&#8221; tag as an argument, ec2-host will return the associated public hostname. This is exactly what the `ec2-ssh` shell script does. Here&#8217;s an example:</p>
+<pre><code>% ec2-host nginx2
+ec2-x-x-x-x.compute-1.amazonaws.com
+</code></pre>
+<p>You may be asking how `ec2-host` has access to enumerate over your running EC2 instances, that&#8217;s a valid question. Before you start using `ec2-ssh` or `ec2-host` you have to provide your AWS key and secret. You can pass them via command line arguments to `ec2-host` like this:</p>
+<pre><code>% ec2-host --aws-key  AKJASKSA1234JDSJ8123 --aws-secret B3JDJRYQ1234QWRHFJ1234AJJDAH1kjd1234
+</code></pre>
+<p>To save time, you can also set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.</p>
+<p>Putting it all together, if you issue the following command, you&#8217;ll be signed in to the instance in your system with the specified name:</p>
+<pre><code>% ec2-ssh nginx3</code></pre>
+<p>Any arguments after the instance name will be passed into ssh:</p>
+<pre><code>% ec2-ssh nginx5 date  
+Thu Oct 13 17:25:22 UTC 2011
+</code></pre>
+<p>We&#8217;ve made these tools available via PyPy, so you can issue an `easy_install ec2-ssh` or a `pip install ec2-ssh` to install the tools. If you&#8217;d like to contribute, you can also <a href=\"http://github.com/Instagram/ec2-ssh\">fork the code on GitHub</a>, or <a href=\"http://news.ycombinator.com/item?id=3107965\">discuss this post on Hacker News</a> . And if you&#8217;re interested in helping us scale our systems, <a href=\"http://instagram.jobscore.com/jobs/instagram/engineer/bXctey0Oir4kCZeJe4bk1X\">we&#8217;d love to hear from you</a>.</p>
+<p><em>Shayne Sweeney, Mobile &amp; Server Engineer</em></p>") (link nil "http://instagram-engineering.tumblr.com/post/11399488246") (guid nil "http://instagram-engineering.tumblr.com/post/11399488246") (pubDate nil "Thu, 13 Oct 2011 10:26:00 -0700")) (item nil (title nil "Sharding & IDs at Instagram") (description nil "<p>With more than 25 photos &amp; 90 likes every second, we store a lot of data here at Instagram. To make sure all of our important data fits into memory and is available quickly for our users, we’ve begun to <a href=\"http://en.wikipedia.org/wiki/Shard_(database)\">shard</a> our data—in other words, place the data in many smaller buckets, each holding a part of the data.</p>
+
+
+
+<p>Our application servers run <a href=\"http://djangoproject.com\">Django</a> with <a href=\"http://postgresql.org/\">PostgreSQL</a> as our back-end database. Our first question after deciding to shard out our data was whether PostgreSQL should remain our primary data-store, or whether we should switch to something else. We evaluated a few different NoSQL solutions, but ultimately decided that the solution that best suited our needs would be to shard our data across a set of PostgreSQL servers.</p>
+
+
+
+<p>Before writing data into this set of servers, however, we had to solve the issue of how to assign unique identifiers to each piece of data in the database (for example, each photo posted in our system). The typical solution that works for a single database—just using a database’s natural auto-incrementing primary key feature—no longer works when data is being inserted into many databases at the same time. The rest of this blog post addresses how we tackled this issue.</p>
+
+
+
+<p>Before starting out, we listed out what features were essential in our system:</p>
+
+
+
+<ol><li>Generated IDs should be sortable by time (so a list of photo IDs, for example, could be sorted without fetching more information about the photos)</li>
+<li>IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)</li>
+<li>The system should introduce as few new ‘moving parts’ as possible—a large part of how we’ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust. </li>
+</ol><h2 id=\"existing_solutions\">Existing solutions</h2>
+
+<p>
+</p>
+
+<p>Many existing solutions to the ID generation problem exist; here are a few we considered:</p>
+
+
+
+<h3 id=\"generate_ids_in_web_application\">Generate IDs in web application</h3>
+
+<p>
+</p>
+
+<p>This approach leaves ID generation entirely up to your application, and not up to the database at all. For example, <a href=\"http://www.mongodb.org/display/DOCS/Object+IDs\">MongoDB’s ObjectId</a>, which is 12 bytes long and encodes the timestamp as the first component. Another popular approach is to use <a href=\"http://en.wikipedia.org/wiki/Universally_unique_identifier\">UUID</a>s.</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>Each application thread generates IDs independently, minimizing points of failure and contention for ID generation</li>
+<li>If you use a timestamp as the first component of the ID, the IDs remain time-sortable</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Generally requires more storage space (96 bits or higher) to make reasonable uniqueness guarantees</li>
+<li>Some UUID types are completely random and have no natural sort</li>
+</ol><h3 id=\"generate_ids_through_dedicated_service\">Generate IDs through dedicated service</h3>
+
+<p>
+</p>
+
+<p>Ex: Twitter’s <a href=\"http://github.com/twitter/snowflake/\">Snowflake</a>, a Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>Snowflake IDs are 64-bits, half the size of a UUID</li>
+<li>Can use time as first component and remain sortable</li>
+<li>Distributed system that can survive nodes dying</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Would introduce additional complexity and more ‘moving parts’ (ZooKeeper, Snowflake servers) into our architecture </li>
+</ol><h3 id=\"db_ticket_servers\">DB Ticket Servers</h3>
+
+<p>
+</p>
+
+<p>Uses the database’s auto-incrementing abilities to enforce uniqueness. <a href=\"http://code.flickr.com/blog/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/\">Flickr uses this approach</a>, but with two ticket DBs (one on odd numbers, the other on even) to avoid a single point of failure.</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>DBs are well understood and have pretty predictable scaling factors</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Can eventually become a write bottleneck (though Flickr reports that, even at huge scale, it&#8217;s not an issue).</li>
+<li>An additional couple of machines (or EC2 instances) to admin</li>
+<li>If using a single DB, becomes single point of failure. If using multiple DBs, can no longer guarantee that they are sortable over time.</li>
+</ol><p>Of all the approaches above, Twitter’s Snowflake came the closest, but the additional complexity required to run an ID service was a point against it. Instead, we took a conceptually similar approach, but brought it inside PostgreSQL.</p>
+
+
+
+<h3 id=\"our_solution\">Our solution</h3>
+
+<p>
+</p>
+
+<p>Our sharded system consists of several thousand ‘logical’ shards that are mapped in code to far fewer physical shards. Using this approach, we can start with just a few database servers, and eventually move to many more, simply by moving a set of logical shards from one database to another, without having to re-bucket any of our data. We used Postgres’ schemas feature to make this easy to script and administrate.</p>
+
+
+
+<p>Schemas (not to be confused with the SQL schema of an individual table) are a logical grouping feature in Postgres. Each Postgres DB can h2have several schemas, each of which can contain one or more tables. Table names must only be unique per-schema, not per-DB, and by default Postgres places everything in a schema named ‘public’.</p>
+
+
+
+<p>Each ‘logical’ shard is a Postgres schema in our system, and each sharded table (for example, likes on our photos) exists inside each schema.</p>
+
+
+
+<p>We’ve delegated ID creation to each table inside each shard, by using PL/PGSQL, Postgres’ internal programming language, and Postgres’ existing auto-increment functionality.</p>
+
+
+
+<p>Each of our IDs consists of:</p>
+
+
+
+<ul><li>41 bits for time in milliseconds (gives us 41 years of IDs with a custom epoch)</li>
+<li>13 bits that represent the logical shard ID</li>
+<li>10 bits that represent an auto-incrementing sequence, modulus 1024. This means we can generate 1024 IDs, per shard, per millisecond</li>
+</ul><p>Let’s walk through an example: let’s say it’s September 9th, 2011, at 5:00pm and our ‘epoch’ begins on January 1st, 2011. There have been 1387263000 milliseconds since the beginning of our epoch, so to start our ID, we fill the left-most 41 bits with this value with a left-shift:</p>
+
+
+
+<p><code>id = 1387263000 &lt;&lt; (64-41)</code></p>
+
+
+
+<p>Next, we take the shard ID for this particular piece of data we’re trying to insert. Let’s say we’re sharding by user ID, and there are 2000 logical shards; if our user ID is 31341, then the shard ID is <code>31341 % 2000 -&gt; 1341</code>. We fill the next 13 bits with this value:</p>
+
+
+
+<p><code>id |= 1341 &lt;&lt; (64-41-13)</code></p>
+
+
+
+<p>Finally, we take whatever the next value of our auto-increment sequence (this sequence is unique to each table in each schema) and fill out the remaining bits. Let’s say we’d generated 5,000 IDs for this table already; our next value is 5,001, which we take and mod by 1024 (so it fits in 10 bits) and include it too:</p>
+
+
+
+<p><code>id |= (5001 % 1024)</code></p>
+
+
+
+<p>We now have our ID, which we can return to the application server using the <code>RETURNING</code> keyword as part of the <code>INSERT</code>.</p>
+
+
+
+<p>Here’s the PL/PGSQL that accomplishes all this (for an example schema insta5):</p>
+
+
+
+<pre><code>CREATE OR REPLACE FUNCTION insta5.next_id(OUT result bigint) AS $$
+DECLARE
+    our_epoch bigint := 1314220021721;
+    seq_id bigint;
+    now_millis bigint;
+    shard_id int := 5;
+BEGIN
+    SELECT nextval('insta5.table_id_seq') %% 1024 INTO seq_id;
+
+    SELECT FLOOR(EXTRACT(EPOCH FROM clock_timestamp()) * 1000) INTO now_millis;
+    result := (now_millis - our_epoch) &lt;&lt; 23;
+    result := result | (shard_id &lt;&lt; 10);
+    result := result | (seq_id);
+END;
+$$ LANGUAGE PLPGSQL;
+</code></pre>
+
+<p>
+</p>
+
+<p>And when creating the table, we do:</p>
+
+
+
+<pre><code>CREATE TABLE insta5.our_table (
+    \"id\" bigint NOT NULL DEFAULT insta5.next_id(),
+    ...rest of table schema...
+)</code></pre>
+
+<p>
+</p>
+
+<p>And that&#8217;s it! Primary keys that are unique across our application (and as a bonus, contain the shard ID in them for easier mapping). We&#8217;ve been rolling this approach into production and are happy with the results so far. Interested in helping us figure out these problems at scale? <a href=\"http://instagram.com/about/jobs/\">We&#8217;re hiring!</a></p>
+
+
+
+<p><em>Mike Krieger, co-founder</em></p>
+
+
+
+<p>&#8212;</p>
+
+
+
+<p>Discuss this post on <a title=\"Hacker News\" href=\"http://news.ycombinator.com/item?id=3058327\">Hacker News</a>.</p>") (link nil "http://instagram-engineering.tumblr.com/post/10853187575") (guid nil "http://instagram-engineering.tumblr.com/post/10853187575") (pubDate nil "Fri, 30 Sep 2011 10:57:00 -0700")))) ("Handling Growth with Postgres: 5 Tips From Instagram" "<p>As we’ve scaled Instagram to an ever-growing number of active users, Postgres has continued to be our solid foundation and the canonical data storage for most of the data created by our users. While <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">less than a year ago</a>, we blogged about how we “stored a lot of data” at Instagram at 90 likes per second, we’re now pushing over 10,000 likes per second at peak—and our fundamental storage technology hasn’t changed. </p>
+<p>Over the last two and a half years, we’ve picked up a few tips and tools about scaling Postgres that we wanted to share—things we wish we knew when we first launched Instagram. Some of these are Postgres-specific while others are present in other databases as well. For background on how we’ve horizontally partitioned Postgres, check out our <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">Sharding and IDs at Instagram</a> post.</p>
+<h2>1. Partial Indexes</h2>
+<p>If you find yourself frequently filtering your queries by a particular characteristic, and that characteristic is present in a minority of your rows, partial indexes may be a big win.</p>
+<p>As an example, when searching tags on Instagram, we try to surface tags that are likely to have many photos in them. While we use technologies like ElasticSearch for fancier searches in our application, this is one case where the database was good enough. Let’s see what Postgres does when searching tag names and ordering by number of photos:</p>
+<pre><code>EXPLAIN ANALYZE SELECT id from tags WHERE name LIKE 'snow%' ORDER BY media_count DESC LIMIT 10;
+QUERY PLAN
+---------
+Limit  (cost=1780.73..1780.75 rows=10 width=32) (actual time=215.211..215.228 rows=10 loops=1)
+-&gt;  Sort  (cost=1780.73..1819.36 rows=15455 width=32) (actual time=215.209..215.215 rows=10 loops=1)
+Sort Key: media_count
+Sort Method:  top-N heapsort  Memory: 25kB
+-&gt;  Index Scan using tags_search on tags_tag  (cost=0.00..1446.75 rows=15455 width=32) (actual time=0.020..162.708 rows=64572 loops=1)
+Index Cond: (((name)::text ~&gt;=~ 'snow'::text) AND ((name)::text ~&lt;~ 'snox'::text))
+Filter: ((name)::text ~~ 'snow%'::text)
+Total runtime: 215.275 ms
+(8 rows)
+</code></pre>
+<p>Notice how Postgres had to sort through 15,000 rows to get the right result. Since tags (for example) exhibit a long-tail pattern, we can instead first try a query against tags with over 100 photos; we’ll do:</p>
+<pre><code>CREATE INDEX CONCURRENTLY on tags (name text_pattern_ops) WHERE media_count &gt;= 100
+</code></pre>
+<p>Now the query plan looks like:</p>
+<pre><code>EXPLAIN ANALYZE SELECT * from tags WHERE name LIKE 'snow%' AND media_count &gt;= 100 ORDER BY media_count DESC LIMIT 10;
+QUERY PLAN
+Limit  (cost=224.73..224.75 rows=10 width=32) (actual time=3.088..3.105 rows=10 loops=1)
+-&gt;  Sort  (cost=224.73..225.15 rows=169 width=32) (actual time=3.086..3.090 rows=10 loops=1)
+Sort Key: media_count
+Sort Method:  top-N heapsort  Memory: 25kB
+-&gt;  Index Scan using tags_tag_name_idx on tags_tag  (cost=0.00..221.07 rows=169 width=32) (actual time=0.021..2.360 rows=924 loops=1)
+Index Cond: (((name)::text ~&gt;=~ 'snow'::text) AND ((name)::text ~&lt;~ 'snox'::text))
+Filter: ((name)::text ~~ 'snow%'::text)
+Total runtime: 3.137 ms
+(8 rows)
+</code></pre>
+<p>Notice that Postgres only had to visit 169 rows, which was way faster. Postgres’ query planner is pretty good at evaluating constraints too; if you later decided that you wanted to query tags with over 500 photos, since those are a subset of this index, it will still use the right partial index.</p>
+<h2>2. Functional Indexes</h2>
+<p>On some of our tables, we need to index strings (for example, 64 character base64 tokens) that are quite long, and creating an index on those strings ends up duplicating a lot of data. For these, Postgres’ functional index feature can be very helpful:</p>
+<pre><code>CREATE INDEX CONCURRENTLY on tokens (substr(token), 0, 8)
+</code></pre>
+<p>While there will be multiple rows that match that prefix, having Postgres match those prefixes and then filter down is quick, and the resulting index was 1/10th the size it would have been had we indexed the entire string.</p>
+<h2>3. pg_reorg For Compaction</h2>
+<p>Over time, Postgres tables can become fragmented on disk (due to Postgres’ <a href=\"http://en.wikipedia.org/wiki/Multiversion_concurrency_control\">MVCC</a> concurrency model, for example). Also, most of the time, row insertion order does not match the order in which you want rows returned. For example, if you’re often querying for all likes created by one user, it’s helpful to have those likes be contiguous on disk, to minimize disk seeks.</p>
+<p>Our solution to this is to use <a href=\"http://pgfoundry.org/projects/reorg/\">pg_reorg</a>, which does a 3-step process to “compact” a table:</p>
+<ol><li>Acquire an exclusive lock on the table</li>
+<li>Create a temporary table to accumulate changes, and add a trigger on the original table that replicates any changes to this temp table</li>
+<li>Do a CREATE TABLE using a SELECT FROM…ORDER BY, which will create a new table in index order on disk</li>
+<li>Sync the changes from the temp table that happened after the SELECT FROM started</li>
+<li>Cut over to the new table</li>
+</ol><p>There are some details in there around lock acquisition etc, but that’s the general approach. We vetted the tool and tried several test runs before running in production, and we’ve run dozens of reorgs across hundreds of machines without issues.</p>
+<h2>4. WAL-E for WAL archiving and backups</h2>
+<p>We use and contribute code to <a href=\"https://github.com/heroku/WAL-E\">WAL-E</a>, Heroku’s toolkit for continuous archiving of Postgres Write-Ahead Log files. Using WAL-E has simplified our backup and new-replica bootstrap process significantly.</p>
+<p>At its core, WAL-E is a program that archives every WAL files generated by your PG server to Amazon’s S3, using Postgres’ archive_command. These WAL files can then be used, in combination with a base backup, to restore a DB to any point since that base backup. The combination of regular base backups and the WAL archiving means we can quickly bootstrap a new read-replica or failover slave, too.</p>
+<p>We’ve made our simple wrapper script for monitoring repeated failures to archive a file <a href=\"https://gist.github.com/4550560\">available on GitHub</a>.</p>
+<h2>5. Autocommit mode and async mode in psycopg2</h2>
+<p>Over time, we’ve started using more advanced features in psycopg2, the Python driver for Postgres.</p>
+<p>The first is autocommit mode; in this mode, Psycopg2 won’t issue BEGIN/COMMIT for any queries; instead, every query runs in its own single-statement transaction. This is particularly useful for read-only queries where transaction semantics aren’t needed. It’s as easy as doing:</p>
+<pre><code>connection.autocommit = True
+</code></pre>
+<p>This lowered chatter between our application servers and DBs significantly, and lowered system CPU as well on the database boxes. Further, since we use PGBouncer for our connection pooling, this change allows connections to be returned to the pool sooner.</p>
+<p>More details on how this interacts with Django’s db handling <a href=\"http://thebuild.com/blog/2009/11/07/django-postgresql-and-autocommit/\">here</a>.</p>
+<p>Another useful psycopg2 feature is the ability to register a <a href=\"http://initd.org/psycopg/docs/advanced.html#support-for-coroutine-libraries\">wait_callback</a> for coroutine support. Using this allows for concurrent querying across multiple connections at once, which is useful for fan-out queries that hit multiple nodes—the socket will wake up and notify when there’s data to be read (we use Python’s select module for handling the wake-ups). This also plays well with cooperative multi-threading libraries like eventlet or gevent; check out <a href=\"http://pypi.python.org/pypi/psycogreen/1.0\">psycogreen</a> for an example implementation.</p>
+<p>Overall, we’ve been very happy with Postgres’ performance and reliability. If you’re interested in working on one of the world’s largest Postgres installations with a small team of infrastructure hackers, get in touch at infrajobs &lt;at&gt; instagram.com.</p>
+<p><i>You can discuss this post at <a href=\"http://news.ycombinator.com/item?id=5075009\">Hacker News</a></i></p>
+<p><i>Mike Krieger, co-founder</i></p>" "http://instagram-engineering.tumblr.com/post/40781627982" (20728 24392) new 1 nil nil ((title nil "Handling Growth with Postgres: 5 Tips From Instagram") (description nil "<p>As we&#8217;ve scaled Instagram to an ever-growing number of active users, Postgres has continued to be our solid foundation and the canonical data storage for most of the data created by our users. While <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">less than a year ago</a>, we blogged about how we &#8220;stored a lot of data&#8221; at Instagram at 90 likes per second, we&#8217;re now pushing over 10,000 likes per second at peak&#8212;and our fundamental storage technology hasn&#8217;t changed. </p>
+
+<p>Over the last two and a half years, we&#8217;ve picked up a few tips and tools about scaling Postgres that we wanted to share&#8212;things we wish we knew when we first launched Instagram. Some of these are Postgres-specific while others are present in other databases as well. For background on how we&#8217;ve horizontally partitioned Postgres, check out our <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">Sharding and IDs at Instagram</a> post.</p>
+
+<h2>1. Partial Indexes</h2>
+
+<p>If you find yourself frequently filtering your queries by a particular characteristic, and that characteristic is present in a minority of your rows, partial indexes may be a big win.</p>
+
+<p>As an example, when searching tags on Instagram, we try to surface tags that are likely to have many photos in them. While we use technologies like ElasticSearch for fancier searches in our application, this is one case where the database was good enough. Let&#8217;s see what Postgres does when searching tag names and ordering by number of photos:</p>
+
+<pre><code>EXPLAIN ANALYZE SELECT id from tags WHERE name LIKE 'snow%' ORDER BY media_count DESC LIMIT 10;      
+QUERY PLAN   
+---------                                                                  
+ Limit  (cost=1780.73..1780.75 rows=10 width=32) (actual time=215.211..215.228 rows=10 loops=1)
+   -&gt;  Sort  (cost=1780.73..1819.36 rows=15455 width=32) (actual time=215.209..215.215 rows=10 loops=1)
+         Sort Key: media_count
+         Sort Method:  top-N heapsort  Memory: 25kB
+         -&gt;  Index Scan using tags_search on tags_tag  (cost=0.00..1446.75 rows=15455 width=32) (actual time=0.020..162.708 rows=64572 loops=1)
+               Index Cond: (((name)::text ~&gt;=~ 'snow'::text) AND ((name)::text ~&lt;~ 'snox'::text))
+               Filter: ((name)::text ~~ 'snow%'::text)
+ Total runtime: 215.275 ms
+(8 rows)
+
+</code></pre>
+
+<p>Notice how Postgres had to sort through 15,000 rows to get the right result. Since tags (for example) exhibit a long-tail pattern, we can instead first try a query against tags with over 100 photos; we&#8217;ll do:</p>
+
+<pre><code>CREATE INDEX CONCURRENTLY on tags (name text_pattern_ops) WHERE media_count &gt;= 100
+</code></pre>
+
+<p>Now the query plan looks like:</p>
+
+<pre><code>EXPLAIN ANALYZE SELECT * from tags WHERE name LIKE 'snow%' AND media_count &gt;= 100 ORDER BY media_count DESC LIMIT 10;
+
+QUERY PLAN
+ Limit  (cost=224.73..224.75 rows=10 width=32) (actual time=3.088..3.105 rows=10 loops=1)
+   -&gt;  Sort  (cost=224.73..225.15 rows=169 width=32) (actual time=3.086..3.090 rows=10 loops=1)
+         Sort Key: media_count
+         Sort Method:  top-N heapsort  Memory: 25kB
+         -&gt;  Index Scan using tags_tag_name_idx on tags_tag  (cost=0.00..221.07 rows=169 width=32) (actual time=0.021..2.360 rows=924 loops=1)
+               Index Cond: (((name)::text ~&gt;=~ 'snow'::text) AND ((name)::text ~&lt;~ 'snox'::text))
+               Filter: ((name)::text ~~ 'snow%'::text)
+ Total runtime: 3.137 ms
+(8 rows)
+</code></pre>
+
+<p>Notice that Postgres only had to visit 169 rows, which was way faster. Postgres&#8217; query planner is pretty good at evaluating constraints too; if you later decided that you wanted to query tags with over 500 photos, since those are a subset of this index, it will still use the right partial index.</p>
+
+<h2>2. Functional Indexes</h2>
+
+<p>On some of our tables, we need to index strings (for example, 64 character base64 tokens) that are quite long, and creating an index on those strings ends up duplicating a lot of data. For these, Postgres&#8217; functional index feature can be very helpful:</p>
+
+<pre><code>CREATE INDEX CONCURRENTLY on tokens (substr(token), 0, 8)
+</code></pre>
+
+<p>While there will be multiple rows that match that prefix, having Postgres match those prefixes and then filter down is quick, and the resulting index was 1/10th the size it would have been had we indexed the entire string.</p>
+
+<h2>3. pg_reorg For Compaction</h2>
+
+<p>Over time, Postgres tables can become fragmented on disk (due to Postgres&#8217; <a href=\"http://en.wikipedia.org/wiki/Multiversion_concurrency_control\">MVCC</a> concurrency model, for example). Also, most of the time, row insertion order does not match the order in which you want rows returned. For example, if you&#8217;re often querying for all likes created by one user, it&#8217;s helpful to have those likes be contiguous on disk, to minimize disk seeks.</p>
+
+<p>Our solution to this is to use <a href=\"http://pgfoundry.org/projects/reorg/\">pg_reorg</a>, which does a 3-step process to &#8220;compact&#8221; a table:</p>
+
+<ol><li>Acquire an exclusive lock on the table</li>
+<li>Create a temporary table to accumulate changes, and add a trigger on the original table that replicates any changes to this temp table</li>
+<li>Do a CREATE TABLE using a SELECT FROM…ORDER BY, which will create a new table in index order on disk</li>
+<li>Sync the changes from the temp table that happened after the SELECT FROM started</li>
+<li>Cut over to the new table</li>
+</ol><p>There are some details in there around lock acquisition etc, but that&#8217;s the general approach. We vetted the tool and tried several test runs before running in production, and we&#8217;ve run dozens of reorgs across hundreds of machines without issues.</p>
+
+<h2>4. WAL-E for WAL archiving and backups</h2>
+
+<p>We use and contribute code to <a href=\"https://github.com/heroku/WAL-E\">WAL-E</a>, Heroku&#8217;s toolkit for continuous archiving of Postgres Write-Ahead Log files. Using WAL-E has simplified our backup and new-replica bootstrap process significantly.</p>
+
+<p>At its core, WAL-E is a program that archives every WAL files generated by your PG server to Amazon&#8217;s S3, using Postgres&#8217; archive_command. These WAL files can then be used, in combination with a base backup, to restore a DB to any point since that base backup. The combination of regular base backups and the WAL archiving means we can quickly bootstrap a new read-replica or failover slave, too.</p>
+
+<p>We&#8217;ve made our simple wrapper script for monitoring repeated failures to archive a file <a href=\"https://gist.github.com/4550560\">available on GitHub</a>.</p>
+
+<h2>5. Autocommit mode and async mode in psycopg2</h2>
+
+<p>Over time, we&#8217;ve started using more advanced features in psycopg2, the Python driver for Postgres.</p>
+
+<p>The first is autocommit mode; in this mode, Psycopg2 won&#8217;t issue BEGIN/COMMIT for any queries; instead, every query runs in its own single-statement transaction. This is particularly useful for read-only queries where transaction semantics aren&#8217;t needed. It&#8217;s as easy as doing:</p>
+
+<pre><code>connection.autocommit = True
+</code></pre>
+
+<p>This lowered chatter between our application servers and DBs significantly, and lowered system CPU as well on the database boxes. Further, since we use PGBouncer for our connection pooling, this change allows connections to be returned to the pool sooner.</p>
+
+<p>More details on how this interacts with Django&#8217;s db handling <a href=\"http://thebuild.com/blog/2009/11/07/django-postgresql-and-autocommit/\">here</a>.</p>
+
+<p>Another useful psycopg2 feature is the ability to register a <a href=\"http://initd.org/psycopg/docs/advanced.html#support-for-coroutine-libraries\">wait_callback</a> for coroutine support. Using this allows for concurrent querying across multiple connections at once, which is useful for fan-out queries that hit multiple nodes&#8212;the socket will wake up and notify when there&#8217;s data to be read (we use Python&#8217;s select module for handling the wake-ups). This also plays well with cooperative multi-threading libraries like eventlet or gevent; check out <a href=\"http://pypi.python.org/pypi/psycogreen/1.0\">psycogreen</a> for an example implementation.</p>
+
+<p>Overall, we&#8217;ve been very happy with Postgres&#8217; performance and reliability. If you&#8217;re interested in working on one of the world&#8217;s largest Postgres installations with a small team of infrastructure hackers, get in touch at infrajobs &lt;at&gt; instagram.com.</p>
+
+<p><i>You can discuss this post at <a href=\"http://news.ycombinator.com/item?id=5075009\">Hacker News</a></i></p>
+
+<p><i>Mike Krieger, co-founder</i></p>") (link nil "http://instagram-engineering.tumblr.com/post/40781627982") (guid nil "http://instagram-engineering.tumblr.com/post/40781627982") (pubDate nil "Thu, 17 Jan 2013 12:30:00 -0800"))) ("redis-faina: a query analysis tool for Redis" "<p>As we mentioned in our <a href=\"http://instagram-engineering.tumblr.com/post/20541814340/keeping-instagram-up-with-over-a-million-new-users-in\">previous blog</a>, we’re big fans of tools and techniques for introspecting our live traffic to see what exactly is going on. One tool we use frequently is <a href=\"http://pgfouine.projects.postgresql.org/\">PGFouine</a>, a query traffic analyzer for PostgreSQL. We recently found that we also needed a similar tool for <a href=\"http://redis.io\">Redis</a>, our swiss-army-knife list/set/etc storage.</p>
+<p>We call it <a href=\"https://github.com/Instagram/redis-faina\">redis-faina</a> and we’re making it open source so you can use it to monitor Redis as well (pgfouine = ‘pgweasel’ in French, redis-faina = ‘redisweasel’ in Italian as a tribute to Redis’ Italian heritage).</p>
+<p>At its core, redis-faina uses the Redis MONITOR command, which echoes every single command (with arguments) sent to a Redis instance. It parses these entries, and aggregates stats on the most commonly-hit keys, the queries that took up the most amount of time, and the most common key prefixes as well. Using it, we’ve cut the number of requests on one of our systems from 23,000 requests per second to ~11,000, by identifying places where we could batch-fetch information or eliminate extraneous commands.</p>
+<p>Usage is simple:</p>
+<pre># reading from stdin
+redis-cli -p 6490 MONITOR | head -n &lt;NUMBER OF LINES TO ANALYZE&gt; | ./redis-faina.py
+# reading a file
+redis-cli -p 6490 MONITOR | head -n &lt;...&gt; &gt; /tmp/outfile.txt
+./redis-faina.py /tmp/outfile.txt
+</pre>
+<p>The output (anonymized below with ‘zzz’s) looks as follows:</p>
+<pre>Overall Stats
+========================================
+Lines Processed     117773
+Commands/Sec        11483.44
+Top Prefixes
+========================================
+friendlist          69945
+followedbycounter   25419
+followingcounter    10139
+recentcomments      3276
+queued              7
+Top Keys
+========================================
+friendlist:zzz:1:2     534
+followingcount:zzz     227
+friendlist:zxz:1:2     167
+friendlist:xzz:1:2     165
+friendlist:yzz:1:2     160
+friendlist:gzz:1:2     160
+friendlist:zdz:1:2     160
+friendlist:zpz:1:2     156
+Top Commands
+========================================
+SISMEMBER   59545
+HGET        27681
+HINCRBY     9413
+SMEMBERS    9254
+MULTI       3520
+EXEC        3520
+LPUSH       1620
+EXPIRE      1598
+Command Time (microsecs)
+========================================
+Median      78.25
+75%         105.0
+90%         187.25
+99%         411.0
+Heaviest Commands (microsecs)
+========================================
+SISMEMBER   5331651.0
+HGET        2618868.0
+HINCRBY     961192.5
+SMEMBERS    856817.5
+MULTI       311339.5
+SADD        54900.75
+SREM        40771.25
+EXEC        28678.5
+Slowest Calls
+========================================
+3490.75     \"SMEMBERS\" \"friendlist:zzz:1:2\"
+2362.0      \"SMEMBERS\" \"friendlist:xzz:1:3\"
+2061.0      \"SMEMBERS\" \"friendlist:zpz:1:2\"
+1961.0      \"SMEMBERS\" \"friendlist:yzz:1:2\"
+1947.5      \"SMEMBERS\" \"friendlist:zpz:1:2\"
+1459.0      \"SISMEMBER\" \"friendlist:hzz:1:2\" \"zzz\"
+1416.25     \"SMEMBERS\" \"friendlist:zhz:1:2\"
+1389.75     \"SISMEMBER\" \"friendlist:zzx:1:2\" \"zzz\"
+</pre>
+<p>One caveat on timing: MONITOR only shows the time a command completed, not when it started. On a very busy Redis server (like most of ours), this is fine because there’s always a request waiting to execute, but if you’re at a lesser rate of requests, the time taken will not be accurate.</p>
+<p>Also, MONITORing calls doesn’t come for free, so we mostly use to sample for a couple hundred thousand lines to get a representative sample.</p>
+<p>Want to add more stats and improvements to redis-faina? <a href=\"https://github.com/Instagram/redis-faina\">Fork and send pull requests</a>!</p>
+<p>Want to work on analyzing, optimizing and designing systems that handle hundreds of thousands of requests per second across many, many machines? <a href=\"http://instagram.com/about/jobs/\">We’re hiring! Drop us a note</a> and tell us a bit about yourself - we’re actively building out our dev &amp; devops team.</p>" "http://instagram-engineering.tumblr.com/post/23132009381" (20402 60017) new 2 nil nil ((title nil "redis-faina: a query analysis tool for Redis") (description nil "<p>As we mentioned in our <a href=\"http://instagram-engineering.tumblr.com/post/20541814340/keeping-instagram-up-with-over-a-million-new-users-in\">previous blog</a>, we’re big fans of tools and techniques for introspecting our live traffic to see what exactly is going on. One tool we use frequently is <a href=\"http://pgfouine.projects.postgresql.org/\">PGFouine</a>, a query traffic analyzer for PostgreSQL. We recently found that we also needed a similar tool for <a href=\"http://redis.io\">Redis</a>, our swiss-army-knife list/set/etc storage.</p>
+<p>We call it <a href=\"https://github.com/Instagram/redis-faina\">redis-faina</a> and we&#8217;re making it open source so you can use it to monitor Redis as well (pgfouine = ‘pgweasel’ in French, redis-faina = ‘redisweasel’ in Italian as a tribute to Redis’ Italian heritage).</p>
+<p>At its core, redis-faina uses the Redis MONITOR command, which echoes every single command (with arguments) sent to a Redis instance. It parses these entries, and aggregates stats on the most commonly-hit keys, the queries that took up the most amount of time, and the most common key prefixes as well. Using it, we’ve cut the number of requests on one of our systems from 23,000 requests per second to ~11,000, by identifying places where we could batch-fetch information or eliminate extraneous commands.</p>
+<p>Usage is simple:</p>
+<pre># reading from stdin
+redis-cli -p 6490 MONITOR | head -n &lt;NUMBER OF LINES TO ANALYZE&gt; | ./redis-faina.py
+
+# reading a file
+redis-cli -p 6490 MONITOR | head -n &lt;...&gt; &gt; /tmp/outfile.txt
+./redis-faina.py /tmp/outfile.txt
+</pre>
+<p>The output (anonymized below with ‘zzz’s) looks as follows:</p>
+<pre>Overall Stats
+========================================
+Lines Processed     117773
+Commands/Sec        11483.44
+
+Top Prefixes
+========================================
+friendlist          69945
+followedbycounter   25419
+followingcounter    10139
+recentcomments      3276
+queued              7
+
+Top Keys
+========================================
+friendlist:zzz:1:2     534
+followingcount:zzz     227
+friendlist:zxz:1:2     167
+friendlist:xzz:1:2     165
+friendlist:yzz:1:2     160
+friendlist:gzz:1:2     160
+friendlist:zdz:1:2     160
+friendlist:zpz:1:2     156
+
+Top Commands
+========================================
+SISMEMBER   59545
+HGET        27681
+HINCRBY     9413
+SMEMBERS    9254
+MULTI       3520
+EXEC        3520
+LPUSH       1620
+EXPIRE      1598
+
+Command Time (microsecs)
+========================================
+Median      78.25
+75%         105.0
+90%         187.25
+99%         411.0
+
+Heaviest Commands (microsecs)
+========================================
+SISMEMBER   5331651.0
+HGET        2618868.0
+HINCRBY     961192.5
+SMEMBERS    856817.5
+MULTI       311339.5
+SADD        54900.75
+SREM        40771.25
+EXEC        28678.5
+
+Slowest Calls
+========================================
+3490.75     \"SMEMBERS\" \"friendlist:zzz:1:2\"
+2362.0      \"SMEMBERS\" \"friendlist:xzz:1:3\"
+2061.0      \"SMEMBERS\" \"friendlist:zpz:1:2\"
+1961.0      \"SMEMBERS\" \"friendlist:yzz:1:2\"
+1947.5      \"SMEMBERS\" \"friendlist:zpz:1:2\"
+1459.0      \"SISMEMBER\" \"friendlist:hzz:1:2\" \"zzz\"
+1416.25     \"SMEMBERS\" \"friendlist:zhz:1:2\"
+1389.75     \"SISMEMBER\" \"friendlist:zzx:1:2\" \"zzz\"
+</pre>
+<p>One caveat on timing: MONITOR only shows the time a command completed, not when it started. On a very busy Redis server (like most of ours), this is fine because there’s always a request waiting to execute, but if you’re at a lesser rate of requests, the time taken will not be accurate.</p>
+<p>Also, MONITORing calls doesn’t come for free, so we mostly use to sample for a couple hundred thousand lines to get a representative sample.</p>
+<p>Want to add more stats and improvements to redis-faina? <a href=\"https://github.com/Instagram/redis-faina\">Fork and send pull requests</a>!</p>
+<p>Want to work on analyzing, optimizing and designing systems that handle hundreds of thousands of requests per second across many, many machines? <a href=\"http://instagram.com/about/jobs/\">We&#8217;re hiring! Drop us a note</a> and tell us a bit about yourself - we’re actively building out our dev &amp; devops team.</p>") (link nil "http://instagram-engineering.tumblr.com/post/23132009381") (guid nil "http://instagram-engineering.tumblr.com/post/23132009381") (pubDate nil "Tue, 15 May 2012 16:44:49 -0700"))) ("Keeping Instagram up with over a million new users in twelve hours" "<p>On Tuesday we launched <a href=\"https://play.google.com/store/apps/details?id=com.instagram.android\">Instagram for Android</a>, and it’s had a fantastic response so far. The last few weeks (on the infrastructure side) have been all about capacity planning and preparation to get everything in place, but on launch day itself the challenge is to find problems quickly, get to the bottom of them, and roll out fixes ASAP. Here are some tools &amp; techniques we used to tackle problems as they arose:</p>
+<h2 id=\"statsd\">statsd</h2>
+<p>We love <a href=\"http://github.com/etsy/statsd/\">statsd</a> at Instagram. Written by <a href=\"http://github.com/etsy/\">Etsy</a>, it’s a network daemon that aggregates and rolls-up data into Graphite. At its core, it has two types of statistics: counter and timers. We use the counters to track everything from number of signups per second to number of likes, and we use timers to time generation of feeds, how long it takes to follow users, and any other major action.</p>
+<p>The single biggest reason we love statsd is how quickly stats show up and get updated in Graphite. Stats are basically realtime (in our system, they’re about 10 seconds delayed), which allows us to evaluate system and code changes immediately. Stats can be added at will, so if we discover a new metric to track, we can have it up and running very quickly. You can specify a sample rate, so we sprinkle logging calls throughout the web application at relatively low sample rates, without affecting performance.</p>
+<p>Takeaway: having realtime stats that can be added dynamically lets you diagnose and firefight without having to wait to receive new data.</p>
+<h2 id=\"dogslow\">Dogslow</h2>
+<p>Written by <a href=\"http://blog.bitbucket.org/2011/05/17/tracking-slow-requests-with-dogslow/\">Bitbucket</a>, Dogslow is a piece of Django middleware that will watch your running processes, and if notices any taking longer than <em>N</em> seconds, will snapshot the current process and write the file to disk. We’ve found it’s too intrusive to run all the time, but when trying to identify bottlenecks that may have cropped up, it’s very useful (we’ve added a switch to enable it in our web servers).</p>
+<p>We found, halfway through launch day, that processes that were taking over 1.5s to return a response were often stuck in memcached set() and get_many(). Switching over to Munin, which we use to track our machine stats over time, we saw that our memcached boxes were pushing 50k req/s, and though they weren’t maxing out the CPU, they were busy enough to slow down the application servers.</p>
+<p>Takeaway: it’s often one piece of the backend infrastructure that becomes a bottleneck, and figuring out the point at which your real, live appservers get stuck can help surface the issue.</p>
+<h2 id=\"replicationread-slaves\">Replication &amp; Read-slaves</h2>
+<p>Two of our main data backends—<a href=\"http://redis.io\">Redis</a> and <a href=\"http://postgresql.org/\">PostgreSQL</a>—both support easy replication and read-slaving. When one of our Redis DBs crossed 40k req/s, and started becoming a bottleneck, bringing up another machine, <a href=\"http://redis.io/topics/replication\">SYNCing to the master</a>, and sending read queries to it took less than 20 minutes. For machines we knew would be busy ahead of time, we’d brought up read-slaves, but in a couple of cases, machines reacted differently under load than we’d projected, and it was useful to split reads off quickly.</p>
+<p>For Postgres, we use a combination of <a href=\"http://wiki.postgresql.org/wiki/Streaming_Replication\">Streaming Replication</a> and Amazon EBS Snapshots to bring up a new read-slave quickly. All of our master DBs stream to backup slaves that take frequent EBS snapshots; from these snapshots, we can have a new read-slave up and running, and caught up to the master, in around 20 minutes. Having our machines in an easily scriptable environment like AWS make provisioning and deploying new read-slaves a quick command-line task.</p>
+<p>Takeaway: if read capacity is likely to be a concern, bringing up read-slaves ahead of time and getting them in rotation is ideal; if any new read issues crop up, however, know ahead of time what your options are for bringing more read capacity into rotation.</p>
+<h2 id=\"pgfouine\">PGFouine</h2>
+<p><a href=\"http://pgfouine.projects.postgresql.org/\">PGFouine</a> is a tool that analyzes PostgreSQL query logs and generates a page of analytics on their impact on your database; sliced by the “heaviest”, or most frequent, or slowest queries. To ease running it, we’ve created a Fabric script that will connect to a database, set it to log every query, wait 30 seconds, then download the file and run a pgfouine analysis on it; it’s available <a href=\"https://gist.github.com/2307647\">as a gist</a>. PGFouine is our core tool in analyzing database performance and figuring out which queries could use memcached in front of them, which ones are fetching more data than is necessary, etc; as DBs showed signs of stress on launch day, we would run PGFouine, deploy targeted code improvement to relieve hotspots, and then run it again to make sure those changes had the correct effect.</p>
+<p>It’s important to know what a “normal” day looks like for your databases, too, for a baseline, so we run PGFouine periodically to gather statistics on non-stressed-out database instances, too.</p>
+<p>Takeaway: Database log analysis (especially coupled with a tight iteration loop on optimizing queries and caching what’s needed)</p>
+<h2 id=\"onemorething\">One more thing</h2>
+<p>Another tool that helped us get through the first day was one we wrote ourselves—node2dm, a node.js server for delivering push notifications to Android’s C2DM service. It’s handled over 5 million push notifications for us so far.</p>
+<p>We surveyed the different options for C2DM servers, but didn’t find any open source ones that looked like they were being actively maintained, or fully supported the Google service. We’re <a href=\"http://github.com/Instagram/node2dm\">open sourcing node2dm</a> today; feel free to fork and pull-request if you have any suggestions for improvements.</p>
+<h2 id=\"wewantyou\">Interested?</h2>
+<p>If all of this is interesting/exciting to you, and you’d like to chat more about working with us, <a href=\"http://instagram.jobscore.com/jobs/instagram/engineer/bXctey0Oir4kCZeJe4bk1X\">drop us a note</a>; we’d love to hear from you.</p>
+<p>You can <a href=\"http://news.ycombinator.com/item?id=3804351\">discuss this post</a> at Hacker News.</p>
+<p>—</p>
+<p><em>Mike Krieger, co-founder</em></p>" "http://instagram-engineering.tumblr.com/post/20541814340" (20349 64056) new 3 nil nil ((title nil "Keeping Instagram up with over a million new users in twelve hours") (description nil "<p>On Tuesday we launched <a href=\"https://play.google.com/store/apps/details?id=com.instagram.android\">Instagram for Android</a>, and it’s had a fantastic response so far. The last few weeks (on the infrastructure side) have been all about capacity planning and preparation to get everything in place, but on launch day itself the challenge is to find problems quickly, get to the bottom of them, and roll out fixes ASAP. Here are some tools &amp; techniques we used to tackle problems as they arose:</p>
+<h2 id=\"statsd\">statsd</h2>
+<p>We love <a href=\"http://github.com/etsy/statsd/\">statsd</a> at Instagram. Written by <a href=\"http://github.com/etsy/\">Etsy</a>, it’s a network daemon that aggregates and rolls-up data into Graphite. At its core, it has two types of statistics: counter and timers. We use the counters to track everything from number of signups per second to number of likes, and we use timers to time generation of feeds, how long it takes to follow users, and any other major action.</p>
+<p>The single biggest reason we love statsd is how quickly stats show up and get updated in Graphite. Stats are basically realtime (in our system, they’re about 10 seconds delayed), which allows us to evaluate system and code changes immediately. Stats can be added at will, so if we discover a new metric to track, we can have it up and running very quickly. You can specify a sample rate, so we sprinkle logging calls throughout the web application at relatively low sample rates, without affecting performance.</p>
+<p>Takeaway: having realtime stats that can be added dynamically lets you diagnose and firefight without having to wait to receive new data.</p>
+<h2 id=\"dogslow\">Dogslow</h2>
+<p>Written by <a href=\"http://blog.bitbucket.org/2011/05/17/tracking-slow-requests-with-dogslow/\">Bitbucket</a>, Dogslow is a piece of Django middleware that will watch your running processes, and if notices any taking longer than <em>N</em> seconds, will snapshot the current process and write the file to disk. We’ve found it’s too intrusive to run all the time, but when trying to identify bottlenecks that may have cropped up, it’s very useful (we’ve added a switch to enable it in our web servers).</p>
+<p>We found, halfway through launch day, that processes that were taking over 1.5s to return a response were often stuck in memcached set() and get_many(). Switching over to Munin, which we use to track our machine stats over time, we saw that our memcached boxes were pushing 50k req/s, and though they weren’t maxing out the CPU, they were busy enough to slow down the application servers.</p>
+<p>Takeaway: it’s often one piece of the backend infrastructure that becomes a bottleneck, and figuring out the point at which your real, live appservers get stuck can help surface the issue.</p>
+<h2 id=\"replicationread-slaves\">Replication &amp; Read-slaves</h2>
+<p>Two of our main data backends—<a href=\"http://redis.io\">Redis</a> and <a href=\"http://postgresql.org/\">PostgreSQL</a>—both support easy replication and read-slaving. When one of our Redis DBs crossed 40k req/s, and started becoming a bottleneck, bringing up another machine, <a href=\"http://redis.io/topics/replication\">SYNCing to the master</a>, and sending read queries to it took less than 20 minutes. For machines we knew would be busy ahead of time, we’d brought up read-slaves, but in a couple of cases, machines reacted differently under load than we’d projected, and it was useful to split reads off quickly.</p>
+<p>For Postgres, we use a combination of <a href=\"http://wiki.postgresql.org/wiki/Streaming_Replication\">Streaming Replication</a> and Amazon EBS Snapshots to bring up a new read-slave quickly. All of our master DBs stream to backup slaves that take frequent EBS snapshots; from these snapshots, we can have a new read-slave up and running, and caught up to the master, in around 20 minutes. Having our machines in an easily scriptable environment like AWS make provisioning and deploying new read-slaves a quick command-line task.</p>
+<p>Takeaway: if read capacity is likely to be a concern, bringing up read-slaves ahead of time and getting them in rotation is ideal; if any new read issues crop up, however, know ahead of time what your options are for bringing more read capacity into rotation.</p>
+<h2 id=\"pgfouine\">PGFouine</h2>
+<p><a href=\"http://pgfouine.projects.postgresql.org/\">PGFouine</a> is a tool that analyzes PostgreSQL query logs and generates a page of analytics on their impact on your database; sliced by the “heaviest”, or most frequent, or slowest queries. To ease running it, we’ve created a Fabric script that will connect to a database, set it to log every query, wait 30 seconds, then download the file and run a pgfouine analysis on it; it’s available <a href=\"https://gist.github.com/2307647\">as a gist</a>. PGFouine is our core tool in analyzing database performance and figuring out which queries could use memcached in front of them, which ones are fetching more data than is necessary, etc; as DBs showed signs of stress on launch day, we would run PGFouine, deploy targeted code improvement to relieve hotspots, and then run it again to make sure those changes had the correct effect.</p>
+<p>It’s important to know what a “normal” day looks like for your databases, too, for a baseline, so we run PGFouine periodically to gather statistics on non-stressed-out database instances, too.</p>
+<p>Takeaway: Database log analysis (especially coupled with a tight iteration loop on optimizing queries and caching what’s needed)</p>
+<h2 id=\"onemorething\">One more thing</h2>
+<p>Another tool that helped us get through the first day was one we wrote ourselves—node2dm, a node.js server for delivering push notifications to Android’s C2DM service. It&#8217;s handled over 5 million push notifications for us so far.</p>
+<p>We surveyed the different options for C2DM servers, but didn’t find any open source ones that looked like they were being actively maintained, or fully supported the Google service. We’re <a href=\"http://github.com/Instagram/node2dm\">open sourcing node2dm</a> today; feel free to fork and pull-request if you have any suggestions for improvements.</p>
+<h2 id=\"wewantyou\">Interested?</h2>
+<p>If all of this is interesting/exciting to you, and you’d like to chat more about working with us, <a href=\"http://instagram.jobscore.com/jobs/instagram/engineer/bXctey0Oir4kCZeJe4bk1X\">drop us a note</a>; we’d love to hear from you.</p>
+<p>You can <a href=\"http://news.ycombinator.com/item?id=3804351\">discuss this post</a> at Hacker News.</p>
+<p>&#8212;</p>
+<p><em>Mike Krieger, co-founder</em></p>") (link nil "http://instagram-engineering.tumblr.com/post/20541814340") (guid nil "http://instagram-engineering.tumblr.com/post/20541814340") (pubDate nil "Thu, 05 Apr 2012 13:02:00 -0700"))) ("What Powers Instagram: Hundreds of Instances, Dozens of Technologies" "<p>One of the questions we always get asked at meet-ups and conversations with other engineers is, “what’s your stack?” We thought it would be fun to give a sense of all the systems that power Instagram, at a high-level; you can look forward to more in-depth descriptions of some of these systems in the future. This is how our system has evolved in the just-over-1-year that we’ve been live, and while there are parts we’re always re-working, this is a glimpse of how a startup with a small engineering team can scale to our 14 million+ users in a little over a year. Our core principles when choosing a system are:</p>
+<ul><li>Keep it very simple</li>
+<li>Don’t re-invent the wheel</li>
+<li>Go with proven and solid technologies when you can</li>
+</ul><p>We’ll go from top to bottom:</p>
+<h2>OS / Hosting</h2>
+<p>We run Ubuntu Linux 11.04 (“Natty Narwhal”) on Amazon EC2. We’ve found previous versions of Ubuntu had all sorts of unpredictable freezing episodes on EC2 under high traffic, but Natty has been solid. We’ve only got 3 engineers, and our needs are still evolving, so self-hosting isn’t an option we’ve explored too deeply yet, though is something we may revisit in the future given the unparalleled growth in usage.</p>
+<h2>Load Balancing</h2>
+<p>Every request to Instagram servers goes through load balancing machines; we used to run 2 <a href=\"http://nginx.org\">nginx</a> machines and DNS Round-Robin between them. The downside of this approach is the time it takes for DNS to update in case one of the machines needs to get decomissioned. Recently, we moved to using Amazon’s Elastic Load Balancer, with 3 NGINX instances behind it that can be swapped in and out (and are automatically taken out of rotation if they fail a health check). We also terminate our SSL at the ELB level, which lessens the CPU load on nginx. We use Amazon’s Route53 for DNS, which they’ve recently added a pretty good GUI tool for in the AWS console.</p>
+<h2>Application Servers</h2>
+<p>Next up comes the application servers that handle our requests. We run <a href=\"https://www.djangoproject.com/\">Django</a> on Amazon High-CPU Extra-Large machines, and as our usage grows we’ve gone from just a few of these machines to over 25 of them (luckily, this is one area that’s easy to horizontally scale as they are stateless). We’ve found that our particular work-load is very CPU-bound rather than memory-bound, so the High-CPU Extra-Large instance type provides the right balance of memory and CPU.</p>
+<p>We use <a href=\"http://Gunicorn\"><a href=\"http://gunicorn.org/\">http://gunicorn.org/</a></a> as our WSGI server; we used to use mod_wsgi and Apache, but found Gunicorn was much easier to configure, and less CPU-intensive. To run commands on many instances at once (like deploying code), we use <a href=\"http://fabric.readthedocs.org/en/1.3.3/index.html\">Fabric</a>, which recently added a useful parallel mode so that deploys take a matter of seconds.</p>
+<h2>Data storage</h2>
+<p>Most of our data (users, photo metadata, tags, etc) lives in PostgreSQL; we’ve <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">previously written</a> about how we shard across our different Postgres instances. Our main shard cluster involves 12 Quadruple Extra-Large memory instances (and twelve replicas in a different zone.)</p>
+<p>We’ve found that Amazon’s network disk system (EBS) doesn’t support enough disk seeks per second, so having all of our working set in memory is extremely important.  To get reasonable IO performance, we set up our EBS drives in a software RAID using mdadm.</p>
+<p>As a quick tip, we’ve found that <a href=\"http://hoytech.com/vmtouch/vmtouch.c\">vmtouch</a> is a fantastic tool for managing what data is in memory, especially when failing over from one machine to another where there is no active memory profile already. <a href=\"https://gist.github.com/1424540\">Here is the script</a> we use to parse the output of a vmtouch run on one machine and print out the corresponding vmtouch command to run on another system to match its current memory status.</p>
+<p>All of our PostgreSQL instances run in a master-replica setup using Streaming Replication, and we use EBS snapshotting to take frequent backups of our systems. We use XFS as our file system, which lets us freeze &amp; unfreeze the RAID arrays when snapshotting, in order to guarantee a consistent snapshot (our original inspiration came from <a href=\"http://alestic.com/2009/09/ec2-consistent-snapshot\">ec2-consistent-snapshot</a>. To get streaming replication started, our favorite tool is <a href=\"https://github.com/greg2ndQuadrant/repmgr\">repmgr</a> by the folks at 2ndQuadrant.</p>
+<p>To connect to our databases from our app servers, we made early on that had a huge impact on performance was using <a href=\"http://pgfoundry.org/projects/pgbouncer/\">Pgbouncer</a> to pool our connections to PostgreSQL. We found <a href=\"http://thebuild.com/blog/\">Christophe Pettus’s blog</a> to be a great resource for Django, PostgreSQL and Pgbouncer tips.</p>
+<p>The photos themselves go straight to Amazon S3, which currently stores several terabytes of photo data for us. We use Amazon CloudFront as our CDN, which helps with image load times from users around the world (like in Japan, our second most-popular country).</p>
+<p>We also use <a href=\"http://redis.io/\">Redis</a> extensively; it powers our main feed, our activity feed, our sessions system (<a href=\"https://gist.github.com/910392\">here’s our Django session backend</a>), and other <a href=\"http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value-pairs\">related systems</a>. All of Redis’ data needs to fit in memory, so we end up running several Quadruple Extra-Large Memory instances for Redis, too, and occasionally shard across a few Redis instances for any given subsystem. We run Redis in a master-replica setup, and have the replicas constantly saving the DB out to disk, and finally use EBS snapshots to backup those DB dumps (we found that dumping the DB on the master was too taxing). Since Redis allows writes to its replicas, it makes for very easy online failover to a new Redis machine, without requiring any downtime.</p>
+<p>For our <a href=\"http://instagram.com/developer/endpoints/media/#get_media_search\">geo-search API</a>, we used PostgreSQL for many months, but once our Media entries were sharded, moved over to using <a href=\"http://lucene.apache.org/solr/\">Apache Solr</a>. It has a simple JSON interface, so as far as our application is concerned, it’s just another API to consume.</p>
+<p>Finally, like any modern Web service, we use Memcached for caching, and currently have 6 Memcached instances, which we connect to using pylibmc &amp; libmemcached. Amazon has an Elastic Cache service they’ve recently launched, but it’s not any cheaper than running our instances, so we haven’t pushed ourselves to switch quite yet.</p>
+<h2>Task Queue &amp; Push Notifications</h2>
+<p>When a user decides to share out an Instagram photo to Twitter or Facebook, or when we need to notify one of our <a href=\"http://instagram.com/developer/realtime/\">Real-time subscribers</a> of a new photo posted, we push that task into <a href=\"http://gearman.org/\">Gearman</a>, a task queue system originally written at Danga. Doing it asynchronously through the task queue means that media uploads can finish quickly, while the ‘heavy lifting’ can run in the background. We have about 200 workers (all written in Python) consuming the task queue at any given time, split between the services we share to. We also do our feed fan-out in Gearman, so posting is as responsive for a new user as it is for a user with many followers.</p>
+<p>For doing push notifications, the most cost-effective solution we found was <a href=\"http://PyAPNS\"><a href=\"https://github.com/samuraisam/pyapns\">https://github.com/samuraisam/pyapns</a></a>, an open-source Twisted service that has handled over a billion push notifications for us, and has been rock-solid.</p>
+<h2>Monitoring</h2>
+<p>With 100+ instances, it’s important to keep on top of what’s going on across the board. We use <a href=\"http://munin-monitoring.org/\">Munin</a> to graph metrics across all of our system, and also alert us if anything is outside of its normal range. We write a lot of custom Munin plugins, building on top of <a href=\"http://samuelks.com/python-munin/\">Python-Munin</a>, to graph metrics that aren’t system-level (for example, signups per minute, photos posted per second, etc). We use <a href=\"http://pingdom.com\">Pingdom</a> for external monitoring of the service, and <a href=\"http://pagerduty.com\">PagerDuty</a> for handling notifications and incidents.</p>
+<p>For Python error reporting, we use <a href=\"http://pypi.python.org/pypi/django-sentry\">Sentry</a>, an awesome open-source Django app written by the folks at Disqus. At any given time, we can sign-on and see what errors are happening across our system, in real time.</p>
+<h2>You?</h2>
+<p>If this description of our systems interests you, or if you’re hopping up and down ready to tell us all the things you’d change in the system, we’d love to hear from you. <a href=\"http://instagr.am/about/jobs/\">We’re looking for a DevOps person to join us and help us tame our EC2 instance herd</a>.</p>" "http://instagram-engineering.tumblr.com/post/13649370142" (20185 20822) new 4 nil nil ((title nil "What Powers Instagram: Hundreds of Instances, Dozens of Technologies") (description nil "<p>One of the questions we always get asked at meet-ups and conversations with other engineers is, “what’s your stack?” We thought it would be fun to give a sense of all the systems that power Instagram, at a high-level; you can look forward to more in-depth descriptions of some of these systems in the future. This is how our system has evolved in the just-over-1-year that we’ve been live, and while there are parts we’re always re-working, this is a glimpse of how a startup with a small engineering team can scale to our 14 million+ users in a little over a year. Our core principles when choosing a system are:</p>
+<ul><li>Keep it very simple</li>
+<li>Don’t re-invent the wheel</li>
+<li>Go with proven and solid technologies when you can</li>
+</ul><p>We’ll go from top to bottom:</p>
+<h2>OS / Hosting</h2>
+<p>We run Ubuntu Linux 11.04 (“Natty Narwhal”) on Amazon EC2. We’ve found previous versions of Ubuntu had all sorts of unpredictable freezing episodes on EC2 under high traffic, but Natty has been solid. We’ve only got 3 engineers, and our needs are still evolving, so self-hosting isn’t an option we’ve explored too deeply yet, though is something we may revisit in the future given the unparalleled growth in usage.</p>
+<h2>Load Balancing</h2>
+<p>Every request to Instagram servers goes through load balancing machines; we used to run 2&#160;<a href=\"http://nginx.org\">nginx</a> machines and DNS Round-Robin between them. The downside of this approach is the time it takes for DNS to update in case one of the machines needs to get decomissioned. Recently, we moved to using Amazon’s Elastic Load Balancer, with 3 NGINX instances behind it that can be swapped in and out (and are automatically taken out of rotation if they fail a health check). We also terminate our SSL at the ELB level, which lessens the CPU load on nginx. We use Amazon’s Route53 for DNS, which they’ve recently added a pretty good GUI tool for in the AWS console.</p>
+<h2>Application Servers</h2>
+<p>Next up comes the application servers that handle our requests. We run <a href=\"https://www.djangoproject.com/\">Django</a> on Amazon High-CPU Extra-Large machines, and as our usage grows we’ve gone from just a few of these machines to over 25 of them (luckily, this is one area that’s easy to horizontally scale as they are stateless). We’ve found that our particular work-load is very CPU-bound rather than memory-bound, so the High-CPU Extra-Large instance type provides the right balance of memory and CPU.</p>
+<p>We use <a href=\"http://Gunicorn\"><a href=\"http://gunicorn.org/\">http://gunicorn.org/</a></a> as our WSGI server; we used to use mod_wsgi and Apache, but found Gunicorn was much easier to configure, and less CPU-intensive. To run commands on many instances at once (like deploying code), we use <a href=\"http://fabric.readthedocs.org/en/1.3.3/index.html\">Fabric</a>, which recently added a useful parallel mode so that deploys take a matter of seconds.</p>
+<h2>Data storage</h2>
+<p>Most of our data (users, photo metadata, tags, etc) lives in PostgreSQL; we’ve <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">previously written</a> about how we shard across our different Postgres instances. Our main shard cluster involves 12 Quadruple Extra-Large memory instances (and twelve replicas in a different zone.)</p>
+<p>We’ve found that Amazon’s network disk system (EBS) doesn&#8217;t support enough disk seeks per second, so having all of our working set in memory is extremely important.  To get reasonable IO performance, we set up our EBS drives in a software RAID using mdadm.</p>
+<p>As a quick tip, we’ve found that <a href=\"http://hoytech.com/vmtouch/vmtouch.c\">vmtouch</a> is a fantastic tool for managing what data is in memory, especially when failing over from one machine to another where there is no active memory profile already. <a href=\"https://gist.github.com/1424540\">Here is the script</a> we use to parse the output of a vmtouch run on one machine and print out the corresponding vmtouch command to run on another system to match its current memory status.</p>
+<p>All of our PostgreSQL instances run in a master-replica setup using Streaming Replication, and we use EBS snapshotting to take frequent backups of our systems. We use XFS as our file system, which lets us freeze &amp; unfreeze the RAID arrays when snapshotting, in order to guarantee a consistent snapshot (our original inspiration came from <a href=\"http://alestic.com/2009/09/ec2-consistent-snapshot\">ec2-consistent-snapshot</a>. To get streaming replication started, our favorite tool is <a href=\"https://github.com/greg2ndQuadrant/repmgr\">repmgr</a> by the folks at 2ndQuadrant.</p>
+<p>To connect to our databases from our app servers, we made early on that had a huge impact on performance was using <a href=\"http://pgfoundry.org/projects/pgbouncer/\">Pgbouncer</a> to pool our connections to PostgreSQL. We found <a href=\"http://thebuild.com/blog/\">Christophe Pettus’s blog</a> to be a great resource for Django, PostgreSQL and Pgbouncer tips.</p>
+<p>The photos themselves go straight to Amazon S3, which currently stores several terabytes of photo data for us. We use Amazon CloudFront as our CDN, which helps with image load times from users around the world (like in Japan, our second most-popular country).</p>
+<p>We also use <a href=\"http://redis.io/\">Redis</a> extensively; it powers our main feed, our activity feed, our sessions system (<a href=\"https://gist.github.com/910392\">here’s our Django session backend</a>), and other <a href=\"http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value-pairs\">related systems</a>. All of Redis’ data needs to fit in memory, so we end up running several Quadruple Extra-Large Memory instances for Redis, too, and occasionally shard across a few Redis instances for any given subsystem. We run Redis in a master-replica setup, and have the replicas constantly saving the DB out to disk, and finally use EBS snapshots to backup those DB dumps (we found that dumping the DB on the master was too taxing). Since Redis allows writes to its replicas, it makes for very easy online failover to a new Redis machine, without requiring any downtime.</p>
+<p>For our <a href=\"http://instagram.com/developer/endpoints/media/#get_media_search\">geo-search API</a>, we used PostgreSQL for many months, but once our Media entries were sharded, moved over to using <a href=\"http://lucene.apache.org/solr/\">Apache Solr</a>. It has a simple JSON interface, so as far as our application is concerned, it’s just another API to consume.</p>
+<p>Finally, like any modern Web service, we use Memcached for caching, and currently have 6 Memcached instances, which we connect to using pylibmc &amp; libmemcached. Amazon has an Elastic Cache service they’ve recently launched, but it’s not any cheaper than running our instances, so we haven’t pushed ourselves to switch quite yet.</p>
+<h2>Task Queue &amp; Push Notifications</h2>
+<p>When a user decides to share out an Instagram photo to Twitter or Facebook, or when we need to notify one of our <a href=\"http://instagram.com/developer/realtime/\">Real-time subscribers</a> of a new photo posted, we push that task into <a href=\"http://gearman.org/\">Gearman</a>, a task queue system originally written at Danga. Doing it asynchronously through the task queue means that media uploads can finish quickly, while the ‘heavy lifting’ can run in the background. We have about 200 workers (all written in Python) consuming the task queue at any given time, split between the services we share to. We also do our feed fan-out in Gearman, so posting is as responsive for a new user as it is for a user with many followers.</p>
+<p>For doing push notifications, the most cost-effective solution we found was <a href=\"http://PyAPNS\"><a href=\"https://github.com/samuraisam/pyapns\">https://github.com/samuraisam/pyapns</a></a>, an open-source Twisted service that has handled over a billion push notifications for us, and has been rock-solid.</p>
+<h2>Monitoring</h2>
+<p>With 100+ instances, it’s important to keep on top of what’s going on across the board. We use <a href=\"http://munin-monitoring.org/\">Munin</a> to graph metrics across all of our system, and also alert us if anything is outside of its normal range. We write a lot of custom Munin plugins, building on top of <a href=\"http://samuelks.com/python-munin/\">Python-Munin</a>, to graph metrics that aren’t system-level (for example, signups per minute, photos posted per second, etc). We use <a href=\"http://pingdom.com\">Pingdom</a> for external monitoring of the service, and <a href=\"http://pagerduty.com\">PagerDuty</a> for handling notifications and incidents.</p>
+<p>For Python error reporting, we use <a href=\"http://pypi.python.org/pypi/django-sentry\">Sentry</a>, an awesome open-source Django app written by the folks at Disqus. At any given time, we can sign-on and see what errors are happening across our system, in real time.</p>
+<h2>You?</h2>
+<p>If this description of our systems interests you, or if you’re hopping up and down ready to tell us all the things you’d change in the system, we’d love to hear from you. <a href=\"http://instagr.am/about/jobs/\">We’re looking for a DevOps person to join us and help us tame our EC2 instance herd</a>.</p>") (link nil "http://instagram-engineering.tumblr.com/post/13649370142") (guid nil "http://instagram-engineering.tumblr.com/post/13649370142") (pubDate nil "Fri, 02 Dec 2011 14:29:42 -0800"))) ("Instagram Engineering Challenge: The Unshredder" "<p><img src=\"http://media.tumblr.com/tumblr_luifuzcjzz1qm4rc3.png\"/></p>
+<p>In our office, we have a pretty amazing paper shredder. Seriously, the thing shreds just about anything. It even has a special slot for credit cards (why anyone would want to regularly shred credit cards is beyond me, but I digress…).</p>
+<p>One day, after shredding some paper, I thought to myself: shredding paper is a pretty insecure way of destroying important stuff. I figured, it’s a small set of shreds that are all relatively uniform in width and could be pieced back together algorithmically in a fraction of a second.</p>
+<p>So, I sat down and though about what approach I’d use to piece the document back together. It’s unlike a regular puzzle in that all the pieces are exactly the same size, so you can’t rely upon the spatial domain to solve piecing shreds together. However, if you think about it, there’s a pretty simple approach that would allow you to find matches in a different domain. That is, imagine you’re sitting there trying to find a match between two pieces. What are you looking for to decide whether they’re a fit or not?</p>
+<p>Anyway, we got really excited about writing a script to take in an image of shreds of paper and piece them back into an original document. It’s an interesting challenge that marries image processing with an interesting algorithmic challenge as well.</p>
+<p><strong>THE CHALLENGE</strong></p>
+<p>Your challenge, if you choose to accept it, is to write a simple script that takes a shredded image in as input:</p>
+<p><img src=\"http://media.tumblr.com/tumblr_luigsoCv3s1qm4rc3.png\"/></p>
+<p>and outputs an unshredded and reconstituted image. That is, imagine if you took an image, divided it into an even number of columns and shuffled those columns randomly to produce a shredded image. Then, take that image into the script and output the original image:</p>
+<p><img src=\"http://media.tumblr.com/tumblr_luih7og6QM1qm4rc3.png\"/></p>
+<p>We tackled this, and our solution took a few hours plus another few hours for the bonus challenge (more on that later).</p>
+<p><strong>THE REWARD</strong></p>
+<p><strong>Due to overwhelming response, we’ve run out of our entire stock of tee-shirts!</strong> With future challenges we’ll be offering a reward for the first group of people who respond.</p>
+<p><strong>GUIDELINES</strong></p>
+<p>1) Choose a scripting language of your choice. We chose Python for its relative ease prototyping and availability of the Python Imaging Library (PIL) that allowed us to do the image stuff we wanted to do. You can easily use something like C++ or Ruby for this as well.</p>
+<p>2) Produce a script that reads in a shredded image (like the one below) and produces the original image. For this image, you can assume shreds are 32 pixels wide and uniformly spaced across the image horizontally. These shreds are scattered at random and if rearranged, will yield the original image.</p>
+<p><strong>Use <a href=\"http://instagram-static.s3.amazonaws.com/images/TokyoPanoramaShredded.png\">this image</a> as the source image - it’s 640 pixels wide and 359 pixels high.</strong></p>
+<p>3) Your solution should algorithmically unshred the image. This means it should work on arbitrarily shredded images we feed your script that are shredded in the same manner.</p>
+<p>4) <strong>BONUS CHALLENGE</strong>: We went the extra mile and made our script even spiffier by auto-detecting how wide the uniform strips are. Extra bonus points to anyone who works this into their solution. But first, we’d recommend getting your script to work assuming 32 pixel-wide shreds. For this you can assume shreds will never end up next to each other correctly in the source image.</p>
+<p>5) The key to this problem is being able to access pixel data in the image. We used Python Imaging Library - PIL (<a href=\"http://www.pythonware.com/products/pil/\" title=\"http://www.pythonware.com/products/pil/\"><a href=\"http://www.pythonware.com/products/pil/\">http://www.pythonware.com/products/pil/</a></a>) which made it very easy to parse. See the PIL tips below. If you’re using Ruby, check out RMagick (<a href=\"http://rmagick.rubyforge.org/\" title=\"http://rmagick.rubyforge.org/\"><a href=\"http://rmagick.rubyforge.org/\">http://rmagick.rubyforge.org/</a></a>) which is a gem that serves the same purpose as PIL. C++ has the boost libraries and included is “GIL” which will help you. If you’re using another language, there are most certainly equivalents of PIL, RMagick, and GIL.</p>
+<p><strong>SUBMIT YOUR SOLUTION</strong></p>
+<p>We’re no longer offering the tee-shirt reward but if you’re still interested in working with us, please submit your information &amp; a link to your solution here: <a href=\"http://bit.ly/unshredder\" target=\"_blank\"><a href=\"http://bit.ly/unshredder\">http://bit.ly/unshredder</a></a></p>
+<p><strong>PIL TIPS</strong></p>
+<pre>from PIL import Image
+image = Image.open(‘file.jpg’)
+data = image.getdata() # This gets pixel data
+# Access an arbitrary pixel. Data is stored as a 2d array where rows are
+# sequential. Each element in the array is a RGBA tuple (red, green, blue,
+# alpha).
+x, y = 20, 90
+def get_pixel_value(x, y):
+width, height = image.size
+pixel = data[y * width + x]
+return pixel
+print get_pixel_value(20, 30)
+# Create a new image of the same size as the original
+# and copy a region into the new image
+NUMBER_OF_COLUMNS = 5
+unshredded = Image.new(“RGBA”, image.size)
+shred_width = unshredded.size[0]/NUMBER_OF_COLUMNS
+shred_number = 1
+x1, y1 = shred_width * shred_number, 0
+x2, y2 = x1 + shred_width, height
+source_region = image.crop(x1, y1, x2, y2)
+destination_point = (0, 0)
+unshredded.paste(source_region, destination_point)
+# Output the new image
+unshredded.save(“unshredded.jpg”, “JPEG”)</pre>
+<p><strong>TIPS</strong></p>
+<p>1) Don’t overthink it. Use of really complex algorithms isn’t needed. Our solution WITH the bonus exercise comes in at just over 150 lines of python.</p>
+<p>2) Think about how you would quantify whether or not two shreds ‘fit’ together by using pixel data</p>
+<p>3) Assume you’re using the source image, or other normal photographs without edge-case patterns.</p>
+<p>4) There are edge cases where the script we wrote with our approach will not work because of repeating patterns. This is OK in your script as well. Don’t worry about special cases – focus on making the sample images work that we’ve provided.</p>
+<p>4) Bonus Challenge: If you decide you want to auto-detect how many columns there are in an image, you should remember that there are a finite amount of columns that are possible given an image of a certain width if you assume columns are evenly distributed and uniformly sized.</p>
+<p><strong>SHREDDER</strong></p>
+<p>If you’d like to produce your own sample images, you can use our simple script here to generate some:</p>
+<pre>from PIL import Image
+from random import shuffle
+SHREDS = 10
+image = Image.open(“sample.png”)
+shredded = Image.new(“RGBA”, image.size)
+width, height = image.size
+shred_width = width/SHREDS
+sequence = range(0, SHREDS)
+shuffle(sequence)
+for i, shred_index in enumerate(sequence):
+shred_x1, shred_y1 = shred_width * shred_index, 0
+shred_x2, shred_y2 = shred_x1 + shred_width, height
+region =image.crop((shred_x1, shred_y1, shred_x2, shred_y2))
+shredded.paste(region, (shred_width * i, 0))
+shredded.save(“sample_shredded.png”)</pre>" "http://instagram-engineering.tumblr.com/post/12651721845" (20157 31728) new 5 nil nil ((title nil "Instagram Engineering Challenge: The Unshredder") (description nil "<p><img src=\"http://media.tumblr.com/tumblr_luifuzcjzz1qm4rc3.png\"/></p>
+
+
+
+<p>In our office, we have a pretty amazing paper shredder. Seriously, the thing shreds just about anything. It even has a special slot for credit cards (why anyone would want to regularly shred credit cards is beyond me, but I digress&#8230;).</p>
+
+
+
+<p>One day, after shredding some paper, I thought to myself: shredding paper is a pretty insecure way of destroying important stuff. I figured, it&#8217;s a small set of shreds that are all relatively uniform in width and could be pieced back together algorithmically in a fraction of a second.</p>
+
+
+
+<p>So, I sat down and though about what approach I&#8217;d use to piece the document back together. It&#8217;s unlike a regular puzzle in that all the pieces are exactly the same size, so you can&#8217;t rely upon the spatial domain to solve piecing shreds together. However, if you think about it, there&#8217;s a pretty simple approach that would allow you to find matches in a different domain. That is, imagine you&#8217;re sitting there trying to find a match between two pieces. What are you looking for to decide whether they&#8217;re a fit or not?</p>
+
+
+
+<p>Anyway, we got really excited about writing a script to take in an image of shreds of paper and piece them back into an original document. It&#8217;s an interesting challenge that marries image processing with an interesting algorithmic challenge as well.</p>
+
+
+
+<p><strong>THE CHALLENGE</strong></p>
+
+
+
+<p>Your challenge, if you choose to accept it, is to write a simple script that takes a shredded image in as input:</p>
+
+
+
+<p><img src=\"http://media.tumblr.com/tumblr_luigsoCv3s1qm4rc3.png\"/></p>
+
+
+
+<p>and outputs an unshredded and reconstituted image. That is, imagine if you took an image, divided it into an even number of columns and shuffled those columns randomly to produce a shredded image. Then, take that image into the script and output the original image:</p>
+
+
+
+<p><img src=\"http://media.tumblr.com/tumblr_luih7og6QM1qm4rc3.png\"/></p>
+
+
+
+<p>We tackled this, and our solution took a few hours plus another few hours for the bonus challenge (more on that later).</p>
+
+
+
+<p><strong>THE REWARD</strong></p>
+
+
+
+<p><strong>Due to overwhelming response, we&#8217;ve run out of our entire stock of tee-shirts!</strong> With future challenges we&#8217;ll be offering a reward for the first group of people who respond.</p>
+
+
+
+<p><strong>GUIDELINES</strong></p>
+
+
+
+<p>1) Choose a scripting language of your choice. We chose Python for its relative ease prototyping and availability of the Python Imaging Library (PIL) that allowed us to do the image stuff we wanted to do. You can easily use something like C++ or Ruby for this as well.</p>
+
+
+
+<p>2) Produce a script that reads in a shredded image (like the one below) and produces the original image. For this image, you can assume shreds are 32 pixels wide and uniformly spaced across the image horizontally. These shreds are scattered at random and if rearranged, will yield the original image.</p>
+
+
+
+<p><strong>Use <a href=\"http://instagram-static.s3.amazonaws.com/images/TokyoPanoramaShredded.png\">this image</a> as the source image - it&#8217;s 640 pixels wide and 359 pixels high.</strong></p>
+
+
+
+<p>3) Your solution should algorithmically unshred the image. This means it should work on arbitrarily shredded images we feed your script that are shredded in the same manner.</p>
+
+
+
+<p>4) <strong>BONUS CHALLENGE</strong>: We went the extra mile and made our script even spiffier by auto-detecting how wide the uniform strips are. Extra bonus points to anyone who works this into their solution. But first, we&#8217;d recommend getting your script to work assuming 32 pixel-wide shreds. For this you can assume shreds will never end up next to each other correctly in the source image.</p>
+
+
+
+<p>5) The key to this problem is being able to access pixel data in the image. We used Python Imaging Library - PIL (<a href=\"http://www.pythonware.com/products/pil/\" title=\"http://www.pythonware.com/products/pil/\"><a href=\"http://www.pythonware.com/products/pil/\">http://www.pythonware.com/products/pil/</a></a>) which made it very easy to parse. See the PIL tips below. If you&#8217;re using Ruby, check out RMagick (<a href=\"http://rmagick.rubyforge.org/\" title=\"http://rmagick.rubyforge.org/\"><a href=\"http://rmagick.rubyforge.org/\">http://rmagick.rubyforge.org/</a></a>) which is a gem that serves the same purpose as PIL. C++ has the boost libraries and included is &#8220;GIL&#8221; which will help you. If you&#8217;re using another language, there are most certainly equivalents of PIL, RMagick, and GIL.</p>
+
+
+
+<p><strong>SUBMIT YOUR SOLUTION</strong></p>
+
+
+
+<p>We&#8217;re no longer offering the tee-shirt reward but if you&#8217;re still interested in working with us, please submit your information &amp; a link to your solution here: <a href=\"http://bit.ly/unshredder\" target=\"_blank\"><a href=\"http://bit.ly/unshredder\">http://bit.ly/unshredder</a></a></p>
+
+
+
+<p><strong>PIL TIPS</strong></p>
+
+
+
+<pre>from PIL import Image
+image = Image.open(‘file.jpg’)
+data = image.getdata() # This gets pixel data
+
+# Access an arbitrary pixel. Data is stored as a 2d array where rows are
+# sequential. Each element in the array is a RGBA tuple (red, green, blue,
+# alpha).
+
+x, y = 20, 90
+def get_pixel_value(x, y):
+   width, height = image.size
+   pixel = data[y * width + x]
+   return pixel
+print get_pixel_value(20, 30)
+
+# Create a new image of the same size as the original
+# and copy a region into the new image
+NUMBER_OF_COLUMNS = 5
+unshredded = Image.new(“RGBA”, image.size)
+shred_width = unshredded.size[0]/NUMBER_OF_COLUMNS
+shred_number = 1
+x1, y1 = shred_width * shred_number, 0
+x2, y2 = x1 + shred_width, height
+source_region = image.crop(x1, y1, x2, y2)
+destination_point = (0, 0)
+unshredded.paste(source_region, destination_point)
+# Output the new image
+unshredded.save(“unshredded.jpg”, “JPEG”)</pre>
+
+<p><strong>TIPS</strong></p>
+
+
+
+<p>1) Don&#8217;t overthink it. Use of really complex algorithms isn&#8217;t needed. Our solution WITH the bonus exercise comes in at just over 150 lines of python.</p>
+
+
+
+<p>2) Think about how you would quantify whether or not two shreds &#8216;fit&#8217; together by using pixel data</p>
+
+
+
+<p>3) Assume you&#8217;re using the source image, or other normal photographs without edge-case patterns.</p>
+
+
+
+<p>4) There are edge cases where the script we wrote with our approach will not work because of repeating patterns. This is OK in your script as well. Don&#8217;t worry about special cases – focus on making the sample images work that we&#8217;ve provided.</p>
+
+
+
+<p>4) Bonus Challenge: If you decide you want to auto-detect how many columns there are in an image, you should remember that there are a finite amount of columns that are possible given an image of a certain width if you assume columns are evenly distributed and uniformly sized.</p>
+
+
+
+<p><strong>SHREDDER</strong></p>
+
+
+
+<p>If you&#8217;d like to produce your own sample images, you can use our simple script here to generate some:</p>
+
+
+
+<pre>from PIL import Image
+from random import shuffle
+
+SHREDS = 10
+image = Image.open(“sample.png”)
+shredded = Image.new(“RGBA”, image.size)
+width, height = image.size
+shred_width = width/SHREDS
+sequence = range(0, SHREDS)
+shuffle(sequence)
+
+for i, shred_index in enumerate(sequence):
+    shred_x1, shred_y1 = shred_width * shred_index, 0
+    shred_x2, shred_y2 = shred_x1 + shred_width, height
+    region =image.crop((shred_x1, shred_y1, shred_x2, shred_y2))
+    shredded.paste(region, (shred_width * i, 0))
+
+shredded.save(“sample_shredded.png”)</pre>") (link nil "http://instagram-engineering.tumblr.com/post/12651721845") (guid nil "http://instagram-engineering.tumblr.com/post/12651721845") (pubDate nil "Fri, 11 Nov 2011 11:48:00 -0800"))) ("Storing hundreds of millions of simple key-value pairs in Redis" "<p>When transitioning systems, sometimes you have to build a little scaffolding. At Instagram, we recently had to do just that: for legacy reasons, we need to keep around a mapping of about 300 million photos back to the user ID that created them, in order to know which shard to query (see more info about <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">our sharding setup</a>). While eventually all clients and API applications will have been updated to pass us the full information, there are still plenty who have old information cached. We needed a solution that would:</p>
+<ol><li>Look up keys and return values very quickly</li>
+<li>Fit the data in memory, and ideally within one of the EC2 high-memory types (the 17GB or 34GB, rather than the 68GB instance type)</li>
+<li>Fit well into our existing infrastructure</li>
+<li>Be persistent, so that we wouldn’t have to re-populate it if a server died</li>
+</ol><p>One simple solution to this problem would be to simply store them as a bunch of rows in a database, with “Media ID” and “User ID” columns. However, a SQL database seemed like overkill given that these IDs were never updated (only inserted), didn’t need to be transactional, and didn’t have any relations with other tables.</p>
+<p>Instead, we turned to <a href=\"http://redis.io\">Redis</a>, an advanced key-value store that we use extensively here at Instagram (for example, it powers our main feed). Redis is a key-value swiss-army knife; rather than just normal “Set key, get key” mechanics like Memcached, it provides powerful aggregate types like sorted sets and lists. It has a configurable persistence model, where it background saves at a specified interval, and can be run in a master-slave setup. All of our Redis deployments run in master-slave, with the slave set to save to disk about every minute.</p>
+<p>At first, we decided to use Redis in the simplest way possible: for each ID, the key would be the media ID, and the value would be the user ID:</p>
+<pre><code>SET media:1155315 939
+GET media:1155315
+&gt; 939
+</code></pre>
+<p>While prototyping this solution, however, we found that Redis needed about 70 MB to store 1,000,000 keys this way. Extrapolating to the 300,000,000 we would eventually need, it was looking to be around 21GB worth of data—already bigger than the 17GB instance type on Amazon EC2.</p>
+<p>We asked the always-helpful <a href=\"https://twitter.com/#!/pnoordhuis\">Pieter Noordhuis</a>, one of Redis’ core developers, for input, and he suggested we use Redis hashes. Hashes in Redis are dictionaries that are can be encoded in memory very efficiently; the Redis setting ‘hash-zipmap-max-entries’ configures the maximum number of entries a hash can have while still being encoded efficiently. We found this setting was best around 1000; any higher and the HSET commands would cause noticeable CPU activity. For more details, you can <a href=\"https://github.com/antirez/redis/blob/unstable/src/zipmap.c\">check out the zipmap source file</a>.</p>
+<p>To take advantage of the hash type, we bucket all our Media IDs into buckets of 1000 (we just take the ID, divide by 1000 and discard the remainder). That determines which key we fall into; next, within the hash that lives at that key, the Media ID is the lookup key *within* the hash, and the user ID is the value. An example, given a Media ID of 1155315, which means it falls into bucket 1155 (1155315 / 1000 = 1155):</p>
+<pre><code>HSET \"mediabucket:1155\" \"1155315\" \"939\"
+HGET \"mediabucket:1155\" \"1155315\"
+&gt; \"939\"
+</code></pre>
+<p>The size difference was pretty striking; with our 1,000,000 key prototype (encoded into 1,000 hashes of 1,000 sub-keys each), Redis only needs 16MB to store the information. Expanding to 300 million keys, the total is just under 5GB—which in fact, even fits in the much cheaper m1.large instance type on Amazon, about 1/3 of the cost of the larger instance we would have needed otherwise. Best of all, lookups in hashes are still O(1), making them very quick.</p>
+<p>If you’re interested in trying these combinations out, the script we used to run these tests is <a href=\"https://gist.github.com/1329319\">available as a Gist on GitHub</a> (we also included Memcached in the script, for comparison—it took about 52MB for the million keys). And if you’re interested in working on these sorts of problems with us, <a href=\"http://instagram.com/about/jobs/\">drop us a note, we’re hiring!</a>.</p>
+<p><br/>Comments? Questions? <a href=\"http://news.ycombinator.com/item?id=3183276\">Discuss this post at Hacker News</a>.</p>
+<hr><p>Mike Krieger, co-founder</p>" "http://instagram-engineering.tumblr.com/post/12202313862" (20144 13216) new 6 nil nil ((title nil "Storing hundreds of millions of simple key-value pairs in Redis") (description nil "<p>When transitioning systems, sometimes you have to build a little scaffolding. At Instagram, we recently had to do just that: for legacy reasons, we need to keep around a mapping of about 300 million photos back to the user ID that created them, in order to know which shard to query (see more info about <a href=\"http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram\">our sharding setup</a>). While eventually all clients and API applications will have been updated to pass us the full information, there are still plenty who have old information cached. We needed a solution that would:</p>
+<ol><li>Look up keys and return values very quickly</li>
+<li>Fit the data in memory, and ideally within one of the EC2 high-memory types (the 17GB or 34GB, rather than the 68GB instance type)</li>
+<li>Fit well into our existing infrastructure</li>
+<li>Be persistent, so that we wouldn’t have to re-populate it if a server died</li>
+</ol><p>One simple solution to this problem would be to simply store them as a bunch of rows in a database, with “Media ID” and “User ID” columns. However, a SQL database seemed like overkill given that these IDs were never updated (only inserted), didn’t need to be transactional, and didn’t have any relations with other tables.</p>
+<p>Instead, we turned to <a href=\"http://redis.io\">Redis</a>, an advanced key-value store that we use extensively here at Instagram (for example, it powers our main feed). Redis is a key-value swiss-army knife; rather than just normal “Set key, get key” mechanics like Memcached, it provides powerful aggregate types like sorted sets and lists. It has a configurable persistence model, where it background saves at a specified interval, and can be run in a master-slave setup. All of our Redis deployments run in master-slave, with the slave set to save to disk about every minute.</p>
+<p>At first, we decided to use Redis in the simplest way possible: for each ID, the key would be the media ID, and the value would be the user ID:</p>
+<pre><code>SET media:1155315 939
+GET media:1155315
+&gt; 939
+</code></pre>
+<p>While prototyping this solution, however, we found that Redis needed about 70&#160;MB to store 1,000,000 keys this way. Extrapolating to the 300,000,000 we would eventually need, it was looking to be around 21GB worth of data—already bigger than the 17GB instance type on Amazon EC2.</p>
+<p>We asked the always-helpful <a href=\"https://twitter.com/#!/pnoordhuis\">Pieter Noordhuis</a>, one of Redis’ core developers, for input, and he suggested we use Redis hashes. Hashes in Redis are dictionaries that are can be encoded in memory very efficiently; the Redis setting ‘hash-zipmap-max-entries’ configures the maximum number of entries a hash can have while still being encoded efficiently. We found this setting was best around 1000; any higher and the HSET commands would cause noticeable CPU activity. For more details, you can <a href=\"https://github.com/antirez/redis/blob/unstable/src/zipmap.c\">check out the zipmap source file</a>.</p>
+<p>To take advantage of the hash type, we bucket all our Media IDs into buckets of 1000 (we just take the ID, divide by 1000 and discard the remainder). That determines which key we fall into; next, within the hash that lives at that key, the Media ID is the lookup key *within* the hash, and the user ID is the value. An example, given a Media ID of 1155315, which means it falls into bucket 1155 (1155315 / 1000 = 1155):</p>
+<pre><code>HSET \"mediabucket:1155\" \"1155315\" \"939\"
+HGET \"mediabucket:1155\" \"1155315\"
+&gt; \"939\"
+</code></pre>
+<p>The size difference was pretty striking; with our 1,000,000 key prototype (encoded into 1,000 hashes of 1,000 sub-keys each), Redis only needs 16MB to store the information. Expanding to 300 million keys, the total is just under 5GB—which in fact, even fits in the much cheaper m1.large instance type on Amazon, about 1/3 of the cost of the larger instance we would have needed otherwise. Best of all, lookups in hashes are still O(1), making them very quick.</p>
+<p>If you’re interested in trying these combinations out, the script we used to run these tests is <a href=\"https://gist.github.com/1329319\">available as a Gist on GitHub</a> (we also included Memcached in the script, for comparison—it took about 52MB for the million keys). And if you’re interested in working on these sorts of problems with us, <a href=\"http://instagram.com/about/jobs/\">drop us a note, we’re hiring!</a>.</p>
+<p><br/>Comments? Questions? <a href=\"http://news.ycombinator.com/item?id=3183276\">Discuss this post at Hacker News</a>.</p>
+<hr><p>Mike Krieger, co-founder</p>") (link nil "http://instagram-engineering.tumblr.com/post/12202313862") (guid nil "http://instagram-engineering.tumblr.com/post/12202313862") (pubDate nil "Tue, 01 Nov 2011 11:00:00 -0700"))) ("Simplifying EC2 SSH Connections" "<p>Here at Instagram, we run our infrastructure on Amazon Web Services, running instances on their Elastic Compute Cloud (EC2). Since we’re often spinning up new machines and changing details of our infrastructure, there’s an ever-growing list of machines that we SSH into.</p>
+<p>To authenticate with our instances, we use public key authentication (the recommended way of doing SSH log-ins to EC2 machines), but we need to figure out what host we’re connecting to first. A common way of connecting to an EC2 instance is via it’s public hostname (ec2-x-x-x-x.compute-1.amazonaws.com). However, managing a list of these hostnames once there are several of them is tedious. Because of this, we wrote EC2-SSH, a set of Python scripts that help easily connect to EC2 instances, and that we’re open sourcing for the community’s benefit.</p>
+<p>EC2-SSH takes advantage of the EC2 instance tagging. If you’re using the web console, when launching a new instance, Amazon prompts you to provide an optional value for the (pre-filled) “Name” tag. Tags can also be edited using the available EC2 command line tools.</p>
+<p>Assuming you’ve already tagged all of your instances with names, using EC2-SSH is as easy as using regular SSH with hostnames— because, behind the scenes, that’s all it’s really doing. Better illustrated with an example: Let’s assume you have an instance tagged with the name “nginx3”; using EC2-SSH you could connect to the instance by typing `ec2-ssh nginx3` into your terminal.</p>
+<p>EC2-SSH first calls the Amazon EC2 web service, resolving the tag name (in this case “nginx3”) to the public DNS address. It then substitutes out the tag name with the hostname and sends it, along with any other arguments and parameters, to `/usr/bin/ssh`.</p>
+<p>The `ec2-ssh` script is small shell script that calls another Python script, `ec2-host`, that eventually calls `/usr/bin/ssh`. Let’s detail out the process in depth:</p>
+<p>The Python script `ec2-host` is distributed in the EC2-SSH Python package and can be used unaccompanied— you might find it rather useful, in fact. Let’s take a look at it’s usage output:</p>
+<pre><code>% ec2-host --help
+Usage: ec2-host [-k KEY] [-s SECRET] [NAME]
+Prints server host name.
+--help                  display this help and exit
+-k, --aws-key KEY       EC2 Key, defaults to ENV[<span>AWS_ACCESS_KEY_ID</span>]<br/></code><code>  -s, --aws-secret SECRET EC2 Secret, defaults to ENV[AWS_SECRET_ACCESS_KEY]
+</code></pre>
+<p>By default, with no arguments, `ec2-host` host will return a list of all running EC2 instances and their associated public host names. I often use `ec2-host` this way, combined with grep I use it to filter out and identify a specific instance, or set of instances. Here’s an example:</p>
+<pre><code>% ec2-host | grep django
+django1    ec2-x-x-x-x.amazonaws.com
+django2    ec2-x-x-x-x.amazonaws.com
+....
+</code></pre>
+<p>When passing the value of an instance’s “Name” tag as an argument, ec2-host will return the associated public hostname. This is exactly what the `ec2-ssh` shell script does. Here’s an example:</p>
+<pre><code>% ec2-host nginx2
+ec2-x-x-x-x.compute-1.amazonaws.com
+</code></pre>
+<p>You may be asking how `ec2-host` has access to enumerate over your running EC2 instances, that’s a valid question. Before you start using `ec2-ssh` or `ec2-host` you have to provide your AWS key and secret. You can pass them via command line arguments to `ec2-host` like this:</p>
+<pre><code>% ec2-host --aws-key  AKJASKSA1234JDSJ8123 --aws-secret B3JDJRYQ1234QWRHFJ1234AJJDAH1kjd1234
+</code></pre>
+<p>To save time, you can also set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.</p>
+<p>Putting it all together, if you issue the following command, you’ll be signed in to the instance in your system with the specified name:</p>
+<pre><code>% ec2-ssh nginx3</code></pre>
+<p>Any arguments after the instance name will be passed into ssh:</p>
+<pre><code>% ec2-ssh nginx5 date
+Thu Oct 13 17:25:22 UTC 2011
+</code></pre>
+<p>We’ve made these tools available via PyPy, so you can issue an `easy_install ec2-ssh` or a `pip install ec2-ssh` to install the tools. If you’d like to contribute, you can also <a href=\"http://github.com/Instagram/ec2-ssh\">fork the code on GitHub</a>, or <a href=\"http://news.ycombinator.com/item?id=3107965\">discuss this post on Hacker News</a> . And if you’re interested in helping us scale our systems, <a href=\"http://instagram.jobscore.com/jobs/instagram/engineer/bXctey0Oir4kCZeJe4bk1X\">we’d love to hear from you</a>.</p>
+<p><em>Shayne Sweeney, Mobile &amp; Server Engineer</em></p>" "http://instagram-engineering.tumblr.com/post/11399488246" (20119 7976) new 7 nil nil ((title nil "Simplifying EC2 SSH Connections") (description nil "<p>Here at Instagram, we run our infrastructure on Amazon Web Services, running instances on their Elastic Compute Cloud (EC2). Since we&#8217;re often spinning up new machines and changing details of our infrastructure, there&#8217;s an ever-growing list of machines that we SSH into.</p>
+<p>To authenticate with our instances, we use public key authentication (the recommended way of doing SSH log-ins to EC2 machines), but we need to figure out what host we&#8217;re connecting to first. A common way of connecting to an EC2 instance is via it&#8217;s public hostname (ec2-x-x-x-x.compute-1.amazonaws.com). However, managing a list of these hostnames once there are several of them is tedious. Because of this, we wrote EC2-SSH, a set of Python scripts that help easily connect to EC2 instances, and that we&#8217;re open sourcing for the community&#8217;s benefit.</p>
+<p>EC2-SSH takes advantage of the EC2 instance tagging. If you&#8217;re using the web console, when launching a new instance, Amazon prompts you to provide an optional value for the (pre-filled) &#8220;Name&#8221; tag. Tags can also be edited using the available EC2 command line tools.</p>
+<p>Assuming you&#8217;ve already tagged all of your instances with names, using EC2-SSH is as easy as using regular SSH with hostnames— because, behind the scenes, that&#8217;s all it&#8217;s really doing. Better illustrated with an example: Let&#8217;s assume you have an instance tagged with the name &#8220;nginx3&#8221;; using EC2-SSH you could connect to the instance by typing `ec2-ssh nginx3` into your terminal.</p>
+<p>EC2-SSH first calls the Amazon EC2 web service, resolving the tag name (in this case &#8220;nginx3&#8221;) to the public DNS address. It then substitutes out the tag name with the hostname and sends it, along with any other arguments and parameters, to `/usr/bin/ssh`.</p>
+<p>The `ec2-ssh` script is small shell script that calls another Python script, `ec2-host`, that eventually calls `/usr/bin/ssh`. Let&#8217;s detail out the process in depth:</p>
+<p>The Python script `ec2-host` is distributed in the EC2-SSH Python package and can be used unaccompanied— you might find it rather useful, in fact. Let&#8217;s take a look at it&#8217;s usage output:</p>
+<pre><code>% ec2-host --help
+
+Usage: ec2-host [-k KEY] [-s SECRET] [NAME]
+Prints server host name.
+
+  --help                  display this help and exit
+  -k, --aws-key KEY       EC2 Key, defaults to ENV[<span>AWS_ACCESS_KEY_ID</span>]<br/></code><code>  -s, --aws-secret SECRET EC2 Secret, defaults to ENV[AWS_SECRET_ACCESS_KEY]
+</code></pre>
+<p>By default, with no arguments, `ec2-host` host will return a list of all running EC2 instances and their associated public host names. I often use `ec2-host` this way, combined with grep I use it to filter out and identify a specific instance, or set of instances. Here&#8217;s an example:</p>
+<pre><code>% ec2-host | grep django
+django1    ec2-x-x-x-x.amazonaws.com
+django2    ec2-x-x-x-x.amazonaws.com
+....
+</code></pre>
+<p>When passing the value of an instance&#8217;s &#8220;Name&#8221; tag as an argument, ec2-host will return the associated public hostname. This is exactly what the `ec2-ssh` shell script does. Here&#8217;s an example:</p>
+<pre><code>% ec2-host nginx2
+ec2-x-x-x-x.compute-1.amazonaws.com
+</code></pre>
+<p>You may be asking how `ec2-host` has access to enumerate over your running EC2 instances, that&#8217;s a valid question. Before you start using `ec2-ssh` or `ec2-host` you have to provide your AWS key and secret. You can pass them via command line arguments to `ec2-host` like this:</p>
+<pre><code>% ec2-host --aws-key  AKJASKSA1234JDSJ8123 --aws-secret B3JDJRYQ1234QWRHFJ1234AJJDAH1kjd1234
+</code></pre>
+<p>To save time, you can also set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.</p>
+<p>Putting it all together, if you issue the following command, you&#8217;ll be signed in to the instance in your system with the specified name:</p>
+<pre><code>% ec2-ssh nginx3</code></pre>
+<p>Any arguments after the instance name will be passed into ssh:</p>
+<pre><code>% ec2-ssh nginx5 date  
+Thu Oct 13 17:25:22 UTC 2011
+</code></pre>
+<p>We&#8217;ve made these tools available via PyPy, so you can issue an `easy_install ec2-ssh` or a `pip install ec2-ssh` to install the tools. If you&#8217;d like to contribute, you can also <a href=\"http://github.com/Instagram/ec2-ssh\">fork the code on GitHub</a>, or <a href=\"http://news.ycombinator.com/item?id=3107965\">discuss this post on Hacker News</a> . And if you&#8217;re interested in helping us scale our systems, <a href=\"http://instagram.jobscore.com/jobs/instagram/engineer/bXctey0Oir4kCZeJe4bk1X\">we&#8217;d love to hear from you</a>.</p>
+<p><em>Shayne Sweeney, Mobile &amp; Server Engineer</em></p>") (link nil "http://instagram-engineering.tumblr.com/post/11399488246") (guid nil "http://instagram-engineering.tumblr.com/post/11399488246") (pubDate nil "Thu, 13 Oct 2011 10:26:00 -0700"))) ("Sharding & IDs at Instagram" "<p>With more than 25 photos &amp; 90 likes every second, we store a lot of data here at Instagram. To make sure all of our important data fits into memory and is available quickly for our users, we’ve begun to <a href=\"http://en.wikipedia.org/wiki/Shard_(database)\">shard</a> our data—in other words, place the data in many smaller buckets, each holding a part of the data.</p>
+<p>Our application servers run <a href=\"http://djangoproject.com\">Django</a> with <a href=\"http://postgresql.org/\">PostgreSQL</a> as our back-end database. Our first question after deciding to shard out our data was whether PostgreSQL should remain our primary data-store, or whether we should switch to something else. We evaluated a few different NoSQL solutions, but ultimately decided that the solution that best suited our needs would be to shard our data across a set of PostgreSQL servers.</p>
+<p>Before writing data into this set of servers, however, we had to solve the issue of how to assign unique identifiers to each piece of data in the database (for example, each photo posted in our system). The typical solution that works for a single database—just using a database’s natural auto-incrementing primary key feature—no longer works when data is being inserted into many databases at the same time. The rest of this blog post addresses how we tackled this issue.</p>
+<p>Before starting out, we listed out what features were essential in our system:</p>
+<ol><li>Generated IDs should be sortable by time (so a list of photo IDs, for example, could be sorted without fetching more information about the photos)</li>
+<li>IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)</li>
+<li>The system should introduce as few new ‘moving parts’ as possible—a large part of how we’ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust. </li>
+</ol><h2 id=\"existing_solutions\">Existing solutions</h2>
+<p>
+</p>
+<p>Many existing solutions to the ID generation problem exist; here are a few we considered:</p>
+<h3 id=\"generate_ids_in_web_application\">Generate IDs in web application</h3>
+<p>
+</p>
+<p>This approach leaves ID generation entirely up to your application, and not up to the database at all. For example, <a href=\"http://www.mongodb.org/display/DOCS/Object+IDs\">MongoDB’s ObjectId</a>, which is 12 bytes long and encodes the timestamp as the first component. Another popular approach is to use <a href=\"http://en.wikipedia.org/wiki/Universally_unique_identifier\">UUID</a>s.</p>
+<p>Pros:</p>
+<ol><li>Each application thread generates IDs independently, minimizing points of failure and contention for ID generation</li>
+<li>If you use a timestamp as the first component of the ID, the IDs remain time-sortable</li>
+</ol><p>Cons:</p>
+<ol><li>Generally requires more storage space (96 bits or higher) to make reasonable uniqueness guarantees</li>
+<li>Some UUID types are completely random and have no natural sort</li>
+</ol><h3 id=\"generate_ids_through_dedicated_service\">Generate IDs through dedicated service</h3>
+<p>
+</p>
+<p>Ex: Twitter’s <a href=\"http://github.com/twitter/snowflake/\">Snowflake</a>, a Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs</p>
+<p>Pros:</p>
+<ol><li>Snowflake IDs are 64-bits, half the size of a UUID</li>
+<li>Can use time as first component and remain sortable</li>
+<li>Distributed system that can survive nodes dying</li>
+</ol><p>Cons:</p>
+<ol><li>Would introduce additional complexity and more ‘moving parts’ (ZooKeeper, Snowflake servers) into our architecture </li>
+</ol><h3 id=\"db_ticket_servers\">DB Ticket Servers</h3>
+<p>
+</p>
+<p>Uses the database’s auto-incrementing abilities to enforce uniqueness. <a href=\"http://code.flickr.com/blog/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/\">Flickr uses this approach</a>, but with two ticket DBs (one on odd numbers, the other on even) to avoid a single point of failure.</p>
+<p>Pros:</p>
+<ol><li>DBs are well understood and have pretty predictable scaling factors</li>
+</ol><p>Cons:</p>
+<ol><li>Can eventually become a write bottleneck (though Flickr reports that, even at huge scale, it’s not an issue).</li>
+<li>An additional couple of machines (or EC2 instances) to admin</li>
+<li>If using a single DB, becomes single point of failure. If using multiple DBs, can no longer guarantee that they are sortable over time.</li>
+</ol><p>Of all the approaches above, Twitter’s Snowflake came the closest, but the additional complexity required to run an ID service was a point against it. Instead, we took a conceptually similar approach, but brought it inside PostgreSQL.</p>
+<h3 id=\"our_solution\">Our solution</h3>
+<p>
+</p>
+<p>Our sharded system consists of several thousand ‘logical’ shards that are mapped in code to far fewer physical shards. Using this approach, we can start with just a few database servers, and eventually move to many more, simply by moving a set of logical shards from one database to another, without having to re-bucket any of our data. We used Postgres’ schemas feature to make this easy to script and administrate.</p>
+<p>Schemas (not to be confused with the SQL schema of an individual table) are a logical grouping feature in Postgres. Each Postgres DB can h2have several schemas, each of which can contain one or more tables. Table names must only be unique per-schema, not per-DB, and by default Postgres places everything in a schema named ‘public’.</p>
+<p>Each ‘logical’ shard is a Postgres schema in our system, and each sharded table (for example, likes on our photos) exists inside each schema.</p>
+<p>We’ve delegated ID creation to each table inside each shard, by using PL/PGSQL, Postgres’ internal programming language, and Postgres’ existing auto-increment functionality.</p>
+<p>Each of our IDs consists of:</p>
+<ul><li>41 bits for time in milliseconds (gives us 41 years of IDs with a custom epoch)</li>
+<li>13 bits that represent the logical shard ID</li>
+<li>10 bits that represent an auto-incrementing sequence, modulus 1024. This means we can generate 1024 IDs, per shard, per millisecond</li>
+</ul><p>Let’s walk through an example: let’s say it’s September 9th, 2011, at 5:00pm and our ‘epoch’ begins on January 1st, 2011. There have been 1387263000 milliseconds since the beginning of our epoch, so to start our ID, we fill the left-most 41 bits with this value with a left-shift:</p>
+<p><code>id = 1387263000 &lt;&lt; (64-41)</code></p>
+<p>Next, we take the shard ID for this particular piece of data we’re trying to insert. Let’s say we’re sharding by user ID, and there are 2000 logical shards; if our user ID is 31341, then the shard ID is <code>31341 % 2000 -&gt; 1341</code>. We fill the next 13 bits with this value:</p>
+<p><code>id |= 1341 &lt;&lt; (64-41-13)</code></p>
+<p>Finally, we take whatever the next value of our auto-increment sequence (this sequence is unique to each table in each schema) and fill out the remaining bits. Let’s say we’d generated 5,000 IDs for this table already; our next value is 5,001, which we take and mod by 1024 (so it fits in 10 bits) and include it too:</p>
+<p><code>id |= (5001 % 1024)</code></p>
+<p>We now have our ID, which we can return to the application server using the <code>RETURNING</code> keyword as part of the <code>INSERT</code>.</p>
+<p>Here’s the PL/PGSQL that accomplishes all this (for an example schema insta5):</p>
+<pre><code>CREATE OR REPLACE FUNCTION insta5.next_id(OUT result bigint) AS $$
+DECLARE
+our_epoch bigint := 1314220021721;
+seq_id bigint;
+now_millis bigint;
+shard_id int := 5;
+BEGIN
+SELECT nextval('insta5.table_id_seq') %% 1024 INTO seq_id;
+SELECT FLOOR(EXTRACT(EPOCH FROM clock_timestamp()) * 1000) INTO now_millis;
+result := (now_millis - our_epoch) &lt;&lt; 23;
+result := result | (shard_id &lt;&lt; 10);
+result := result | (seq_id);
+END;
+$$ LANGUAGE PLPGSQL;
+</code></pre>
+<p>
+</p>
+<p>And when creating the table, we do:</p>
+<pre><code>CREATE TABLE insta5.our_table (
+\"id\" bigint NOT NULL DEFAULT insta5.next_id(),
+...rest of table schema...
+)</code></pre>
+<p>
+</p>
+<p>And that’s it! Primary keys that are unique across our application (and as a bonus, contain the shard ID in them for easier mapping). We’ve been rolling this approach into production and are happy with the results so far. Interested in helping us figure out these problems at scale? <a href=\"http://instagram.com/about/jobs/\">We’re hiring!</a></p>
+<p><em>Mike Krieger, co-founder</em></p>
+<p>—</p>
+<p>Discuss this post on <a title=\"Hacker News\" href=\"http://news.ycombinator.com/item?id=3058327\">Hacker News</a>.</p>" "http://instagram-engineering.tumblr.com/post/10853187575" (20102 748) new 8 nil nil ((title nil "Sharding & IDs at Instagram") (description nil "<p>With more than 25 photos &amp; 90 likes every second, we store a lot of data here at Instagram. To make sure all of our important data fits into memory and is available quickly for our users, we’ve begun to <a href=\"http://en.wikipedia.org/wiki/Shard_(database)\">shard</a> our data—in other words, place the data in many smaller buckets, each holding a part of the data.</p>
+
+
+
+<p>Our application servers run <a href=\"http://djangoproject.com\">Django</a> with <a href=\"http://postgresql.org/\">PostgreSQL</a> as our back-end database. Our first question after deciding to shard out our data was whether PostgreSQL should remain our primary data-store, or whether we should switch to something else. We evaluated a few different NoSQL solutions, but ultimately decided that the solution that best suited our needs would be to shard our data across a set of PostgreSQL servers.</p>
+
+
+
+<p>Before writing data into this set of servers, however, we had to solve the issue of how to assign unique identifiers to each piece of data in the database (for example, each photo posted in our system). The typical solution that works for a single database—just using a database’s natural auto-incrementing primary key feature—no longer works when data is being inserted into many databases at the same time. The rest of this blog post addresses how we tackled this issue.</p>
+
+
+
+<p>Before starting out, we listed out what features were essential in our system:</p>
+
+
+
+<ol><li>Generated IDs should be sortable by time (so a list of photo IDs, for example, could be sorted without fetching more information about the photos)</li>
+<li>IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)</li>
+<li>The system should introduce as few new ‘moving parts’ as possible—a large part of how we’ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust. </li>
+</ol><h2 id=\"existing_solutions\">Existing solutions</h2>
+
+<p>
+</p>
+
+<p>Many existing solutions to the ID generation problem exist; here are a few we considered:</p>
+
+
+
+<h3 id=\"generate_ids_in_web_application\">Generate IDs in web application</h3>
+
+<p>
+</p>
+
+<p>This approach leaves ID generation entirely up to your application, and not up to the database at all. For example, <a href=\"http://www.mongodb.org/display/DOCS/Object+IDs\">MongoDB’s ObjectId</a>, which is 12 bytes long and encodes the timestamp as the first component. Another popular approach is to use <a href=\"http://en.wikipedia.org/wiki/Universally_unique_identifier\">UUID</a>s.</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>Each application thread generates IDs independently, minimizing points of failure and contention for ID generation</li>
+<li>If you use a timestamp as the first component of the ID, the IDs remain time-sortable</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Generally requires more storage space (96 bits or higher) to make reasonable uniqueness guarantees</li>
+<li>Some UUID types are completely random and have no natural sort</li>
+</ol><h3 id=\"generate_ids_through_dedicated_service\">Generate IDs through dedicated service</h3>
+
+<p>
+</p>
+
+<p>Ex: Twitter’s <a href=\"http://github.com/twitter/snowflake/\">Snowflake</a>, a Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>Snowflake IDs are 64-bits, half the size of a UUID</li>
+<li>Can use time as first component and remain sortable</li>
+<li>Distributed system that can survive nodes dying</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Would introduce additional complexity and more ‘moving parts’ (ZooKeeper, Snowflake servers) into our architecture </li>
+</ol><h3 id=\"db_ticket_servers\">DB Ticket Servers</h3>
+
+<p>
+</p>
+
+<p>Uses the database’s auto-incrementing abilities to enforce uniqueness. <a href=\"http://code.flickr.com/blog/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/\">Flickr uses this approach</a>, but with two ticket DBs (one on odd numbers, the other on even) to avoid a single point of failure.</p>
+
+
+
+<p>Pros:</p>
+
+
+
+<ol><li>DBs are well understood and have pretty predictable scaling factors</li>
+</ol><p>Cons:</p>
+
+
+
+<ol><li>Can eventually become a write bottleneck (though Flickr reports that, even at huge scale, it&#8217;s not an issue).</li>
+<li>An additional couple of machines (or EC2 instances) to admin</li>
+<li>If using a single DB, becomes single point of failure. If using multiple DBs, can no longer guarantee that they are sortable over time.</li>
+</ol><p>Of all the approaches above, Twitter’s Snowflake came the closest, but the additional complexity required to run an ID service was a point against it. Instead, we took a conceptually similar approach, but brought it inside PostgreSQL.</p>
+
+
+
+<h3 id=\"our_solution\">Our solution</h3>
+
+<p>
+</p>
+
+<p>Our sharded system consists of several thousand ‘logical’ shards that are mapped in code to far fewer physical shards. Using this approach, we can start with just a few database servers, and eventually move to many more, simply by moving a set of logical shards from one database to another, without having to re-bucket any of our data. We used Postgres’ schemas feature to make this easy to script and administrate.</p>
+
+
+
+<p>Schemas (not to be confused with the SQL schema of an individual table) are a logical grouping feature in Postgres. Each Postgres DB can h2have several schemas, each of which can contain one or more tables. Table names must only be unique per-schema, not per-DB, and by default Postgres places everything in a schema named ‘public’.</p>
+
+
+
+<p>Each ‘logical’ shard is a Postgres schema in our system, and each sharded table (for example, likes on our photos) exists inside each schema.</p>
+
+
+
+<p>We’ve delegated ID creation to each table inside each shard, by using PL/PGSQL, Postgres’ internal programming language, and Postgres’ existing auto-increment functionality.</p>
+
+
+
+<p>Each of our IDs consists of:</p>
+
+
+
+<ul><li>41 bits for time in milliseconds (gives us 41 years of IDs with a custom epoch)</li>
+<li>13 bits that represent the logical shard ID</li>
+<li>10 bits that represent an auto-incrementing sequence, modulus 1024. This means we can generate 1024 IDs, per shard, per millisecond</li>
+</ul><p>Let’s walk through an example: let’s say it’s September 9th, 2011, at 5:00pm and our ‘epoch’ begins on January 1st, 2011. There have been 1387263000 milliseconds since the beginning of our epoch, so to start our ID, we fill the left-most 41 bits with this value with a left-shift:</p>
+
+
+
+<p><code>id = 1387263000 &lt;&lt; (64-41)</code></p>
+
+
+
+<p>Next, we take the shard ID for this particular piece of data we’re trying to insert. Let’s say we’re sharding by user ID, and there are 2000 logical shards; if our user ID is 31341, then the shard ID is <code>31341 % 2000 -&gt; 1341</code>. We fill the next 13 bits with this value:</p>
+
+
+
+<p><code>id |= 1341 &lt;&lt; (64-41-13)</code></p>
+
+
+
+<p>Finally, we take whatever the next value of our auto-increment sequence (this sequence is unique to each table in each schema) and fill out the remaining bits. Let’s say we’d generated 5,000 IDs for this table already; our next value is 5,001, which we take and mod by 1024 (so it fits in 10 bits) and include it too:</p>
+
+
+
+<p><code>id |= (5001 % 1024)</code></p>
+
+
+
+<p>We now have our ID, which we can return to the application server using the <code>RETURNING</code> keyword as part of the <code>INSERT</code>.</p>
+
+
+
+<p>Here’s the PL/PGSQL that accomplishes all this (for an example schema insta5):</p>
+
+
+
+<pre><code>CREATE OR REPLACE FUNCTION insta5.next_id(OUT result bigint) AS $$
+DECLARE
+    our_epoch bigint := 1314220021721;
+    seq_id bigint;
+    now_millis bigint;
+    shard_id int := 5;
+BEGIN
+    SELECT nextval('insta5.table_id_seq') %% 1024 INTO seq_id;
+
+    SELECT FLOOR(EXTRACT(EPOCH FROM clock_timestamp()) * 1000) INTO now_millis;
+    result := (now_millis - our_epoch) &lt;&lt; 23;
+    result := result | (shard_id &lt;&lt; 10);
+    result := result | (seq_id);
+END;
+$$ LANGUAGE PLPGSQL;
+</code></pre>
+
+<p>
+</p>
+
+<p>And when creating the table, we do:</p>
+
+
+
+<pre><code>CREATE TABLE insta5.our_table (
+    \"id\" bigint NOT NULL DEFAULT insta5.next_id(),
+    ...rest of table schema...
+)</code></pre>
+
+<p>
+</p>
+
+<p>And that&#8217;s it! Primary keys that are unique across our application (and as a bonus, contain the shard ID in them for easier mapping). We&#8217;ve been rolling this approach into production and are happy with the results so far. Interested in helping us figure out these problems at scale? <a href=\"http://instagram.com/about/jobs/\">We&#8217;re hiring!</a></p>
+
+
+
+<p><em>Mike Krieger, co-founder</em></p>
+
+
+
+<p>&#8212;</p>
+
+
+
+<p>Discuss this post on <a title=\"Hacker News\" href=\"http://news.ycombinator.com/item?id=3058327\">Hacker News</a>.</p>") (link nil "http://instagram-engineering.tumblr.com/post/10853187575") (guid nil "http://instagram-engineering.tumblr.com/post/10853187575") (pubDate nil "Fri, 30 Sep 2011 10:57:00 -0700"))))

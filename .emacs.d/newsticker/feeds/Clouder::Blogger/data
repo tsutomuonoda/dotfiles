@@ -1,0 +1,876 @@
+;; -*- coding: utf-8 -*-
+(("Clouder::Blogger" nil nil (20813 24325 567010 244000) feed 0 nil nil ((title nil "Clouder::Blogger") (link ((rel . "alternate") (type . "text/html") (href . "http://blog.clouder.jp/"))) (id nil "tag:blog.clouder.jp,2008-11-09://2") (updated nil "2012-03-19T03:59:27Z") (generator ((uri . "http://www.sixapart.com/movabletype/")) "Movable Type Pro 5.12") (atom10:link ((xmlns:atom10 . "http://www.w3.org/2005/Atom") (rel . "self") (type . "application/atom+xml") (href . "http://feeds.feedburner.com/clouder"))) (feedburner:info ((uri . "clouder"))) (atom10:link ((xmlns:atom10 . "http://www.w3.org/2005/Atom") (rel . "hub") (href . "http://pubsubhubbub.appspot.com/"))) (entry nil (title nil "プレゼンをmarkdownで書いたらええやん") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/nnF9PPTwnik/001146.html"))) (id nil "tag:blog.clouder.jp,2012://2.1146") (published nil "2012-03-19T03:18:18Z") (updated nil "2012-03-19T03:59:27Z") (summary nil "markdown2impressってのを書きました。 https://github.com/yosh...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "javascript") (label . "javascript") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "markdown") (label . "markdown") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "markdown2impressってのを書きました。<br /><br /><a href=\"https://github.com/yoshiki/markdown2impress\">https://github.com/yoshiki/markdown2impress</a><br /><br />
+
+これはmarkdownで書いた文章を<a href=\"http://bartaz.github.com/impress.js\">impress.js</a>に対応したHTMLに変換するものです。impress.jsっていうのは、CSS3をつかって文字とかをぎゅんぎゅん動かすことのできるプレゼンフレームワークです(prezi.comにインスパイアされて作ったらしい)。<br /><br />
+
+impress.jsを使ってプレゼンをゼロから作ってもいいんですが、HTMLをいちいち書くのめんどかったのでmarkdown形式で書いたものをそれ用に変換してくれたらいいなと思って書いてみました。基本的にはmarkdownで書いた文章の1つのセクションが1つのスライドになるようになっていて、githubのリポジトリのREADME.mdをこのプログラムで変換するとプレゼンに変換されます。<br /><br />
+
+使い方は簡単で、<br /><pre class=\"command\">% markdown2impress.pl README.md</pre>
+
+とやるだけでOK。<br /><br />
+
+こうするとカレントディレクトリにindex.html、js/impress.js、css/impress.cssの3つのファイルが生成されます。<br /><br />
+
+もしCSSを変えたければcss/impress.cssを直接編集してやればいいです。ちなみに生成されるcss/impress.cssは元のimpress.jsに含まれるcssをちょっとだけ加工してあります。<br /><br />
+
+markdown2impressは、なにも指定せずにmarkdownを変換してやるとスライドの位置(縦横幅や位置)を勝手に計算してくれるのですが、以下のようにセクション内にHTMLのコメント形式でimpress.jsが理解できる data-x や data-y などのアトリビュートを書くことでスライドの位置を変更することもできます。<br /><pre class=\"code\">&lt;!-- data-x=\"1000\" --&gt;</pre>
+
+もちろん data-xやdata-y以外のdata-z、data-rotate、data-scaleなども使えます。<br /><br />
+
+ちなみにコマンドラインのオプションとして以下が指定できるようになっています。<br /><ul><li>--width<br />スライドの横幅(default: 1200)</li><li>--height<br />スライドの縦幅(default: 800)</li><li>--column<br />スライドの横の数(default: 5)</li><li>--outputdir<br />出力ディレクトリ(default: current dir)</li></ul><br />
+
+興味があったら使ってみてください。<br /><br />
+
+※生成されるimpress.jsが最新ではない場合があるので、その場合は本家のjsとcssの最新版をコピってくれれば動くはずです。<br /><br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001146.html")) (entry nil (title nil "TCPセッションモニタ「miruo」が便利だった") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/ugf-kORFebc/001145.html"))) (id nil "tag:blog.clouder.jp,2012://2.1145") (published nil "2012-02-03T07:26:30Z") (updated nil "2012-02-03T07:40:09Z") (summary nil "なんかネットワークの問題を調べていたらtcpのリトライが発生している模様。 でもイメージトークしてて...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Development") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Networking") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Unix") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "development") (label . "development") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "networking") (label . "networking") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "なんかネットワークの問題を調べていたらtcpのリトライが発生している模様。<br>
+でもイメージトークしててもしょうがないので本当にリトライが発生しているのかtcpdumpで調べてみたんだけど、なにせ情報量が多過ぎる。<br><br>
+
+そんでtcpdumpの情報の解析方法を調べているうちにmiruoってのを見つけて、使ってみたら便利だったのでご紹介。<br><br>
+
+miruoはDSAS開発者の部屋の「<a href=\"http://dsas.blog.klab.org/archives/51977201.html\">高負荷サイトのボトルネックを見つけるには</a>」で使い方とかも含めて紹介されています。<br><br>
+
+ダウンロードは↓からどうぞ。<br><a href=\"http://sourceforge.net/projects/miruo/\">TCPセッションモニタ「miruo」</a><br><br>
+
+これは便利だ。
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001145.html")) (entry nil (title nil ".gitignoreに困ったら？") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/_uLUJPQbG7w/001144.html"))) (id nil "tag:blog.clouder.jp,2012://2.1144") (published nil "2012-02-03T07:22:18Z") (updated nil "2012-02-03T07:41:51Z") (summary nil "githubにいろんな.gitignoreがまとまってるので、この中からコピったらいいよ。 http...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Git") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "git") (label . "git") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "github") (label . "github") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "githubにいろんな.gitignoreがまとまってるので、この中からコピったらいいよ。<br><a href=\"https://github.com/github/gitignore\">https://github.com/github/gitignore</a>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001144.html")) (entry nil (title nil "Notify My Androidでim.kayac.comの通知を受け取る方法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/-HCh1AmwkBQ/001143.html"))) (id nil "tag:blog.clouder.jp,2011://2.1143") (published nil "2011-12-07T06:05:29Z") (updated nil "2011-12-07T07:09:12Z") (summary nil "先日メインで使ってるDoCoMoのフィーチャーフォンをGalaxy Nexusに機種変したのですが、...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Android") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "先日メインで使ってるDoCoMoのフィーチャーフォンをGalaxy Nexusに機種変したのですが、それまでiPhoneで受け取っていたim.kayac.comの通知をAndroidでも受け取りたくなったのでどういう方法があるのか調べてみました。<br><br>
+
+im.kayac.comはGoogle Talk(Jabber)でも通知ができるので、やるとしたらその方向しかないんだろうなぁと思いつつググってみると案の定Google Talkのアプリで通知を受け取るっていう記事がいくつかみつかりました。<br><br>
+
+でも、なんか「素のGoogle Talkで通知を確認するのはなんかクールじゃない！」<br><br>
+
+と思っちゃったので、それ以外の方法ないのかといろいろ探してみたらみつかりました。<br>
+(みつかったというかアプリを利用して足りない部分は自分で作ったんですが...)<br><br>
+
+簡単に方法を説明しちゃうと、自前でXMPPのクライアントを立てて、im.kayac.comからの通知を「Notify My Android」っていうNotify専用のアプリに流すという方法です。<br><br>
+
+簡単に書くとこんな感じ。<br><pre>[im.kayac.com] -> [XMPP client] -> [Notify My Android]</pre><br><br>
+
+ちなみにNotify My Androidは有料です。<br>
+有料だけど、今回この実装をやってみたら買う価値はあるかなと。<br>
+缶ビール2本我慢すれば買える値段ですし(※お酒はあまりのみませんが！)。<br><br>
+
+ってことで手順を説明します。<br><br><ul><li>AndroidマーケットでNotify My Androidを購入し、Notify My Androidのサイトでアカウント登録とAPI Keyの発行を済ませておく。</li><li>以下のスクリプトを使って、im.kayac.comのGoogle Talkのアクティベーションします。<br>
+実行にはAnyEvent::XMPPのインストールと、pitを使ってgtalkって名前で設定(usernameとpassword)を追加しておく必要があります。<br><br><script src=\"https://gist.github.com/1441510.js?file=register.pl\"></script>
+
+実行は引数にim.kayac.comで発行されたアクティベーションコードを渡すだけ。
+<pre class=\"command\">% ./register.pl アクティベーションコード
+session ready at ./register.pl line 27.
+connected at ./register.pl line 31.message from api@im.kayac.com/123456: Your jabber account has been activated! at ./register.pl line 36.</pre></li><li>あとは以下のスクリプトを起動するだけです。<br>
+実行にはWebService::NotifyMyAndroidのインストールと、pitを使ってnma(Notify My Androidの略)って名前で設定(apikey)を追加しておく必要があります。<br><br><script src=\"https://gist.github.com/1441510.js?file=server.pl\"></script>
+
+実行は普通に以下な感じ。
+<pre class=\"command\">% ./server.pl &</pre>
+ちなみに、
+<pre class=\"command\">request to https://nma.usk.bz/publicapi/verify?apikey=YOUR_API_KEY failed at ./server.pl line 19</pre>
+とかでる人はLWP::Protocol::httpsが入ってないからだと思います。
+</li></ul>
+
+これでサーバさえちゃんと動いてたら、Notify My Androidに通知が来るはずです。
+
+興味ある方がいたらやってみてください。") (feedburner:origLink nil "http://blog.clouder.jp/archives/001143.html")) (entry nil (title nil "Plack on SL4A in Yokohama.pm #8") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/IWllMUcUd1E/001142.html"))) (id nil "tag:blog.clouder.jp,2011://2.1142") (published nil "2011-11-21T02:42:30Z") (updated nil "2011-11-21T03:48:35Z") (summary nil "Yokohama.pm #8で「Plack on SL4A」というタイトルでLTしてきました。 実は...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Android") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "android") (label . "android") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "sl4a") (label . "sl4a") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "yokohamapm") (label . "yokohamapm") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "Yokohama.pm #8で「Plack on SL4A」というタイトルでLTしてきました。<br /><br />
+
+実はこの話は元ネタがあって、<a href=\"http://advent.perl.kr/2010-12-21.html\">去年のperl.krのAdventカレンダーで紹介されていたもの</a>を実践してみたものになっています。<br /><br />
+
+本当は、これを元にAmon2などのフレームワークを動かしたかったのですが、XS依存の問題があってそのXSモジュールをインストールしようと頑張ったのですが、どうしてもインストールできなかったため今回のPlackのインストールまでの話になってしまいました。<br /><br />
+
+もうちょっとだけSL4AでXSを動かせるか試してみたいと思っていて、進捗があったらここでお知らせしたいと思います。<br /><br />
+
+ちなみにSL4AのXSのmakeできない問題は、すでに<a href=\"http://code.google.com/p/android-scripting/issues/detail?id=366\">SL4AのIssueに上っていて</a>、このIssueの最後の方のポストで<a href=\"http://github.com/castaway/perl/tree/x-compile-android\">githubのPerlのブランチ</a>を切って書き換えたやつでビルドできたという話が出ているのですが、ARMのクロスコンパイル環境を用意してやってみたもののうまくいなかいんですよねぇ...。
+
+<iframe width=\"360\" height=\"228\" src=\"http://www.ustream.tv/embed/recorded/18591399\" scrolling=\"no\" frameborder=\"0\" style=\"border: 0px none transparent;\"></iframe>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001142.html")) (entry nil (title nil "Android開発にも役立つEmacsの補完プラグイン - ajc-java-complete") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/z9R9R27nlas/001141.html"))) (id nil "tag:blog.clouder.jp,2011://2.1141") (published nil "2011-07-08T02:13:55Z") (updated nil "2011-07-08T03:23:51Z") (summary nil "最近Androidの開発をしていまして、例にもれずEclipseが体に合わないため(というかEmac...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Emacs") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "emacs") (label . "emacs") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "java") (label . "java") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "lisp") (label . "lisp") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "最近Androidの開発をしていまして、例にもれずEclipseが体に合わないため(というかEmacsが好きなため？)、Emacsで開発をしています。<br /><br />
+
+しかし、いままでJavaで本格的に開発したことなかったのでEmacsにおけるJavaの開発環境がまったく整備されていないので、EmacsでもうちょっとJavaの開発がしやすくする便利なモードないのかなと調べてみました。<br /><br />
+
+いろいろ調べてみたら、<a href=\"http://jdee.sourceforge.net/\">JDEE　−　Java Development Environment for Emacs</a>ってのがあったのですがなんかごてごてしていて、そんなモリモリの機能いらないんだよなぁと思っていたら「<a href=\"http://www.emacswiki.org/emacs/AutoJavaComplete\">ajc-java-complete</a>」っていうのをみつけました。<br /><br />
+
+ajc-java-completeは名前の通りauto-completeやyasnippetと連携して補完することをメインにしたものになっていて、今も開発が継続しているようでなかなかよさげ。ということでさっそくインストールしてみました。<br /><br /><ul><li>auto-complete のインストール<br /><br /><a href=\"http://cx4a.org/software/auto-complete/\">http://cx4a.org/software/auto-complete/</a> からダウンロードしてきて、<a href=\"http://cx4a.org/software/auto-complete/manual.html#Installation\">この辺</a>を参考にインストール。<br /><br />
+
+.emacsに以下のような設定をしておくとよいでしょう。<br /><pre class=\"code\">(require 'auto-complete)
+(global-auto-complete-mode t)
+(define-key ac-complete-mode-map \"\\C-n\" 'ac-next)
+(define-key ac-complete-mode-map \"\\C-p\" 'ac-previous)</pre><br /></li><li>yasnippet のインストール<br /><br />
+
+http://code.google.com/p/yasnippet/ からダウンロードしてきて、<a href=\"http://yasnippet.googlecode.com/svn/trunk/doc/index.html#installation\">この辺</a>を参考にインストール。<br /><br />
+
+.emacsに以下のような設定をしておくとよいでしょう($PATH_TO_SNIPPETはsnippetをインストールしたディレクトリね)。<br /><pre class=\"code\">(require 'yasnippet-bundle)
+(yas/initialize)
+(yas/load-directory \"$PATH_TO_SNIPPET/snippets\")</pre><br /></li><li>ajc-java-complete のインストール<br /><br /><a href=\"https://github.com/jixiuf/ajc-java-complete\">https://github.com/jixiuf/ajc-java-complete</a>からcloneしてきて、<a href=\"http://www.emacswiki.org/emacs/AutoJavaComplete#toc1\">この辺</a>を参考にajc-java-complete自体をインストール。<br /><br />
+
+なお、ajc-java-completeは、auto-completeに付属するpopup.elにパッチをあてないといけないらしく、ajc-java-completeのパッケージに付随するpopup.elを、すでにインストールしたauto-completeのpopup.elと入れ替える必要があります。<br /><br />
+
+あと、Javaのクラスを補完させるためにタグファイルを生成する必要があります。そのためのJavaのプログラムが添付されているので、それを以下のようにjavacでコンパイルしてから実行する必要があります。<br /><pre class=\"command\">% javac Tags.java
+% env CLASSPATH=$PATH_TO_ANDROID_HOME/platforms/android-11/android.jar:/System/Library/Frameworks/JavaVM.framework/Classes/classes.jar:. java Tags</pre><br />
+
+この例ではAndroid開発もしたいのでAndroidのSDKのパッケージも含めています。<br />
+(なお、classes.jarのパスはMac OS X用なので適宜自分の環境に合わせて変えてください)<br /><br />
+
+んで、最後に.emacsに以下のように書きます。<br /><pre class=\"code\">(require 'ajc-java-complete-config)
+(add-hook 'java-mode-hook 'ajc-java-complete-mode)</pre><br /></li></ul>
+
+以上でインストールが完了しました。<br /><br />
+
+あとはEmacsを起動してFoo.javaとかやってみると補完がきくようになります。<br /><br />
+
+補完以外の機能で言うと、「C-c i」でインポートしていないものを自動でインポートして(ファイルの上部に「import com.example.foo;」って挿入して)くれたり、クラス名のところにカーソルをもってきて「C-c m」とやるとそのクラスをインポートしてくれたりするものがあります。(ただし、なぜかextendsの後に書いたクラスはインポートしてくれず...)<br /><br />
+
+ちなみに、さきほど補完用にタグファイルを生成したのですが、あれがけっこうな容量になっていて、それを起動時に読み込むため、初回のみですがちょっと時間がかかるようです。これ直したいとajc-java-completeをいまいじってるところです。なにかいい案があったらまたお知らせします。(っていうかpull requestしたい)<br /><br />
+
+それともう1つ、自分はMac OS XのEmacsでインポート機能を使うとダイアログがウィンドウで出てうざい(のとEmacs自体が固まったりする)ので以下のパッチをあててます。<br /><pre class=\"code\">--- old/ajc-java-complete.el	2011-07-08 00:00:28.000000000 +0900
++++ new/ajc-java-complete.el	2011-07-08 00:00:12.000000000 +0900
+@@ -938,7 +938,8 @@
+ before that it will use y-or-n-p ask user to confirm \"
+   (let ((import-class-buffer \"*ajc-import-java-class*\")
+         (import-class-window) (user-confirmed-class-items-list)
+-        (java-buffer (current-buffer))(java-window))
++        (java-buffer (current-buffer))(java-window)
++        (last-nonmenu-event t))
+     (setq case-fold-search nil)
+     (if (and import-class-items-list (> (length import-class-items-list) 0))
+         (progn</pre>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001141.html")) (entry nil (title nil "GNU Parallel いいかもね") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/ainpxujlA0I/001140.html"))) (id nil "tag:blog.clouder.jp,2011://2.1140") (published nil "2011-05-17T07:58:20Z") (updated nil "2011-05-17T08:09:06Z") (summary nil "GNU Parallelがすごすぎて生きるのがつらいを見て使ってみました。 そもそも複数のサーバのa...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "parallel") (label . "Parallel") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "Perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "<a href=\"http://blog.riywo.com/2011/04/19/022802\">GNU Parallelがすごすぎて生きるのがつらい</a>を見て使ってみました。<br /><br />
+
+そもそも複数のサーバのaccess_logをtail -fで一括で見たかったからです。<br /><br /><a href=\"http://www.gnu.org/software/parallel/\">GNU Parallel</a>からダウンロードして
+<pre class=\"command\">% ./configure
+% make
+% make install</pre>
+でインストールは終了。簡単！<br /><br />
+
+Perlで書かれてるんでコンパイルとか必要ないっす。<br /><br />
+
+インストールしたら目的のサーバ群に対して tail -f /path/to/access_log を発行するだけ。
+
+<pre class=\"command\">％　parallel -u ssh {} 'tail -f /path/to/access_log' :::: /path/to/server_list.txt</pre>
+
+こうするとserver_list.txtに列挙されてるサーバに対してtail -f /path/to/access_logが実行されます。<br /><br />
+
+-u っていうオプションを付けないと出力がバッファリングされちゃうので、tail -f するときは -u を付けないとだめです。<br /><br />
+
+ちょっと引数にクセがあるけど慣れですね。<br />
+マニュアルは man parallel で見られます。<br /><br />
+
+他にもこういうのあるけど、Perlで書かれてて使い易かったのでしばらく使ってみようと思います。<br />") (feedburner:origLink nil "http://blog.clouder.jp/archives/001140.html")) (entry nil (title nil "Xcode4でCPANモジュールがコンパイルできない問題の解決方法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/br5hc0HO71A/001139.html"))) (id nil "tag:blog.clouder.jp,2011://2.1139") (published nil "2011-04-04T09:56:51Z") (updated nil "2011-04-04T10:34:49Z") (summary nil "MacBook Airの11インチを遅ればせながら購入したclouderです、こんにちは。 購入した...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlcmac") (label . "perl c mac") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "MacBook Airの11インチを遅ればせながら購入したclouderです、こんにちは。<br /><br />
+
+購入したその日にさっそく開発環境を整えようとXcode4を入れて、iPhoneアプリ開発を...と思いきや、Perlの開発を始めたんですが、いくつかのCPANモジュールがインストール(コンパイル)できないのに気付きました。<br /><br />
+
+コンパイル時のエラーは以下のようなもの。<br /><pre class=\"code\">lipo: can't open input file: /var/tmp/hoge.out (No such file or directory)</pre>
+
+どうやらXSなどのコンパイルが必要なモジュールでこの現象がおこっているようです。いろいろ調べてみたら、コンパイルオプションに「-arch ppc」があるのにppcのアーキテクチャのファイルが適切な場所にないからエラってしまうようです。<br /><br />
+
+なんでだよーと思いつつ、Xcode4のREADMEを見たら以下のような記述を発見。<br /><br /><blockquote>Xcode 4 does not support developing for PowerPC; you must continue to use Xcode 3.2.6 to develop applications for the PowerPC architecture. The Custom Install section below has instructions to install both Xcode 4 and Xcode 3.2.6 on the same Mac.</blockquote><br />
+
+「Xcode4じゃPowerPCのサポートしないぜよｗ」って書いてありますね。<br /><br />
+
+どうしようかなぁと思いつつ、その後もいろいろ調べてみたらこれに対する解決方法を2つ発見しました。<br /><br />
+
+1つはppcのアーキテクチャを無視してx86_64とi386だけでコンパイルしちゃう方法で、もう1つは(実は入っている)ppcのアーキテクチャのファイルを適切な場所に置いてしまうという方法があります。<br /><br />
+
+1つ目は、以下の環境変数を設定してコンパイルする方法。<br /><pre class=\"code\">ARCHFLAGS='-arch i386 -arch x86_64'</pre>
+
+これをドットファイルに設定するとか<br /><pre class=\"command\">$ env ARCHFLAGS='-arch i386 -arch x86_64' perl Makefile.PL</pre>
+
+とかすると問題なくコンパイルできます。<br />
+この方法は「perldoc perlmacosx」っていうpodに書いてあります。<br />
+こんなpodがあったんですね！知らなかったよ。<br /><br />
+
+そして、もう1つの方法は「<a href=\"http://blogger.splhack.org/2011/03/xcode4powerpc.html\">Xcode4でPowerPC</a>」に書いてありました。<br />
+適切な場所に(実はインストールされている)ppcのアーキテクチャのファイルのシンボリックリンクをはるという方法です。<br /><pre class=\"command\">$ sudo ln -s /Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gcc/darwin/ppc /Developer/usr/libexec/gcc/darwin/
+$ sudo ln -s /Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gcc/darwin/ppc /usr/libexec/gcc/darwin/</pre>
+
+どっちでも好きな方でいいと思うんだけど、個人的には後者の方法で対応しました。<br /><br />
+
+なお、この現象はXcode4が出る以前にXcodeをインストールしていた環境ではおこらないので、特定の人しかこの問題に遭遇しないかもしれません。<br /><br />
+
+困っている人がいたら、どっちかを試してみてください。<br /><br />
+
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001139.html")) (entry nil (title nil "Perl CPANモジュールガイド") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/WZ2klczt0vI/001138.html"))) (id nil "tag:blog.clouder.jp,2011://2.1138") (published nil "2011-04-01T05:35:31Z") (updated nil "2011-04-01T05:58:29Z") (summary nil " CPAN本、献本頂きました！ ちょっと前に存在は知っていたのですが、4/8ついに出版ということで、...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlcpan") (label . "perl cpan") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "<span class=\"mt-enclosure mt-enclosure-image\" style=\"display: inline;\"><a href=\"http://blog.clouder.jp/archives/images/perl_cpan_module_guide_book.jpg\"><img alt=\"Perl CPANモジュールガイド - 冨田尚樹\" src=\"http://blog.clouder.jp/archives/assets_c/2011/04/perl_cpan_module_guide_book-thumb-320x428-22.jpg\" width=\"320\" height=\"428\" class=\"mt-image-center\" style=\"text-align: center; display: block; margin: 0 auto 20px;\" /></a></span>
+
+CPAN本、献本頂きました！<br /><br />
+
+ちょっと前に存在は知っていたのですが、4/8ついに出版ということで、<a href=\"http://e8y.net/\">tomi-ru</a>さん、誠におめでとうございます！<br /><br />
+
+内容としては、PerlのCPANモジュールを1コ1コ丁寧に紹介する内容となっていて、各カテゴリ毎にそのカテゴリで有名だったりよく使われるモジュールをわかりやすく説明するといったものになっています。<br /><br />
+
+僕がいつもPerlのモジュールを探すときは、CPANの検索で有象無象のモジュールの海を泳いで、これはどうだろうってドキュメントやソースを見てみたり、もしくは「Perl やりたいこと」とかでぐぐって探したりということをやっていたりしましたが、これからはまずこの本でよさげなモジュールがないかを見てからになりそうです！<br /><br />
+
+自分は本を1冊書いたことはないのですが、個人的に書く大変さはちょっとだけ知っていたりするので、これだけの分量のものを書くのはかなり大変だったんだろうなぁと想像しています。<br /><br />
+
+tomi-ruさん、ほんとうにお疲れ様でした。<br />
+熟読させて頂きます。<br /><br /><div class=\"amazlet-box\" style=\"margin-bottom:0px;\"><div class=\"amazlet-image\" style=\"float:left;margin:0px 12px 1px 0px;\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\"><img src=\"http://ecx.images-amazon.com/images/I/51GZEd2QiLL._SL160_.jpg\" alt=\"Perl CPANモジュールガイド\" style=\"border: none;\" /></a></div><div class=\"amazlet-info\" style=\"line-height:120%; margin-bottom: 10px\"><div class=\"amazlet-name\" style=\"margin-bottom:10px;line-height:120%\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\">Perl CPANモジュールガイド</a><div class=\"amazlet-powered-date\" style=\"font-size:80%;margin-top:5px;line-height:120%\">posted with <a href=\"http://www.amazlet.com/browse/ASIN/486267108X/clouder-22/ref=nosim/\" title=\"Perl CPANモジュールガイド\" target=\"_blank\">amazlet</a> at 11.04.01</div></div><div class=\"amazlet-detail\">冨田尚樹 <br />ワークスコーポレーション <br />売り上げランキング: 3184<br /></div><div class=\"amazlet-sub-info\" style=\"float: left;\"><div class=\"amazlet-link\" style=\"margin-top: 5px\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\">Amazon.co.jp で詳細を見る</a></div></div></div><div class=\"amazlet-footer\" style=\"clear: left\"></div></div>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001138.html")) (entry nil (title nil "UNIVERSAL::isa と UNIVERSAL::can に関するメモ") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/WdvYIZ0SQig/001137.html"))) (id nil "tag:blog.clouder.jp,2010://2.1137") (published nil "2010-12-20T07:20:22Z") (updated nil "2010-12-20T07:32:32Z") (summary nil "いつも忘れちゃうのでメモ。 UNIVERSAL::isaは、UNIVERSAL::isa()を呼んで...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlisacan") (label . "perl isa can") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "いつも忘れちゃうのでメモ。<br /><br />
+
+UNIVERSAL::isaは、UNIVERSAL::isa()を呼んでも自分のクラス(階層)内にisa()が定義されてればそっちを呼ぶようにするためのモジュール。<br /><br />
+
+以下のようにmainでUNIVERSAL::isaをuseしないと、最後の2つのUNIVERSAL::isa()は1を返します。つまり本当のUNIVERSAL::isa()が呼ばれる。<br /><pre class=\"code\">package A;
+
+sub new { bless {}, shift }
+sub isa { \"hoge\" }
+
+package B;
+
+use base qw( A );
+
+sub new { bless {}, shift }
+
+package main;
+
+my $b = B->new;
+
+warn $b->isa( \"B\" );            # hoge
+warn $b->isa( \"A\" );            # hoge
+warn UNIVERSAL::isa( $b, \"B\" ); # 1
+warn UNIVERSAL::isa( $b, \"A\" ); # 1</pre><br />
+これに対して、以下のようにmainでUNIVERSAL::isaをuseしてやると、最後のUNIVERSAL::isa()もhogeを返す、つまりクラスAで定義されてるisa()が呼ばれている。<br /><pre class=\"code\">package A;
+
+sub new { bless {}, shift }
+sub isa { \"hoge\" }
+
+package B;
+
+use base qw( A );
+
+sub new { bless {}, shift }
+
+package main;
+
+use UNIVERSAL::isa;
+
+my $b = B-&gt;new;
+
+warn $b-&gt;isa( \"B\" );            # hoge
+warn $b-&gt;isa( \"A\" );            # hoge
+warn UNIVERSAL::isa( $b, \"B\" ); # hoge
+warn UNIVERSAL::isa( $b, \"A\" ); # hoge</pre>
+
+そしてUNIVERSAL::canも同じようなことをしてくれます。<br /><br />
+
+ちなみにUNIVERSAL::requireはぜんぜんこれらとは関係なく<br /><pre class=\"code\">Module-&gt;require;</pre>
+
+って呼べたり<br /><pre class=\"code\">Module-&gt;require or die \"Cannot required\";</pre>
+
+とかdieできたり、モジュールでrequireメソッドを使えるようにするものです。<br />
+useもできたりします。<br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001137.html")) (entry nil (title nil "emacsでTAGSの参照先が.gzファイルだった場合の対処法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/Tkxn1lyD0LA/001136.html"))) (id nil "tag:blog.clouder.jp,2010://2.1136") (published nil "2010-12-02T05:35:20Z") (updated nil "2010-12-02T05:56:59Z") (summary nil "emacsでTAGSを使ってるんですが、環境によっては参照先のファイルがfoo.el.gzってなって...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Emacs") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "emacs") (label . "emacs") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "gzip") (label . "gzip") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "jkacompr") (label . "jka-compr") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "tags") (label . "tags") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "emacsでTAGSを使ってるんですが、環境によっては参照先のファイルがfoo.el.gzってなってたりするとfind-tagしたときに見られないようです。<br /><br />
+
+そんなときは、.emacsに下記のようにしてあらかじめjka-comprという圧縮ファイルを操作するライブラリをロードしておくと見られるようになります。<br /><pre class=\"code\">(load \"jka-compr\")</pre>
+
+ちなみにemacsは、このようにloadをしなくてもgzip圧縮されたファイルを開くときは勝手にjka-comprを使ってるようです。<br /><br />
+
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001136.html")) (entry nil (title nil "Devel::KYTProfがだいぶいい！") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/CfTac8Nvzmo/001135.html"))) (id nil "tag:blog.clouder.jp,2010://2.1135") (published nil "2010-10-30T14:47:25Z") (updated nil "2010-10-30T15:26:39Z") (summary nil "仕事でアプリのボトルネックを探しているという話をしたら、hideokiさんが 「ＹＡＰＣ::Ａｓｉａ...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlbenchmark") (label . "perl benchmark") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "仕事でアプリのボトルネックを探しているという話をしたら、hideokiさんが<br /><br />
+
+「ＹＡＰＣ::Ａｓｉａ　２０１０ で ｃｈｏ４５ が紹介してた Devel::KYTProf がいいよー」<br /><br />
+
+って言ってたので、使ってみたらだいぶよかったのでご紹介。<br /><br />
+
+Devel::KYTProfの作者はid:onishiさんで、リポジトリは<a href=\"http://github.com/onishi/perl5-devel-kytprof\">http://github.com/onishi/perl5-devel-kytprof</a>にあります。<br /><br />
+
+このモジュール、何ができるモジュールかっていうと(まぁcho45さんの発表動画見ればわかるのですが)、モジュール名とメソッド名を指定してやると、そのメソッドの処理にかかった時間をさくっと調べられるというものです。<br /><br />
+
+たとえば Foo::Controller::Bar の baz() って関数の処理時間が知りたかったら、そのアプリケーションのメインモジュールに
+
+<pre class=\"code\">use Devel::KYTProf;
+Devel::KYTProf->add_prof( 'Foo::Controller::Bar', 'baz' );</pre>
+
+って書くことで、STDERRに
+
+<pre class=\"command\">123.456 ms [Foo::Controller::Bar] baz() | Devel::KYTProf:100</pre>
+
+みたいな感じで処理時間とちょっとした情報が出力されます。よっぽどトリッキーなことしてるモジュールじゃない限り、これを使うことで処理時間を調べることができるはず。<br /><br />
+
+あとadd_prof() は、第3引数を渡すことができて
+
+<pre class=\"code\">Devel::KYTProf->add_prof(
+    'Foo::Controller::Bar',
+    'baz',
+    sub {
+        my ( $orig, $self ) = @_;
+        return $self->foo_bar;
+    }
+);</pre>
+
+とやると処理時間と共に$self->foo_bar の値がSTDERRに出力されます。<br /><br />
+
+それ以外にも Devel::KYTProf->threshold( 100 ) とかやると、指定したものよりも処理時間がかかったもののみを出力するようにしたりと、いくつかのオプションが用意されています。<br /><br />
+
+ちなみに Devel::KYTProf は、デフォルトでIO関係でよく問題になるようなDBI、LWP::UserAgent、Cache::Memcached::Fast、MogileFS::Clientなどのモジュールの設定が最初からされていたりします。それ以外にも調べたいという場合に上記の設定を自分でしたらよいという感じになっています。<br /><br />
+
+なお今回、僕の場合はTTの[% foo %]の部分の速度が調べたかったので
+
+<pre class=\"code\">Devel::KYTProf->add_prof(
+    'Template::Stash::XS',
+    'get',
+    sub {        my ($orig, $self, $ident, $args) = @_;
+        return ref $ident eq 'ARRAY' ? join(\",\", @$ident) : $ident;
+    }
+);</pre>
+
+こんな感じにしてみました。<br />
+まぁ、結局問題はそこじゃなかったんですけどね...。<br /><br />
+
+ということで、このDevel::KYTProfはかなりお手軽に細かい処理時間が調べられるので興味ある方は一度使ってみてはいかがでしょうか。<br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001135.html")) (entry nil (title nil "Yaml-mode 0.0.7 is now released") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/ahXw5el1kOg/001134.html"))) (id nil "tag:blog.clouder.jp,2010://2.1134") (published nil "2010-08-05T05:56:11Z") (updated nil "2010-08-05T06:08:37Z") (summary nil "Yaml-mode 0.0.7 is now released. This release incl...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Emacs") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "emacs") (label . "emacs") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "lisp") (label . "lisp") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "yaml") (label . "yaml") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "yamlmode") (label . "yaml-mode") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "Yaml-mode 0.0.7 is now released.<br />
+This release include following bugfix:
+<pre class=\"code\">* Fixed bug for 5th level's indentation becomes TAB character.
+  See YAML spec 1.2 section 5.5. White Space Characters (ochko)</pre>
+For additional information, please visit issues on github:<br /><a href=\"http://github.com/yoshiki/yaml-mode/issues/closed#issue/1\">http://github.com/yoshiki/yaml-mode/issues/closed#issue/1</a><br />
+
+
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001134.html")) (entry nil (title nil "学年毎の生年月日範囲の特定") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/kVWuCs8IgYg/001133.html"))) (id nil "tag:blog.clouder.jp,2010://2.1133") (published nil "2010-08-05T02:47:12Z") (updated nil "2010-08-05T02:57:21Z") (summary nil "仕事で学年毎の生年月日の範囲が必要になって、CPANを探したけどそれらしいのがなかったのでモジュール...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "gist") (label . "gist") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "script") (label . "script") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "仕事で学年毎の生年月日の範囲が必要になって、CPANを探したけどそれらしいのがなかったのでモジュールではないけど作った。<br /><br />
+
+この辺は国によって違ったりするからモジュールにするのってけっこう難しいですよね。ニーズがあればそれらしいモジュールにして出そうかなと思うけど、まぁ、ないよね...。<br /><br /><script src=\"http://gist.github.com/509106.js?file=calc_grade_term.pl\"></script>") (feedburner:origLink nil "http://blog.clouder.jp/archives/001133.html")) (entry nil (title nil "ターミナルの表示が崩れたときの対処法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/Vl3VB3NGfPw/001132.html"))) (id nil "tag:blog.clouder.jp,2010://2.1132") (published nil "2010-07-23T01:41:16Z") (updated nil "2010-07-23T02:42:08Z") (summary nil "よくターミナルで、catとかlessとかファイルなどを見たときに2バイト文字が化けて出力されて以降に...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Unix") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "terminal") (label . "terminal") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "unix") (label . "unix") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "よくターミナルで、catとかlessとかファイルなどを見たときに2バイト文字が化けて出力されて以降にlsなどの出力がガタガタになるときありますよね。<br /><br />
+
+あれ、ないですか？それは幸せですね。<br /><br />
+
+僕はよくあるんですけど、そういうときの対処法を昔だれかに聞いて、それ以来この状態になるとずっと今回紹介する技を使ってきています。<br /><br />
+
+やり方は簡単です、ターミナルに以下のコマンド(?)を打つだけです。<br /><pre class=\"command\">% echo ^[c</pre>
+
+でも、単純に「echo スペース ハット ブラケット c」って打ってもだめです。<br />
+実際には「echo Ctrl-v Esc c」と打っています。<br /><br />
+
+このあとリターンを押せば、あら不思議。<br />
+ガタガタしてた出力が直ります。<br /><br />
+
+他にも対処法あると思いますが、僕がよく使うのはこれです。<br /><br />
+
+これはエスケープシーケンスの1種で、この用途以外にもターミナルで色などを変えることもできます。ネットで調べると色の定義とかはあるんですがこの「c」だとこういうことができるっていうのは探してみたのですが出てきませんでした。<br /><br />
+
+この辺のエスケープシーケンス一覧が載ってるところを知ってる方がいたら教えて欲しいです。<br /><br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001132.html")))) ("プレゼンをmarkdownで書いたらええやん" "markdown2impressってのを書きました。<br /><br /><a href=\"https://github.com/yoshiki/markdown2impress\">https://github.com/yoshiki/markdown2impress</a><br /><br />
+これはmarkdownで書いた文章を<a href=\"http://bartaz.github.com/impress.js\">impress.js</a>に対応したHTMLに変換するものです。impress.jsっていうのは、CSS3をつかって文字とかをぎゅんぎゅん動かすことのできるプレゼンフレームワークです(prezi.comにインスパイアされて作ったらしい)。<br /><br />
+impress.jsを使ってプレゼンをゼロから作ってもいいんですが、HTMLをいちいち書くのめんどかったのでmarkdown形式で書いたものをそれ用に変換してくれたらいいなと思って書いてみました。基本的にはmarkdownで書いた文章の1つのセクションが1つのスライドになるようになっていて、githubのリポジトリのREADME.mdをこのプログラムで変換するとプレゼンに変換されます。<br /><br />
+使い方は簡単で、<br /><pre class=\"command\">% markdown2impress.pl README.md</pre>
+とやるだけでOK。<br /><br />
+こうするとカレントディレクトリにindex.html、js/impress.js、css/impress.cssの3つのファイルが生成されます。<br /><br />
+もしCSSを変えたければcss/impress.cssを直接編集してやればいいです。ちなみに生成されるcss/impress.cssは元のimpress.jsに含まれるcssをちょっとだけ加工してあります。<br /><br />
+markdown2impressは、なにも指定せずにmarkdownを変換してやるとスライドの位置(縦横幅や位置)を勝手に計算してくれるのですが、以下のようにセクション内にHTMLのコメント形式でimpress.jsが理解できる data-x や data-y などのアトリビュートを書くことでスライドの位置を変更することもできます。<br /><pre class=\"code\">&lt;!-- data-x=\"1000\" --&gt;</pre>
+もちろん data-xやdata-y以外のdata-z、data-rotate、data-scaleなども使えます。<br /><br />
+ちなみにコマンドラインのオプションとして以下が指定できるようになっています。<br /><ul><li>--width<br />スライドの横幅(default: 1200)</li><li>--height<br />スライドの縦幅(default: 800)</li><li>--column<br />スライドの横の数(default: 5)</li><li>--outputdir<br />出力ディレクトリ(default: current dir)</li></ul><br />
+興味があったら使ってみてください。<br /><br />
+※生成されるimpress.jsが最新ではない場合があるので、その場合は本家のjsとcssの最新版をコピってくれれば動くはずです。<br /><br />" "http://feedproxy.google.com/~r/clouder/~3/nnF9PPTwnik/001146.html" (20326 44831) old 1 nil nil ((title nil "プレゼンをmarkdownで書いたらええやん") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/nnF9PPTwnik/001146.html"))) (id nil "tag:blog.clouder.jp,2012://2.1146") (published nil "2012-03-19T03:18:18Z") (updated nil "2012-03-19T03:59:27Z") (summary nil "markdown2impressってのを書きました。 https://github.com/yosh...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "javascript") (label . "javascript") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "markdown") (label . "markdown") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "markdown2impressってのを書きました。<br /><br /><a href=\"https://github.com/yoshiki/markdown2impress\">https://github.com/yoshiki/markdown2impress</a><br /><br />
+
+これはmarkdownで書いた文章を<a href=\"http://bartaz.github.com/impress.js\">impress.js</a>に対応したHTMLに変換するものです。impress.jsっていうのは、CSS3をつかって文字とかをぎゅんぎゅん動かすことのできるプレゼンフレームワークです(prezi.comにインスパイアされて作ったらしい)。<br /><br />
+
+impress.jsを使ってプレゼンをゼロから作ってもいいんですが、HTMLをいちいち書くのめんどかったのでmarkdown形式で書いたものをそれ用に変換してくれたらいいなと思って書いてみました。基本的にはmarkdownで書いた文章の1つのセクションが1つのスライドになるようになっていて、githubのリポジトリのREADME.mdをこのプログラムで変換するとプレゼンに変換されます。<br /><br />
+
+使い方は簡単で、<br /><pre class=\"command\">% markdown2impress.pl README.md</pre>
+
+とやるだけでOK。<br /><br />
+
+こうするとカレントディレクトリにindex.html、js/impress.js、css/impress.cssの3つのファイルが生成されます。<br /><br />
+
+もしCSSを変えたければcss/impress.cssを直接編集してやればいいです。ちなみに生成されるcss/impress.cssは元のimpress.jsに含まれるcssをちょっとだけ加工してあります。<br /><br />
+
+markdown2impressは、なにも指定せずにmarkdownを変換してやるとスライドの位置(縦横幅や位置)を勝手に計算してくれるのですが、以下のようにセクション内にHTMLのコメント形式でimpress.jsが理解できる data-x や data-y などのアトリビュートを書くことでスライドの位置を変更することもできます。<br /><pre class=\"code\">&lt;!-- data-x=\"1000\" --&gt;</pre>
+
+もちろん data-xやdata-y以外のdata-z、data-rotate、data-scaleなども使えます。<br /><br />
+
+ちなみにコマンドラインのオプションとして以下が指定できるようになっています。<br /><ul><li>--width<br />スライドの横幅(default: 1200)</li><li>--height<br />スライドの縦幅(default: 800)</li><li>--column<br />スライドの横の数(default: 5)</li><li>--outputdir<br />出力ディレクトリ(default: current dir)</li></ul><br />
+
+興味があったら使ってみてください。<br /><br />
+
+※生成されるimpress.jsが最新ではない場合があるので、その場合は本家のjsとcssの最新版をコピってくれれば動くはずです。<br /><br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001146.html"))) ("TCPセッションモニタ「miruo」が便利だった" "なんかネットワークの問題を調べていたらtcpのリトライが発生している模様。<br>
+でもイメージトークしててもしょうがないので本当にリトライが発生しているのかtcpdumpで調べてみたんだけど、なにせ情報量が多過ぎる。<br><br>
+そんでtcpdumpの情報の解析方法を調べているうちにmiruoってのを見つけて、使ってみたら便利だったのでご紹介。<br><br>
+miruoはDSAS開発者の部屋の「<a href=\"http://dsas.blog.klab.org/archives/51977201.html\">高負荷サイトのボトルネックを見つけるには</a>」で使い方とかも含めて紹介されています。<br><br>
+ダウンロードは↓からどうぞ。<br><a href=\"http://sourceforge.net/projects/miruo/\">TCPセッションモニタ「miruo」</a><br><br>
+これは便利だ。" "http://feedproxy.google.com/~r/clouder/~3/ugf-kORFebc/001145.html" (20267 36697) old 2 nil nil ((title nil "TCPセッションモニタ「miruo」が便利だった") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/ugf-kORFebc/001145.html"))) (id nil "tag:blog.clouder.jp,2012://2.1145") (published nil "2012-02-03T07:26:30Z") (updated nil "2012-02-03T07:40:09Z") (summary nil "なんかネットワークの問題を調べていたらtcpのリトライが発生している模様。 でもイメージトークしてて...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Development") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Networking") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Unix") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "development") (label . "development") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "networking") (label . "networking") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "なんかネットワークの問題を調べていたらtcpのリトライが発生している模様。<br>
+でもイメージトークしててもしょうがないので本当にリトライが発生しているのかtcpdumpで調べてみたんだけど、なにせ情報量が多過ぎる。<br><br>
+
+そんでtcpdumpの情報の解析方法を調べているうちにmiruoってのを見つけて、使ってみたら便利だったのでご紹介。<br><br>
+
+miruoはDSAS開発者の部屋の「<a href=\"http://dsas.blog.klab.org/archives/51977201.html\">高負荷サイトのボトルネックを見つけるには</a>」で使い方とかも含めて紹介されています。<br><br>
+
+ダウンロードは↓からどうぞ。<br><a href=\"http://sourceforge.net/projects/miruo/\">TCPセッションモニタ「miruo」</a><br><br>
+
+これは便利だ。
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001145.html"))) (".gitignoreに困ったら？" "githubにいろんな.gitignoreがまとまってるので、この中からコピったらいいよ。<br><a href=\"https://github.com/github/gitignore\">https://github.com/github/gitignore</a>" "http://feedproxy.google.com/~r/clouder/~3/_uLUJPQbG7w/001144.html" (20267 36799) old 3 nil nil ((title nil ".gitignoreに困ったら？") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/_uLUJPQbG7w/001144.html"))) (id nil "tag:blog.clouder.jp,2012://2.1144") (published nil "2012-02-03T07:22:18Z") (updated nil "2012-02-03T07:41:51Z") (summary nil "githubにいろんな.gitignoreがまとまってるので、この中からコピったらいいよ。 http...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Git") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "git") (label . "git") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "github") (label . "github") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "githubにいろんな.gitignoreがまとまってるので、この中からコピったらいいよ。<br><a href=\"https://github.com/github/gitignore\">https://github.com/github/gitignore</a>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001144.html"))) ("Notify My Androidでim.kayac.comの通知を受け取る方法" "先日メインで使ってるDoCoMoのフィーチャーフォンをGalaxy Nexusに機種変したのですが、それまでiPhoneで受け取っていたim.kayac.comの通知をAndroidでも受け取りたくなったのでどういう方法があるのか調べてみました。<br><br>
+im.kayac.comはGoogle Talk(Jabber)でも通知ができるので、やるとしたらその方向しかないんだろうなぁと思いつつググってみると案の定Google Talkのアプリで通知を受け取るっていう記事がいくつかみつかりました。<br><br>
+でも、なんか「素のGoogle Talkで通知を確認するのはなんかクールじゃない！」<br><br>
+と思っちゃったので、それ以外の方法ないのかといろいろ探してみたらみつかりました。<br>
+(みつかったというかアプリを利用して足りない部分は自分で作ったんですが...)<br><br>
+簡単に方法を説明しちゃうと、自前でXMPPのクライアントを立てて、im.kayac.comからの通知を「Notify My Android」っていうNotify専用のアプリに流すという方法です。<br><br>
+簡単に書くとこんな感じ。<br><pre>[im.kayac.com] -> [XMPP client] -> [Notify My Android]</pre><br><br>
+ちなみにNotify My Androidは有料です。<br>
+有料だけど、今回この実装をやってみたら買う価値はあるかなと。<br>
+缶ビール2本我慢すれば買える値段ですし(※お酒はあまりのみませんが！)。<br><br>
+ってことで手順を説明します。<br><br><ul><li>AndroidマーケットでNotify My Androidを購入し、Notify My Androidのサイトでアカウント登録とAPI Keyの発行を済ませておく。</li><li>以下のスクリプトを使って、im.kayac.comのGoogle Talkのアクティベーションします。<br>
+実行にはAnyEvent::XMPPのインストールと、pitを使ってgtalkって名前で設定(usernameとpassword)を追加しておく必要があります。<br><br><script src=\"https://gist.github.com/1441510.js?file=register.pl\"></script>
+実行は引数にim.kayac.comで発行されたアクティベーションコードを渡すだけ。
+<pre class=\"command\">% ./register.pl アクティベーションコード
+session ready at ./register.pl line 27.
+connected at ./register.pl line 31.message from api@im.kayac.com/123456: Your jabber account has been activated! at ./register.pl line 36.</pre></li><li>あとは以下のスクリプトを起動するだけです。<br>
+実行にはWebService::NotifyMyAndroidのインストールと、pitを使ってnma(Notify My Androidの略)って名前で設定(apikey)を追加しておく必要があります。<br><br><script src=\"https://gist.github.com/1441510.js?file=server.pl\"></script>
+実行は普通に以下な感じ。
+<pre class=\"command\">% ./server.pl &</pre>
+ちなみに、
+<pre class=\"command\">request to https://nma.usk.bz/publicapi/verify?apikey=YOUR_API_KEY failed at ./server.pl line 19</pre>
+とかでる人はLWP::Protocol::httpsが入ってないからだと思います。
+</li></ul>
+これでサーバさえちゃんと動いてたら、Notify My Androidに通知が来るはずです。
+興味ある方がいたらやってみてください。" "http://feedproxy.google.com/~r/clouder/~3/-HCh1AmwkBQ/001143.html" (20191 4376) old 4 nil nil ((title nil "Notify My Androidでim.kayac.comの通知を受け取る方法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/-HCh1AmwkBQ/001143.html"))) (id nil "tag:blog.clouder.jp,2011://2.1143") (published nil "2011-12-07T06:05:29Z") (updated nil "2011-12-07T07:09:12Z") (summary nil "先日メインで使ってるDoCoMoのフィーチャーフォンをGalaxy Nexusに機種変したのですが、...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Android") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "先日メインで使ってるDoCoMoのフィーチャーフォンをGalaxy Nexusに機種変したのですが、それまでiPhoneで受け取っていたim.kayac.comの通知をAndroidでも受け取りたくなったのでどういう方法があるのか調べてみました。<br><br>
+
+im.kayac.comはGoogle Talk(Jabber)でも通知ができるので、やるとしたらその方向しかないんだろうなぁと思いつつググってみると案の定Google Talkのアプリで通知を受け取るっていう記事がいくつかみつかりました。<br><br>
+
+でも、なんか「素のGoogle Talkで通知を確認するのはなんかクールじゃない！」<br><br>
+
+と思っちゃったので、それ以外の方法ないのかといろいろ探してみたらみつかりました。<br>
+(みつかったというかアプリを利用して足りない部分は自分で作ったんですが...)<br><br>
+
+簡単に方法を説明しちゃうと、自前でXMPPのクライアントを立てて、im.kayac.comからの通知を「Notify My Android」っていうNotify専用のアプリに流すという方法です。<br><br>
+
+簡単に書くとこんな感じ。<br><pre>[im.kayac.com] -> [XMPP client] -> [Notify My Android]</pre><br><br>
+
+ちなみにNotify My Androidは有料です。<br>
+有料だけど、今回この実装をやってみたら買う価値はあるかなと。<br>
+缶ビール2本我慢すれば買える値段ですし(※お酒はあまりのみませんが！)。<br><br>
+
+ってことで手順を説明します。<br><br><ul><li>AndroidマーケットでNotify My Androidを購入し、Notify My Androidのサイトでアカウント登録とAPI Keyの発行を済ませておく。</li><li>以下のスクリプトを使って、im.kayac.comのGoogle Talkのアクティベーションします。<br>
+実行にはAnyEvent::XMPPのインストールと、pitを使ってgtalkって名前で設定(usernameとpassword)を追加しておく必要があります。<br><br><script src=\"https://gist.github.com/1441510.js?file=register.pl\"></script>
+
+実行は引数にim.kayac.comで発行されたアクティベーションコードを渡すだけ。
+<pre class=\"command\">% ./register.pl アクティベーションコード
+session ready at ./register.pl line 27.
+connected at ./register.pl line 31.message from api@im.kayac.com/123456: Your jabber account has been activated! at ./register.pl line 36.</pre></li><li>あとは以下のスクリプトを起動するだけです。<br>
+実行にはWebService::NotifyMyAndroidのインストールと、pitを使ってnma(Notify My Androidの略)って名前で設定(apikey)を追加しておく必要があります。<br><br><script src=\"https://gist.github.com/1441510.js?file=server.pl\"></script>
+
+実行は普通に以下な感じ。
+<pre class=\"command\">% ./server.pl &</pre>
+ちなみに、
+<pre class=\"command\">request to https://nma.usk.bz/publicapi/verify?apikey=YOUR_API_KEY failed at ./server.pl line 19</pre>
+とかでる人はLWP::Protocol::httpsが入ってないからだと思います。
+</li></ul>
+
+これでサーバさえちゃんと動いてたら、Notify My Androidに通知が来るはずです。
+
+興味ある方がいたらやってみてください。") (feedburner:origLink nil "http://blog.clouder.jp/archives/001143.html"))) ("Plack on SL4A in Yokohama.pm #8" "Yokohama.pm #8で「Plack on SL4A」というタイトルでLTしてきました。<br /><br />
+実はこの話は元ネタがあって、<a href=\"http://advent.perl.kr/2010-12-21.html\">去年のperl.krのAdventカレンダーで紹介されていたもの</a>を実践してみたものになっています。<br /><br />
+本当は、これを元にAmon2などのフレームワークを動かしたかったのですが、XS依存の問題があってそのXSモジュールをインストールしようと頑張ったのですが、どうしてもインストールできなかったため今回のPlackのインストールまでの話になってしまいました。<br /><br />
+もうちょっとだけSL4AでXSを動かせるか試してみたいと思っていて、進捗があったらここでお知らせしたいと思います。<br /><br />
+ちなみにSL4AのXSのmakeできない問題は、すでに<a href=\"http://code.google.com/p/android-scripting/issues/detail?id=366\">SL4AのIssueに上っていて</a>、このIssueの最後の方のポストで<a href=\"http://github.com/castaway/perl/tree/x-compile-android\">githubのPerlのブランチ</a>を切って書き換えたやつでビルドできたという話が出ているのですが、ARMのクロスコンパイル環境を用意してやってみたもののうまくいなかいんですよねぇ...。
+<iframe width=\"360\" height=\"228\" src=\"http://www.ustream.tv/embed/recorded/18591399\" scrolling=\"no\" frameborder=\"0\" style=\"border: 0px none transparent;\"></iframe>" "http://feedproxy.google.com/~r/clouder/~3/IWllMUcUd1E/001142.html" (20169 51731) old 5 nil nil ((title nil "Plack on SL4A in Yokohama.pm #8") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/IWllMUcUd1E/001142.html"))) (id nil "tag:blog.clouder.jp,2011://2.1142") (published nil "2011-11-21T02:42:30Z") (updated nil "2011-11-21T03:48:35Z") (summary nil "Yokohama.pm #8で「Plack on SL4A」というタイトルでLTしてきました。 実は...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Android") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "android") (label . "android") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "sl4a") (label . "sl4a") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "yokohamapm") (label . "yokohamapm") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "Yokohama.pm #8で「Plack on SL4A」というタイトルでLTしてきました。<br /><br />
+
+実はこの話は元ネタがあって、<a href=\"http://advent.perl.kr/2010-12-21.html\">去年のperl.krのAdventカレンダーで紹介されていたもの</a>を実践してみたものになっています。<br /><br />
+
+本当は、これを元にAmon2などのフレームワークを動かしたかったのですが、XS依存の問題があってそのXSモジュールをインストールしようと頑張ったのですが、どうしてもインストールできなかったため今回のPlackのインストールまでの話になってしまいました。<br /><br />
+
+もうちょっとだけSL4AでXSを動かせるか試してみたいと思っていて、進捗があったらここでお知らせしたいと思います。<br /><br />
+
+ちなみにSL4AのXSのmakeできない問題は、すでに<a href=\"http://code.google.com/p/android-scripting/issues/detail?id=366\">SL4AのIssueに上っていて</a>、このIssueの最後の方のポストで<a href=\"http://github.com/castaway/perl/tree/x-compile-android\">githubのPerlのブランチ</a>を切って書き換えたやつでビルドできたという話が出ているのですが、ARMのクロスコンパイル環境を用意してやってみたもののうまくいなかいんですよねぇ...。
+
+<iframe width=\"360\" height=\"228\" src=\"http://www.ustream.tv/embed/recorded/18591399\" scrolling=\"no\" frameborder=\"0\" style=\"border: 0px none transparent;\"></iframe>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001142.html"))) ("Android開発にも役立つEmacsの補完プラグイン - ajc-java-complete" "最近Androidの開発をしていまして、例にもれずEclipseが体に合わないため(というかEmacsが好きなため？)、Emacsで開発をしています。<br /><br />
+しかし、いままでJavaで本格的に開発したことなかったのでEmacsにおけるJavaの開発環境がまったく整備されていないので、EmacsでもうちょっとJavaの開発がしやすくする便利なモードないのかなと調べてみました。<br /><br />
+いろいろ調べてみたら、<a href=\"http://jdee.sourceforge.net/\">JDEE　−　Java Development Environment for Emacs</a>ってのがあったのですがなんかごてごてしていて、そんなモリモリの機能いらないんだよなぁと思っていたら「<a href=\"http://www.emacswiki.org/emacs/AutoJavaComplete\">ajc-java-complete</a>」っていうのをみつけました。<br /><br />
+ajc-java-completeは名前の通りauto-completeやyasnippetと連携して補完することをメインにしたものになっていて、今も開発が継続しているようでなかなかよさげ。ということでさっそくインストールしてみました。<br /><br /><ul><li>auto-complete のインストール<br /><br /><a href=\"http://cx4a.org/software/auto-complete/\">http://cx4a.org/software/auto-complete/</a> からダウンロードしてきて、<a href=\"http://cx4a.org/software/auto-complete/manual.html#Installation\">この辺</a>を参考にインストール。<br /><br />
+.emacsに以下のような設定をしておくとよいでしょう。<br /><pre class=\"code\">(require 'auto-complete)
+(global-auto-complete-mode t)
+(define-key ac-complete-mode-map \"\\C-n\" 'ac-next)
+(define-key ac-complete-mode-map \"\\C-p\" 'ac-previous)</pre><br /></li><li>yasnippet のインストール<br /><br />
+http://code.google.com/p/yasnippet/ からダウンロードしてきて、<a href=\"http://yasnippet.googlecode.com/svn/trunk/doc/index.html#installation\">この辺</a>を参考にインストール。<br /><br />
+.emacsに以下のような設定をしておくとよいでしょう($PATH_TO_SNIPPETはsnippetをインストールしたディレクトリね)。<br /><pre class=\"code\">(require 'yasnippet-bundle)
+(yas/initialize)
+(yas/load-directory \"$PATH_TO_SNIPPET/snippets\")</pre><br /></li><li>ajc-java-complete のインストール<br /><br /><a href=\"https://github.com/jixiuf/ajc-java-complete\">https://github.com/jixiuf/ajc-java-complete</a>からcloneしてきて、<a href=\"http://www.emacswiki.org/emacs/AutoJavaComplete#toc1\">この辺</a>を参考にajc-java-complete自体をインストール。<br /><br />
+なお、ajc-java-completeは、auto-completeに付属するpopup.elにパッチをあてないといけないらしく、ajc-java-completeのパッケージに付随するpopup.elを、すでにインストールしたauto-completeのpopup.elと入れ替える必要があります。<br /><br />
+あと、Javaのクラスを補完させるためにタグファイルを生成する必要があります。そのためのJavaのプログラムが添付されているので、それを以下のようにjavacでコンパイルしてから実行する必要があります。<br /><pre class=\"command\">% javac Tags.java
+% env CLASSPATH=$PATH_TO_ANDROID_HOME/platforms/android-11/android.jar:/System/Library/Frameworks/JavaVM.framework/Classes/classes.jar:. java Tags</pre><br />
+この例ではAndroid開発もしたいのでAndroidのSDKのパッケージも含めています。<br />
+(なお、classes.jarのパスはMac OS X用なので適宜自分の環境に合わせて変えてください)<br /><br />
+んで、最後に.emacsに以下のように書きます。<br /><pre class=\"code\">(require 'ajc-java-complete-config)
+(add-hook 'java-mode-hook 'ajc-java-complete-mode)</pre><br /></li></ul>
+以上でインストールが完了しました。<br /><br />
+あとはEmacsを起動してFoo.javaとかやってみると補完がきくようになります。<br /><br />
+補完以外の機能で言うと、「C-c i」でインポートしていないものを自動でインポートして(ファイルの上部に「import com.example.foo;」って挿入して)くれたり、クラス名のところにカーソルをもってきて「C-c m」とやるとそのクラスをインポートしてくれたりするものがあります。(ただし、なぜかextendsの後に書いたクラスはインポートしてくれず...)<br /><br />
+ちなみに、さきほど補完用にタグファイルを生成したのですが、あれがけっこうな容量になっていて、それを起動時に読み込むため、初回のみですがちょっと時間がかかるようです。これ直したいとajc-java-completeをいまいじってるところです。なにかいい案があったらまたお知らせします。(っていうかpull requestしたい)<br /><br />
+それともう1つ、自分はMac OS XのEmacsでインポート機能を使うとダイアログがウィンドウで出てうざい(のとEmacs自体が固まったりする)ので以下のパッチをあててます。<br /><pre class=\"code\">--- old/ajc-java-complete.el	2011-07-08 00:00:28.000000000 +0900
++++ new/ajc-java-complete.el	2011-07-08 00:00:12.000000000 +0900
+@@ -938,7 +938,8 @@
+before that it will use y-or-n-p ask user to confirm \"
+(let ((import-class-buffer \"*ajc-import-java-class*\")
+(import-class-window) (user-confirmed-class-items-list)
+-        (java-buffer (current-buffer))(java-window))
++        (java-buffer (current-buffer))(java-window)
++        (last-nonmenu-event t))
+(setq case-fold-search nil)
+(if (and import-class-items-list (> (length import-class-items-list) 0))
+(progn</pre>" "http://feedproxy.google.com/~r/clouder/~3/z9R9R27nlas/001141.html" (19990 30791) old 6 nil nil ((title nil "Android開発にも役立つEmacsの補完プラグイン - ajc-java-complete") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/z9R9R27nlas/001141.html"))) (id nil "tag:blog.clouder.jp,2011://2.1141") (published nil "2011-07-08T02:13:55Z") (updated nil "2011-07-08T03:23:51Z") (summary nil "最近Androidの開発をしていまして、例にもれずEclipseが体に合わないため(というかEmac...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Emacs") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "emacs") (label . "emacs") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "java") (label . "java") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "lisp") (label . "lisp") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "最近Androidの開発をしていまして、例にもれずEclipseが体に合わないため(というかEmacsが好きなため？)、Emacsで開発をしています。<br /><br />
+
+しかし、いままでJavaで本格的に開発したことなかったのでEmacsにおけるJavaの開発環境がまったく整備されていないので、EmacsでもうちょっとJavaの開発がしやすくする便利なモードないのかなと調べてみました。<br /><br />
+
+いろいろ調べてみたら、<a href=\"http://jdee.sourceforge.net/\">JDEE　−　Java Development Environment for Emacs</a>ってのがあったのですがなんかごてごてしていて、そんなモリモリの機能いらないんだよなぁと思っていたら「<a href=\"http://www.emacswiki.org/emacs/AutoJavaComplete\">ajc-java-complete</a>」っていうのをみつけました。<br /><br />
+
+ajc-java-completeは名前の通りauto-completeやyasnippetと連携して補完することをメインにしたものになっていて、今も開発が継続しているようでなかなかよさげ。ということでさっそくインストールしてみました。<br /><br /><ul><li>auto-complete のインストール<br /><br /><a href=\"http://cx4a.org/software/auto-complete/\">http://cx4a.org/software/auto-complete/</a> からダウンロードしてきて、<a href=\"http://cx4a.org/software/auto-complete/manual.html#Installation\">この辺</a>を参考にインストール。<br /><br />
+
+.emacsに以下のような設定をしておくとよいでしょう。<br /><pre class=\"code\">(require 'auto-complete)
+(global-auto-complete-mode t)
+(define-key ac-complete-mode-map \"\\C-n\" 'ac-next)
+(define-key ac-complete-mode-map \"\\C-p\" 'ac-previous)</pre><br /></li><li>yasnippet のインストール<br /><br />
+
+http://code.google.com/p/yasnippet/ からダウンロードしてきて、<a href=\"http://yasnippet.googlecode.com/svn/trunk/doc/index.html#installation\">この辺</a>を参考にインストール。<br /><br />
+
+.emacsに以下のような設定をしておくとよいでしょう($PATH_TO_SNIPPETはsnippetをインストールしたディレクトリね)。<br /><pre class=\"code\">(require 'yasnippet-bundle)
+(yas/initialize)
+(yas/load-directory \"$PATH_TO_SNIPPET/snippets\")</pre><br /></li><li>ajc-java-complete のインストール<br /><br /><a href=\"https://github.com/jixiuf/ajc-java-complete\">https://github.com/jixiuf/ajc-java-complete</a>からcloneしてきて、<a href=\"http://www.emacswiki.org/emacs/AutoJavaComplete#toc1\">この辺</a>を参考にajc-java-complete自体をインストール。<br /><br />
+
+なお、ajc-java-completeは、auto-completeに付属するpopup.elにパッチをあてないといけないらしく、ajc-java-completeのパッケージに付随するpopup.elを、すでにインストールしたauto-completeのpopup.elと入れ替える必要があります。<br /><br />
+
+あと、Javaのクラスを補完させるためにタグファイルを生成する必要があります。そのためのJavaのプログラムが添付されているので、それを以下のようにjavacでコンパイルしてから実行する必要があります。<br /><pre class=\"command\">% javac Tags.java
+% env CLASSPATH=$PATH_TO_ANDROID_HOME/platforms/android-11/android.jar:/System/Library/Frameworks/JavaVM.framework/Classes/classes.jar:. java Tags</pre><br />
+
+この例ではAndroid開発もしたいのでAndroidのSDKのパッケージも含めています。<br />
+(なお、classes.jarのパスはMac OS X用なので適宜自分の環境に合わせて変えてください)<br /><br />
+
+んで、最後に.emacsに以下のように書きます。<br /><pre class=\"code\">(require 'ajc-java-complete-config)
+(add-hook 'java-mode-hook 'ajc-java-complete-mode)</pre><br /></li></ul>
+
+以上でインストールが完了しました。<br /><br />
+
+あとはEmacsを起動してFoo.javaとかやってみると補完がきくようになります。<br /><br />
+
+補完以外の機能で言うと、「C-c i」でインポートしていないものを自動でインポートして(ファイルの上部に「import com.example.foo;」って挿入して)くれたり、クラス名のところにカーソルをもってきて「C-c m」とやるとそのクラスをインポートしてくれたりするものがあります。(ただし、なぜかextendsの後に書いたクラスはインポートしてくれず...)<br /><br />
+
+ちなみに、さきほど補完用にタグファイルを生成したのですが、あれがけっこうな容量になっていて、それを起動時に読み込むため、初回のみですがちょっと時間がかかるようです。これ直したいとajc-java-completeをいまいじってるところです。なにかいい案があったらまたお知らせします。(っていうかpull requestしたい)<br /><br />
+
+それともう1つ、自分はMac OS XのEmacsでインポート機能を使うとダイアログがウィンドウで出てうざい(のとEmacs自体が固まったりする)ので以下のパッチをあててます。<br /><pre class=\"code\">--- old/ajc-java-complete.el	2011-07-08 00:00:28.000000000 +0900
++++ new/ajc-java-complete.el	2011-07-08 00:00:12.000000000 +0900
+@@ -938,7 +938,8 @@
+ before that it will use y-or-n-p ask user to confirm \"
+   (let ((import-class-buffer \"*ajc-import-java-class*\")
+         (import-class-window) (user-confirmed-class-items-list)
+-        (java-buffer (current-buffer))(java-window))
++        (java-buffer (current-buffer))(java-window)
++        (last-nonmenu-event t))
+     (setq case-fold-search nil)
+     (if (and import-class-items-list (> (length import-class-items-list) 0))
+         (progn</pre>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001141.html"))) ("GNU Parallel いいかもね" "<a href=\"http://blog.riywo.com/2011/04/19/022802\">GNU Parallelがすごすぎて生きるのがつらい</a>を見て使ってみました。<br /><br />
+そもそも複数のサーバのaccess_logをtail -fで一括で見たかったからです。<br /><br /><a href=\"http://www.gnu.org/software/parallel/\">GNU Parallel</a>からダウンロードして
+<pre class=\"command\">% ./configure
+% make
+% make install</pre>
+でインストールは終了。簡単！<br /><br />
+Perlで書かれてるんでコンパイルとか必要ないっす。<br /><br />
+インストールしたら目的のサーバ群に対して tail -f /path/to/access_log を発行するだけ。
+<pre class=\"command\">％　parallel -u ssh {} 'tail -f /path/to/access_log' :::: /path/to/server_list.txt</pre>
+こうするとserver_list.txtに列挙されてるサーバに対してtail -f /path/to/access_logが実行されます。<br /><br />
+-u っていうオプションを付けないと出力がバッファリングされちゃうので、tail -f するときは -u を付けないとだめです。<br /><br />
+ちょっと引数にクセがあるけど慣れですね。<br />
+マニュアルは man parallel で見られます。<br /><br />
+他にもこういうのあるけど、Perlで書かれてて使い易かったのでしばらく使ってみようと思います。<br />" "http://feedproxy.google.com/~r/clouder/~3/ainpxujlA0I/001140.html" (19922 11554) old 7 nil nil ((title nil "GNU Parallel いいかもね") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/ainpxujlA0I/001140.html"))) (id nil "tag:blog.clouder.jp,2011://2.1140") (published nil "2011-05-17T07:58:20Z") (updated nil "2011-05-17T08:09:06Z") (summary nil "GNU Parallelがすごすぎて生きるのがつらいを見て使ってみました。 そもそも複数のサーバのa...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "parallel") (label . "Parallel") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "Perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "<a href=\"http://blog.riywo.com/2011/04/19/022802\">GNU Parallelがすごすぎて生きるのがつらい</a>を見て使ってみました。<br /><br />
+
+そもそも複数のサーバのaccess_logをtail -fで一括で見たかったからです。<br /><br /><a href=\"http://www.gnu.org/software/parallel/\">GNU Parallel</a>からダウンロードして
+<pre class=\"command\">% ./configure
+% make
+% make install</pre>
+でインストールは終了。簡単！<br /><br />
+
+Perlで書かれてるんでコンパイルとか必要ないっす。<br /><br />
+
+インストールしたら目的のサーバ群に対して tail -f /path/to/access_log を発行するだけ。
+
+<pre class=\"command\">％　parallel -u ssh {} 'tail -f /path/to/access_log' :::: /path/to/server_list.txt</pre>
+
+こうするとserver_list.txtに列挙されてるサーバに対してtail -f /path/to/access_logが実行されます。<br /><br />
+
+-u っていうオプションを付けないと出力がバッファリングされちゃうので、tail -f するときは -u を付けないとだめです。<br /><br />
+
+ちょっと引数にクセがあるけど慣れですね。<br />
+マニュアルは man parallel で見られます。<br /><br />
+
+他にもこういうのあるけど、Perlで書かれてて使い易かったのでしばらく使ってみようと思います。<br />") (feedburner:origLink nil "http://blog.clouder.jp/archives/001140.html"))) ("Xcode4でCPANモジュールがコンパイルできない問題の解決方法" "MacBook Airの11インチを遅ればせながら購入したclouderです、こんにちは。<br /><br />
+購入したその日にさっそく開発環境を整えようとXcode4を入れて、iPhoneアプリ開発を...と思いきや、Perlの開発を始めたんですが、いくつかのCPANモジュールがインストール(コンパイル)できないのに気付きました。<br /><br />
+コンパイル時のエラーは以下のようなもの。<br /><pre class=\"code\">lipo: can't open input file: /var/tmp/hoge.out (No such file or directory)</pre>
+どうやらXSなどのコンパイルが必要なモジュールでこの現象がおこっているようです。いろいろ調べてみたら、コンパイルオプションに「-arch ppc」があるのにppcのアーキテクチャのファイルが適切な場所にないからエラってしまうようです。<br /><br />
+なんでだよーと思いつつ、Xcode4のREADMEを見たら以下のような記述を発見。<br /><br /><blockquote>Xcode 4 does not support developing for PowerPC; you must continue to use Xcode 3.2.6 to develop applications for the PowerPC architecture. The Custom Install section below has instructions to install both Xcode 4 and Xcode 3.2.6 on the same Mac.</blockquote><br />
+「Xcode4じゃPowerPCのサポートしないぜよｗ」って書いてありますね。<br /><br />
+どうしようかなぁと思いつつ、その後もいろいろ調べてみたらこれに対する解決方法を2つ発見しました。<br /><br />
+1つはppcのアーキテクチャを無視してx86_64とi386だけでコンパイルしちゃう方法で、もう1つは(実は入っている)ppcのアーキテクチャのファイルを適切な場所に置いてしまうという方法があります。<br /><br />
+1つ目は、以下の環境変数を設定してコンパイルする方法。<br /><pre class=\"code\">ARCHFLAGS='-arch i386 -arch x86_64'</pre>
+これをドットファイルに設定するとか<br /><pre class=\"command\">$ env ARCHFLAGS='-arch i386 -arch x86_64' perl Makefile.PL</pre>
+とかすると問題なくコンパイルできます。<br />
+この方法は「perldoc perlmacosx」っていうpodに書いてあります。<br />
+こんなpodがあったんですね！知らなかったよ。<br /><br />
+そして、もう1つの方法は「<a href=\"http://blogger.splhack.org/2011/03/xcode4powerpc.html\">Xcode4でPowerPC</a>」に書いてありました。<br />
+適切な場所に(実はインストールされている)ppcのアーキテクチャのファイルのシンボリックリンクをはるという方法です。<br /><pre class=\"command\">$ sudo ln -s /Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gcc/darwin/ppc /Developer/usr/libexec/gcc/darwin/
+$ sudo ln -s /Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gcc/darwin/ppc /usr/libexec/gcc/darwin/</pre>
+どっちでも好きな方でいいと思うんだけど、個人的には後者の方法で対応しました。<br /><br />
+なお、この現象はXcode4が出る以前にXcodeをインストールしていた環境ではおこらないので、特定の人しかこの問題に遭遇しないかもしれません。<br /><br />
+困っている人がいたら、どっちかを試してみてください。<br /><br />" "http://feedproxy.google.com/~r/clouder/~3/br5hc0HO71A/001139.html" (19865 40649) old 8 nil nil ((title nil "Xcode4でCPANモジュールがコンパイルできない問題の解決方法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/br5hc0HO71A/001139.html"))) (id nil "tag:blog.clouder.jp,2011://2.1139") (published nil "2011-04-04T09:56:51Z") (updated nil "2011-04-04T10:34:49Z") (summary nil "MacBook Airの11インチを遅ればせながら購入したclouderです、こんにちは。 購入した...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlcmac") (label . "perl c mac") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "MacBook Airの11インチを遅ればせながら購入したclouderです、こんにちは。<br /><br />
+
+購入したその日にさっそく開発環境を整えようとXcode4を入れて、iPhoneアプリ開発を...と思いきや、Perlの開発を始めたんですが、いくつかのCPANモジュールがインストール(コンパイル)できないのに気付きました。<br /><br />
+
+コンパイル時のエラーは以下のようなもの。<br /><pre class=\"code\">lipo: can't open input file: /var/tmp/hoge.out (No such file or directory)</pre>
+
+どうやらXSなどのコンパイルが必要なモジュールでこの現象がおこっているようです。いろいろ調べてみたら、コンパイルオプションに「-arch ppc」があるのにppcのアーキテクチャのファイルが適切な場所にないからエラってしまうようです。<br /><br />
+
+なんでだよーと思いつつ、Xcode4のREADMEを見たら以下のような記述を発見。<br /><br /><blockquote>Xcode 4 does not support developing for PowerPC; you must continue to use Xcode 3.2.6 to develop applications for the PowerPC architecture. The Custom Install section below has instructions to install both Xcode 4 and Xcode 3.2.6 on the same Mac.</blockquote><br />
+
+「Xcode4じゃPowerPCのサポートしないぜよｗ」って書いてありますね。<br /><br />
+
+どうしようかなぁと思いつつ、その後もいろいろ調べてみたらこれに対する解決方法を2つ発見しました。<br /><br />
+
+1つはppcのアーキテクチャを無視してx86_64とi386だけでコンパイルしちゃう方法で、もう1つは(実は入っている)ppcのアーキテクチャのファイルを適切な場所に置いてしまうという方法があります。<br /><br />
+
+1つ目は、以下の環境変数を設定してコンパイルする方法。<br /><pre class=\"code\">ARCHFLAGS='-arch i386 -arch x86_64'</pre>
+
+これをドットファイルに設定するとか<br /><pre class=\"command\">$ env ARCHFLAGS='-arch i386 -arch x86_64' perl Makefile.PL</pre>
+
+とかすると問題なくコンパイルできます。<br />
+この方法は「perldoc perlmacosx」っていうpodに書いてあります。<br />
+こんなpodがあったんですね！知らなかったよ。<br /><br />
+
+そして、もう1つの方法は「<a href=\"http://blogger.splhack.org/2011/03/xcode4powerpc.html\">Xcode4でPowerPC</a>」に書いてありました。<br />
+適切な場所に(実はインストールされている)ppcのアーキテクチャのファイルのシンボリックリンクをはるという方法です。<br /><pre class=\"command\">$ sudo ln -s /Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gcc/darwin/ppc /Developer/usr/libexec/gcc/darwin/
+$ sudo ln -s /Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gcc/darwin/ppc /usr/libexec/gcc/darwin/</pre>
+
+どっちでも好きな方でいいと思うんだけど、個人的には後者の方法で対応しました。<br /><br />
+
+なお、この現象はXcode4が出る以前にXcodeをインストールしていた環境ではおこらないので、特定の人しかこの問題に遭遇しないかもしれません。<br /><br />
+
+困っている人がいたら、どっちかを試してみてください。<br /><br />
+
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001139.html"))) ("Perl CPANモジュールガイド" "<span class=\"mt-enclosure mt-enclosure-image\" style=\"display: inline;\"><a href=\"http://blog.clouder.jp/archives/images/perl_cpan_module_guide_book.jpg\"><img alt=\"Perl CPANモジュールガイド - 冨田尚樹\" src=\"http://blog.clouder.jp/archives/assets_c/2011/04/perl_cpan_module_guide_book-thumb-320x428-22.jpg\" width=\"320\" height=\"428\" class=\"mt-image-center\" style=\"text-align: center; display: block; margin: 0 auto 20px;\" /></a></span>
+CPAN本、献本頂きました！<br /><br />
+ちょっと前に存在は知っていたのですが、4/8ついに出版ということで、<a href=\"http://e8y.net/\">tomi-ru</a>さん、誠におめでとうございます！<br /><br />
+内容としては、PerlのCPANモジュールを1コ1コ丁寧に紹介する内容となっていて、各カテゴリ毎にそのカテゴリで有名だったりよく使われるモジュールをわかりやすく説明するといったものになっています。<br /><br />
+僕がいつもPerlのモジュールを探すときは、CPANの検索で有象無象のモジュールの海を泳いで、これはどうだろうってドキュメントやソースを見てみたり、もしくは「Perl やりたいこと」とかでぐぐって探したりということをやっていたりしましたが、これからはまずこの本でよさげなモジュールがないかを見てからになりそうです！<br /><br />
+自分は本を1冊書いたことはないのですが、個人的に書く大変さはちょっとだけ知っていたりするので、これだけの分量のものを書くのはかなり大変だったんだろうなぁと想像しています。<br /><br />
+tomi-ruさん、ほんとうにお疲れ様でした。<br />
+熟読させて頂きます。<br /><br /><div class=\"amazlet-box\" style=\"margin-bottom:0px;\"><div class=\"amazlet-image\" style=\"float:left;margin:0px 12px 1px 0px;\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\"><img src=\"http://ecx.images-amazon.com/images/I/51GZEd2QiLL._SL160_.jpg\" alt=\"Perl CPANモジュールガイド\" style=\"border: none;\" /></a></div><div class=\"amazlet-info\" style=\"line-height:120%; margin-bottom: 10px\"><div class=\"amazlet-name\" style=\"margin-bottom:10px;line-height:120%\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\">Perl CPANモジュールガイド</a><div class=\"amazlet-powered-date\" style=\"font-size:80%;margin-top:5px;line-height:120%\">posted with <a href=\"http://www.amazlet.com/browse/ASIN/486267108X/clouder-22/ref=nosim/\" title=\"Perl CPANモジュールガイド\" target=\"_blank\">amazlet</a> at 11.04.01</div></div><div class=\"amazlet-detail\">冨田尚樹 <br />ワークスコーポレーション <br />売り上げランキング: 3184<br /></div><div class=\"amazlet-sub-info\" style=\"float: left;\"><div class=\"amazlet-link\" style=\"margin-top: 5px\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\">Amazon.co.jp で詳細を見る</a></div></div></div><div class=\"amazlet-footer\" style=\"clear: left\"></div></div>" "http://feedproxy.google.com/~r/clouder/~3/WZ2klczt0vI/001138.html" (19861 27013) old 9 nil nil ((title nil "Perl CPANモジュールガイド") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/WZ2klczt0vI/001138.html"))) (id nil "tag:blog.clouder.jp,2011://2.1138") (published nil "2011-04-01T05:35:31Z") (updated nil "2011-04-01T05:58:29Z") (summary nil " CPAN本、献本頂きました！ ちょっと前に存在は知っていたのですが、4/8ついに出版ということで、...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlcpan") (label . "perl cpan") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "<span class=\"mt-enclosure mt-enclosure-image\" style=\"display: inline;\"><a href=\"http://blog.clouder.jp/archives/images/perl_cpan_module_guide_book.jpg\"><img alt=\"Perl CPANモジュールガイド - 冨田尚樹\" src=\"http://blog.clouder.jp/archives/assets_c/2011/04/perl_cpan_module_guide_book-thumb-320x428-22.jpg\" width=\"320\" height=\"428\" class=\"mt-image-center\" style=\"text-align: center; display: block; margin: 0 auto 20px;\" /></a></span>
+
+CPAN本、献本頂きました！<br /><br />
+
+ちょっと前に存在は知っていたのですが、4/8ついに出版ということで、<a href=\"http://e8y.net/\">tomi-ru</a>さん、誠におめでとうございます！<br /><br />
+
+内容としては、PerlのCPANモジュールを1コ1コ丁寧に紹介する内容となっていて、各カテゴリ毎にそのカテゴリで有名だったりよく使われるモジュールをわかりやすく説明するといったものになっています。<br /><br />
+
+僕がいつもPerlのモジュールを探すときは、CPANの検索で有象無象のモジュールの海を泳いで、これはどうだろうってドキュメントやソースを見てみたり、もしくは「Perl やりたいこと」とかでぐぐって探したりということをやっていたりしましたが、これからはまずこの本でよさげなモジュールがないかを見てからになりそうです！<br /><br />
+
+自分は本を1冊書いたことはないのですが、個人的に書く大変さはちょっとだけ知っていたりするので、これだけの分量のものを書くのはかなり大変だったんだろうなぁと想像しています。<br /><br />
+
+tomi-ruさん、ほんとうにお疲れ様でした。<br />
+熟読させて頂きます。<br /><br /><div class=\"amazlet-box\" style=\"margin-bottom:0px;\"><div class=\"amazlet-image\" style=\"float:left;margin:0px 12px 1px 0px;\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\"><img src=\"http://ecx.images-amazon.com/images/I/51GZEd2QiLL._SL160_.jpg\" alt=\"Perl CPANモジュールガイド\" style=\"border: none;\" /></a></div><div class=\"amazlet-info\" style=\"line-height:120%; margin-bottom: 10px\"><div class=\"amazlet-name\" style=\"margin-bottom:10px;line-height:120%\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\">Perl CPANモジュールガイド</a><div class=\"amazlet-powered-date\" style=\"font-size:80%;margin-top:5px;line-height:120%\">posted with <a href=\"http://www.amazlet.com/browse/ASIN/486267108X/clouder-22/ref=nosim/\" title=\"Perl CPANモジュールガイド\" target=\"_blank\">amazlet</a> at 11.04.01</div></div><div class=\"amazlet-detail\">冨田尚樹 <br />ワークスコーポレーション <br />売り上げランキング: 3184<br /></div><div class=\"amazlet-sub-info\" style=\"float: left;\"><div class=\"amazlet-link\" style=\"margin-top: 5px\"><a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/486267108X/clouder-22/ref=nosim/\" name=\"amazletlink\" target=\"_blank\">Amazon.co.jp で詳細を見る</a></div></div></div><div class=\"amazlet-footer\" style=\"clear: left\"></div></div>
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001138.html"))) ("UNIVERSAL::isa と UNIVERSAL::can に関するメモ" "いつも忘れちゃうのでメモ。<br /><br />
+UNIVERSAL::isaは、UNIVERSAL::isa()を呼んでも自分のクラス(階層)内にisa()が定義されてればそっちを呼ぶようにするためのモジュール。<br /><br />
+以下のようにmainでUNIVERSAL::isaをuseしないと、最後の2つのUNIVERSAL::isa()は1を返します。つまり本当のUNIVERSAL::isa()が呼ばれる。<br /><pre class=\"code\">package A;
+sub new { bless {}, shift }
+sub isa { \"hoge\" }
+package B;
+use base qw( A );
+sub new { bless {}, shift }
+package main;
+my $b = B->new;
+warn $b->isa( \"B\" );            # hoge
+warn $b->isa( \"A\" );            # hoge
+warn UNIVERSAL::isa( $b, \"B\" ); # 1
+warn UNIVERSAL::isa( $b, \"A\" ); # 1</pre><br />
+これに対して、以下のようにmainでUNIVERSAL::isaをuseしてやると、最後のUNIVERSAL::isa()もhogeを返す、つまりクラスAで定義されてるisa()が呼ばれている。<br /><pre class=\"code\">package A;
+sub new { bless {}, shift }
+sub isa { \"hoge\" }
+package B;
+use base qw( A );
+sub new { bless {}, shift }
+package main;
+use UNIVERSAL::isa;
+my $b = B-&gt;new;
+warn $b-&gt;isa( \"B\" );            # hoge
+warn $b-&gt;isa( \"A\" );            # hoge
+warn UNIVERSAL::isa( $b, \"B\" ); # hoge
+warn UNIVERSAL::isa( $b, \"A\" ); # hoge</pre>
+そしてUNIVERSAL::canも同じようなことをしてくれます。<br /><br />
+ちなみにUNIVERSAL::requireはぜんぜんこれらとは関係なく<br /><pre class=\"code\">Module-&gt;require;</pre>
+って呼べたり<br /><pre class=\"code\">Module-&gt;require or die \"Cannot required\";</pre>
+とかdieできたり、モジュールでrequireメソッドを使えるようにするものです。<br />
+useもできたりします。<br />" "http://feedproxy.google.com/~r/clouder/~3/WdvYIZ0SQig/001137.html" (19727 1680) old 10 nil nil ((title nil "UNIVERSAL::isa と UNIVERSAL::can に関するメモ") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/WdvYIZ0SQig/001137.html"))) (id nil "tag:blog.clouder.jp,2010://2.1137") (published nil "2010-12-20T07:20:22Z") (updated nil "2010-12-20T07:32:32Z") (summary nil "いつも忘れちゃうのでメモ。 UNIVERSAL::isaは、UNIVERSAL::isa()を呼んで...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlisacan") (label . "perl isa can") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "いつも忘れちゃうのでメモ。<br /><br />
+
+UNIVERSAL::isaは、UNIVERSAL::isa()を呼んでも自分のクラス(階層)内にisa()が定義されてればそっちを呼ぶようにするためのモジュール。<br /><br />
+
+以下のようにmainでUNIVERSAL::isaをuseしないと、最後の2つのUNIVERSAL::isa()は1を返します。つまり本当のUNIVERSAL::isa()が呼ばれる。<br /><pre class=\"code\">package A;
+
+sub new { bless {}, shift }
+sub isa { \"hoge\" }
+
+package B;
+
+use base qw( A );
+
+sub new { bless {}, shift }
+
+package main;
+
+my $b = B->new;
+
+warn $b->isa( \"B\" );            # hoge
+warn $b->isa( \"A\" );            # hoge
+warn UNIVERSAL::isa( $b, \"B\" ); # 1
+warn UNIVERSAL::isa( $b, \"A\" ); # 1</pre><br />
+これに対して、以下のようにmainでUNIVERSAL::isaをuseしてやると、最後のUNIVERSAL::isa()もhogeを返す、つまりクラスAで定義されてるisa()が呼ばれている。<br /><pre class=\"code\">package A;
+
+sub new { bless {}, shift }
+sub isa { \"hoge\" }
+
+package B;
+
+use base qw( A );
+
+sub new { bless {}, shift }
+
+package main;
+
+use UNIVERSAL::isa;
+
+my $b = B-&gt;new;
+
+warn $b-&gt;isa( \"B\" );            # hoge
+warn $b-&gt;isa( \"A\" );            # hoge
+warn UNIVERSAL::isa( $b, \"B\" ); # hoge
+warn UNIVERSAL::isa( $b, \"A\" ); # hoge</pre>
+
+そしてUNIVERSAL::canも同じようなことをしてくれます。<br /><br />
+
+ちなみにUNIVERSAL::requireはぜんぜんこれらとは関係なく<br /><pre class=\"code\">Module-&gt;require;</pre>
+
+って呼べたり<br /><pre class=\"code\">Module-&gt;require or die \"Cannot required\";</pre>
+
+とかdieできたり、モジュールでrequireメソッドを使えるようにするものです。<br />
+useもできたりします。<br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001137.html"))) ("emacsでTAGSの参照先が.gzファイルだった場合の対処法" "emacsでTAGSを使ってるんですが、環境によっては参照先のファイルがfoo.el.gzってなってたりするとfind-tagしたときに見られないようです。<br /><br />
+そんなときは、.emacsに下記のようにしてあらかじめjka-comprという圧縮ファイルを操作するライブラリをロードしておくと見られるようになります。<br /><pre class=\"code\">(load \"jka-compr\")</pre>
+ちなみにemacsは、このようにloadをしなくてもgzip圧縮されたファイルを開くときは勝手にjka-comprを使ってるようです。<br /><br />" "http://feedproxy.google.com/~r/clouder/~3/Tkxn1lyD0LA/001136.html" (19703 13611) old 11 nil nil ((title nil "emacsでTAGSの参照先が.gzファイルだった場合の対処法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/Tkxn1lyD0LA/001136.html"))) (id nil "tag:blog.clouder.jp,2010://2.1136") (published nil "2010-12-02T05:35:20Z") (updated nil "2010-12-02T05:56:59Z") (summary nil "emacsでTAGSを使ってるんですが、環境によっては参照先のファイルがfoo.el.gzってなって...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Emacs") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "emacs") (label . "emacs") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "gzip") (label . "gzip") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "jkacompr") (label . "jka-compr") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "tags") (label . "tags") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "emacsでTAGSを使ってるんですが、環境によっては参照先のファイルがfoo.el.gzってなってたりするとfind-tagしたときに見られないようです。<br /><br />
+
+そんなときは、.emacsに下記のようにしてあらかじめjka-comprという圧縮ファイルを操作するライブラリをロードしておくと見られるようになります。<br /><pre class=\"code\">(load \"jka-compr\")</pre>
+
+ちなみにemacsは、このようにloadをしなくてもgzip圧縮されたファイルを開くときは勝手にjka-comprを使ってるようです。<br /><br />
+
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001136.html"))) ("Devel::KYTProfがだいぶいい！" "仕事でアプリのボトルネックを探しているという話をしたら、hideokiさんが<br /><br />
+「ＹＡＰＣ::Ａｓｉａ　２０１０ で ｃｈｏ４５ が紹介してた Devel::KYTProf がいいよー」<br /><br />
+って言ってたので、使ってみたらだいぶよかったのでご紹介。<br /><br />
+Devel::KYTProfの作者はid:onishiさんで、リポジトリは<a href=\"http://github.com/onishi/perl5-devel-kytprof\">http://github.com/onishi/perl5-devel-kytprof</a>にあります。<br /><br />
+このモジュール、何ができるモジュールかっていうと(まぁcho45さんの発表動画見ればわかるのですが)、モジュール名とメソッド名を指定してやると、そのメソッドの処理にかかった時間をさくっと調べられるというものです。<br /><br />
+たとえば Foo::Controller::Bar の baz() って関数の処理時間が知りたかったら、そのアプリケーションのメインモジュールに
+<pre class=\"code\">use Devel::KYTProf;
+Devel::KYTProf->add_prof( 'Foo::Controller::Bar', 'baz' );</pre>
+って書くことで、STDERRに
+<pre class=\"command\">123.456 ms [Foo::Controller::Bar] baz() | Devel::KYTProf:100</pre>
+みたいな感じで処理時間とちょっとした情報が出力されます。よっぽどトリッキーなことしてるモジュールじゃない限り、これを使うことで処理時間を調べることができるはず。<br /><br />
+あとadd_prof() は、第3引数を渡すことができて
+<pre class=\"code\">Devel::KYTProf->add_prof(
+'Foo::Controller::Bar',
+'baz',
+sub {
+my ( $orig, $self ) = @_;
+return $self->foo_bar;
+}
+);</pre>
+とやると処理時間と共に$self->foo_bar の値がSTDERRに出力されます。<br /><br />
+それ以外にも Devel::KYTProf->threshold( 100 ) とかやると、指定したものよりも処理時間がかかったもののみを出力するようにしたりと、いくつかのオプションが用意されています。<br /><br />
+ちなみに Devel::KYTProf は、デフォルトでIO関係でよく問題になるようなDBI、LWP::UserAgent、Cache::Memcached::Fast、MogileFS::Clientなどのモジュールの設定が最初からされていたりします。それ以外にも調べたいという場合に上記の設定を自分でしたらよいという感じになっています。<br /><br />
+なお今回、僕の場合はTTの[% foo %]の部分の速度が調べたかったので
+<pre class=\"code\">Devel::KYTProf->add_prof(
+'Template::Stash::XS',
+'get',
+sub {        my ($orig, $self, $ident, $args) = @_;
+return ref $ident eq 'ARRAY' ? join(\",\", @$ident) : $ident;
+}
+);</pre>
+こんな感じにしてみました。<br />
+まぁ、結局問題はそこじゃなかったんですけどね...。<br /><br />
+ということで、このDevel::KYTProfはかなりお手軽に細かい処理時間が調べられるので興味ある方は一度使ってみてはいかがでしょうか。<br />" "http://feedproxy.google.com/~r/clouder/~3/CfTac8Nvzmo/001135.html" (19660 14639) old 12 nil nil ((title nil "Devel::KYTProfがだいぶいい！") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/CfTac8Nvzmo/001135.html"))) (id nil "tag:blog.clouder.jp,2010://2.1135") (published nil "2010-10-30T14:47:25Z") (updated nil "2010-10-30T15:26:39Z") (summary nil "仕事でアプリのボトルネックを探しているという話をしたら、hideokiさんが 「ＹＡＰＣ::Ａｓｉａ...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "perlbenchmark") (label . "perl benchmark") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "仕事でアプリのボトルネックを探しているという話をしたら、hideokiさんが<br /><br />
+
+「ＹＡＰＣ::Ａｓｉａ　２０１０ で ｃｈｏ４５ が紹介してた Devel::KYTProf がいいよー」<br /><br />
+
+って言ってたので、使ってみたらだいぶよかったのでご紹介。<br /><br />
+
+Devel::KYTProfの作者はid:onishiさんで、リポジトリは<a href=\"http://github.com/onishi/perl5-devel-kytprof\">http://github.com/onishi/perl5-devel-kytprof</a>にあります。<br /><br />
+
+このモジュール、何ができるモジュールかっていうと(まぁcho45さんの発表動画見ればわかるのですが)、モジュール名とメソッド名を指定してやると、そのメソッドの処理にかかった時間をさくっと調べられるというものです。<br /><br />
+
+たとえば Foo::Controller::Bar の baz() って関数の処理時間が知りたかったら、そのアプリケーションのメインモジュールに
+
+<pre class=\"code\">use Devel::KYTProf;
+Devel::KYTProf->add_prof( 'Foo::Controller::Bar', 'baz' );</pre>
+
+って書くことで、STDERRに
+
+<pre class=\"command\">123.456 ms [Foo::Controller::Bar] baz() | Devel::KYTProf:100</pre>
+
+みたいな感じで処理時間とちょっとした情報が出力されます。よっぽどトリッキーなことしてるモジュールじゃない限り、これを使うことで処理時間を調べることができるはず。<br /><br />
+
+あとadd_prof() は、第3引数を渡すことができて
+
+<pre class=\"code\">Devel::KYTProf->add_prof(
+    'Foo::Controller::Bar',
+    'baz',
+    sub {
+        my ( $orig, $self ) = @_;
+        return $self->foo_bar;
+    }
+);</pre>
+
+とやると処理時間と共に$self->foo_bar の値がSTDERRに出力されます。<br /><br />
+
+それ以外にも Devel::KYTProf->threshold( 100 ) とかやると、指定したものよりも処理時間がかかったもののみを出力するようにしたりと、いくつかのオプションが用意されています。<br /><br />
+
+ちなみに Devel::KYTProf は、デフォルトでIO関係でよく問題になるようなDBI、LWP::UserAgent、Cache::Memcached::Fast、MogileFS::Clientなどのモジュールの設定が最初からされていたりします。それ以外にも調べたいという場合に上記の設定を自分でしたらよいという感じになっています。<br /><br />
+
+なお今回、僕の場合はTTの[% foo %]の部分の速度が調べたかったので
+
+<pre class=\"code\">Devel::KYTProf->add_prof(
+    'Template::Stash::XS',
+    'get',
+    sub {        my ($orig, $self, $ident, $args) = @_;
+        return ref $ident eq 'ARRAY' ? join(\",\", @$ident) : $ident;
+    }
+);</pre>
+
+こんな感じにしてみました。<br />
+まぁ、結局問題はそこじゃなかったんですけどね...。<br /><br />
+
+ということで、このDevel::KYTProfはかなりお手軽に細かい処理時間が調べられるので興味ある方は一度使ってみてはいかがでしょうか。<br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001135.html"))) ("Yaml-mode 0.0.7 is now released" "Yaml-mode 0.0.7 is now released.<br />
+This release include following bugfix:
+<pre class=\"code\">* Fixed bug for 5th level's indentation becomes TAB character.
+See YAML spec 1.2 section 5.5. White Space Characters (ochko)</pre>
+For additional information, please visit issues on github:<br /><a href=\"http://github.com/yoshiki/yaml-mode/issues/closed#issue/1\">http://github.com/yoshiki/yaml-mode/issues/closed#issue/1</a><br />" "http://feedproxy.google.com/~r/clouder/~3/ahXw5el1kOg/001134.html" (19546 21861) old 13 nil nil ((title nil "Yaml-mode 0.0.7 is now released") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/ahXw5el1kOg/001134.html"))) (id nil "tag:blog.clouder.jp,2010://2.1134") (published nil "2010-08-05T05:56:11Z") (updated nil "2010-08-05T06:08:37Z") (summary nil "Yaml-mode 0.0.7 is now released. This release incl...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Emacs") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "emacs") (label . "emacs") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "lisp") (label . "lisp") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "yaml") (label . "yaml") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "yamlmode") (label . "yaml-mode") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "Yaml-mode 0.0.7 is now released.<br />
+This release include following bugfix:
+<pre class=\"code\">* Fixed bug for 5th level's indentation becomes TAB character.
+  See YAML spec 1.2 section 5.5. White Space Characters (ochko)</pre>
+For additional information, please visit issues on github:<br /><a href=\"http://github.com/yoshiki/yaml-mode/issues/closed#issue/1\">http://github.com/yoshiki/yaml-mode/issues/closed#issue/1</a><br />
+
+
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001134.html"))) ("学年毎の生年月日範囲の特定" "仕事で学年毎の生年月日の範囲が必要になって、CPANを探したけどそれらしいのがなかったのでモジュールではないけど作った。<br /><br />
+この辺は国によって違ったりするからモジュールにするのってけっこう難しいですよね。ニーズがあればそれらしいモジュールにして出そうかなと思うけど、まぁ、ないよね...。<br /><br /><script src=\"http://gist.github.com/509106.js?file=calc_grade_term.pl\"></script>" "http://feedproxy.google.com/~r/clouder/~3/kVWuCs8IgYg/001133.html" (19546 10385) old 14 nil nil ((title nil "学年毎の生年月日範囲の特定") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/kVWuCs8IgYg/001133.html"))) (id nil "tag:blog.clouder.jp,2010://2.1133") (published nil "2010-08-05T02:47:12Z") (updated nil "2010-08-05T02:57:21Z") (summary nil "仕事で学年毎の生年月日の範囲が必要になって、CPANを探したけどそれらしいのがなかったのでモジュール...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Perl") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "gist") (label . "gist") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "perl") (label . "perl") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "script") (label . "script") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "仕事で学年毎の生年月日の範囲が必要になって、CPANを探したけどそれらしいのがなかったのでモジュールではないけど作った。<br /><br />
+
+この辺は国によって違ったりするからモジュールにするのってけっこう難しいですよね。ニーズがあればそれらしいモジュールにして出そうかなと思うけど、まぁ、ないよね...。<br /><br /><script src=\"http://gist.github.com/509106.js?file=calc_grade_term.pl\"></script>") (feedburner:origLink nil "http://blog.clouder.jp/archives/001133.html"))) ("ターミナルの表示が崩れたときの対処法" "よくターミナルで、catとかlessとかファイルなどを見たときに2バイト文字が化けて出力されて以降にlsなどの出力がガタガタになるときありますよね。<br /><br />
+あれ、ないですか？それは幸せですね。<br /><br />
+僕はよくあるんですけど、そういうときの対処法を昔だれかに聞いて、それ以来この状態になるとずっと今回紹介する技を使ってきています。<br /><br />
+やり方は簡単です、ターミナルに以下のコマンド(?)を打つだけです。<br /><pre class=\"command\">% echo ^[c</pre>
+でも、単純に「echo スペース ハット ブラケット c」って打ってもだめです。<br />
+実際には「echo Ctrl-v Esc c」と打っています。<br /><br />
+このあとリターンを押せば、あら不思議。<br />
+ガタガタしてた出力が直ります。<br /><br />
+他にも対処法あると思いますが、僕がよく使うのはこれです。<br /><br />
+これはエスケープシーケンスの1種で、この用途以外にもターミナルで色などを変えることもできます。ネットで調べると色の定義とかはあるんですがこの「c」だとこういうことができるっていうのは探してみたのですが出てきませんでした。<br /><br />
+この辺のエスケープシーケンス一覧が載ってるところを知ってる方がいたら教えて欲しいです。<br /><br />" "http://feedproxy.google.com/~r/clouder/~3/Vl3VB3NGfPw/001132.html" (19529 384) old 15 nil nil ((title nil "ターミナルの表示が崩れたときの対処法") (link ((rel . "alternate") (type . "text/html") (href . "http://feedproxy.google.com/~r/clouder/~3/Vl3VB3NGfPw/001132.html"))) (id nil "tag:blog.clouder.jp,2010://2.1132") (published nil "2010-07-23T01:41:16Z") (updated nil "2010-07-23T02:42:08Z") (summary nil "よくターミナルで、catとかlessとかファイルなどを見たときに2バイト文字が化けて出力されて以降に...") (author nil (name nil "clouder") (uri nil "http://blog.clouder.jp/")) (category ((term . "Unix") (scheme . "http://www.sixapart.com/ns/types#category"))) (category ((term . "terminal") (label . "terminal") (scheme . "http://www.sixapart.com/ns/types#tag"))) (category ((term . "unix") (label . "unix") (scheme . "http://www.sixapart.com/ns/types#tag"))) (content ((type . "html") (xml:lang . "ja") (xml:base . "http://blog.clouder.jp/")) "よくターミナルで、catとかlessとかファイルなどを見たときに2バイト文字が化けて出力されて以降にlsなどの出力がガタガタになるときありますよね。<br /><br />
+
+あれ、ないですか？それは幸せですね。<br /><br />
+
+僕はよくあるんですけど、そういうときの対処法を昔だれかに聞いて、それ以来この状態になるとずっと今回紹介する技を使ってきています。<br /><br />
+
+やり方は簡単です、ターミナルに以下のコマンド(?)を打つだけです。<br /><pre class=\"command\">% echo ^[c</pre>
+
+でも、単純に「echo スペース ハット ブラケット c」って打ってもだめです。<br />
+実際には「echo Ctrl-v Esc c」と打っています。<br /><br />
+
+このあとリターンを押せば、あら不思議。<br />
+ガタガタしてた出力が直ります。<br /><br />
+
+他にも対処法あると思いますが、僕がよく使うのはこれです。<br /><br />
+
+これはエスケープシーケンスの1種で、この用途以外にもターミナルで色などを変えることもできます。ネットで調べると色の定義とかはあるんですがこの「c」だとこういうことができるっていうのは探してみたのですが出てきませんでした。<br /><br />
+
+この辺のエスケープシーケンス一覧が載ってるところを知ってる方がいたら教えて欲しいです。<br /><br />
+") (feedburner:origLink nil "http://blog.clouder.jp/archives/001132.html"))))
