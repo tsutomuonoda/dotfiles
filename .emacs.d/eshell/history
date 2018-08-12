@@ -23,3 +23,48 @@ dpkg -S lcomp
 apt-cache show emacs-goodies-el
 apt-cache show virtualbox
 apt-cache show vagrant
+apt-cache show elpa-ace-link
+apt-chache show elpa-beacon
+apt-cache show elpa-beacon
+apt-cache show elpa-company
+apt-cache seach company elpa
+aptitude seach company elpa
+aptitude search company elpa
+aptitude show elpa-company
+uname -a
+apt-cache search undo-tree
+apt-cache search go lang
+apt-cache search go lang meta
+apt-cache show golang
+apt-cache search  golang emacs
+apt-cache search  go lang elisp
+apt-cache search  go lang mode
+apt-cache search  go lang elpa
+aptitude elpa-go-mode
+aptitude show elpa-go-mode
+aptitude show golang-golang-x-tools
+aptitude show golang
+aptitude show golang-golang-x-tools
+aptitude show elpa-go-mode
+aptitude show go el doc
+aptitude search go el doc
+aptitude search go lang el doc
+apt-cache  search go lang el doc
+apt-cache  search go company
+apt-cache show elpa-company-go
+apt-cache  search go flycheck
+aptitude show elpa-go-mode
+aptitude show elpa-company-go
+apt-cache search org-mode
+apt-cache show elpa-org
+aptitude show elpa-org
+dpkg -L elpa-go-mode
+dpkg -L elpa-company-go
+aptitude search org mode
+aptitude search org mode elpa
+aptitude search org mode elpa elisp
+apt-cache search org mode elpa elisp
+apt-cache search org mode
+apt-cache search org mode elisp
+apt-cache search org  elisp
+apt-cache search org  emacs
