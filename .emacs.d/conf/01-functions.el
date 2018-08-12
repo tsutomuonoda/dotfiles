@@ -19,9 +19,10 @@
 
 ;;;コピー&ペーストの履歴
 ;; browse-kill-ring
-(autoload 'browse-kill-ring "browse-kill-ring"
-  "\Display items in the 'kill-ring' in another buffer. " t)
-(global-set-key (kbd "C-c y") 'browse-kill-ring)
+;; helm-show-kill-ringを使うためコメントアウトした。
+;(autoload 'browse-kill-ring "browse-kill-ring"
+;  "\Display items in the 'kill-ring' in another buffer. " t)
+;(global-set-key (kbd "C-c y") 'browse-kill-ring)
 
 ;;minibuf-isearch
 ;(require 'minibuf-isearch)
@@ -84,6 +85,35 @@
 	    ;; Set dired-x buffer-local variables here.  For example:
 	    ;; (setq dired-omit-files-p t)
 	    ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; バックアップとオートセーブの設定
+;; Emacs実践入門 p.100参照
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;バックアップファイルを~/.emacs.d/backups/へ集める
+(add-to-list 'backup-directory-alist
+	     (cons "." "~/.emacs.d/backups/"))
+
+;;オートセーブファイルを~/.emacs.d/auto-save-list/へ集める
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/auto-save-list") t)))
+
+;; オートセーブファイル作成までの秒間隔(標準:30秒)
+(setq auto-save-timeout 15)
+
+;; オートセーブファイル作成までのタイプ間隔(標準:300回)
+(setq auto-save-interval 60)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; ファイルの自動更新
+;; Emacs実践入門 p.102参照
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; 更新されたファイルを自動的に読み込み直す
+(global-auto-revert-mode t)
 
 ;; tar+gzipの圧縮ファイル内へのアクセス
 ;; 読むときは問題ないが、書き出し時にファイルを壊してしまう場合があるとのことなので無効にしてある。
