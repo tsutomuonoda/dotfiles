@@ -381,17 +381,18 @@
 (autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
 
 ;;; brose-kill-ring
-(require 'browse-kill-ring)
+;; helm-show-kill-ringを使うためコメントアウトした。
+;; (require 'browse-kill-ring)
 
- (global-set-key (kbd "C-c y") 'browse-kill-ring)
+;;  (global-set-key (kbd "C-c y") 'browse-kill-ring)
 
- (defadvice yank-pop (around kill-ring-browse-maybe (arg))
-   "If last action was not a yank, run `browse-kill-ring' instead."
-   (if (not (eq last-command 'yank))
-       (browse-kill-ring)
-     ad-do-it))
+;;  (defadvice yank-pop (around kill-ring-browse-maybe (arg))
+;;    "If last action was not a yank, run `browse-kill-ring' instead."
+;;    (if (not (eq last-command 'yank))
+;;        (browse-kill-ring)
+;;      ad-do-it))
 
- (ad-activate 'yank-pop)
+;;  (ad-activate 'yank-pop)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ccs mode
@@ -728,9 +729,6 @@
 ;; Go Langでflycheckを使う設定
 ;(add-hook 'go-mode-hook 'flycheck-mode)
 
-;; helm
-(require 'helm-config)
-
 ;; SDICの設定
 (global-set-key "\C-cw" 'sdic-describe-word)
 (global-set-key "\C-cW" 'sdic-describe-word-at-point)
@@ -857,7 +855,10 @@
 ;  (load "init-tdiary")
 ; (load "init-typescript")
 ;  (load "init-ocaml")
-(load "init-ibuffer")
+
+;; helm-for-filesを使うためコメントアウトした
+;(load "init-ibuffer")
+
 ;(load "init-egg")
 ;(load "init-melpa")
 ;(load "init-howm")
@@ -868,6 +869,9 @@
 (load "init-elpa-beacon")
 ;(load "init-elpa-clues-theme")
 (load "init-elpa-company")
+(load "init-elpa-helm")
+;(load "init-elpa-undo-tree")
+
 
 ;;; カスタム設定ファイルの指定
 ;;; ここで指定したファイルにカスタム設定等が書き込まれます
