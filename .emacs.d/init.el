@@ -1,5 +1,7 @@
 ;; Emacs 23より前のバージョンを利用している方は
 ;; user-emacs-directory変数が未定義のため次の設定を追加
+
+;;; Code:
 (when (< emacs-major-version 23)
 (defvar user-emacs-directory "~/.emacs.d/")
     )
@@ -118,36 +120,18 @@
 		  "~/.emacs.d/elisp/clojure-mode/"
 ;		  "~/.emacs.d/elisp/elpa/"
 ;		  "~/.emacs.d/elisp/melpa/"
-;		  "~/.emacs.d/elisp/helm/" ;;パッケージがあるのでそちらで設定する。
-;		  "/home/onoben/lib/emacs/24/elisp/ddskk-20130421/share/emacs/site-lisp/skk"
-;		  "~/.emacs.d/elisp/twittering-mode-3.0.0/"
-;		  "~/.emacs.d/elisp/twittering-mode-2.0.0/"
-;		  "~/.emacs.d/elisp/twittering-mode/" ;;パッケージがあるのでそちらで設定する。
 ;		  "~/.emacs.d/elisp/nrepl.el/"
 ;		  "~/.emacs.d/elisp/ritz/nrepl/elisp/"
 ;		  "~/.emacs.d/elisp/scala-mode/";;パッケージがあるのでそちらで設定する。
 ;		  "~/.emacs.d/elisp/scala-mode2/";;パッケージがあるのでそちらで設定する。
 ;		  "~/.emacs.d/elisp/ensime_2.9.2-0.9.8.9/elisp/"
 ;		  "~/.emacs.d/elisp/flycheck/"
-;		  "~/.emacs.d/elisp/golang-mode/";;パッケージがあるのでそちらで設定する。
 ;		  "~/.emacs.d/elisp/mule-ucs/lisp/jisx0213"
 ;		  "~/.emacs.d/elisp/mule-ucs/lisp"
 		  "~/.emacs.d/conf")
 
 ;(setq load-path (append '("~/lib/emacs/22.1.1/elisp") load-path))
 
-;;パッケージシステム
-;(require 'package)
-
-; Add package-archives
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-; Initialize
-;(package-initialize)
-
-; melpa.el
-;(require 'melpa)
 
 
 
@@ -843,7 +827,9 @@
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 
-;;設定ファイル読み込み
+;;設定ファイル読み込み(最終的にinit-loaderで管理する)
+(load "init-package");package.elの設定
+(load "init-elpa-use-package")
  ; (load "init-colorthemes")
 ;(load "init-emacsbible")
 ;  (load "init-evernote")
@@ -871,6 +857,7 @@
 (load "init-elpa-company")
 (load "init-elpa-helm")
 ;(load "init-elpa-undo-tree")
+(load "init-elpa-flycheck")
 
 
 ;;; カスタム設定ファイルの指定
