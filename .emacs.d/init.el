@@ -24,7 +24,7 @@
  ;; 	 ;;
  ;; 	 ))
  ;; ; 日本語 info が文字化けしないように
- (auto-compression-mode t)
+; (auto-compression-mode t)
  ;; ; xemacs の shell-mode で 日本語 EUC が使えるようにする
  ;; (if (featurep 'xemacs)
  ;;     (add-hook 'shell-mode-hook (function
@@ -32,9 +32,9 @@
  ;; )
 
  ; 日本語 grep
- (if (file-exists-p "/usr/bin/lgrep")
-     (setq grep-command "lgrep -n ")
-   )
+; (if (file-exists-p "/usr/bin/lgrep")
+;     (setq grep-command "lgrep -n ")
+;   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 漢字変換 (anthy) の設定
@@ -103,31 +103,32 @@
 ;; 引数をload-pathへ追加する
 ;; このバージョンはサブディレクトリは自動的にロードパスに追加してくれない。
 ;; もし、そのようなコードが必要であれば「実践入門のp.61」を見ること。
-(defun add-to-load-path (&rest paths)
-  (mapc '(lambda (path)
-	   (add-to-list 'load-path path))
-	(mapcar 'expand-file-name paths))) ;;ここ再帰しているように見えるLisp勉強したらブログに追加する。
+ (defun add-to-load-path (&rest paths)
+   (mapc '(lambda (path)
+	    (add-to-list 'load-path path))
+	 (mapcar 'expand-file-name paths))) ;;ここ再帰しているように見えるLisp勉強したらブログに追加する。
 
-;
-;; elispと設定ファイルのディレクトリをload-pathに追加
-(add-to-load-path "~/.emacs.d/elisp"
-                  ;;org2blogはEmacs24同梱の8.2.10に対応できているが、
+;; ;
+;; ;; elispと設定ファイルのディレクトリをload-pathに追加
+ (add-to-load-path "~/.emacs.d/elisp"
+                   ;;org2blogはEmacs24同梱の8.2.10に対応できているが、
 		  ;;org-modeパッケージ版(9.0.3)には対応できていない。
-		  "~/.emacs.d/elisp/metaweblog/";;ver:0.1.1
-		  "~/.emacs.d/elisp/org2blog/";; ver:0.9.2
-;		  "~/.emacs.d/elisp/egg/"
-;		  "~/.emacs.d/elisp/yasnippet/"
-		  "~/.emacs.d/elisp/clojure-mode/"
-;		  "~/.emacs.d/elisp/elpa/"
-;		  "~/.emacs.d/elisp/melpa/"
-;		  "~/.emacs.d/elisp/nrepl.el/"
-;		  "~/.emacs.d/elisp/ritz/nrepl/elisp/"
-;		  "~/.emacs.d/elisp/scala-mode/";;パッケージがあるのでそちらで設定する。
-;		  "~/.emacs.d/elisp/scala-mode2/";;パッケージがあるのでそちらで設定する。
-;		  "~/.emacs.d/elisp/ensime_2.9.2-0.9.8.9/elisp/"
-;		  "~/.emacs.d/elisp/flycheck/"
-;		  "~/.emacs.d/elisp/mule-ucs/lisp/jisx0213"
-;		  "~/.emacs.d/elisp/mule-ucs/lisp"
+;;		  "~/.emacs.d/elisp/metaweblog/";;ver:0.1.1
+;;		  "~/.emacs.d/elisp/org2blog/";; ver:0.9.2
+;;                  ;"/usr/share/emacs/25.2/site-lisp/elpa/howm-1.4.4"
+;; 		  ;		  "~/.emacs.d/elisp/egg/"
+;; ;		  "~/.emacs.d/elisp/yasnippet/"
+;; 		  "~/.emacs.d/elisp/clojure-mode/"
+;; ;		  "~/.emacs.d/elisp/elpa/"
+;; ;		  "~/.emacs.d/elisp/melpa/"
+;; ;		  "~/.emacs.d/elisp/nrepl.el/"
+;; ;		  "~/.emacs.d/elisp/ritz/nrepl/elisp/"
+;; ;		  "~/.emacs.d/elisp/scala-mode/";;パッケージがあるのでそちらで設定する。
+;; ;		  "~/.emacs.d/elisp/scala-mode2/";;パッケージがあるのでそちらで設定する。
+;; ;		  "~/.emacs.d/elisp/ensime_2.9.2-0.9.8.9/elisp/"
+;; ;		  "~/.emacs.d/elisp/flycheck/"
+;; ;		  "~/.emacs.d/elisp/mule-ucs/lisp/jisx0213"
+;; ;		  "~/.emacs.d/elisp/mule-ucs/lisp"
 		  "~/.emacs.d/conf")
 
 ;(setq load-path (append '("~/lib/emacs/22.1.1/elisp") load-path))
@@ -362,7 +363,7 @@
 
 
 ;;; navi2ch
-(autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
+;(autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
 
 ;;; brose-kill-ring
 ;; helm-show-kill-ringを使うためコメントアウトした。
@@ -382,12 +383,12 @@
 ;;; ccs mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(autoload 'css-mode "css-mode")
-(setq auto-mode-alist       
-      (cons '("\\.css\\'" . css-mode) auto-mode-alist))
+;(autoload 'css-mode "css-mode")
+;(setq auto-mode-alist       
+;      (cons '("\\.css\\'" . css-mode) auto-mode-alist))
 
  ;インデントをc-styleにする 
-(setq cssm-indent-function #'cssm-c-style-indenter)
+;(setq cssm-indent-function #'cssm-c-style-indenter)
 
 ;;; generic mode ; ブログ未投稿
 ;;(require 'generic-x)
@@ -396,9 +397,9 @@
 ;;; mu-cite
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(autoload 'mu-cite-original "mu-cite" nil t)
+;(autoload 'mu-cite-original "mu-cite" nil t)
 ;; for all but message-mode
-(add-hook 'mail-citation-hook 'mu-cite-original)
+;(add-hook 'mail-citation-hook 'mu-cite-original)
 ;; for message-mode only
 ;(setq message-cite-function 'mu-cite-original)
 
@@ -409,11 +410,11 @@
 ;	  '(lambda () (define-abbrev php-mode-abbrev-table "ex" "extends")))
 
 ;;; autoinsert.el ;;ブログ未投稿
-(add-hook 'find-file-hooks 'auto-insert)
-(auto-insert-mode 1)
-(setq auto-insert-directory "~/src/insert")
-(setq auto-insert-alist
-      (cons '(cperl-mode . "cperl_insert.pl") auto-insert-alist))
+;(add-hook 'find-file-hooks 'auto-insert)
+;(auto-insert-mode 1)
+;(setq auto-insert-directory "~/src/insert")
+;(setq auto-insert-alist
+;      (cons '(cperl-mode . "cperl_insert.pl") auto-insert-alist))
 
 ;;; mode-info
 ;(require 'mi-config)
@@ -455,8 +456,8 @@
 ;  (framepop-enable))
 
 ;; ibuffer.el ;;ブログ未投稿
-(global-font-lock-mode 1)
-(require 'ibuffer)
+;(global-font-lock-mode 1)
+;(require 'ibuffer)
 
 ;; lcomp.el
 ;(require 'lcomp)
@@ -470,14 +471,14 @@
 
 ;; org mode
 ;; The following lines are always needed. Choose your own keys.
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(add-hook 'org-mode-hook 'turn-on-font-lock) ; not needed when global-font-lock-mode is on
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+;(add-hook 'org-mode-hook 'turn-on-font-lock) ; not needed when global-font-lock-mode is on
+;(global-set-key "\C-cl" 'org-store-link)
+;(global-set-key "\C-ca" 'org-agenda)
+;(global-set-key "\C-cb" 'org-iswitchb)
 
 ; コードブロックのソースに色を付ける
-(setq org-src-fontify-natively t)
+;(setq org-src-fontify-natively t)
 
 ;; 以下は6.0x時のもの
 ;; (autoload 'org-mode "org" "Org mode" t)
@@ -490,16 +491,16 @@
 
 
 ;; Setup Emacs to run bash as its primary shell.
-(setq shell-file-name "/bin/bash")
-(setq shell-command-switch "-c")
-(setq explicit-shell-file-name shell-file-name)
-(setenv "SHELL" shell-file-name)
-(setq explicit-sh-args '("-login" "-i"))
+;(setq shell-file-name "/bin/bash")
+;(setq shell-command-switch "-c")
+;(setq explicit-shell-file-name shell-file-name)
+;(setenv "SHELL" shell-file-name)
+;(setq explicit-sh-args '("-login" "-i"))
 
 ;;; aspell
-(setq-default ispell-program-name "aspell") 
-(eval-after-load "ispell"
-  '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+;(setq-default ispell-program-name "aspell") 
+;(eval-after-load "ispell"
+;  '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
 
 ;;;The Emacs-Goodies-el Package Setup
 
@@ -520,16 +521,16 @@
 ;50haskell-mode.elにて'turn-on-haskell-indentが定義済
 ;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 ;(add-hook 'haskell-mode-hook 'turn-on-haskell-hugs)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 
-(setq haskell-literate-default 'latex)
-(setq haskell-doc-idle-delay 0)
+;(setq haskell-literate-default 'latex)
+;(setq haskell-doc-idle-delay 0)
 
 
 ;;PATH
-(setq exec-path (cons "/usr/local/texlive/p2009/bin/i686-pc-linux-gnu" exec-path))
-(setenv "PATH"
-	(concat '"/usr/local/texlive/p2009/bin/i686-pc-linux-gnu:" (getenv "PATH")))
+;(setq exec-path (cons "/usr/local/texlive/p2009/bin/i686-pc-linux-gnu" exec-path))
+;(setenv "PATH"
+;	(concat '"/usr/local/texlive/p2009/bin/i686-pc-linux-gnu:" (getenv "PATH")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -537,7 +538,7 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'twittering-mode)
+;(require 'twittering-mode)
 
 
 
@@ -577,37 +578,37 @@
 ;(yas-global-mode 1)
 
 ;; speck-mode
-(require 'speck)
-(setq speck-engine (quote Hunspell))
-(setq speck-hunspell-language-options
-      (quote (("da" utf-8 nil t nil)
-              ("de" iso-8859-1 nil t nil)
-              ("en" utf-8 nil nil nil)
-              ("fr" iso-8859-1 nil nil nil)
-              ("it" iso-8859-1 nil nil nil)
-              ("ru" koi8-r nil nil nil))))
-(setq speck-hunspell-program "/usr/bin/hunspell")
-(setq speck-hunspell-library-directory "/usr/share/hunspell/")
-(setq speck-hunspell-default-dictionary-name "en_US")
+;; (require 'speck)
+;; (setq speck-engine (quote Hunspell))
+;; (setq speck-hunspell-language-options
+;;       (quote (("da" utf-8 nil t nil)
+;;               ("de" iso-8859-1 nil t nil)
+;;               ("en" utf-8 nil nil nil)
+;;               ("fr" iso-8859-1 nil nil nil)
+;;               ("it" iso-8859-1 nil nil nil)
+;;               ("ru" koi8-r nil nil nil))))
+;; (setq speck-hunspell-program "/usr/bin/hunspell")
+;; (setq speck-hunspell-library-directory "/usr/share/hunspell/")
+;; (setq speck-hunspell-default-dictionary-name "en_US")
 
 ;; PATHの設定
 ;; より下に記述した物が PATH の先頭に追加されます
-(dolist (dir (list
-              "/bin"
-              "/usr/bin"
-              "/usr/local/bin"
-              (expand-file-name "~/bin")
-              (expand-file-name "~/.rvm/bin")
-	      "/usr/local/texlive/2011/bin/i386-linux"
-              ))
+;; (dolist (dir (list
+;;               "/bin"
+;;               "/usr/bin"
+;;               "/usr/local/bin"
+;;               (expand-file-name "~/bin")
+;;               (expand-file-name "~/.rvm/bin")
+;; 	      "/usr/local/texlive/2011/bin/i386-linux"
+;;               ))
  ;; PATH と exec-path に同じ物を追加します
- (when (and (file-exists-p dir) (not (member dir exec-path)))
-   (setenv "PATH" (concat dir ":" (getenv "PATH")))
-   (setq exec-path (append (list dir) exec-path))))
+ ;; (when (and (file-exists-p dir) (not (member dir exec-path)))
+ ;;   (setenv "PATH" (concat dir ":" (getenv "PATH")))
+ ;;   (setq exec-path (append (list dir) exec-path))))
 
 
 ;; clojure-mode
-(require 'clojure-mode)
+;(require 'clojure-mode)
 
 ;; nrepl
 ;(require 'nrepl)
@@ -638,7 +639,7 @@
 
 ; 改行とインデント，行連結，バックタブ
 
-(add-hook 'scala-mode-hook '(lambda ()
+;(add-hook 'scala-mode-hook '(lambda ()
 
   ;; Bind the 'newline-and-indent' command to RET (aka 'enter'). This
   ;; is normally also available as C-j. The 'newline-and-indent'
@@ -646,7 +647,7 @@
   ;; whitespace from the current line, 2) it create a new line, and 3)
   ;; indents it.  An alternative is the
   ;; 'reindent-then-newline-and-indent' command.
-  (local-set-key (kbd "RET") 'newline-and-indent)
+ ; (local-set-key (kbd "RET") 'newline-and-indent)
 
   ;; Alternatively, bind the 'newline-and-indent' command and
   ;; 'scala-indent:insert-asterisk-on-multiline-comment' to RET in
@@ -662,33 +663,33 @@
   ;; keyboards. The 'join-line' command has the effect or joining the
   ;; current line with the previous while fixing whitespace at the
   ;; joint.
-  (local-set-key (kbd "C-M-j") 'join-line)
+;  (local-set-key (kbd "C-M-j") 'join-line)
 
   ;; Bind the backtab (shift tab) to
   ;; 'scala-indent:indent-with-reluctant-strategy command. This is usefull
   ;; when using the 'eager' mode by default and you want to "outdent" a
   ;; code line as a new statement.
-  (local-set-key (kbd "<backtab>") 'scala-indent:indent-with-reluctant-strategy)
+ ; (local-set-key (kbd "<backtab>") 'scala-indent:indent-with-reluctant-strategy)
 
   ;; and other bindings here
-))
+;))
 
 ;ホワイトスペース
 ;不適当なホワイトスペースをハイライトし，
 ;保存時に不要なホワイトスペースを削除する設定．
 
-(add-hook 'scala-mode-hook '(lambda ()
-  (require 'whitespace)
+;; (add-hook 'scala-mode-hook '(lambda ()
+;;   (require 'whitespace)
 
-  ;; clean-up whitespace at save
-  (make-local-variable 'before-save-hook)
-  (add-hook 'before-save-hook 'whitespace-cleanup)
+;;   ;; clean-up whitespace at save
+;;   (make-local-variable 'before-save-hook)
+;;   (add-hook 'before-save-hook 'whitespace-cleanup)
 
-  ;; turn on highlight. To configure what is highlighted, customize
-  ;; the *whitespace-style* variable. A sane set of things to
-  ;; highlight is: face, tabs, trailing
-  (whitespace-mode)
-))
+;;   ;; turn on highlight. To configure what is highlighted, customize
+;;   ;; the *whitespace-style* variable. A sane set of things to
+;;   ;; highlight is: face, tabs, trailing
+;;   (whitespace-mode)
+;; ))
 
 ;(setq yas/scala-directory "~/lib/emacs/24/elisp/yasnippet/snippets/scala-mode")
 ;(yas/load-directory yas/scala-directory)
@@ -714,16 +715,11 @@
 ;(add-hook 'go-mode-hook 'flycheck-mode)
 
 ;; SDICの設定
-(global-set-key "\C-cw" 'sdic-describe-word)
-(global-set-key "\C-cW" 'sdic-describe-word-at-point)
+;(global-set-key "\C-cw" 'sdic-describe-word)
+;(global-set-key "\C-cW" 'sdic-describe-word-at-point)
 
 ;; newsticker
-(add-hook 'newsticker-mode-hook 'imenu-add-menubar-index)
-
-;; howmの設定(起動しないので放置)
-;(setq howm-menu-lang 'ja)
-;(require 'howm)
-
+;(add-hook 'newsticker-mode-hook 'imenu-add-menubar-index)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; el-getの設定
@@ -830,27 +826,26 @@
 ;;設定ファイル読み込み(最終的にinit-loaderで管理する)
 (load "init-package");package.elの設定
 (load "init-elpa-use-package")
- ; (load "init-colorthemes")
+; (load "init-colorthemes")
 ;(load "init-emacsbible")
 ;  (load "init-evernote")
 ;  (load "init-gde")
 ;  (load "init-lsdb")
 ;  (load "init-psgml")
-;  (load "init-ruby")
- ;(load "init-scm")
+  (load "init-ruby")
+; (load "init-scm")
 ;  (load "init-tdiary")
 ; (load "init-typescript")
-;  (load "init-ocaml")
+  (load "init-ocaml")
 
 ;; helm-for-filesを使うためコメントアウトした
 ;(load "init-ibuffer")
 
 ;(load "init-egg")
 ;(load "init-melpa")
-;(load "init-howm")
 (load "init-elpa-highlight-indentation")
-(load "init-haml-elisp")
-(load "init-elpa-ace-link")
+;(load "init-haml-elisp")
+;(load "init-elpa-ace-link")
 ;(load "init-elpa-aggressive-indent")
 (load "init-elpa-beacon")
 ;(load "init-elpa-clues-theme")
@@ -858,7 +853,9 @@
 (load "init-elpa-helm")
 ;(load "init-elpa-undo-tree")
 (load "init-elpa-flycheck")
-
+(load "init-elpa-zenburn-theme")
+(load "init-elpa-discover-my-major")
+;(load "init-howm")
 
 ;;; カスタム設定ファイルの指定
 ;;; ここで指定したファイルにカスタム設定等が書き込まれます
