@@ -1,5 +1,8 @@
 (require 'package)
 
+;;; package-user-dir
+(setq package-user-dir "~/.emacs.d/elpa/")
+
 ;;; Add package-archives
 
 (add-to-list
