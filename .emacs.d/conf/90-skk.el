@@ -9,10 +9,9 @@
 ;; 漢字変換 (skk) の設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 ;; Please see '/usr/share/doc/ddskk/README.Debian'
 (set-input-method "japanese-skk")
-(inactivate-input-method)
+(deactivate-input-method)
 
 ;; Please see '/usr/share/doc/ddskk/examples/dot.emacs'
 
