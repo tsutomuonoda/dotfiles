@@ -111,6 +111,7 @@
 ;; ;
 ;; ;; elispと設定ファイルのディレクトリをload-pathに追加
  (add-to-load-path "~/.emacs.d/elisp"
+                   "~/.emacs.d/elpa/init-loader-20160528.1315/"
                    ;;org2blogはEmacs24同梱の8.2.10に対応できているが、
 		  ;;org-modeパッケージ版(9.0.3)には対応できていない。
 ;;		  "~/.emacs.d/elisp/metaweblog/";;ver:0.1.1
