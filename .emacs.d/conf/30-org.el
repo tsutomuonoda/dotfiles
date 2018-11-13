@@ -71,21 +71,21 @@
 					;(setq org-icalendar-use-deadline '(event-if-todo))
 
 ;; Enable contributed extensions to org-mode.Please see /usr/share/doc/org-mode/README.Debian
-(setq load-path (cons "/usr/share/org-mode/lisp" load-path))
+;(setq load-path (cons "/usr/share/org-mode/lisp" load-path))
 
 
 ;; コードブロックをハイライトする。デフォルトではEmacs Lisp(emacs-lisp)のみ。
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((latex . t)
-   (R . t)
-   (ruby . t)
-   (python . t)
-   (scheme . t)
-   (sql . t)
-   (ocaml . t)
-   (org . t)
-   (sh . t)
-   ))
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((latex . t)
+;;    (R . t)
+;;    (ruby . t)
+;;    (python . t)
+;;    (scheme . t)
+;;    (sql . t)
+;;    (ocaml . t)
+;;    (org . t)
+;;    (sh . t)
+;;    ))
 
 
