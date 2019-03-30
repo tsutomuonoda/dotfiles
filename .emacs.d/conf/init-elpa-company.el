@@ -2,7 +2,7 @@
 
 ;;; Code:
 ;すべてのモードで有効にする場合
-(global-company-mode)
+;(add-hook 'after-init-hook 'global-company-mode)
 
 ;特定のモードで有効にする場合(例)
 ;(add-hook 'python-mode-hook 'company-mode)
@@ -10,7 +10,7 @@
 ;; バックエンド設定
 
 ;; Python用
-(setq company-backends '((company-pycomplete)))
+;(setq company-backends '((company-pycomplete)))
 
 ;;キーバインディング
 (define-key company-active-map (kbd "M-n") nil)
