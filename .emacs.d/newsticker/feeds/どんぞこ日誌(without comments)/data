@@ -1,2 +1,0 @@
-;; -*- coding: utf-8 -*-
-(("どんぞこ日誌(without comments)" nil "http://www.donzoko.net/cgi-bin/tdiary/" (20813 17154 442282 746000) feed 0 nil nil ((title nil "どんぞこ日誌(without comments)") (link nil "http://www.donzoko.net/cgi-bin/tdiary/") (xhtml:link ((rel . "alternate") (media . "handheld") (type . "text/html") (href . "http://www.donzoko.net/cgi-bin/tdiary/"))) (description nil) (dc:creator nil "まかまか") (dc:rights nil "Copyright 2013 まかまか <wepmaster@donzoko.net>, copyright of comments by respective authors") (items nil (rdf:Seq nil)))))
