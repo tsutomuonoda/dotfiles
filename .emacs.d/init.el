@@ -850,7 +850,7 @@
 ;(load "init-elpa-aggressive-indent")
 (load "init-elpa-beacon")
 ;(load "init-elpa-clues-theme")
-(load "init-elpa-company")
+;(load "init-elpa-company")
 (load "init-elpa-helm")
 ;(load "init-elpa-undo-tree")
 (load "init-elpa-flycheck")
