@@ -2,9 +2,9 @@
 ;; user-emacs-directory変数が未定義のため次の設定を追加
 
 ;;; Code:
-(when (< emacs-major-version 23)
-(defvar user-emacs-directory "~/.emacs.d/")
-    )
+;(when (< emacs-major-version 23)
+;(defvar user-emacs-directory "~/.emacs.d/")
+;    )
 
 ;; mule-ucsの設定
 ;(require 'jisx0213)
@@ -110,8 +110,7 @@
 
 ;; ;
 ;; ;; elispと設定ファイルのディレクトリをload-pathに追加
- (add-to-load-path "~/.emacs.d/elisp"
-                   "~/.emacs.d/elpa/init-loader-20160528.1315/"
+ (add-to-load-path ;;"~/.emacs.d/elpa/init-loader-20160528.1315/"
                    ;;org2blogはEmacs24同梱の8.2.10に対応できているが、
 		  ;;org-modeパッケージ版(9.0.3)には対応できていない。
 ;;		  "~/.emacs.d/elisp/metaweblog/";;ver:0.1.1
@@ -130,7 +129,8 @@
 ;; ;		  "~/.emacs.d/elisp/flycheck/"
 ;; ;		  "~/.emacs.d/elisp/mule-ucs/lisp/jisx0213"
 ;; ;		  "~/.emacs.d/elisp/mule-ucs/lisp"
-		  "~/.emacs.d/conf")
+		   "~/.emacs.d/conf/"
+		   )
 
 ;(setq load-path (append '("~/lib/emacs/22.1.1/elisp") load-path))
 
@@ -821,30 +821,40 @@
 ;; 80番台:各種インターネットアプリケーションの設定
 ;; 90番台:依存関係を持たないアプリケーションの設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'init-loader)
-(init-loader-load "~/.emacs.d/conf")
+;(require 'init-loader)
+;(init-loader-load "~/.emacs.d/conf")
 
 ;;設定ファイル読み込み(最終的にinit-loaderで管理する)
 (load "init-package");package.elの設定
-(load "init-elpa-use-package")
+
+(load "00-faces")
+(load "01-functions")
+(load "03-keymap")
+;(load "04-themes")
+(load "12-elpa-magit")
+(load "31-yatex")
+(load "82-wl")
+(load "90-skk")
+
+;(load "init-elpa-use-package")
 ; (load "init-colorthemes")
 ;(load "init-emacsbible")
 ;  (load "init-evernote")
 ;  (load "init-gde")
 ;  (load "init-lsdb")
 ;  (load "init-psgml")
-  (load "init-ruby")
+; (load "init-ruby")
 ; (load "init-scm")
 ;  (load "init-tdiary")
 ; (load "init-typescript")
-  (load "init-ocaml")
+;  (load "init-ocaml")
 
 ;; helm-for-filesを使うためコメントアウトした
 ;(load "init-ibuffer")
 
 ;(load "init-egg")
 ;(load "init-melpa")
-(load "init-elpa-highlight-indentation")
+;(load "init-elpa-highlight-indentation")
 ;(load "init-haml-elisp")
 ;(load "init-elpa-ace-link")
 ;(load "init-elpa-aggressive-indent")
@@ -853,9 +863,9 @@
 ;(load "init-elpa-company")
 (load "init-elpa-helm")
 ;(load "init-elpa-undo-tree")
-(load "init-elpa-flycheck")
+;(load "init-elpa-flycheck")
 (load "init-elpa-zenburn-theme")
-(load "init-elpa-discover-my-major")
+;(load "init-elpa-discover-my-major")
 ;(load "init-howm")
 
 ;;; カスタム設定ファイルの指定
