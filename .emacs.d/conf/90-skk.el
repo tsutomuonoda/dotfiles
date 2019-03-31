@@ -9,9 +9,12 @@
 ;; 漢字変換 (skk) の設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;; 手動で入れたEmacs26とパッケージEmacs25の切り替え
+(when (< emacs-major-version 26)
 ;; Please see '/usr/share/doc/ddskk/README.Debian'
-(set-input-method "japanese-skk")
-(deactivate-input-method)
+  (set-input-method "japanese-skk")
+  (inactivate-input-method))
 
 ;; Please see '/usr/share/doc/ddskk/examples/dot.emacs'
 
@@ -31,10 +34,10 @@
 
 ;; SKK を Emacs の input method として使用する
 ;;   `toggle-input-method' (C-\) で DDSKK が起動します
-(setq default-input-method
-      "japanese-skk"			; (skk-mode 1)
+;(setq default-input-method
+;;      "japanese-skk"			; (skk-mode 1)
 ;;    "japanese-skk-auto-fill"		; (skk-auto-fill-mode 1)
-      )
+;      )
 
 ;; SKK を起動していなくても、いつでも skk-isearch を使う
 (setq skk-isearch-mode-enable 'always)
